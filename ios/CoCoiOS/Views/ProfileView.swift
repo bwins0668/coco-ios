@@ -1,4 +1,6 @@
 import SwiftUI
+import SwiftData
+import UIKit
 
 /// 我的页：学习数据 + 分类正确率（接入 Storage 真实数据）
 struct ProfileView: View {
@@ -23,6 +25,8 @@ struct ProfileView: View {
                     sectionStatus
                     section02
                     sectionTimeline
+                    sectionSettings
+                    sectionDanger
                     Spacer().frame(height: 80)
                 }
                 .padding(.bottom, DT.space3)
@@ -171,6 +175,102 @@ struct ProfileView: View {
             QPSectionLabel("03", "最近练习")
             RecentTimeline()
         }
+    }
+
+    @State private var showingBackup: Bool = false
+    @State private var backupMessage: String = ""
+
+    private var sectionSettings: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("04", "数据与设置")
+            VStack(spacing: 0) {
+                settingRow(title: "复制备份数据", note: "本地", icon: "⎘", color: DT.primary) {
+                    let json = BackupService.shared.exportBackupString()
+                    UIPasteboard.general.string = json
+                    backupMessage = "备份数据已复制到剪贴板（\(json.count) 字符）"
+                    showingBackup = true
+                }
+                Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
+                settingRow(title: "从剪贴板恢复", note: "覆盖本地", icon: "⎗", color: DT.success) {
+                    if let clip = UIPasteboard.general.string {
+                        if BackupService.shared.importBackup(from: clip) {
+                            backupMessage = "从剪贴板恢复成功"
+                        } else {
+                            backupMessage = "剪贴板内容不是有效备份"
+                        }
+                    } else {
+                        backupMessage = "剪贴板为空"
+                    }
+                    showingBackup = true
+                }
+                Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
+                settingRow(title: "使用帮助", note: "", icon: "?", color: DT.textTertiary) {
+                    backupMessage = "使用帮助可在 docs/ 中查看"
+                    showingBackup = true
+                }
+                Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
+                settingRow(title: "意见反馈", note: "", icon: "✉", color: DT.primary) {
+                    backupMessage = "可在 GitHub Issues 提交反馈"
+                    showingBackup = true
+                }
+            }
+            .background(DT.surface)
+            .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
+                    .stroke(DT.line, lineWidth: 0.5)
+            )
+            .padding(.horizontal, DT.space3)
+        }
+    }
+
+    private var sectionDanger: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("", "危险操作")
+            Button(action: {
+                BackupService.shared.clearAllData()
+                backupMessage = "已清空本地学习记录（收藏和错题保留）"
+                showingBackup = true
+            }) {
+                HStack {
+                    Spacer()
+                    Text("清空学习记录")
+                        .font(.system(size: DT.fontCaption, weight: .medium))
+                        .foregroundStyle(DT.danger)
+                    Spacer()
+                }
+                .padding(.vertical, DT.space2)
+                .background(DT.dangerSoft)
+                .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, DT.space3)
+        }
+        .alert("操作提示", isPresented: $showingBackup) {
+            Button("好") { }
+        } message: {
+            Text(backupMessage)
+        }
+    }
+
+    @ViewBuilder
+    private func settingRow(title: String, note: String, icon: String, color: Color, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(alignment: .center, spacing: DT.space2) {
+                ZStack {
+                    Circle().fill(color.opacity(0.15)).frame(width: 32, height: 32)
+                    Text(icon).font(.system(size: DT.fontCaption, weight: .semibold)).foregroundStyle(color)
+                }
+                Text(title).font(.system(size: DT.fontBody)).foregroundStyle(DT.ink)
+                Spacer()
+                if !note.isEmpty {
+                    Text(note).font(.system(size: DT.fontLabel)).foregroundStyle(DT.textTertiary)
+                }
+                Text("›").font(.system(size: DT.fontBody)).foregroundStyle(DT.textTertiary)
+            }
+            .padding(.horizontal, DT.space2).padding(.vertical, DT.space2)
+        }
+        .buttonStyle(.plain)
     }
 }
 
