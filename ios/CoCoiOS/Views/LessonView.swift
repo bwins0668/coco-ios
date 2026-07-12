@@ -60,7 +60,7 @@ struct LessonView: View {
     private var titleCard: some View {
         QPCard {
             VStack(alignment: .leading, spacing: DT.space1) {
-                Text("\(chapter.title.zh) · \(chapter.titleJa)")
+                Text("\(chapter.title.zh) · \(chapter.title.ja)")
                     .font(.system(size: DT.fontCaption, weight: .medium))
                     .foregroundStyle(DT.textTertiary)
                 Text(section.title.zh)
