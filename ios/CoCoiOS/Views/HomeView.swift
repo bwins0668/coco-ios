@@ -98,13 +98,43 @@ struct HomeView: View {
                     .font(.system(size: DT.fontCaption))
                     .foregroundStyle(DT.textSecondary)
                 HStack(spacing: DT.space1) {
-                    QPPrimaryButton("继续练习 →") {}
-                    QPOutlineButton("今日复习") {}
+                    NavigationLink(destination: defaultResumeDestination) {
+                        Text("继续练习 →")
+                            .font(.system(size: DT.fontBody, weight: .semibold))
+                            .foregroundStyle(DT.surface)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            .background(DT.ink)
+                            .clipShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    Button(action: {}) {
+                        Text("今日复习")
+                            .font(.system(size: DT.fontBody, weight: .semibold))
+                            .foregroundStyle(DT.ink)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            .background(DT.fillWarm)
+                            .clipShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
                 }
                 .padding(.top, DT.space1)
             }
         }
         .padding(.horizontal, DT.space3)
+    }
+
+    @ViewBuilder
+    private var defaultResumeDestination: some View {
+        if let last = Storage.shared.getLastAttempt(),
+           let pkg = QuizStore.shared.manifest.packages.first(where: { $0.package.hasPrefix("quiz-\(last.exam)") })?.package {
+            QuizView(package: pkg, exam: last.exam, sourceType: last.sourceType)
+        } else if let first = QuizStore.shared.manifest.packages.first?.package {
+            QuizView(package: first, exam: "itpass", sourceType: "past_exam_japanese")
+        } else {
+            Text("暂无可用题库")
+        }
     }
 
     private var startCard: some View {
@@ -141,71 +171,41 @@ struct HomeView: View {
     }
 
     private var examSection: some View {
-        VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("01", "资格考试", meta: "\(examCourses.count) 考试")
-            VStack(spacing: DT.space1) {
-                ForEach(examCourses, id: \.id) { exam in
-                    Button(action: { if exam.available { navigateCourseId = exam.id } }) {
-                        QPCard {
-                            HStack(alignment: .center, spacing: DT.space2) {
-                                Rectangle().fill(exam.available ? exam.color : DT.textGhost)
-                                    .frame(width: 3, height: 36)
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(exam.name)
-                                        .font(.system(size: DT.fontBody, weight: .semibold))
-                                        .foregroundStyle(exam.available ? DT.ink : DT.textTertiary)
-                                    Text(exam.sub)
-                                        .font(.system(size: DT.fontCaption))
-                                        .foregroundStyle(DT.textSecondary)
-                                        .lineLimit(1)
-                                }
-                                Spacer(minLength: 0)
-                                if exam.available {
-                                    Text("›").font(.system(size: DT.fontPageTitle, weight: .light))
-                                        .foregroundStyle(DT.textTertiary)
-                                } else {
-                                    QPPill("准备中")
+            VStack(alignment: .leading, spacing: DT.space1) {
+                QPSectionLabel("01", "资格考试", meta: "\(examCourses.count) 考试")
+                VStack(spacing: DT.space1) {
+                    ForEach(examCourses, id: \.id) { exam in
+                        Button(action: { if exam.available { navigateCourseId = exam.id } }) {
+                            QPCard {
+                                HStack(alignment: .center, spacing: DT.space2) {
+                                    Rectangle().fill(exam.available ? exam.color : DT.textGhost)
+                                        .frame(width: 3, height: 36)
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(exam.name)
+                                            .font(.system(size: DT.fontBody, weight: .semibold))
+                                            .foregroundStyle(exam.available ? DT.ink : DT.textTertiary)
+                                        Text(exam.sub)
+                                            .font(.system(size: DT.fontCaption))
+                                            .foregroundStyle(DT.textSecondary)
+                                            .lineLimit(1)
+                                    }
+                                    Spacer(minLength: 0)
+                                    if exam.available {
+                                        Text("›").font(.system(size: DT.fontPageTitle, weight: .light))
+                                            .foregroundStyle(DT.textTertiary)
+                                    } else {
+                                        QPPill("准备中")
+                                    }
                                 }
                             }
                         }
+                        .buttonStyle(.plain)
+                        .opacity(exam.available ? 1 : 0.6)
                     }
-                    .buttonStyle(.plain)
-                    .opacity(exam.available ? 1 : 0.6)
-                }
-            }
-            .padding(.horizontal, DT.space3)
-        }
-    }
-
-    private var learningSection: some View {
-        VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("02", "课程学习", meta: "Java / Python / SQL 已开放")
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: DT.space1) {
-                    ForEach(learningCourses, id: \.id) { course in
-                        learningCard(course: course)
-                    }
-                    plannedCard
                 }
                 .padding(.horizontal, DT.space3)
             }
         }
-    }
-
-    @ViewBuilder
-    private func learningCard(course: (id: String, name: String, sub: String, color: Color, pill: String)) -> some View {
-        Button(action: {}) {
-            VStack(alignment: .leading, spacing: DT.space1) {
-                HStack {
-                    Text(String(course.name.prefix(2)))
-                        .font(.system(size: 11, weight: .semibold))
-                        .tracking(1.5)
-                        .foregroundStyle(DT.textTertiary)
-                    Spacer()
-                    QPPill(course.pill, background: course.color, foreground: DT.ink)
-                }
-                Text(course.name)
-                    .font(.system(size: DT.fontBody, weight: .semibold))
                     .foregroundStyle(DT.ink)
                 Text(course.sub)
                     .font(.system(size: DT.fontCaption))
