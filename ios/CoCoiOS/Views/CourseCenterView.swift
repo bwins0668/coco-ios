@@ -62,13 +62,7 @@ struct CourseCenterView: View {
                     HStack(spacing: 6) {
                         Text("\(course.chapterCount) 章节 · \(course.sectionCount) 小节")
                         if course.courseId == "mos" || course.courseId == "algo" {
-                            Text("准备中")
-                                .font(.system(size: DesignTokens.fontLabel))
-                                .padding(.horizontal, DesignTokens.space2)
-                                .padding(.vertical, 2)
-                                .background(DesignTokens.fillWarm)
-                                .foregroundStyle(DesignTokens.textTertiary)
-                                .clipShape(Capsule())
+                            QPPill("准备中")
                         }
                     }
                     .font(.system(size: DesignTokens.fontCaption))
@@ -85,29 +79,31 @@ struct CourseCenterView: View {
 
     private var topSummary: some View {
         Section("上次练习") {
-            HStack(spacing: DesignTokens.space3) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("IT Passport")
-                        .font(.system(size: DesignTokens.fontBody, weight: .semibold))
-                        .foregroundStyle(DesignTokens.ink)
-                    Text("继续练习 · 真题练习")
-                        .font(.system(size: DesignTokens.fontCaption))
-                        .foregroundStyle(DesignTokens.textSecondary)
+            QPCard(backgroundColor: DesignTokens.surface) {
+                HStack(spacing: DesignTokens.space3) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("IT Passport")
+                            .font(.system(size: DesignTokens.fontBody, weight: .semibold))
+                            .foregroundStyle(DesignTokens.ink)
+                        Text("继续练习 · 真题练习")
+                            .font(.system(size: DesignTokens.fontCaption))
+                            .foregroundStyle(DesignTokens.textSecondary)
+                    }
+                    Spacer()
+                    Button("继续练习") {
+                        navigateTo = "practice"
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(DesignTokens.primary)
+                    .controlSize(.small)
+                    Button("今日复习") {
+                        navigateTo = "review"
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
                 }
-                Spacer()
-                Button("继续练习") {
-                    navigateTo = "practice"
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(DesignTokens.primary)
-                .controlSize(.small)
-                Button("今日复习") {
-                    navigateTo = "review"
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.small)
+                .padding(.vertical, DesignTokens.space1)
             }
-            .padding(.vertical, DesignTokens.space1)
         }
     }
 
