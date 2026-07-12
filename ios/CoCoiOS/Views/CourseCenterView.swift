@@ -4,7 +4,6 @@ import SwiftData
 struct CourseCenterView: View {
     @Environment(\.modelContext) private var ctx
     @State private var courses: [CourseInfo] = []
-    @State private var selectedTab: String = "course"
 
     var body: some View {
         NavigationStack {
@@ -24,40 +23,15 @@ struct CourseCenterView: View {
                 }
                 .headerProminence(.increased)
             }
+            .listStyle(.insetGrouped)
+            .listRowSpacing(DesignTokens.space1)
+            .scrollContentBackground(.hidden)
+            .background(DesignTokens.canvas.ignoresSafeArea())
             .navigationTitle("课程")
             .navigationBarTitleDisplayMode(.large)
             .task { await load() }
-            .background(DesignTokens.canvas.ignoresSafeArea())
-        }
-        .background(
-            VStack(spacing: 0) {
-                Spacer()
-                QPTabBar(selection: $selectedTab, tabs: tabItems)
-            }
-            .ignoresSafeArea(edges: .bottom)
-        )
-        .onChange(of: selectedTab) { _, newValue in
-            switch newValue {
-            case "practice":
-                navigateTo = "practice"
-            case "review":
-                navigateTo = "review"
-            default:
-                break
-            }
-        }
-        .sheet(item: $navigateTarget) { target in
-            if target == "practice" {
-                PracticeListView()
-            } else if target == "review" {
-                ReviewListView()
-            } else {
-                Text("")
-            }
         }
     }
-
-    @State private var navigateTarget: String? = nil
 
     private var examCourses: [CourseInfo] {
         courses.filter { ["itpass", "sg", "mos"].contains($0.courseId) }
@@ -65,16 +39,6 @@ struct CourseCenterView: View {
 
     private var learningCourses: [CourseInfo] {
         courses.filter { ["java", "python", "sql", "algo"].contains($0.courseId) }
-    }
-
-    private var tabItems: [(String, String, String)] {
-        [
-            ("course", "课程", "book.fill"),
-            ("practice", "刷题", "doc.text.fill"),
-            ("review", "复习", "clock.fill"),
-            ("terms", "术语", "book.fill"),
-            ("profile", "我的", "person.fill")
-        ]
     }
 
     @ViewBuilder
@@ -106,8 +70,8 @@ struct CourseCenterView: View {
                     .font(.system(size: DesignTokens.fontBody))
             }
             .padding(.vertical, DesignTokens.space1)
-            .listRowBackground(DesignTokens.surface)
         }
+        .listRowBackground(DesignTokens.surface)
     }
 
     private var topSummary: some View {
@@ -122,20 +86,21 @@ struct CourseCenterView: View {
                         .foregroundStyle(DesignTokens.textSecondary)
                     HStack(spacing: DesignTokens.space2) {
                         Button("继续练习") {
-                            navigateTarget = "practice"
+                            // 由系统 TabView 触发切换，无内部路由
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(DesignTokens.primary)
                         .controlSize(.small)
 
                         Button("今日复习") {
-                            navigateTarget = "review"
+                            // 由系统 TabView 触发切换，无内部路由
                         }
                         .buttonStyle(.bordered)
                         .controlSize(.small)
                     }
                 }
             }
+            .listRowBackground(DesignTokens.surface)
         }
     }
 

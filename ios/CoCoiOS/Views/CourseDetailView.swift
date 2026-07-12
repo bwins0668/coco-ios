@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftData
 
 struct CourseDetailView: View {
     let course: CourseInfo
@@ -32,15 +31,6 @@ struct CourseDetailView: View {
         .background(DesignTokens.canvas.ignoresSafeArea())
         .navigationTitle(course.title.zh)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("返回") {
-                    dismiss()
-                }
-                .foregroundStyle(DesignTokens.textSecondary)
-                .font(.system(size: DesignTokens.fontBody))
-            }
-        }
     }
 }
 
@@ -75,15 +65,6 @@ struct UnitDetailView: View {
         .background(DesignTokens.canvas.ignoresSafeArea())
         .navigationTitle(chapter.title.zh)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("返回") {
-                    // NavigationStack back
-                }
-                .foregroundStyle(DesignTokens.textSecondary)
-                .font(.system(size: DesignTokens.fontBody))
-            }
-        }
     }
 }
 
