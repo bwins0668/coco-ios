@@ -142,3 +142,6 @@ extension Color {
         )
     }
 }
+
+// 旧版 QuizView 兼容
+typealias Theme = DT
