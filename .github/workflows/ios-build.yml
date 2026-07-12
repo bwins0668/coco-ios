@@ -18,8 +18,7 @@ jobs:
 
       - name: Regenerate quiz JSON from miniprogram source
         run: |
-          cd ios
-          node tools/build-quiz-json.js
+          node ios/tools/build-quiz-json.js
 
       - name: Install XcodeGen
         run: brew install xcodegen

@@ -18,7 +18,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = process.cwd();
+// 基于脚本自身位置解析仓库根，避免被调用方的 cwd 影响（CI 里会 cd ios）
+const ROOT = path.resolve(__dirname, '..', '..');
 const SRC_PACKAGES = path.join(ROOT, 'source', 'miniprogram-pilot', 'packages');
 const OUT_DIR = path.join(ROOT, 'ios', 'CoCoiOS', 'Resources', 'QuizData');
 
