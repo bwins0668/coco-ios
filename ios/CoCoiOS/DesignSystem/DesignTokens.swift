@@ -3,6 +3,7 @@ import Foundation
 
 /// 小程序 Quiet Paper / UI Freeze v1.0 设计令牌 —— SwiftUI 1:1 落地版本
 enum DT {
+    static let Theme = DT.self
     // MARK: - Colors
     static let canvas = Color(hex: "F2EDE0")              // 页面背景
     static let surface = Color(hex: "FFFDF5")             // 卡片背景
@@ -32,6 +33,13 @@ enum DT {
 
     static let disabledBg = Color(hex: "332F28").opacity(0.10)
     static let disabledText = Color(hex: "C9C4BD")
+
+    // MARK: - Theme aliases (compat with legacy QuizView)
+    static let card = surface
+    static let accent = primary
+    static let correct = success
+    static let wrong = danger
+    static let bgCanvas = canvas
 
     // MARK: - Course colors (与小程序保持一致)
     static let itpassColor = Color(hex: "516376")
