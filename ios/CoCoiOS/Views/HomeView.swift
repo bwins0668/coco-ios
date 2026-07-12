@@ -29,6 +29,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: DT.space3) {
                     masthead
                     QPRuleLine()
+                    StudyDashboard()
                     if hasLastAttempt { heroCard } else { startCard }
                     examSection
                     learningSection
