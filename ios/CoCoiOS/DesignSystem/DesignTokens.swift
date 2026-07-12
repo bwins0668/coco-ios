@@ -1,70 +1,63 @@
 import SwiftUI
-import Foundation
 
-/// 小程序 Quiet Paper / UI Freeze v1.0 设计令牌 —— SwiftUI 1:1 落地版本
+/// 暗色 / 浅色双套令牌 —— 跟随系统切换
 enum DT {
-    static let Theme = DT.self
-    // MARK: - Colors
-    static let canvas = Color(hex: "F2EDE0")              // 页面背景
-    static let surface = Color(hex: "FFFDF5")             // 卡片背景
-    static let surfaceMuted = Color(hex: "F4F3EF")        // 次级表面
-    static let fillWarm = Color(hex: "E8DFC8")            // 暖色填充 / 准备中胶囊
+    static let canvas = Color("qp_canvas", bundle: nil, light: hex("F2EDE0"), dark: hex("1A1814"))
+    static let surface = Color("qp_surface", bundle: nil, light: hex("FFFDF5"), dark: hex("23211D"))
+    static let surfaceMuted = Color("qp_surfaceMuted", bundle: nil, light: hex("F4F3EF"), dark: hex("2A2823"))
+    static let fillWarm = Color("qp_fillWarm", bundle: nil, light: hex("E8DFC8"), dark: hex("3D3528"))
 
-    static let ink = Color(hex: "1A1410")                 // 主文字
-    static let textSecondary = Color(hex: "6F6B65")       // 次级文字
-    static let textTertiary = Color(hex: "8A7060")        // 三阶文字
-    static let textQuaternary = Color(hex: "8A8680")
-    static let textGhost = Color(hex: "C9C4BD")
-    static let textPhantom = Color(hex: "D8CEB8")
+    static let ink = Color("qp_ink", bundle: nil, light: hex("1A1410"), dark: hex("EDE6DA"))
+    static let textSecondary = Color("qp_textSecondary", bundle: nil, light: hex("6F6B65"), dark: hex("C9C4BD"))
+    static let textTertiary = Color("qp_textTertiary", bundle: nil, light: hex("8A7060"), dark: hex("9F958A"))
+    static let textGhost = Color("qp_textGhost", bundle: nil, light: hex("C9C4BD"), dark: hex("6F6A60"))
+    static let textPhantom = Color("qp_textPhantom", bundle: nil, light: hex("D8CEB8"), dark: hex("5A554D"))
 
-    static let line = Color(hex: "332F28").opacity(0.08)  // 分隔线
-    static let lineStrong = Color(hex: "332F28").opacity(0.14)
+    static let line = Color("qp_line", bundle: nil, light: hexAny("332F28", 0.08), dark: hexAny("EDE6DA", 0.12))
+    static let lineStrong = Color("qp_lineStrong", bundle: nil, light: hexAny("332F28", 0.14), dark: hexAny("EDE6DA", 0.20))
 
-    static let primary = Color(hex: "37418A")              // 主色 / 课程
-    static let primaryPressed = Color(hex: "2C3676")
-    static let primarySoft = Color(hex: "ECEEF6")
-    static let editorial = Color(hex: "C5123A")           // 重点强调红
+    static let primary = Color("qp_primary", bundle: nil, light: hex("37418A"), dark: hex("9FA7E5"))
+    static let primaryPressed = Color("qp_primaryPressed", bundle: nil, light: hex("2C3676"), dark: hex("B6BCEA"))
+    static let primarySoft = Color("qp_primarySoft", bundle: nil, light: hex("ECEEF6"), dark: hex("2A2D44"))
+    static let editorial = Color("qp_editorial", bundle: nil, light: hex("C5123A"), dark: hex("FF7A92"))
 
-    static let success = Color(hex: "4E8A5E")             // 已掌握 / 正确
-    static let successSoft = Color(hex: "EAF1EC")
-    static let danger = Color(hex: "BE5750")              // 错误 / 未记住
-    static let dangerSoft = Color(hex: "F7ECEB")
-    static let warningSoft = Color(hex: "FBF1E9")
+    static let success = Color("qp_success", bundle: nil, light: hex("4E8A5E"), dark: hex("7DBB8B"))
+    static let successSoft = Color("qp_successSoft", bundle: nil, light: hex("EAF1EC"), dark: hex("1F2A24"))
+    static let danger = Color("qp_danger", bundle: nil, light: hex("BE5750"), dark: hex("E58681"))
+    static let dangerSoft = Color("qp_dangerSoft", bundle: nil, light: hex("F7ECEB"), dark: hex("2D1F1E"))
+    static let warningSoft = Color("qp_warningSoft", bundle: nil, light: hex("FBF1E9"), dark: hex("2D2418"))
 
-    static let disabledBg = Color(hex: "332F28").opacity(0.10)
-    static let disabledText = Color(hex: "C9C4BD")
+    static let disabledBg = Color("qp_disabledBg", bundle: nil, light: hexAny("332F28", 0.10), dark: hexAny("EDE6DA", 0.10))
+    static let disabledText = Color("qp_disabledText", bundle: nil, light: hex("C9C4BD"), dark: hex("5A554D"))
 
-    // MARK: - Theme aliases (compat with legacy QuizView)
+    static let itpassColor = Color("qp_itpass", bundle: nil, light: hex("516376"), dark: hex("7891AB"))
+    static let sgColor = Color("qp_sg", bundle: nil, light: hex("5d6672"), dark: hex("8E97A3"))
+    static let javaColor = Color("qp_java", bundle: nil, light: hex("516376"), dark: hex("7891AB"))
+    static let pythonColor = Color("qp_python", bundle: nil, light: hex("5d6672"), dark: hex("8E97A3"))
+    static let sqlColor = Color("qp_sql", bundle: nil, light: hex("5d6672"), dark: hex("8E97A3"))
+    static let mistakeColor = Color("qp_mistake", bundle: nil, light: hex("6b5960"), dark: hex("A08891"))
+    static let ankiColor = Color("qp_anki", bundle: nil, light: hex("4a5563"), dark: hex("8694A8"))
+    static let profileColor = Color("qp_profile", bundle: nil, light: hex("555d67"), dark: hex("8C97A6"))
+
     static let card = surface
     static let accent = primary
     static let correct = success
     static let wrong = danger
     static let bgCanvas = canvas
 
-    // MARK: - Course colors (与小程序保持一致)
-    static let itpassColor = Color(hex: "516376")
-    static let sgColor = Color(hex: "5d6672")
-    static let javaColor = Color(hex: "516376")
-    static let pythonColor = Color(hex: "5d6672")
-    static let sqlColor = Color(hex: "5d6672")
-    static let mistakeColor = Color(hex: "6b5960")
-    static let ankiColor = Color(hex: "4a5563")
-    static let profileColor = Color(hex: "555d67")
-
-    // MARK: - Typography (rpx 设计，按 1rpx = 0.5pt 等比缩放)
-    static let fontLabel: CGFloat = 11      // 22rpx
-    static let fontCaption: CGFloat = 13    // 26rpx
-    static let fontBody: CGFloat = 15       // 30rpx
-    static let fontMd: CGFloat = 14         // 28rpx
-    static let fontSectionTitle: CGFloat = 17  // 34rpx
-    static let fontPageTitle: CGFloat = 28  // 56rpx
-    static let fontDisplay: CGFloat = 40    // 80rpx
-    static let fontMasthead: CGFloat = 34   // 68rpx
+    // Typography / spacing / shape / jstDateString / Theme 别名保留原状
+    static let fontLabel: CGFloat = 11
+    static let fontCaption: CGFloat = 13
+    static let fontBody: CGFloat = 15
+    static let fontMd: CGFloat = 14
+    static let fontSectionTitle: CGFloat = 17
+    static let fontPageTitle: CGFloat = 28
+    static let fontDisplay: CGFloat = 40
+    static let fontMasthead: CGFloat = 34
 
     static let fontWeightRegular: CGFloat = 400
     static let fontWeightSemibold: CGFloat = 600
 
-    // MARK: - Spacing (4pt / 8pt grid)
     static let space1: CGFloat = 8
     static let space2: CGFloat = 16
     static let space3: CGFloat = 24
@@ -72,15 +65,13 @@ enum DT {
     static let space5: CGFloat = 40
     static let space6: CGFloat = 48
 
-    // MARK: - Shape
-    static let radiusTag: CGFloat = 5        // 10rpx
-    static let radiusSm: CGFloat = 10        // 20rpx
-    static let radiusMd: CGFloat = 12        // 24rpx
-    static let radiusLg: CGFloat = 16        // 32rpx
-    static let radiusXl: CGFloat = 20        // 40rpx
+    static let radiusTag: CGFloat = 5
+    static let radiusSm: CGFloat = 10
+    static let radiusMd: CGFloat = 12
+    static let radiusLg: CGFloat = 16
+    static let radiusXl: CGFloat = 20
     static let radiusFull: CGFloat = 999
 
-    // MARK: - Date helpers
     static func jstDateString() -> String {
         let now = Date()
         var calendar = Calendar(identifier: .gregorian)
@@ -101,47 +92,11 @@ enum DT {
     }
 }
 
-// MARK: - Color hex initializer
 extension Color {
-    init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&int)
-        var a: UInt64 = 0
-        var r: UInt64 = 0
-        var g: UInt64 = 0
-        var b: UInt64 = 0
-        switch hex.count {
-        case 3:
-            a = 255
-            r = (int >> 8) & 0xF * 17
-            g = (int >> 4) & 0xF * 17
-            b = int & 0xF * 17
-        case 6:
-            a = 255
-            r = int >> 16
-            g = (int >> 8) & 0xFF
-            b = int & 0xFF
-        case 8:
-            a = int >> 24
-            r = int >> 16 & 0xFF
-            g = int >> 8 & 0xFF
-            b = int & 0xFF
-        default:
-            a = 255
-            r = 1
-            g = 1
-            b = 0
-        }
-        self.init(
-            .displayP3,
-            red: Double(r) / 255,
-            green: Double(g) / 255,
-            blue: Double(b) / 255,
-            opacity: Double(a) / 255
-        )
+    static func hex(_ s: String) -> Color {
+        Color(hex: s)
+    }
+    static func hexAny(_ s: String, _ alpha: Double) -> Color {
+        Color(hex: s).opacity(alpha)
     }
 }
-
-// 旧版 QuizView 兼容
-typealias Theme = DT
