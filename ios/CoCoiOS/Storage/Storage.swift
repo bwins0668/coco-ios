@@ -35,7 +35,7 @@ final class Storage {
             }
         }
         var metaText: String {
-            let rel = Self.relativeTime(answeredAt)
+            let rel = Storage.relativeTime(answeredAt)
             return rel.isEmpty ? sourceLabel : "\(sourceLabel) · \(rel)"
         }
     }

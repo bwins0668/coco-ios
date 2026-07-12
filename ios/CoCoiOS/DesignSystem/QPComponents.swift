@@ -80,6 +80,12 @@ struct QPSectionLabel: View {
         self.meta = meta
     }
 
+    init(_ title: String) {
+        self.number = ""
+        self.title = title
+        self.meta = nil
+    }
+
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             Text(number)
