@@ -58,21 +58,32 @@ struct ReviewView: View {
 
     private var section01: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("01", "今日复习")
+            HStack(alignment: .bottom) {
+                QPSectionLabel("01", "今日复习")
+                Spacer()
+                Text("巩固薄弱点")
+                    .font(.system(size: DT.fontCaption))
+                    .foregroundStyle(DT.textTertiary)
+            }
+            .padding(.horizontal, DT.space3)
+
             VStack(spacing: DT.space1) {
                 reviewCard(title: "闪卡复习",
                            sub: "IT Passport / SG 年度模拟闪卡 · \(flashcardsCount) 题",
                            color: DT.primary,
+                           icon: "▦",
                            badge: nil,
                            action: { navigateFlashcards = true })
                 reviewCard(title: "错题复习",
                            sub: wrongCount > 0 ? "已答错 \(wrongCount) 道 · 建议优先复盘" : "回顾错题，巩固薄弱知识点",
                            color: DT.danger,
+                           icon: "✕",
                            badge: wrongCount > 0 ? "\(wrongCount)" : nil,
                            action: { navigateMistakes = true })
                 reviewCard(title: "术语复习",
                            sub: favoriteCount > 0 ? "已收藏 \(favoriteCount) 条术语，可随时复习" : "复习收藏的术语与概念",
                            color: DT.success,
+                           icon: "♥",
                            badge: favoriteCount > 0 ? "\(favoriteCount)" : nil,
                            action: { navigateTermReview = true })
             }
@@ -81,11 +92,14 @@ struct ReviewView: View {
     }
 
     @ViewBuilder
-    private func reviewCard(title: String, sub: String, color: Color, badge: String?, action: @escaping () -> Void) -> some View {
+    private func reviewCard(title: String, sub: String, color: Color, icon: String, badge: String?, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             QPCard {
                 HStack(alignment: .center, spacing: DT.space2) {
-                    Rectangle().fill(color).frame(width: 3, height: 40)
+                    ZStack {
+                        Circle().fill(color.opacity(0.15)).frame(width: 44, height: 44)
+                        Text(icon).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(color)
+                    }
                     VStack(alignment: .leading, spacing: 4) {
                         HStack(spacing: 6) {
                             Text(title)
@@ -95,8 +109,8 @@ struct ReviewView: View {
                                 Text(b)
                                     .font(.system(size: DT.fontCaption, weight: .semibold))
                                     .padding(.horizontal, 6).padding(.vertical, 1)
-                                    .background(color.opacity(0.15))
-                                    .foregroundStyle(color)
+                                    .background(color)
+                                    .foregroundStyle(DT.surface)
                                     .clipShape(Capsule())
                             }
                         }
