@@ -16,7 +16,7 @@ struct CoCoiOSApp: App {
     var body: some Scene {
         WindowGroup {
             RootSwitchView()
-                .background(DesignTokens.canvas.ignoresSafeArea())
+                .background(DT.canvas.ignoresSafeArea())
         }
         .modelContainer(container)
     }
