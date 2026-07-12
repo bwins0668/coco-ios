@@ -21,6 +21,6 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: CoCoiOS/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.coco.ios
+        PRODUCT_BUNDLE_IDENTIFIER: com.CLaov.M3EM
         MARKETING_VERSION: "0.1"
         CURRENT_PROJECT_VERSION: "1"
