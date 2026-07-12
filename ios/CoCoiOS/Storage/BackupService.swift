@@ -85,13 +85,9 @@ final class BackupService {
         let ctx = AppContext.modelContext
 
         // 清空旧数据
-        for entity in [FavoriteTerm.self, MistakeRecord.self, QuizAttempt.self] {
-            if let existing = try? ctx.fetch(FetchDescriptor<FetchResult>(predicate: .init(format: "TRUEPREDICATE"))) as? [Any] {
-                _ = existing
-            }
-            // 通用删除：取所有后逐个删
-            try? deleteAll(entity, in: ctx)
-        }
+        try? deleteAll(FavoriteTerm.self, in: ctx)
+        try? deleteAll(MistakeRecord.self, in: ctx)
+        try? deleteAll(QuizAttempt.self, in: ctx)
 
         // 写入新数据
         for fid in backup.data.favoriteTerms {
