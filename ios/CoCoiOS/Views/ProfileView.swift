@@ -22,6 +22,7 @@ struct ProfileView: View {
                     section01
                     sectionStatus
                     section02
+                    sectionTimeline
                     Spacer().frame(height: 80)
                 }
                 .padding(.bottom, DT.space3)
@@ -128,6 +129,25 @@ struct ProfileView: View {
         }
     }
 
+    @ViewBuilder
+    private func accuracyRow(label: String, value: Int, color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Text(label).font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
+                Spacer()
+                Text("\(value)%").font(.system(size: DT.fontCaption, weight: .medium)).foregroundStyle(color)
+            }
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    Rectangle().fill(DT.fillWarm).frame(height: 4)
+                    Rectangle().fill(color).frame(width: max(2, geo.size.width * CGFloat(value) / 100), height: 4)
+                }
+            }
+            .frame(height: 4)
+        }
+        .padding(.horizontal, DT.space2).padding(.vertical, DT.space2)
+    }
+
     private var section02: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
             QPSectionLabel("02", "分类正确率")
@@ -146,23 +166,11 @@ struct ProfileView: View {
         }
     }
 
-    @ViewBuilder
-    private func accuracyRow(label: String, value: Int, color: Color) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Text(label).font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
-                Spacer()
-                Text("\(value)%").font(.system(size: DT.fontCaption, weight: .medium)).foregroundStyle(color)
-            }
-            GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    Rectangle().fill(DT.fillWarm).frame(height: 4)
-                    Rectangle().fill(color).frame(width: max(2, geo.size.width * CGFloat(value) / 100), height: 4)
-                }
-            }
-            .frame(height: 4)
+    private var sectionTimeline: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("03", "最近练习")
+            RecentTimeline()
         }
-        .padding(.horizontal, DT.space2).padding(.vertical, DT.space2)
     }
 }
 
