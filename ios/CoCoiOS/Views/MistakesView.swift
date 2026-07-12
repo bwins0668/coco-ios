@@ -1,22 +1,22 @@
 import SwiftUI
+import SwiftData
 
-/// 错题本：错题复盘中心（接入 Storage 真实数据）
+/// 错题本：按课程分组
 struct MistakesView: View {
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
 
-    @State private var wrongRecords: [MistakeRecord] = []
-    @State private var byCourse: [String: Int] = [:]
+    @State private var groups: [(course: String, count: Int, label: String, color: Color, records: [MistakeRecord])] = []
+    @State private var totalCount: Int = 0
     @State private var lastWrongTime: String = ""
-
-    var wrongCount: Int { wrongRecords.count }
+    @State private var selectedCourse: String? = nil
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: DT.space2) {
                 backButton
                 hero
-                if wrongCount > 0 { actionGrid; recentList } else { emptyState }
+                if totalCount > 0 { actionGrid; groupList } else { emptyState }
                 Spacer().frame(height: 80)
             }
             .padding(.top, DT.space3)
@@ -30,11 +30,24 @@ struct MistakesView: View {
 
     private func reload() {
         AppContext.bootstrap(ctx)
-        wrongRecords = Storage.shared.getMistakeRecords()
-        byCourse = Storage.shared.getMistakesByCourse()
-        if let last = wrongRecords.first {
-            lastWrongTime = Storage.relativeTime(last.lastWrong)
+        let all = Storage.shared.getMistakeRecords()
+        totalCount = all.count
+        if let first = all.first {
+            lastWrongTime = Storage.relativeTime(first.lastWrong)
         }
+        let grouped = Dictionary(grouping: all, by: { $0.package })
+        let order = ["quiz-itpass-1", "quiz-itpass-2", "quiz-itpass-3", "quiz-itpass-4", "quiz-itpass-5",
+                     "quiz-sg-1", "quiz-sg-2"]
+        var result: [(String, Int, String, Color, [MistakeRecord])] = []
+        for pkg in order {
+            if let items = grouped[pkg], !items.isEmpty {
+                result.append((pkg, items.count, courseLabel(pkg), courseColor(pkg), items))
+            }
+        }
+        for (pkg, items) in grouped where !order.contains(pkg) {
+            result.append((pkg, items.count, pkg, DT.textTertiary, items))
+        }
+        groups = result
     }
 
     private var backButton: some View {
@@ -62,7 +75,7 @@ struct MistakesView: View {
                 }
                 Spacer()
                 VStack(alignment: .center, spacing: 2) {
-                    Text("\(wrongCount)")
+                    Text("\(totalCount)")
                         .font(.system(size: DT.fontDisplay, weight: .semibold))
                         .foregroundStyle(DT.editorial)
                     Text("待复盘")
@@ -71,14 +84,14 @@ struct MistakesView: View {
                 }
             }
 
-            if wrongCount > 0 {
+            if totalCount > 0 {
                 HStack(spacing: DT.space1) {
-                    ForEach(courseChips(), id: \.0) { (course, count) in
-                        Text("\(courseLabel(course)) \(count)")
+                    ForEach(groups, id: \.course) { g in
+                        Text("\(g.label) \(g.count)")
                             .font(.system(size: DT.fontCaption, weight: .medium))
                             .padding(.horizontal, 10).padding(.vertical, 4)
-                            .background(courseColor(course).opacity(0.15))
-                            .foregroundStyle(courseColor(course))
+                            .background(g.color.opacity(0.15))
+                            .foregroundStyle(g.color)
                             .clipShape(Capsule())
                     }
                     Spacer()
@@ -98,55 +111,20 @@ struct MistakesView: View {
         .padding(.horizontal, DT.space3)
     }
 
-    private func courseChips() -> [(String, Int)] {
-        // 只显示大于 0 的，按 itpass -> sg -> 其它 排序
-        let order = ["itpass", "sg", "java", "python", "sql"]
-        var arr: [(String, Int)] = []
-        for key in order {
-            if let c = byCourse[key], c > 0 { arr.append((key, c)) }
-        }
-        for (k, v) in byCourse where !order.contains(k) && v > 0 {
-            arr.append((k, v))
-        }
-        return arr
-    }
-
-    private func courseLabel(_ id: String) -> String {
-        switch id {
-        case "itpass": return "IT Passport"
-        case "sg": return "SG"
-        case "java": return "Java"
-        case "python": return "Python"
-        case "sql": return "SQL"
-        default: return id
-        }
-    }
-
-    private func courseColor(_ id: String) -> Color {
-        switch id {
-        case "itpass": return DT.primary
-        case "sg": return DT.success
-        case "java": return Color(hex: "C25A28")
-        case "python": return Color(hex: "3776AB")
-        case "sql": return Color(hex: "C57B00")
-        default: return DT.textTertiary
-        }
-    }
-
     private var actionGrid: some View {
         VStack(spacing: DT.space1) {
             HStack(spacing: DT.space1) {
-                actionTile(icon: "≡", title: "查看错题详情", stat: "\(wrongCount) 道", color: DT.danger, action: {})
-                actionTile(icon: "▦", title: "闪卡复盘", stat: "Anki", color: DT.ankiColor, action: {})
+                actionTile(icon: "≡", title: "查看错题详情", stat: "\(totalCount) 道", color: DT.danger)
+                actionTile(icon: "▦", title: "闪卡复盘", stat: "Anki", color: DT.ankiColor)
             }
-            actionTile(icon: "▶", title: "继续练习", stat: "做题", color: DT.primary, fullWidth: true, action: {})
+            actionTile(icon: "▶", title: "继续练习", stat: "做题", color: DT.primary, fullWidth: true)
         }
         .padding(.horizontal, DT.space3)
     }
 
     @ViewBuilder
-    private func actionTile(icon: String, title: String, stat: String, color: Color, fullWidth: Bool = false, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
+    private func actionTile(icon: String, title: String, stat: String, color: Color, fullWidth: Bool = false) -> some View {
+        Button(action: {}) {
             HStack(alignment: .center, spacing: DT.space2) {
                 Circle().fill(color.opacity(0.15)).frame(width: 40, height: 40)
                     .overlay(Text(icon).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(color))
@@ -169,6 +147,55 @@ struct MistakesView: View {
         .buttonStyle(.plain)
     }
 
+    private var groupList: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("", "按课程分组")
+            VStack(spacing: DT.space1) {
+                ForEach(groups, id: \.course) { g in
+                    courseGroupCard(g)
+                }
+            }
+            .padding(.horizontal, DT.space3)
+        }
+    }
+
+    @ViewBuilder
+    private func courseGroupCard(_ g: (course: String, count: Int, label: String, color: Color, records: [MistakeRecord])) -> some View {
+        QPCard {
+            VStack(alignment: .leading, spacing: DT.space1) {
+                HStack {
+                    Rectangle().fill(g.color).frame(width: 3, height: 24)
+                    Text(g.label).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(DT.ink)
+                    Spacer()
+                    Text("\(g.count) 道")
+                        .font(.system(size: DT.fontCaption, weight: .semibold))
+                        .padding(.horizontal, 8).padding(.vertical, 2)
+                        .background(g.color.opacity(0.15))
+                        .foregroundStyle(g.color)
+                        .clipShape(Capsule())
+                }
+                ForEach(Array(g.records.prefix(3).enumerated()), id: \.offset) { _, r in
+                    HStack(spacing: 6) {
+                        Text("·").font(.system(size: DT.fontCaption)).foregroundStyle(DT.textTertiary)
+                        Text("题号 \(r.questionId)")
+                            .font(.system(size: DT.fontCaption))
+                            .foregroundStyle(DT.textSecondary)
+                            .lineLimit(1)
+                        Spacer()
+                        Text(Storage.relativeTime(r.lastWrong))
+                            .font(.system(size: DT.fontLabel))
+                            .foregroundStyle(DT.textTertiary)
+                    }
+                }
+                if g.records.count > 3 {
+                    Text("还有 \(g.records.count - 3) 道...")
+                        .font(.system(size: DT.fontLabel))
+                        .foregroundStyle(DT.textTertiary)
+                }
+            }
+        }
+    }
+
     private var emptyState: some View {
         QPCard {
             VStack(alignment: .leading, spacing: DT.space1) {
@@ -185,37 +212,17 @@ struct MistakesView: View {
         .padding(.horizontal, DT.space3)
     }
 
-    private var recentList: some View {
-        VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("", "最近答错", meta: "按时间倒序")
-            VStack(spacing: 0) {
-                ForEach(Array(wrongRecords.prefix(10).enumerated()), id: \.offset) { idx, m in
-                    if idx > 0 { Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2) }
-                    HStack(alignment: .center, spacing: DT.space2) {
-                        Rectangle().fill(DT.danger).frame(width: 3, height: 32)
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("\(courseLabel(m.package.replacingOccurrences(of: "quiz-", with: ""))) · \(m.questionId)")
-                                .font(.system(size: DT.fontBody))
-                                .foregroundStyle(DT.ink)
-                                .lineLimit(1)
-                            Text("答错 \(m.wrongCount) 次 · \(Storage.relativeTime(m.lastWrong))")
-                                .font(.system(size: DT.fontCaption))
-                                .foregroundStyle(DT.textTertiary)
-                        }
-                        Spacer()
-                        Text("→").font(.system(size: DT.fontBody)).foregroundStyle(DT.textTertiary)
-                    }
-                    .padding(.horizontal, DT.space2).padding(.vertical, DT.space1)
-                }
-            }
-            .background(DT.surface)
-            .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
-                    .stroke(DT.line, lineWidth: 0.5)
-            )
-            .padding(.horizontal, DT.space3)
-        }
+    private func courseLabel(_ pkg: String) -> String {
+        let cleaned = pkg.replacingOccurrences(of: "quiz-", with: "")
+        if pkg.contains("itpass") { return "IT Passport · \(cleaned.replacingOccurrences(of: "itpass-", with: ""))" }
+        if pkg.contains("sg") { return "SG · \(cleaned.replacingOccurrences(of: "sg-", with: ""))" }
+        return pkg
+    }
+
+    private func courseColor(_ pkg: String) -> Color {
+        if pkg.contains("itpass") { return DT.itpassColor }
+        if pkg.contains("sg") { return DT.sgColor }
+        return DT.textTertiary
     }
 }
 
