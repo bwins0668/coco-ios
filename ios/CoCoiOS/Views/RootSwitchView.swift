@@ -1,56 +1,47 @@
 import SwiftUI
 import SwiftData
 
+/// 根视图：5 Tab 切换
 struct RootSwitchView: View {
+    @State private var selectedTab: Int = 0
+    @State private var homePath: [HomeRoute] = []
+    @State private var practicePath: [PracticeRoute] = []
+    @State private var reviewPath: [ReviewRoute] = []
+    @State private var glossaryPath: [GlossaryRoute] = []
+    @State private var profilePath: [ProfileRoute] = []
+
+    enum HomeRoute: Hashable { case courseDetail(String, String), flashcards, flashcardPlayer }
+    enum PracticeRoute: Hashable { case examMenu(String) }
+    enum ReviewRoute: Hashable { case flashcards, mistakes, termReview }
+    enum GlossaryRoute: Hashable { case favoriteReview, ankiReview, random, all }
+    enum ProfileRoute: Hashable { case backup, help, feedback }
+
     var body: some View {
-        TabView {
-            CourseCenterView()
-                .tabItem {
-                    Label("课程", systemImage: "book.fill")
-                }
+        TabView(selection: $selectedTab) {
+            HomeView()
+                .tag(0)
+                .tabItem { Label("课程", systemImage: "book.fill") }
 
-            PracticeListView()
-                .tabItem {
-                    Label("刷题", systemImage: "doc.text.fill")
-                }
+            PracticeView()
+                .tag(1)
+                .tabItem { Label("刷题", systemImage: "doc.text.fill") }
 
-            ReviewListView()
-                .tabItem {
-                    Label("复习", systemImage: "clock.fill")
-                }
+            ReviewView()
+                .tag(2)
+                .tabItem { Label("复习", systemImage: "clock.fill") }
 
-            GlossaryPlaceholderView()
-                .tabItem {
-                    Label("术语", systemImage: "character.book.closed.fill")
-                }
+            GlossaryView()
+                .tag(3)
+                .tabItem { Label("术语", systemImage: "character.book.closed.fill") }
 
-            ProfilePlaceholderView()
-                .tabItem {
-                    Label("我的", systemImage: "person.fill")
-                }
+            ProfileView()
+                .tag(4)
+                .tabItem { Label("我的", systemImage: "person.fill") }
         }
-        .tint(DesignTokens.primary)
-        .toolbarBackground(DesignTokens.surface, for: .tabBar)
+        .tint(DT.primary)
+        .toolbarBackground(DT.surface, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
-        .background(DesignTokens.canvas.ignoresSafeArea())
-    }
-}
-
-extension View {
-    /// 强制导航栏使用浅色配色，避免大标题在浅色背景下显示为白字
-    func forceLightNavigation() -> some View {
-        modifier(LightNavigationBarModifier())
-    }
-}
-
-struct LightNavigationBarModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 16.0, *) {
-            content
-                .toolbarColorScheme(.light, for: .navigationBar)
-        } else {
-            content
-        }
+        .background(DT.canvas.ignoresSafeArea())
     }
 }
 

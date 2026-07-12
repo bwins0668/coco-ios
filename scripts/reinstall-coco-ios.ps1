@@ -1,4 +1,4 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # reinstall-coco-ios.ps1
 # 一键：拉取最新 CI 无签名 IPA -> 重组标准 Payload -> zsign 重签 -> 安装到 Coco的iPhone
 # 支持 USB 或 无线（手机开启「通过网络连接」且同 Wi-Fi 时免线）。

@@ -1,138 +1,164 @@
 import SwiftUI
-import SwiftData
 
+/// 课程中心页：01 资格考试 + 02 课程学习
+/// 1:1 复刻小程序 pages/course/course.wxml (R6.6 DC-aligned)
 struct CourseCenterView: View {
-    @Environment(\.modelContext) private var ctx
-    @State private var courses: [CourseInfo] = []
+    @State private var selectedExam: String? = nil
+    @State private var hasLastAttempt: Bool = true
+    @State private var lastExamLabel: String = "IT Passport"
+    @State private var lastSourceLabel: String = "真题练习"
+    @State private var lastMetaText: String = "今天 21:30"
+
+    private let examCourses: [(id: String, name: String, color: Color, sub: String)] = [
+        ("itpass", "IT Passport", DT.itpassColor, "ITパスポート試験 · 按年度模拟"),
+        ("sg", "SG 信息安全", DT.sgColor, "情報セキュリティ · 专项强化"),
+        ("mos", "MOS 365", DT.textGhost, "认证考试 — 准备中")
+    ]
+
+    private let learningCourses: [(id: String, name: String, sub: String, color: Color, pill: String)] = [
+        ("java", "Java", "Java入门 / Java 实践 · 19 章 / 336 小节", DT.primarySoft, "面向零基础"),
+        ("python", "Python", "Python 入门 / 进阶 · 9 小节", DT.successSoft, "面向零基础"),
+        ("sql", "SQL 数据库", "SQL 入门 · 7 章 · 第 1 课已开放", DT.warningSoft, "实操判定")
+    ]
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: DesignTokens.space3) {
-                    topSummary
-                    section(title: "01 资格考试") {
-                        ForEach(examCourses) { course in
-                            courseRow(course: course)
-                        }
-                    }
-                    section(title: "02 课程学习") {
-                        ForEach(learningCourses) { course in
-                            courseRow(course: course)
-                        }
-                    }
+                VStack(alignment: .leading, spacing: DT.space3) {
+                    masthead
+                    QPRuleLine()
+                    if hasLastAttempt { heroCard }
+                    examSection
+                    learningSection
+                    Spacer().frame(height: 80)
                 }
-                .padding(.horizontal, DesignTokens.space2)
-                .padding(.bottom, DesignTokens.space4)
+                .padding(.bottom, DT.space3)
             }
             .scrollContentBackground(.hidden)
-            .background(DesignTokens.canvas.ignoresSafeArea())
-            .navigationTitle("课程")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbarColorScheme(.light, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("课程")
-                        .font(.system(size: DesignTokens.fontSectionTitle, weight: .semibold))
-                        .foregroundStyle(DesignTokens.ink)
+            .background(DT.canvas.ignoresSafeArea())
+            .navigationBarHidden(true)
+            .navigationDestination(isPresented: Binding(
+                get: { selectedExam != nil },
+                set: { if !$0 { selectedExam = nil } }
+            )) {
+                if let id = selectedExam {
+                    CourseDetailView(courseId: id, courseName: examCourses.first(where: { $0.id == id })?.name ?? "")
                 }
             }
-            .task { await load() }
         }
     }
 
-    @ViewBuilder
-    private func section<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
-        VStack(alignment: .leading, spacing: DesignTokens.space1) {
-            Text(title)
-                .font(.system(size: DesignTokens.fontLabel, weight: .semibold))
-                .tracking(2)
-                .foregroundStyle(DesignTokens.textTertiary)
-                .padding(.horizontal, DesignTokens.space1)
-                .padding(.top, DesignTokens.space1)
-            VStack(spacing: DesignTokens.space1) {
-                content()
+    private var masthead: some View {
+        QPMasthead(kicker: "COURSE · 课程中心", title: "课程", rightText: DT.jstDateString())
+    }
+
+    private var heroCard: some View {
+        QPCard {
+            VStack(alignment: .leading, spacing: DT.space1) {
+                HStack {
+                    Text("上次练习")
+                        .font(.system(size: DT.fontCaption))
+                        .tracking(2)
+                        .foregroundStyle(DT.textTertiary)
+                    Spacer()
+                    Text(lastMetaText)
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(DT.textSecondary)
+                }
+                Text(lastExamLabel)
+                    .font(.system(size: DT.fontPageTitle, weight: .semibold))
+                    .foregroundStyle(DT.ink)
+                Text(lastSourceLabel)
+                    .font(.system(size: DT.fontCaption))
+                    .foregroundStyle(DT.textSecondary)
+
+                HStack(spacing: DT.space1) {
+                    QPPrimaryButton("继续练习 →") {}
+                    QPOutlineButton("今日复习") {}
+                }
+                .padding(.top, DT.space1)
             }
         }
+        .padding(.horizontal, DT.space3)
     }
 
-    private var examCourses: [CourseInfo] {
-        courses.filter { ["itpass", "sg", "mos"].contains($0.courseId) }
-    }
-
-    private var learningCourses: [CourseInfo] {
-        courses.filter { ["java", "python", "sql", "algo"].contains($0.courseId) }
-    }
-
-    @ViewBuilder
-    private func courseRow(course: CourseInfo) -> some View {
-        NavigationLink {
-            CourseDetailView(course: course)
-        } label: {
-            QPCard(backgroundColor: DesignTokens.surface) {
-                HStack(alignment: .top, spacing: 12) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(course.title.zh)
-                            .font(.system(size: DesignTokens.fontBody, weight: .semibold))
-                            .foregroundStyle(DesignTokens.ink)
-                        if !course.subtitle.zh.isEmpty {
-                            Text(course.subtitle.zh)
-                                .font(.system(size: DesignTokens.fontCaption))
-                                .foregroundStyle(DesignTokens.textSecondary)
-                                .lineLimit(2)
-                        }
-                        HStack(spacing: 6) {
-                            Text("\(course.chapterCount) 章节 · \(course.sectionCount) 小节")
-                            if course.courseId == "mos" || course.courseId == "algo" {
-                                QPPill("准备中")
+    private var examSection: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("01", "资格考试", meta: "\(examCourses.count) 考试")
+            VStack(spacing: DT.space1) {
+                ForEach(examCourses, id: \.id) { exam in
+                    Button(action: {
+                        if exam.id != "mos" { selectedExam = exam.id }
+                    }) {
+                        QPCard {
+                            HStack(alignment: .center, spacing: DT.space2) {
+                                Rectangle()
+                                    .fill(exam.id == "mos" ? DT.textGhost : exam.color)
+                                    .frame(width: 3, height: 36)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(exam.name)
+                                        .font(.system(size: DT.fontBody, weight: .semibold))
+                                        .foregroundStyle(exam.id == "mos" ? DT.textTertiary : DT.ink)
+                                    Text(exam.sub)
+                                        .font(.system(size: DT.fontCaption))
+                                        .foregroundStyle(DT.textSecondary)
+                                        .lineLimit(1)
+                                }
+                                Spacer(minLength: 0)
+                                if exam.id == "mos" {
+                                    QPPill("准备中")
+                                } else {
+                                    Text("›")
+                                        .font(.system(size: DT.fontPageTitle, weight: .light))
+                                        .foregroundStyle(DT.textTertiary)
+                                }
                             }
                         }
-                        .font(.system(size: DesignTokens.fontCaption))
-                        .foregroundStyle(DesignTokens.textTertiary)
                     }
-                    Spacer(minLength: 0)
-                    Image(systemName: course.courseId == "itpass" ? "arrow.right.circle.fill" : "chevron.right")
-                        .foregroundStyle(course.courseId == "itpass" ? DesignTokens.primary : DesignTokens.textTertiary)
-                        .font(.system(size: DesignTokens.fontBody))
+                    .buttonStyle(.plain)
+                    .opacity(exam.id == "mos" ? 0.6 : 1)
                 }
             }
-        }
-        .buttonStyle(.plain)
-    }
-
-    private var topSummary: some View {
-        QPCard(backgroundColor: DesignTokens.surface) {
-            VStack(alignment: .leading, spacing: DesignTokens.space1) {
-                Text("IT Passport")
-                    .font(.system(size: DesignTokens.fontBody, weight: .semibold))
-                    .foregroundStyle(DesignTokens.ink)
-                Text("继续练习 · 真题练习")
-                    .font(.system(size: DesignTokens.fontCaption))
-                    .foregroundStyle(DesignTokens.textSecondary)
-                HStack(spacing: DesignTokens.space2) {
-                    Button("继续练习") {
-                        // 由系统 TabView 触发切换，无内部路由
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(DesignTokens.primary)
-                    .controlSize(.small)
-
-                    Button("今日复习") {
-                        // 由系统 TabView 触发切换，无内部路由
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, DT.space3)
         }
     }
 
-    private func load() async {
-        courses = CourseStore.shared.manifest.courses
+    private var learningSection: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("02", "课程学习", meta: "Java / Python / SQL 已开放")
+            VStack(spacing: DT.space1) {
+                ForEach(learningCourses, id: \.id) { course in
+                    Button(action: {}) {
+                        QPCard {
+                            HStack(alignment: .center, spacing: DT.space2) {
+                                Rectangle()
+                                    .fill(course.color)
+                                    .frame(width: 3, height: 56)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(course.name)
+                                        .font(.system(size: DT.fontBody, weight: .semibold))
+                                        .foregroundStyle(DT.ink)
+                                    Text(course.sub)
+                                        .font(.system(size: DT.fontCaption))
+                                        .foregroundStyle(DT.textSecondary)
+                                        .lineLimit(2)
+                                }
+                                Spacer(minLength: 0)
+                                QPPill(course.pill, background: course.color, foreground: DT.ink)
+                                Text("›")
+                                    .font(.system(size: DT.fontPageTitle, weight: .light))
+                                    .foregroundStyle(DT.textTertiary)
+                            }
+                        }
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, DT.space3)
+        }
     }
 }
 
 #Preview {
     CourseCenterView()
-        .modelContainer(for: [MistakeRecord.self, StudyStat.self], inMemory: true)
 }
