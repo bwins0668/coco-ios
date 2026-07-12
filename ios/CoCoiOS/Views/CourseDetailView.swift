@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct CourseDetailView: View {
     let course: CourseInfo
