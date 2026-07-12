@@ -28,6 +28,14 @@ struct CourseCenterView: View {
             .background(DesignTokens.canvas.ignoresSafeArea())
             .navigationTitle("课程")
             .navigationBarTitleDisplayMode(.large)
+            .toolbarColorScheme(.light, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("课程")
+                        .font(.system(size: DesignTokens.fontSectionTitle, weight: .semibold))
+                        .foregroundStyle(DesignTokens.ink)
+                }
+            }
             .task { await load() }
         }
     }

@@ -21,3 +21,20 @@ struct CoCoiOSApp: App {
         .modelContainer(container)
     }
 }
+
+struct RootNavigationTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 17.0, *) {
+            content
+                .toolbarColorScheme(.light, for: .navigationBar)
+        } else {
+            content
+        }
+    }
+}
+
+extension View {
+    func rootNavigationStyle() -> some View {
+        modifier(RootNavigationTitleModifier())
+    }
+}

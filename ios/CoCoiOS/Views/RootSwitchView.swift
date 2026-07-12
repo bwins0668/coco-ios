@@ -36,6 +36,24 @@ struct RootSwitchView: View {
     }
 }
 
+extension View {
+    /// 强制导航栏使用浅色配色，避免大标题在浅色背景下显示为白字
+    func forceLightNavigation() -> some View {
+        modifier(LightNavigationBarModifier())
+    }
+}
+
+struct LightNavigationBarModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 16.0, *) {
+            content
+                .toolbarColorScheme(.light, for: .navigationBar)
+        } else {
+            content
+        }
+    }
+}
+
 #Preview {
     RootSwitchView()
         .modelContainer(for: [MistakeRecord.self, StudyStat.self], inMemory: true)
