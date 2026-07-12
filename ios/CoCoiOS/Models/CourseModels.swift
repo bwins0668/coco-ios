@@ -1,5 +1,10 @@
 import Foundation
 
+struct CourseManifest: Codable {
+    let generatedAt: String
+    let courses: [CourseInfo]
+}
+
 struct CourseInfo: Codable, Identifiable {
     let courseId: String
     let title: CourseTitle
