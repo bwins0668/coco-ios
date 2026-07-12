@@ -20,23 +20,53 @@ struct RootSwitchView: View {
         TabView(selection: $selectedTab) {
             HomeView()
                 .tag(0)
-                .tabItem { Label("课程", systemImage: "book.fill") }
+                .tabItem {
+                    Label {
+                        Text("课程")
+                    } icon: {
+                        CourseTabIcon(active: selectedTab == 0)
+                    }
+                }
 
             PracticeView()
                 .tag(1)
-                .tabItem { Label("刷题", systemImage: "doc.text.fill") }
+                .tabItem {
+                    Label {
+                        Text("刷题")
+                    } icon: {
+                        PracticeTabIcon(active: selectedTab == 1)
+                    }
+                }
 
             ReviewView()
                 .tag(2)
-                .tabItem { Label("复习", systemImage: "clock.fill") }
+                .tabItem {
+                    Label {
+                        Text("复习")
+                    } icon: {
+                        ReviewTabIcon(active: selectedTab == 2)
+                    }
+                }
 
             GlossaryView()
                 .tag(3)
-                .tabItem { Label("术语", systemImage: "character.book.closed.fill") }
+                .tabItem {
+                    Label {
+                        Text("术语")
+                    } icon: {
+                        GlossaryTabIcon(active: selectedTab == 3)
+                    }
+                }
 
             ProfileView()
                 .tag(4)
-                .tabItem { Label("我的", systemImage: "person.fill") }
+                .tabItem {
+                    Label {
+                        Text("我的")
+                    } icon: {
+                        ProfileTabIcon(active: selectedTab == 4)
+                    }
+                }
         }
         .tint(DT.primary)
         .toolbarBackground(DT.surface, for: .tabBar)
