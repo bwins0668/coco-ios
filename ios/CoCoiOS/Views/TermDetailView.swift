@@ -1,9 +1,9 @@
 import SwiftUI
 import SwiftData
 
-/// 术语详情页：双语 + 收藏 + Anki 复习入口
+/// 术语详情页：双语 + 收藏 + Anki（接入 GlossaryStore + SwiftData）
 struct TermDetailView: View {
-    let term: TermItem
+    let term: GlossaryTerm
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var ctx
     @State private var favorited: Bool = false
@@ -19,9 +19,11 @@ struct TermDetailView: View {
                         Text(term.zh)
                             .font(.system(size: DT.fontPageTitle, weight: .semibold))
                             .foregroundStyle(DT.ink)
-                        Text(term.desc)
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.textSecondary)
+                        if !term.explanationZh.isEmpty {
+                            Text(term.explanationZh)
+                                .font(.system(size: DT.fontCaption))
+                                .foregroundStyle(DT.textSecondary)
+                        }
                     }
                 }
                 .padding(.horizontal, DT.space3)
@@ -29,21 +31,30 @@ struct TermDetailView: View {
                 QPCard {
                     VStack(alignment: .leading, spacing: DT.space1) {
                         sectionLabel("日本語 / Japanese")
-                        Text(term.ja)
-                            .font(.system(size: DT.fontBody, weight: .semibold))
-                            .foregroundStyle(DT.ink)
-                        Text("English: \(term.en)")
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.textTertiary)
+                        Text(term.ja).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(DT.ink)
+                        Text("English: \(term.term)")
+                            .font(.system(size: DT.fontCaption)).foregroundStyle(DT.textTertiary)
+                        if !term.explanationJa.isEmpty {
+                            Text(term.explanationJa).font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
+                        }
                     }
                 }
                 .padding(.horizontal, DT.space3)
 
+                if !term.example.isEmpty && term.example != "请结合课程内容理解该术语。" {
+                    QPCard {
+                        VStack(alignment: .leading, spacing: DT.space1) {
+                            sectionLabel("示例 / 例")
+                            Text(term.example).font(.system(size: DT.fontCaption)).foregroundStyle(DT.ink)
+                        }
+                    }
+                    .padding(.horizontal, DT.space3)
+                }
+
                 HStack(spacing: DT.space1) {
                     Button(action: toggleFavorite) {
                         HStack(spacing: 6) {
-                            Text(favorited ? "♥" : "☆")
-                                .font(.system(size: DT.fontBody, weight: .semibold))
+                            Text(favorited ? "♥" : "☆").font(.system(size: DT.fontBody, weight: .semibold))
                             Text(favorited ? "已收藏" : "收藏术语")
                                 .font(.system(size: DT.fontBody, weight: .semibold))
                         }
@@ -60,8 +71,7 @@ struct TermDetailView: View {
                             Text("加入 Anki").font(.system(size: DT.fontBody, weight: .semibold))
                         }
                         .foregroundStyle(DT.ink)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, DT.space2)
+                        .frame(maxWidth: .infinity).padding(.vertical, DT.space2)
                         .background(DT.surface)
                         .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
                         .overlay(
@@ -82,8 +92,16 @@ struct TermDetailView: View {
         .navigationBarHidden(true)
         .onAppear {
             AppContext.bootstrap(ctx)
-            favorited = term.favorited
+            favorited = isFavorited()
         }
+    }
+
+    private func isFavorited() -> Bool {
+        let id = term.id
+        let descriptor = FetchDescriptor<FavoriteTerm>(
+            predicate: #Predicate { $0.termId == id }
+        )
+        return ((try? ctx.fetchCount(descriptor)) ?? 0) > 0
     }
 
     private func toggleFavorite() {
@@ -119,10 +137,15 @@ struct TermDetailView: View {
             Text(term.zh)
                 .font(.system(size: DT.fontPageTitle, weight: .semibold))
                 .foregroundStyle(DT.ink)
-            Text(term.en)
-                .font(.system(size: DT.fontCaption, weight: .medium))
-                .tracking(1)
-                .foregroundStyle(DT.textTertiary)
+            HStack(spacing: 6) {
+                Text(term.term)
+                    .font(.system(size: DT.fontCaption, weight: .medium))
+                    .tracking(1)
+                    .foregroundStyle(DT.textTertiary)
+                if !term.category.isEmpty {
+                    QPPill(term.category, background: DT.fillWarm, foreground: DT.textTertiary)
+                }
+            }
         }
         .padding(.horizontal, DT.space3)
     }
@@ -134,6 +157,10 @@ struct TermDetailView: View {
 }
 
 #Preview {
-    TermDetailView(term: TermItem(id: "1", zh: "算法", ja: "アルゴリズム", en: "Algorithm",
-                                  desc: "为解决问题而定义的有限步骤序列。", favorited: false))
+    TermDetailView(term: GlossaryTerm(id: "term-0001", term: "Database", zh: "数据库",
+                                       ja: "データベース", en: "Database", category: "database",
+                                       level: "basic", tags: ["itpass", "sg"],
+                                       explanationZh: "按结构组织、存储和管理数据的仓库。",
+                                       explanationJa: "DB とも呼ばれる。",
+                                       example: "CREATE DATABASE school;"))
 }
