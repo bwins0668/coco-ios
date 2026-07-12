@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// 学习数据可视化：连续天数 + 最近 7 天答题柱状图
 struct StudyDashboard: View {
