@@ -1,0 +1,150 @@
+<!--packages/quiz/pages/exam-menu/exam-menu.wxml · R6.6 DC-aligned (Frames 6+7) -->
+<view class="r6-exam-menu {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <!-- Custom navigation bar: back + title -->
+  <view class="r6-exam-nav">
+    <view class="r6-exam-nav__back" bindtap="goBack" data-secondary-route="packages/quiz/pages/exam-menu/exam-menu">
+      <text class="r6-exam-nav__back-icon">‹</text>
+    </view>
+    <text class="r6-exam-nav__title">{{examTitle}}</text>
+    <view class="r6-exam-nav__spacer"></view>
+  </view>
+
+  <!-- Masthead -->
+  <view class="r6-exam-mast">
+    <text class="r6-exam-mast__kicker">試験 · EXAM</text>
+    <text class="r6-exam-mast__title">{{examTitle}}</text>
+    <text class="r6-exam-mast__sub">{{examDesc}}</text>
+  </view>
+
+  <!-- Continue last practice (compact) -->
+  <view class="r6-exam-continue" wx:if="{{overallTotal > 0}}">
+    <view class="r6-exam-continue__body">
+      <text class="r6-exam-continue__kicker">上次练习</text>
+      <text class="r6-exam-continue__text">{{lastPracticeText || '暂无记录'}}</text>
+    </view>
+    <view class="r6-exam-continue__btn" bindtap="goPastExam">继续</view>
+  </view>
+
+  <!-- 01 考试知识结构 (IT Passport only) -->
+  <view class="r6-exam-section" wx:if="{{exam === 'itpass'}}">
+    <view class="r6-section-label">
+      <text class="r6-section-label__num">01</text>
+      <text class="r6-section-label__title">考试知识结构</text>
+      <text class="r6-section-label__meta">3 分野</text>
+    </view>
+    <view class="r6-exam-cat-row" wx:for="{{['A','B','C']}}" wx:key="*this">
+      <text class="r6-exam-cat-row__letter">{{item}}</text>
+      <text class="r6-exam-cat-row__label" wx:if="{{item === 'A'}}">技术系</text>
+      <text class="r6-exam-cat-row__label" wx:elif="{{item === 'B'}}">管理系</text>
+      <text class="r6-exam-cat-row__label" wx:else>战略系</text>
+      <text class="r6-exam-cat-row__chev">›</text>
+    </view>
+  </view>
+
+  <!-- Statistics strip (SG + all exams) -->
+  <view class="r6-exam-section" wx:if="{{overallTotal > 0}}">
+    <view class="r6-section-label">
+      <text class="r6-section-label__num">01</text>
+      <text class="r6-section-label__title">学习进度</text>
+    </view>
+    <view class="r6-exam-stat-strip">
+      <view class="r6-exam-stat-strip__box">
+        <text class="r6-exam-stat-strip__num">{{overallTotal}}</text>
+        <text class="r6-exam-stat-strip__label">累计答题</text>
+      </view>
+      <view class="r6-exam-stat-strip__div"></view>
+      <view class="r6-exam-stat-strip__box">
+        <text class="r6-exam-stat-strip__num r6-exam-stat-strip__num--success">{{overallAccuracy}}%</text>
+        <text class="r6-exam-stat-strip__label">正确率</text>
+      </view>
+      <view class="r6-exam-stat-strip__div"></view>
+      <view class="r6-exam-stat-strip__box">
+        <text class="r6-exam-stat-strip__num">{{lessonTotal + pastTotal}}</text>
+        <text class="r6-exam-stat-strip__label">总答题</text>
+      </view>
+    </view>
+    <!-- Suggestion -->
+    <view class="r6-exam-suggestion" wx:if="{{suggestion.text}}">
+      <text class="r6-exam-suggestion__text">{{suggestion.text}}</text>
+    </view>
+  </view>
+
+  <!-- 练习方式 section -->
+  <view class="r6-exam-section">
+    <view class="r6-section-label">
+      <text class="r6-section-label__num" wx:if="{{overallTotal > 0}}">02</text>
+      <text class="r6-section-label__num" wx:else>01</text>
+      <text class="r6-section-label__title">选择练习方式</text>
+    </view>
+
+    <!-- 真题练习 (primary with year selection) -->
+    <view class="r6-exam-row r6-exam-row--primary">
+      <view class="r6-exam-row__body" bindtap="goPastExam">
+        <text class="r6-exam-row__name">真题练习</text>
+        <text class="r6-exam-row__desc">按考试年度 / 回数完整模拟</text>
+        <text class="r6-exam-row__count" wx:if="{{pastExamList.length > 0}}">{{pastExamList.length}} 套 · 推荐</text>
+      </view>
+      <text class="r6-exam-row__action" bindtap="goPastExam">→</text>
+      <!-- Year selector toggle -->
+      <text class="r6-exam-row__toggle" wx:if="{{pastExamList.length > 0}}" catchtap="togglePastExamList">{{pastExamExpanded ? '▲' : '▼'}}</text>
+    </view>
+    <!-- Expandable year list -->
+    <view class="r6-exam-year-list" wx:if="{{pastExamExpanded && pastExamList.length > 0}}">
+      <text class="r6-exam-year-list__label">选择考试年度</text>
+      <view class="r6-exam-year-list__chips">
+        <view class="r6-exam-year-chip {{activePastExamYearId === item.yearId ? 'r6-exam-year-chip--active' : ''}}"
+          wx:for="{{pastExamList}}" wx:key="yearId"
+          data-year-id="{{item.yearId}}"
+          catchtap="goPastExamYear">
+          <text class="r6-exam-year-chip__year">{{item.year}}</text>
+          <text class="r6-exam-year-chip__count">{{item.count}}题</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 课程练习 -->
+    <view class="r6-exam-row" bindtap="goLessonQuiz">
+      <view class="r6-exam-row__body">
+        <text class="r6-exam-row__name">课程练习</text>
+        <text class="r6-exam-row__desc">双语课程练习题，含中文翻译</text>
+      </view>
+      <view class="r6-exam-row__stats">
+        <text class="r6-exam-row__stat-num">{{lessonTotal}}</text>
+        <text class="r6-exam-row__stat-label">已做</text>
+      </view>
+      <text class="r6-exam-row__chev">›</text>
+    </view>
+
+    <!-- 闪卡复习 -->
+    <view class="r6-exam-row" bindtap="goFlashcardCourse">
+      <view class="r6-exam-row__body">
+        <text class="r6-exam-row__name">闪卡复习</text>
+        <text class="r6-exam-row__desc">年度模拟 {{flashcardTotal}} · 分类 {{flashcardCategoryCount}}</text>
+      </view>
+      <text class="r6-exam-row__chev">›</text>
+    </view>
+  </view>
+
+  <!-- 学习辅助 -->
+  <view class="r6-exam-section r6-exam-section--aux">
+    <view class="r6-section-label">
+      <text class="r6-section-label__num" wx:if="{{overallTotal > 0}}">03</text>
+      <text class="r6-section-label__num" wx:else>02</text>
+      <text class="r6-section-label__title">学习辅助</text>
+    </view>
+    <view class="r6-exam-row r6-exam-row--aux">
+      <text class="r6-exam-row__name">教材章节</text>
+      <text class="r6-exam-row__chev">›</text>
+    </view>
+    <view class="r6-exam-row r6-exam-row--aux">
+      <text class="r6-exam-row__name">全部错题复习</text>
+      <text class="r6-exam-row__chev">›</text>
+    </view>
+  </view>
+
+  <!-- Honest empty state -->
+  <view class="r6-exam-empty" wx:if="{{overallTotal === 0}}">
+    <view class="r6-exam-empty__dot"></view>
+    <text class="r6-exam-empty__text">还没有练习记录，建议从<text class="r6-exam-empty__bold">真题练习</text>入手，完成后这里会显示进度与正确率</text>
+  </view>
+</view>

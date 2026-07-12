@@ -1,0 +1,28 @@
+{
+  "round": "PYTHON.P0",
+  "mode": "read-only discovery + evidence + scope-lock (NOT a rewrite round)",
+  "baselineHash": "801e251fe35655f9cbf22cd84f75d9a0c407ec65",
+  "pathBaselineConflict": false,
+  "pathBaselineConflictNote": "16 python clones form ONE linear history; unique tip 801e251; all others are strict ancestors (stale). No divergent/competing committed baseline.",
+  "epubSourceVerified": true,
+  "epubSha256": "860F181731A4699BD412686599596A6101AECE5EB70DD837A15FB2B88F25F7EF",
+  "runtime": {
+    "chapters": 2,
+    "lessons": 9,
+    "learnerVisibleLessons": 5,
+    "authoredButHiddenByProjectionDrift": 4
+  },
+  "verdictTotals": {"CLEAN": 5, "TARGETED_FIX": 4, "FULL_REWRITE": 0, "BLOCKED": 0},
+  "existingWorkTotals": {"GENUINELY_COMPLETE": 9, "PARTIALLY_DONE": 0, "NOT_STARTED": 0, "REGRESSED": 0, "UNCERTAIN": 0},
+  "toolingBaseline": {"totalContractCheckersRun": 19, "pass": 18, "fail": 1, "failing": ["check_python_home_card_runtime_contract"], "runtimeExecutionSupported": true, "toolFalsePositives": 0},
+  "issueFamiliesFound": ["DIRECTORY_PROJECTION_DRIFT (P1)", "SCHEMA_DRIFT/SEMANTIC_KEY block.type (P3)", "SOURCE_MAPPING_MISSING partial/toc-only (P2)"],
+  "issueFamiliesAbsent": ["TEMPLATE_FULL_REWRITE", "TEMPLATE_PARTIAL_RESIDUE", "TITLE_CONTENT_MISMATCH", "OBJECTIVE_CONTENT_MISMATCH", "CODE_EXPLANATION_MISMATCH", "OUTPUT_EXPECTATION_MISMATCH", "BILINGUAL_CONTAMINATION", "LANGUAGE_QUALITY_DEFECT", "ORIGINALITY_COLLISION", "RUNTIME_CONCEPT_MISMATCH", "LINENOTE_DRIFT"],
+  "keyAnswers": {
+    "suspectedCompletedChaptersRealState": "The ~2-3 'already done' chapters are REAL: 9 lessons across 2 chapters are genuinely complete, original, bilingual, runtime-consistent — NOT templated.",
+    "whatCanBeKept": "All 9 lesson BODIES kept as-is (KEEP_AS_ACCEPTED for content).",
+    "whatMustReopen": "Nothing needs content FULL_REWRITE. 4 lessons (0012-0015) need a registry PROJECTION fix so they become learner-visible (KEEP_WITH_TARGETED_FIX).",
+    "realPythonWorkload": "Published/runtime = 9 lessons (≈ book1 ch1-9 spine). Remaining full corpus = book1 ch10-20 + book2 (18ch) + book3 (14ch), plus a 687-lesson authoring backlog sitting unpublished in artifacts. Runtime coverage is a small fraction of the 3-book corpus.",
+    "firstBatchPriority": "P-A0: fix the projection drift (XC-1) so the 4 already-complete lessons reach learners — highest value / lowest risk / single-file."
+  },
+  "finalStatus": "PYTHON_P0_AUDIT_READY_FOR_BATCH_EXECUTION"
+}

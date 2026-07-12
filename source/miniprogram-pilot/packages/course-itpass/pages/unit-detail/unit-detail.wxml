@@ -1,0 +1,108 @@
+<view class="td-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/course-itpass/pages/unit-detail/unit-detail">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <block wx:if="{{notFound}}">
+    <view class="td-empty">
+      <text class="td-empty__title">章节暂不可用</text>
+      <text class="td-empty__sub">该教材单元不存在或尚未开放</text>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="td-head">
+      <text class="td-head__ja">{{unit.titleJa}}</text>
+      <text class="td-head__zh">{{unit.titleZh}}</text>
+      <text class="td-source">{{sourceText}}</text>
+    </view>
+
+    <view class="td-source-card">
+      <text class="td-kicker">原书路径</text>
+      <text class="td-source-card__main">{{sourceInfo.sourceText}}</text>
+      <text class="td-source-card__line" wx:if="{{sourceInfo.headingJa}}">章节路径：{{sourceInfo.headingJa}}</text>
+      <text class="td-source-card__line" wx:if="{{sourceInfo.anchorTermsText}}">定位关键词：{{sourceInfo.anchorTermsText}}</text>
+      <text class="td-source-card__status">{{sourceInfo.accessLabel}}</text>
+    </view>
+
+    <view class="td-section" wx:if="{{unit.learningGoalJa}}">
+      <text class="td-kicker">學習目標</text>
+      <text class="td-copy td-copy--ja">{{unit.learningGoalJa}}</text>
+      <view class="td-zh-block" wx:if="{{unit.learningGoalZh}}">
+        <text class="td-lang-label">中文理解</text>
+        <text class="td-copy">{{unit.learningGoalZh}}</text>
+      </view>
+    </view>
+
+    <view class="td-section" wx:if="{{unit.overviewJa}}">
+      <text class="td-kicker">概要</text>
+      <text class="td-copy td-copy--ja">{{unit.overviewJa}}</text>
+      <view class="td-zh-block" wx:if="{{unit.overviewZh}}">
+        <text class="td-lang-label">中文理解</text>
+        <text class="td-copy">{{unit.overviewZh}}</text>
+      </view>
+    </view>
+
+    <view class="td-section" wx:for="{{unit.sections}}" wx:key="headingJa">
+      <text class="td-section__title">{{item.headingJa}}</text>
+      <text class="td-section__sub" wx:if="{{item.headingZh}}">{{item.headingZh}}</text>
+      <text class="td-copy td-copy--ja">{{item.explanationJa}}</text>
+      <view class="td-zh-block" wx:if="{{item.explanationZh}}">
+        <text class="td-lang-label">中文理解</text>
+        <text class="td-copy">{{item.explanationZh}}</text>
+      </view>
+      <view class="td-focus" wx:if="{{item.examFocusJa}}">
+        <text class="td-focus__ja">{{item.examFocusJa}}</text>
+        <text class="td-focus__zh" wx:if="{{item.examFocusZh}}">{{item.examFocusZh}}</text>
+      </view>
+      <view class="td-trap" wx:if="{{item.commonMistakeJa}}">
+        <text class="td-trap__ja">{{item.commonMistakeJa}}</text>
+        <text class="td-trap__zh" wx:if="{{item.commonMistakeZh}}">{{item.commonMistakeZh}}</text>
+      </view>
+    </view>
+
+    <view class="td-section" wx:if="{{displayTerms && displayTerms.length}}">
+      <text class="td-kicker">关键术语</text>
+      <view class="td-term td-term--tap" wx:for="{{displayTerms}}" wx:key="id" data-term-id="{{item.id}}" bindtap="openTermDetail">
+        <text class="td-term__en">{{item.en}}</text>
+        <text class="td-term__sep">｜</text>
+        <text class="td-term__ja">{{item.ja}}</text>
+        <text class="td-term__sep">｜</text>
+        <text class="td-term__zh">{{item.zh}}</text>
+      </view>
+    </view>
+
+    <view class="td-section" wx:if="{{unit.commonTraps && unit.commonTraps.length}}">
+      <text class="td-kicker">易错点</text>
+      <view class="td-trap-row" wx:for="{{unit.commonTraps}}" wx:key="trapJa">
+        <text class="td-trap-row__ja">{{item.trapJa}}</text>
+        <text class="td-trap-row__zh" wx:if="{{item.trapZh}}">{{item.trapZh}}</text>
+      </view>
+    </view>
+
+    <view class="td-section">
+      <text class="td-kicker">关联练习</text>
+      <text class="td-copy" wx:if="{{unit.relatedQuestionIds && unit.relatedQuestionIds.length > 0}}">已关联既有课程题 {{unit.relatedQuestionIds.length}} 题。</text>
+      <text class="td-copy" wx:else>当前没有可直接关联的既有课程题。</text>
+      <view class="td-btn {{practiceAvailable ? 'td-btn--primary' : 'td-btn--disabled'}}" bindtap="startPractice">{{practiceAvailable ? '开始本主题练习' : '暂无对应既有题目'}}</view>
+    </view>
+
+    <view class="td-sheet-mask" wx:if="{{termSheetVisible}}" bindtap="closeTermDetail" catchtouchmove="noop">
+      <view class="td-term-sheet" catchtap="noop">
+        <view class="td-term-sheet__top">
+          <view>
+            <text class="td-term-sheet__en">{{selectedTerm.en}}</text>
+            <text class="td-term-sheet__triad">{{selectedTerm.ja}} ｜ {{selectedTerm.zh}}</text>
+          </view>
+          <text class="td-term-sheet__close" catchtap="closeTermDetail">关闭</text>
+        </view>
+        <view class="td-term-detail" wx:if="{{selectedTerm.definitionJa}}">
+          <text class="td-lang-label">日语定义</text><text class="td-copy td-copy--ja">{{selectedTerm.definitionJa}}</text>
+          <text class="td-lang-label">中文理解</text><text class="td-copy">{{selectedTerm.definitionZh}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

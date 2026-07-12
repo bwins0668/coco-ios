@@ -1,0 +1,55 @@
+<view class="tc-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/course-content/pages/chapter-list/chapter-list">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+
+  <block wx:if="{{notFound}}">
+    <view class="tc-empty">
+      <text class="tc-empty__title">教材章节暂不可用</text>
+      <text class="tc-empty__sub">该课程还没有可显示的教材目录</text>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="tc-head">
+      <text class="tc-head__course">{{courseName}}</text>
+      <text class="tc-head__source">{{sourceTitle}}</text>
+    </view>
+
+    <view class="tc-bulk" wx:if="{{showBulkControls}}">
+      <text class="tc-bulk__btn" bindtap="expandAllGroups">展开全部</text>
+      <text class="tc-bulk__btn" bindtap="collapseAllGroups">收起全部</text>
+    </view>
+
+    <view class="tc-chapter" wx:for="{{chapters}}" wx:key="id">
+      <view class="tc-chapter__head">
+        <text class="tc-chapter__ja">{{item.titleJa}}</text>
+        <text class="tc-chapter__zh">{{item.titleZh}}</text>
+      </view>
+      <view class="tc-section-group" wx:for="{{item.sectionGroups}}" wx:for-item="group" wx:key="id">
+        <view class="tc-section-group__head" bindtap="toggleGroup" data-group-id="{{group.id}}">
+          <view class="tc-section-group__info">
+            <text class="tc-section-group__ja">{{group.titleJa}}</text>
+            <text class="tc-section-group__zh">{{group.titleZh}}</text>
+            <text class="tc-section-group__meta">{{group.unitCountLabel}} · {{group.stateLabel}}</text>
+          </view>
+          <text class="tc-section-group__toggle">{{group.arrow}}</text>
+        </view>
+        <view class="tc-unit" wx:for="{{group.units}}" wx:for-item="unit" wx:key="id"
+              wx:if="{{group.isExpanded}}"
+              data-unit-id="{{unit.id}}" bindtap="openUnit">
+          <view class="tc-unit__body">
+            <text class="tc-unit__ja">{{unit.titleJa}}</text>
+            <text class="tc-unit__zh">{{unit.titleZh}}</text>
+            <text class="tc-unit__meta">{{unit.pageLabel}}{{unit.questionLabel ? ' · ' + unit.questionLabel : ''}}</text>
+          </view>
+          <text class="tc-unit__arrow">→</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

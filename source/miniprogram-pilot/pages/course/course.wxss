@@ -1,0 +1,91 @@
+@import "../../styles/secondary-page-shell.wxss";
+@import "../../styles/tokens.wxss";
+
+.cs-page {
+  min-height: 100vh; box-sizing: border-box;
+  /* R6.6A.2: navSafeTop handles top spacing; keep side + bottom */
+  padding: 0 var(--qp-space-5) calc(128rpx + env(safe-area-inset-bottom));
+  background-color: var(--qp-color-canvas); color: var(--qp-color-ink);
+}
+
+/* ===== R6.6A.2P3.1: Back button as dedicated hit target ===== */
+.cs-back { margin-bottom: 8rpx; }
+.cs-back__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 72rpx; height: 72rpx;
+  /* dedicated touch target, not full-width */
+}
+.cs-back__icon { font-size: 44rpx; color: var(--qp-color-text-secondary); font-weight: 300; }
+
+.cs-head { margin-bottom: 6rpx; }
+.cs-head__title {
+  display: block; font-size: 38rpx; font-weight: var(--qp-font-weight-semibold);
+  letter-spacing: 0; color: var(--qp-color-ink);
+}
+.cs-head__kind {
+  display: block; margin-top: 4rpx; font-size: var(--qp-font-size-caption);
+  color: var(--qp-color-text-tertiary);
+}
+
+.cs-last {
+  padding: 20rpx 24rpx; margin-bottom: 20rpx;
+  background-color: var(--qp-color-surface); border-radius: var(--qp-radius-lg);
+  border: var(--qp-border-width) solid var(--qp-color-line);
+}
+.cs-last__label { font-size: var(--qp-font-size-caption); color: var(--qp-color-text-tertiary); }
+.cs-last__meta { display: block; margin-top: 2rpx; font-size: var(--qp-font-size-body); color: var(--qp-color-ink); }
+
+.cs-actions { display: flex; margin-bottom: 32rpx; }
+.cs-actions .cs-btn { flex: 1; }
+
+.cs-btn {
+  text-align: center; padding: 18rpx 0; border-radius: var(--qp-radius-md);
+  font-size: 28rpx; font-weight: var(--qp-font-weight-semibold); line-height: 1.4;
+}
+.cs-btn--primary { background-color: var(--qp-color-primary); color: var(--qp-color-surface); }
+.cs-btn--outline { background-color: var(--qp-color-fill-warm); border: var(--qp-border-width) solid transparent; color: var(--qp-color-ink); }
+
+.cs-section { margin-bottom: 24rpx; }
+.cs-section__title {
+  display: block; margin-bottom: 12rpx;
+  font-size: var(--qp-font-size-label); font-weight: var(--qp-font-weight-regular);
+  letter-spacing: 2rpx; color: var(--qp-color-text-tertiary);
+}
+
+.cs-topic { display: flex; align-items: center; justify-content: space-between;
+  padding: 20rpx 0; border-top: var(--qp-border-width) solid var(--qp-color-line); }
+.cs-topic:first-of-type { border-top: none; }
+.cs-topic__body { flex: 1; min-width: 0; }
+.cs-topic__title { font-size: var(--qp-font-size-body); color: var(--qp-color-ink); }
+.cs-topic__ja { display: block; margin-top: 2rpx; font-size: var(--qp-font-size-caption);
+  color: var(--qp-color-text-secondary); }
+.cs-topic__arrow { flex: none; margin-left: 12rpx; font-size: 24rpx; color: var(--qp-color-text-tertiary); }
+.cs-topic__pending { flex: none; margin-left: 12rpx; font-size: var(--qp-font-size-caption);
+  color: var(--qp-color-text-tertiary); }
+
+.cs-row { display: flex; align-items: center; justify-content: space-between;
+  padding: 20rpx 0; border-top: var(--qp-border-width) solid var(--qp-color-line); }
+.cs-row--secondary { padding: 16rpx 0; }
+.cs-row__body { flex: 1; min-width: 0; }
+.cs-row__text { font-size: var(--qp-font-size-body); color: var(--qp-color-ink); }
+.cs-row__note { display: block; margin-top: 4rpx; font-size: var(--qp-font-size-caption);
+  color: var(--qp-color-text-secondary); }
+.cs-row__arrow { flex: none; margin-left: 12rpx; font-size: 24rpx; color: var(--qp-color-text-tertiary); }
+
+.cs-note { display: block; margin-top: 16rpx; font-size: var(--qp-font-size-caption);
+  color: var(--qp-color-text-secondary); }
+
+.cs-empty { padding: 48rpx 0; text-align: center; }
+.cs-empty__title { font-size: 28rpx; font-weight: var(--qp-font-weight-semibold); color: var(--qp-color-ink); }
+.cs-empty__sub { display: block; margin-top: 8rpx; font-size: 24rpx; color: var(--qp-color-text-secondary); }
+.cs-empty .cs-btn { display: inline-block; margin-top: 24rpx; padding: 14rpx 48rpx; width: auto; }
+
+/* Dark theme */
+.cs-page.dark-theme { background-color: var(--bg-color); color: var(--text-primary); }
+.dark-theme .cs-head__title, .dark-theme .cs-last__meta, .dark-theme .cs-row__text,
+.dark-theme .cs-topic__title, .dark-theme .cs-empty__title { color: var(--text-primary); }
+.dark-theme .cs-head__kind, .dark-theme .cs-row__note, .dark-theme .cs-note,
+.dark-theme .cs-topic__ja, .dark-theme .cs-empty__sub { color: var(--text-secondary); }
+.dark-theme .cs-last, .dark-theme .cs-row { background-color: var(--card-bg); border-color: var(--border-color); }
+.dark-theme .cs-topic { border-color: var(--border-color); }
+.dark-theme .cs-btn--outline { color: var(--text-primary); border-color: var(--border-color); }

@@ -1,0 +1,245 @@
+<!--pages/mistakes/mistakes.wxml-->
+<view class="container mistakes-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/quiz/pages/mistakes/mistakes">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- 标题 -->
+  <view class="page-header">
+    <text class="page-title">错题本</text>
+    <text class="page-desc">做题后，答错的题目会自动进入这里</text>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats-card">
+    <view class="stats-row">
+      <view class="stats-item">
+        <text class="stats-value">{{totalCount}}</text>
+        <text class="stats-label">全部错题</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{reviewCount}}</text>
+        <text class="stats-label" wx:if="{{searchKeyword}}">当前筛选</text>
+        <text class="stats-label" wx:else>待复习</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{masteredCount}}</text>
+        <text class="stats-label">已掌握</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分组统计 -->
+  <view class="group-stats" wx:if="{{totalCount > 0}}">
+    <view class="group-item" wx:if="{{itCount > 0}}">
+      <text class="group-dot group-dot-it"></text>
+      <text class="group-label">IT Passport</text>
+      <text class="group-count">{{itCount}}</text>
+    </view>
+    <view class="group-item" wx:if="{{sgCount > 0}}">
+      <text class="group-dot group-dot-sg"></text>
+      <text class="group-label">SG</text>
+      <text class="group-count">{{sgCount}}</text>
+    </view>
+    <view class="group-item" wx:if="{{japaneseCount > 0}}">
+      <text class="group-dot group-dot-ja"></text>
+      <text class="group-label">日文题</text>
+      <text class="group-count">{{japaneseCount}}</text>
+    </view>
+  </view>
+
+  <!-- 复习优先级提示 -->
+  <view class="priority-hint" wx:if="{{totalCount > 0}}">
+    <view class="priority-hint-symbol"></view>
+    <text class="priority-hint-text">{{priorityHint}}</text>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-section" wx:if="{{totalCount > 0}}">
+    <view class="search-bar">
+      <view class="search-symbol"></view>
+      <input
+        class="search-input"
+        placeholder="搜索错题：题干、答案、解析…"
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        confirm-type="search"
+      />
+      <view class="search-clear" wx:if="{{searchKeyword}}" bindtap="onClearSearch">
+        <text class="search-clear-text">✕</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 筛选标签 -->
+  <scroll-view class="filter-bar" scroll-x enhanced show-scrollbar="{{false}}" wx:if="{{totalCount > 0}}">
+    <view
+      wx:for="{{filterOptions}}"
+      wx:key="key"
+      class="filter-tag {{activeFilter === item.key ? 'filter-tag-active' : ''}}"
+      bindtap="onFilterChange"
+      data-key="{{item.key}}"
+    >
+      <text class="filter-tag-text">{{item.label}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 模式切换 + 错题重练入口 -->
+  <view class="section-action" wx:if="{{filteredList.length > 0}}">
+    <view class="action-row">
+      <view class="mode-switch">
+        <view class="mode-tab {{viewMode === 'list' ? 'mode-tab-active' : ''}}" bindtap="switchToListMode">
+          <text class="mode-tab-text">列表模式</text>
+        </view>
+        <view class="mode-tab {{viewMode === 'review' ? 'mode-tab-active' : ''}}" bindtap="switchToReviewMode">
+          <text class="mode-tab-text">复习模式</text>
+        </view>
+      </view>
+      <view class="practice-wrong-btn" bindtap="goPracticeWrong">
+        <text class="practice-wrong-text">重新练习错题</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ========== 列表模式 ========== -->
+  <view class="wrong-list" wx:if="{{filteredList.length > 0 && viewMode === 'list'}}">
+    <view class="card wrong-card mistake-card" wx:for="{{filteredList}}" wx:key="id">
+      <view class="wrong-header">
+        <view class="wrong-tags">
+          <text class="wrong-exam">{{item.examLabel}}</text>
+          <text class="wrong-source {{item.sourceType === 'past_exam_japanese' ? 'wrong-source-exam' : ''}}">{{item.sourceLabel}}</text>
+        </view>
+        <text class="wrong-time" wx:if="{{item.wrongAtLabel}}">{{item.wrongAtLabel}}</text>
+        <text class="wrong-time" wx:else>已收录</text>
+      </view>
+
+      <text class="wrong-question-zh">{{item.questionZh}}</text>
+      <text class="wrong-question-ja">{{item.questionJa}}</text>
+      <view class="translation-warning" wx:if="{{item.sourceType === 'past_exam_japanese'}}">
+        <text class="warning-icon">⚠</text>
+        <text class="warning-text">日文原题，中文翻译待补充。</text>
+      </view>
+      <view class="translation-warning" wx:if="{{item.sourceType !== 'past_exam_japanese' && item.translationStatus === 'zh_fallback_from_ja'}}">
+        <text class="warning-icon">⚠</text>
+        <text class="warning-text">中文翻译待补充</text>
+      </view>
+
+      <view class="wrong-detail-row">
+        <text class="wrong-detail-label">正确答案：</text>
+        <text class="wrong-detail-value wrong-correct">{{item.correctAnswer}}</text>
+      </view>
+      <view class="wrong-detail-row">
+        <text class="wrong-detail-label">你的答案：</text>
+        <text class="wrong-detail-value wrong-incorrect">{{item.lastAnswer}}</text>
+      </view>
+
+      <view class="wrong-explanation" wx:if="{{item.explanationZh || item.explanationJa}}">
+        <view class="explanation-warning" wx:if="{{item.explanationStatus === 'shared_hint'}}">
+          <text class="warning-icon">⚠</text>
+          <text class="warning-text">解释为通用说明，中文解释待补充。</text>
+        </view>
+        <text class="wrong-exp-text">{{item.explanationZh}}</text>
+        <text class="wrong-exp-text wrong-exp-ja">{{item.explanationJa}}</text>
+      </view>
+
+      <!-- 单条操作 -->
+      <view class="wrong-actions">
+        <view class="action-btn action-remove" bindtap="removeWrong" data-id="{{item.id}}">
+          <text class="action-btn-text">移出错题本</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ========== 复习模式 ========== -->
+  <view class="review-section" wx:if="{{filteredList.length > 0 && viewMode === 'review'}}">
+    <view class="review-progress">
+      <text class="review-index">{{currentReviewIndex + 1}} / {{filteredList.length}}</text>
+    </view>
+
+    <view class="review-card">
+      <view class="card-inner {{isFlipped ? 'flipped' : ''}}" bindtap="toggleFlip">
+        <view class="card-face card-front">
+          <view class="wrong-header">
+            <view class="wrong-tags">
+              <text class="wrong-exam">{{filteredList[currentReviewIndex].examLabel}}</text>
+              <text class="wrong-source {{filteredList[currentReviewIndex].sourceType === 'past_exam_japanese' ? 'wrong-source-exam' : ''}}">{{filteredList[currentReviewIndex].sourceLabel}}</text>
+            </view>
+            <text class="wrong-time" wx:if="{{filteredList[currentReviewIndex].savedAtLabel}}">{{filteredList[currentReviewIndex].savedAtLabel}}</text>
+          </view>
+          <view class="flashcard-body">
+            <text class="flashcard-question">{{filteredList[currentReviewIndex].questionZh}}</text>
+            <text class="flashcard-question-ja" wx:if="{{filteredList[currentReviewIndex].questionJa}}">{{filteredList[currentReviewIndex].questionJa}}</text>
+            <text class="flashcard-hint" wx:if="{{!isFlipped}}">点击查看答案</text>
+          </view>
+        </view>
+        <view class="card-face card-back">
+          <view class="wrong-header">
+            <text class="wrong-header-label">答案</text>
+            <text class="wrong-time" wx:if="{{filteredList[currentReviewIndex].savedAtLabel}}">{{filteredList[currentReviewIndex].savedAtLabel}}</text>
+          </view>
+          <view class="flashcard-body">
+            <text class="flashcard-correct">{{filteredList[currentReviewIndex].correctAnswer}}</text>
+            <text class="flashcard-wrong">你的答案：{{filteredList[currentReviewIndex].lastAnswer}}</text>
+            <view class="wrong-explanation" wx:if="{{showExplanation && (filteredList[currentReviewIndex].explanationZh || filteredList[currentReviewIndex].explanationJa)}}">
+              <view class="explanation-warning" wx:if="{{filteredList[currentReviewIndex].explanationStatus === 'shared_hint'}}">
+                <text class="warning-icon">⚠</text>
+                <text class="warning-text">解释为通用说明，中文解释待补充。</text>
+              </view>
+              <text class="wrong-exp-text">{{filteredList[currentReviewIndex].explanationZh}}</text>
+              <text class="wrong-exp-text wrong-exp-ja">{{filteredList[currentReviewIndex].explanationJa}}</text>
+            </view>
+            <view class="review-nodata-hint" wx:if="{{showExplanation && !filteredList[currentReviewIndex].explanationZh && !filteredList[currentReviewIndex].explanationJa}}">
+              <text class="nodata-text">暂无解析</text>
+            </view>
+            <view class="explanation-toggle" bindtap="toggleExplanation">
+              <text class="toggle-label">{{showExplanation ? '隐藏解析' : '显示解析'}}</text>
+              <text class="toggle-arrow">{{showExplanation ? '▲' : '▼'}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 复习模式操作 -->
+      <view class="review-actions">
+        <view class="review-nav-left">
+          <view class="action-btn action-nav {{currentReviewIndex === 0 ? 'action-btn-disabled' : ''}}" bindtap="goPrevReview">
+            <text class="action-btn-text">上一题</text>
+          </view>
+          <view class="action-btn action-nav {{currentReviewIndex === filteredList.length - 1 ? 'action-btn-disabled' : ''}}" bindtap="goNextReview">
+            <text class="action-btn-text">下一题</text>
+          </view>
+        </view>
+        <view class="action-btn action-remove" bindtap="removeFromReview">
+          <text class="action-btn-text">移出错题本</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索无结果 -->
+  <view class="empty-state" wx:if="{{filteredList.length === 0 && searchEmpty}}">
+    <view class="empty-symbol"></view>
+    <text class="empty-text">没有匹配的错题</text>
+    <text class="empty-hint">试试其他关键词。</text>
+    <view class="empty-action">
+      <view class="go-study-btn" bindtap="onClearSearch">
+        <text class="go-study-text">清除搜索</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:elif="{{filteredList.length === 0 && !searchEmpty}}">
+    <view class="empty-symbol"></view>
+    <text class="empty-text">{{activeFilter === 'all' ? '当前没有错题' : '该分类下没有错题'}}</text>
+    <text class="empty-hint">继续练习后会自动记录需要复习的题目。</text>
+    <view class="empty-action">
+      <view class="go-study-btn" bindtap="goStudy">
+        <text class="go-study-text">去练习</text>
+      </view>
+    </view>
+  </view>
+</view>

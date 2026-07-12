@@ -1,0 +1,94 @@
+<view class="pl-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/python-course-foundations-b/pages/lesson/lesson">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+  <block wx:if="{{loadError}}">
+    <view class="pl-card">
+      <text class="pl-empty-title">小节暂不可用</text>
+      <text class="pl-copy">找不到这个 Python 小节。请返回章节目录重新进入。</text>
+      <view class="pl-btn" bindtap="goBack">返回</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="pl-head">
+      <text class="pl-kicker">Python Lesson</text>
+      <text class="pl-title">{{lesson.title.ja}}</text>
+      <text class="pl-sub">{{lesson.title.zh}}</text>
+    </view>
+    <view class="pl-card">
+      <text class="pl-card-title">この節で学ぶこと / 本节你将学会什么</text>
+      <view wx:for="{{lesson.objectives}}" wx:key="ja">
+        <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+        <text class="pl-copy">{{item.zh}}</text>
+      </view>
+    </view>
+    <view class="pl-card" wx:for="{{lesson.prerequisites}}" wx:key="ja">
+      <text class="pl-card-title">零基础前置说明</text>
+      <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+      <text class="pl-copy">{{item.zh}}</text>
+    </view>
+    <view class="pl-card" wx:for="{{lesson.blocks}}" wx:key="semanticKey">
+      <text class="pl-card-title">{{item.title.ja}}</text>
+      <text class="pl-card-sub">{{item.title.zh}}</text>
+      <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+      <text class="pl-copy">{{item.zh}}</text>
+    </view>
+    <view class="pl-card">
+      <text class="pl-card-title">核心术语</text>
+      <view class="pl-term" wx:for="{{lesson.terms}}" wx:key="en">
+        <text class="pl-term__name">{{item.ja}} / {{item.zh}} / {{item.en}}</text>
+        <text class="pl-copy pl-copy--ja">{{item.explanationJa}}</text>
+        <text class="pl-copy">{{item.explanationZh}}</text>
+      </view>
+    </view>
+    <view class="pl-card" wx:for="{{lesson.codeExamples}}" wx:key="exampleId" wx:for-index="codeIndex">
+      <view class="pl-code-head">
+        <text class="pl-card-title">Python</text>
+        <view class="pl-copy-btn" bindtap="copyCode" data-index="{{codeIndex}}">复制</view>
+      </view>
+      <scroll-view scroll-x="true" class="python-code-scroll">
+        <text class="python-code">{{item.code}}</text>
+      </scroll-view>
+      <block wx:if="{{item.sampleInput}}">
+        <text class="pl-card-sub">入力例 / 输入示例</text>
+        <text class="python-output">{{item.sampleInput}}</text>
+      </block>
+      <text class="pl-card-sub">expectedOutput</text>
+      <text class="python-output">{{item.expectedOutput}}</text>
+      <view wx:for="{{item.lineNotes}}" wx:key="ja">
+        <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+        <text class="pl-copy">{{item.zh}}</text>
+      </view>
+    </view>
+    <view class="pl-card">
+      <text class="pl-card-title">常见错误</text>
+      <view wx:for="{{lesson.commonMistakes}}" wx:key="ja">
+        <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+        <text class="pl-copy">{{item.zh}}</text>
+      </view>
+    </view>
+    <view class="pl-card pl-card--handson">
+      <text class="pl-card-title">手を動かしてみよう / 动手试试看</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.handson.ja}}</text>
+      <text class="pl-copy">{{lesson.handson.zh}}</text>
+      <text class="pl-card-sub">action</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.handson.action.ja}}</text>
+      <text class="pl-copy">{{lesson.handson.action.zh}}</text>
+      <text class="pl-card-sub">expectedObservation</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.handson.expectedObservation.ja}}</text>
+      <text class="pl-copy">{{lesson.handson.expectedObservation.zh}}</text>
+    </view>
+    <view class="pl-card">
+      <text class="pl-card-title">小结</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.summary.ja}}</text>
+      <text class="pl-copy">{{lesson.summary.zh}}</text>
+    </view>
+    <view class="pl-card">
+      <text class="pl-card-title">下一节的关系</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.nextLessonBridge.ja}}</text>
+      <text class="pl-copy">{{lesson.nextLessonBridge.zh}}</text>
+    </view>
+  </block>
+</view>

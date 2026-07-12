@@ -1,0 +1,244 @@
+<!-- pages/quiz/quiz.wxml -->
+<view class="container {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/quiz-sg-1/pages/quiz/quiz">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <view class="quiz-header">
+    <view class="quiz-header-left">
+      <view class="quiz-exam-badge {{exam === 'sg' ? 'badge-sg' : (exam === 'wrong_only' ? 'badge-wrong' : 'badge-it')}}">{{examBadge}}</view>
+      <text class="quiz-title">{{examTitle}}</text>
+    </view>
+    <!-- R3.62 答题计时器 -->
+    <view class="timer-section" wx:if="{{!isFinished && timerText}}">
+      <text class="timer-icon">T</text>
+      <text class="timer-text">{{timerText}}</text>
+    </view>
+  </view>
+
+  <!-- 进度条 + 百分比 -->
+  <view class="progress-row" wx:if="{{!isFinished && totalQuestions > 0}}">
+    <view class="progress-bar-wrap">
+      <view class="progress-bar" style="width: {{progressPercent}}%"></view>
+    </view>
+    <text class="progress-percent">{{progressPercent}}%</text>
+  </view>
+
+  <!-- 实时统计 -->
+  <view class="session-stats" wx:if="{{!isFinished && totalQuestions > 0 && sessionTotal > 0}}">
+    <text class="session-stat-item">已答 {{sessionTotal}} 题</text>
+    <text class="session-stat-item session-stat-correct">✓ {{sessionCorrect}}</text>
+    <text class="session-stat-item session-stat-wrong">× {{sessionWrong}}</text>
+  </view>
+
+  <block wx:if="{{!isFinished && currentQuestion}}">
+    <view class="card question-card">
+      <text class="question-zh" user-select="true">{{currentQuestion.questionZhClean || currentQuestion.questionZh}}</text>
+      <text class="question-ja" user-select="true">{{currentQuestion.questionJaClean || currentQuestion.questionJa}}</text>
+      <view class="question-progress-row">
+        <text class="question-number">第 {{currentIndex + 1}} / {{totalQuestions}} 题</text>
+      </view>
+      <view class="question-source" wx:if="{{currentQuestion.sourceType === 'lesson_quiz'}}">
+        <text class="source-badge">课程练习</text>
+        <text class="source-title">{{currentQuestion.lessonTitleZh}}</text>
+      </view>
+      <view class="question-source" wx:if="{{currentQuestion.sourceType === 'past_exam_japanese'}}">
+        <text class="source-badge source-badge-exam">日文题练习</text>
+        <text class="source-title">{{currentQuestion.year}} 第{{currentQuestion.number}}题</text>
+      </view>
+      <view class="translation-warning" wx:if="{{currentQuestion.translationStatus === 'zh_fallback_from_ja'}}">
+        <text class="warning-icon">!</text>
+        <text class="warning-text">日文原题，中文翻译待补充。</text>
+      </view>
+
+      <!-- R3.60 提示按钮 -->
+      <view class="hint-section" wx:if="{{currentQuestion.shared_hint}}">
+        <view class="hint-btn {{showHint ? 'hint-btn-active' : ''}}" bindtap="toggleHint">
+          <view class="hint-btn-symbol {{showHint ? 'hint-btn-symbol-active' : ''}}"></view>
+          <text class="hint-btn-text">{{showHint ? '隐藏提示' : '查看提示'}}</text>
+        </view>
+        <view class="hint-content" wx:if="{{showHint}}">
+          <text class="hint-text" user-select="true">{{currentQuestion.shared_hint}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="options-list quiz-container-state-{{answerState}}">
+      <option-item
+        wx:for="{{currentQuestion.options}}"
+        wx:key="key"
+        label="{{item.key}}"
+        state="{{hasAnswered ? (item.key === currentQuestion.answer ? 'correct' : (item.key === selectedAnswer ? 'incorrect' : 'default')) : (item.key === selectedAnswer ? 'selected' : 'default')}}"
+        disabled="{{hasAnswered}}"
+        bind:qpselect="selectAnswer"
+      >
+        <view class="option-content">
+          <text class="option-zh" user-select="true">{{item.textZh}}</text>
+          <text class="option-ja" user-select="true">{{item.textJa}}</text>
+        </view>
+      </option-item>
+    </view>
+
+    <view class="confirm-row" wx:if="{{answerState === 'selected' && !hasAnswered}}">
+      <ui-button variant="primary" text="确认作答" bind:qptap="confirmAnswer"></ui-button>
+      <text class="confirm-note">确认前可以重新选择选项</text>
+    </view>
+
+    <view class="feedback-section" wx:if="{{hasAnswered}}">
+      <view class="feedback-result {{isCorrect ? 'feedback-correct' : 'feedback-wrong'}}">
+        <text class="feedback-icon">{{isCorrect ? '✓' : '×'}}</text>
+        <view class="feedback-text-wrap">
+          <text class="feedback-text">{{isCorrect ? '回答正确' : '回答错误，正确答案是 ' + currentQuestion.answer}}</text>
+          <text class="feedback-tip" wx:if="{{showFeedbackTip}}">{{feedbackTip}}</text>
+        </view>
+      </view>
+
+      <view class="card explanation-card analysis-drawer" wx:if="{{showAnalysisDrawer}}">
+        <view class="explanation-warning" wx:if="{{currentQuestion.explanationStatus === 'shared_hint'}}">
+          <text class="warning-icon">!</text>
+          <text class="warning-text">当前为通用说明，中文解释待补充。</text>
+        </view>
+        <text class="explanation-title">简要解析</text>
+        <view class="explanation-body" user-select="true">{{currentQuestion.explanationZhClean}}</view>
+        <text class="explanation-title" wx:if="{{currentQuestion.explanationJaClean}}">日文原文</text>
+        <view class="explanation-body" user-select="true">{{currentQuestion.explanationJaClean}}</view>
+        <view class="analysis-detail-link" bindtap="goAnalysisDetail">
+          <text class="analysis-detail-text">查看完整解析</text>
+          <text class="analysis-detail-arrow">›</text>
+        </view>
+      </view>
+
+      <view class="next-btn" bindtap="nextQuestion">
+        <text class="next-btn-text">{{currentIndex + 1 >= totalQuestions ? '查看结果' : '下一题'}}</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{isFinished && !showResult && totalQuestions === 0}}">
+    <view class="card finish-card">
+      <text class="finish-icon">-</text>
+      <text class="finish-title">暂无题目</text>
+      <view class="finish-btn" bindtap="finishQuiz">
+        <text class="finish-btn-text">返回</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{showResult && totalQuestions > 0}}">
+    <view class="card result-card">
+      <text class="result-kicker">本次练习完成</text>
+      <!-- R3.62 答题用时 -->
+      <view class="result-timer" wx:if="{{timerText}}">
+        <text class="result-timer-icon">T</text>
+        <text class="result-timer-text">用时 {{timerText}}</text>
+      </view>
+      <text class="result-mode">{{resultModeLabel}}</text>
+
+      <view class="accuracy-block accuracy-{{accuracyLevel}}">
+        <text class="accuracy-value">{{sessionAccuracy}}%</text>
+        <text class="accuracy-label">本次正确率</text>
+      </view>
+
+      <view class="result-stats">
+        <view class="result-stat">
+          <text class="result-stat-value">{{sessionTotal}}</text>
+          <text class="result-stat-label">本次答题数</text>
+        </view>
+        <view class="result-stat">
+          <text class="result-stat-value result-correct">{{sessionCorrect}}</text>
+          <text class="result-stat-label">答对数量</text>
+        </view>
+        <view class="result-stat">
+          <text class="result-stat-value result-wrong">{{sessionWrong}}</text>
+          <text class="result-stat-label">答错数量</text>
+        </view>
+      </view>
+
+      <!-- 学习洞察 -->
+      <view class="insight-block result-insight insight-{{accuracyLevel}}">
+        <view class="insight-header">
+          <view class="insight-symbol insight-symbol-{{accuracyLevel}}"></view>
+          <text class="insight-label">{{encouragementText}}</text>
+        </view>
+        <text class="insight-hint" wx:if="{{insightHint}}">{{insightHint}}</text>
+      </view>
+
+      <view class="weakness-list" wx:if="{{sessionWrong > 0}}">
+        <view class="weakness-item">
+          <text class="weakness-label">薄弱方向</text>
+          <text class="weakness-text">本次错题 {{sessionWrong}} 题，建议先重练本次错题或进入错题本复盘。</text>
+        </view>
+      </view>
+
+      <!-- 下一步建议 -->
+      <view class="next-action-card" wx:if="{{nextAction}}">
+        <text class="next-action-icon">→</text>
+        <text class="next-action-text">{{nextAction}}</text>
+      </view>
+
+      <view class="result-actions">
+        <view class="result-btn result-btn-primary" bindtap="restartPractice">
+          <text class="result-btn-text result-btn-text-primary">再练一次</text>
+        </view>
+        <!-- R3.50 重练错题按钮 -->
+        <view class="result-btn result-btn-retry" bindtap="retryWrongQuestions" wx:if="{{wrongQuestionIds.length > 0}}">
+          <text class="result-btn-text result-btn-text-retry">重练错题 ({{wrongQuestionIds.length}}题)</text>
+        </view>
+        <view class="result-btn {{hasWrongQuestions ? 'result-btn-wrong' : ''}}" bindtap="goMistakes">
+          <text class="result-btn-text {{hasWrongQuestions ? 'result-btn-text-wrong' : ''}}">查看错题{{hasWrongQuestions ? ' (' + sessionWrong + '题)' : ''}}</text>
+        </view>
+        <view class="result-btn" bindtap="goHome">
+          <text class="result-btn-text">返回首页</text>
+        </view>
+        <!-- R3.46 分享按钮 -->
+        <button class="result-btn share-btn" open-type="share">
+          <text class="result-btn-text share-btn-text">分享成绩</text>
+        </button>
+      </view>
+
+      <!-- R3.43 答题回顾按钮 -->
+      <view class="review-btn" bindtap="toggleReview" wx:if="{{reviewList.length > 0}}">
+        <text class="review-btn-text">回顾本题 ({{reviewList.length}}题)</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- R3.43 答题回顾列表 -->
+  <view class="review-section" wx:if="{{showReview && reviewList.length > 0}}">
+    <view class="review-header">
+      <text class="review-title">答题回顾</text>
+      <text class="review-close" bindtap="toggleReview">✕</text>
+    </view>
+    <view class="review-list">
+      <view
+        class="review-item {{item.isCorrect ? 'review-item-correct' : 'review-item-wrong'}}"
+        wx:for="{{reviewList}}"
+        wx:key="questionId"
+      >
+        <view class="review-item-index">{{index + 1}}</view>
+        <view class="review-item-content">
+          <text class="review-item-question" user-select="true">{{item.questionZh}}</text>
+          <view class="review-item-answer">
+            <text class="review-item-label">你的答案：</text>
+            <text class="review-item-selected {{item.isCorrect ? 'text-correct' : 'text-wrong'}}">{{item.selectedAnswer}}</text>
+          </view>
+          <view class="review-item-answer" wx:if="{{!item.isCorrect}}">
+            <text class="review-item-label">正确答案：</text>
+            <text class="review-item-correct-answer text-correct">{{item.correctAnswer}}</text>
+          </view>
+          <!-- R3.48 错题解析 -->
+          <!-- R3.48 smoke anchor: 💡 提示 -->
+          <view class="review-item-answer" wx:if="{{item.hint}}">
+            <text class="review-item-label">提示：</text>
+            <text class="review-item-hint">{{item.hint}}</text>
+          </view>
+        </view>
+        <view class="review-item-status">
+          <text>{{item.isCorrect ? '✓' : '×'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

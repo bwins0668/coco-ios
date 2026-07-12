@@ -1,0 +1,98 @@
+<view class="pl-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/sql-course/pages/lesson/lesson">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+  <block wx:if="{{loadError}}">
+    <view class="pl-card">
+      <text class="pl-empty-title">小节暂不可用</text>
+      <text class="pl-copy">找不到这个 SQL 小节。请返回章节目录重新进入。</text>
+      <view class="pl-btn" bindtap="goBack">返回</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="pl-head">
+      <text class="pl-kicker">SQL Lesson</text>
+      <text class="pl-title">{{lesson.title.ja}}</text>
+      <text class="pl-sub">{{lesson.title.zh}}</text>
+    </view>
+
+    <view class="pl-card" wx:if="{{lesson.objectives.length}}">
+      <text class="pl-card-title">この節で学ぶこと / 本节你将学会什么</text>
+      <view wx:for="{{lesson.objectives}}" wx:key="zh">
+        <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+        <text class="pl-copy">{{item.zh}}</text>
+      </view>
+    </view>
+
+    <view class="pl-card" wx:for="{{lesson.blocks}}" wx:key="semanticKey">
+      <text class="pl-card-title">{{item.title.ja}}</text>
+      <text class="pl-card-sub">{{item.title.zh}}</text>
+      <text class="pl-copy pl-copy--ja">{{item.ja}}</text>
+      <text class="pl-copy">{{item.zh}}</text>
+    </view>
+
+    <view class="pl-card" wx:if="{{lesson.analogy.zh}}">
+      <text class="pl-card-title">たとえ / 比喻</text>
+      <text class="pl-copy">{{lesson.analogy.zh}}</text>
+    </view>
+
+    <view class="pl-card" wx:if="{{lesson.terms.length}}">
+      <text class="pl-card-title">核心术语</text>
+      <view class="pl-term" wx:for="{{lesson.terms}}" wx:key="en">
+        <text class="pl-term__name">{{item.ja}} / {{item.zh}} / {{item.en}}</text>
+        <text class="pl-copy">{{item.desc}}</text>
+      </view>
+    </view>
+
+    <view class="pl-card" wx:if="{{lesson.example.code}}">
+      <view class="pl-code-head">
+        <text class="pl-card-title">示例 SQL</text>
+        <view class="pl-copy-btn" bindtap="copyExample">复制</view>
+      </view>
+      <scroll-view scroll-x="true" class="python-code-scroll">
+        <text class="python-code">{{lesson.example.code}}</text>
+      </scroll-view>
+    </view>
+
+    <view class="pl-card pl-card--handson" wx:if="{{lesson.playground}}">
+      <text class="pl-card-title">动手写 SQL / SQL を書いてみよう</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.playground.taskJa}}</text>
+      <text class="pl-copy">{{lesson.playground.taskZh}}</text>
+      <textarea class="sql-pg__input" value="{{queryInput}}" bindinput="onQueryInput" placeholder="在这里输入 SQL，例如 SELECT * FROM ...;" auto-height maxlength="-1"></textarea>
+      <view class="pl-btn" bindtap="judgeQuery">判定</view>
+      <view class="sql-pg__result sql-pg__result--ok" wx:if="{{queryResult === 'correct'}}">
+        <text>✓ 正确！这条查询命中了任务要求。</text>
+      </view>
+      <view class="sql-pg__result sql-pg__result--ng" wx:elif="{{queryResult === 'wrong'}}">
+        <text>✗ 还没命中任务要求，请对照上面的示例再试一次。</text>
+      </view>
+    </view>
+
+    <view class="pl-card" wx:if="{{lesson.quiz}}">
+      <text class="pl-card-title">小测 / クイズ</text>
+      <text class="pl-copy">{{lesson.quiz.question}}</text>
+      <view class="sql-quiz__opt {{quizSelected === index ? (index === lesson.quiz.answerIdx ? 'sql-quiz__opt--ok' : 'sql-quiz__opt--ng') : ''}}"
+            wx:for="{{lesson.quiz.options}}" wx:key="*this" data-index="{{index}}" bindtap="selectQuizOption">
+        <text>{{item}}</text>
+      </view>
+      <view class="sql-pg__result sql-pg__result--ok" wx:if="{{quizResult === 'correct'}}">
+        <text>✓ 回答正确。</text>
+      </view>
+      <view class="sql-pg__result sql-pg__result--ng" wx:elif="{{quizResult === 'wrong'}}">
+        <text>✗ 再想想。提示：{{lesson.quiz.hint}}</text>
+      </view>
+    </view>
+
+    <view class="pl-card" wx:if="{{lesson.summary}}">
+      <text class="pl-card-title">小结</text>
+      <text class="pl-copy pl-copy--ja">{{lesson.summary.ja}}</text>
+      <text class="pl-copy">{{lesson.summary.zh}}</text>
+    </view>
+
+    <view class="pl-btn {{completed ? 'pl-btn--done' : ''}}" bindtap="markComplete">
+      <text>{{completed ? '✓ 已学过（可重复练习）' : '标记为已学'}}</text>
+    </view>
+  </block>
+</view>

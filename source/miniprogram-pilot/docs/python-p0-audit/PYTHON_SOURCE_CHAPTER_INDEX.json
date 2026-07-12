@@ -1,0 +1,63 @@
+{
+  "generatedBy": "PYTHON.P0 audit — distilled from OEBPS/toc.ncx (read-only)",
+  "authority": "toc.ncx",
+  "extractionConfidenceLegend": "HIGH = TOC title+order verified; MEDIUM = chapter present, section granularity partial; LOW = body/code not extracted",
+  "books": [
+    {
+      "sourceBook": "Python编程：从入门到实践（第2版）",
+      "role": "PRIMARY-FROM-ZERO-SPINE",
+      "parts": [
+        {
+          "part": "第一部分 基础知识",
+          "chapters": [
+            {"chapterId": "b1-ch01", "chapterTitle": "第 1 章 起步", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0007-gs1-run-visible-output (GS 派生, 覆盖起步/print)"]},
+            {"chapterId": "b1-ch02", "chapterTitle": "第 2 章 变量和简单数据类型", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0008-gs2-values-and-variables (GS 派生, 覆盖变量)"]},
+            {"chapterId": "b1-ch03", "chapterTitle": "第 3 章 列表简介", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0009-7d37969c-第-3-章-列表简介"]},
+            {"chapterId": "b1-ch04", "chapterTitle": "第 4 章 操作列表", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0010-921b265b-第-4-章-操作列表"]},
+            {"chapterId": "b1-ch05", "chapterTitle": "第 5 章 if语句", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0011-5c80c609-第-5-章-if语句"]},
+            {"chapterId": "b1-ch06", "chapterTitle": "第 6 章 字典", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0012-5cc0ecc6-第-6-章-字典"]},
+            {"chapterId": "b1-ch07", "chapterTitle": "第 7 章 用户输入和while循环", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0013-3f4a9a6a-第-7-章-用户输入和while循环"]},
+            {"chapterId": "b1-ch08", "chapterTitle": "第 8 章 函数", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0014-75c7d812-第-8-章-函数"]},
+            {"chapterId": "b1-ch09", "chapterTitle": "第 9 章 类", "extractionConfidence": "HIGH", "runtimeMappedLessons": ["python-0015-0f96233e-第-9-章-类"]},
+            {"chapterId": "b1-ch10", "chapterTitle": "第 10 章 文件和异常", "extractionConfidence": "HIGH", "runtimeMappedLessons": [], "note": "下一候选，需 asset+执行安全轮次（见 lesson-0015 nextLessonBridge）"},
+            {"chapterId": "b1-ch11", "chapterTitle": "第 11 章 测试代码", "extractionConfidence": "HIGH", "runtimeMappedLessons": []}
+          ]
+        },
+        {
+          "part": "第二部分 项目",
+          "chapters": [
+            {"chapterId": "b1-ch12", "chapterTitle": "第 12 章 武装飞船 (项目1 外星人入侵)", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch13", "chapterTitle": "第 13 章 外星人来了", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch14", "chapterTitle": "第 14 章 记分", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch15", "chapterTitle": "第 15 章 生成数据 (项目2 数据可视化)", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch16", "chapterTitle": "第 16 章 下载数据", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch17", "chapterTitle": "第 17 章 使用API", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch18", "chapterTitle": "第 18 章 从Django入手 (项目3 Web应用)", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch19", "chapterTitle": "第 19 章 用户账户", "extractionConfidence": "HIGH", "runtimeMappedLessons": []},
+            {"chapterId": "b1-ch20", "chapterTitle": "第 20 章 设置应用程序的样式并部署", "extractionConfidence": "HIGH", "runtimeMappedLessons": []}
+          ]
+        },
+        {"part": "附录", "chapters": [
+          {"chapterTitle": "附录A 安装与故障排除 / B 文本编辑器与IDE / C 寻求帮助 / D 使用Git进行版本控制", "extractionConfidence": "HIGH", "runtimeMappedLessons": []}
+        ]}
+      ]
+    },
+    {
+      "sourceBook": "Python编程快速上手——让繁琐工作自动化",
+      "role": "SECONDARY-AUTOMATION-TRACK",
+      "chapterSummary": "基础(第1章 Python基础 / 第2章 控制流 / 第3章 函数 / 第4章 列表 / 第5章 字典和结构化数据 / 第6章 字符串操作) + 自动化项目(正则/文件/组织文件/调试/Web抓取/Excel/PDF与Word/CSV与JSON/时间与调度/邮件/图像/GUI自动化 第7–18章) + 附录A–C",
+      "extractionConfidence": "MEDIUM",
+      "runtimeMappedLessons": [],
+      "note": "authoring corpus 中已存在大量该书 asset-spec（正则/zip/pdf/csv 等），但均未发布到 runtime。"
+    },
+    {
+      "sourceBook": "Python极客项目编程",
+      "role": "TERTIARY-PROJECTS-TRACK",
+      "chapterSummary": "第一部分 热身(iTunes播放列表/万花尺) 第二部分 模拟生命(生命游戏/Karplus-Strong/类鸟群) 第三部分 图片(ASCII/照片马赛克/三维立体画) 第四部分 三维(OpenGL/粒子系统/体渲染) 第五部分 硬件(Arduino/激光音乐秀/树莓派天气) 第1–14章 + 附录A–C",
+      "extractionConfidence": "MEDIUM",
+      "runtimeMappedLessons": [],
+      "note": "多为需硬件/图形/OpenGL 的项目，不属于 from-zero 主线。"
+    }
+  ],
+  "fullSpineDetail": "见 packages/python-course/data/python-source-manifest.js（66 spine 条目 + 380 manifest items 的完整机器可读映射，本轮只读校验其 EPUB sha256 绑定为真）。"
+}

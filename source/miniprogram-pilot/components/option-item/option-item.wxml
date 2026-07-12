@@ -1,0 +1,23 @@
+<!-- option-item · 答题选项行
+     state 仅控制"视觉态"，对应冻结 QuizContainer：
+       default   → C1 未作答
+       selected  → C2 已选择 · 待确认
+       correct   → C3 作答正确
+       incorrect → C4 作答错误
+     组件不判定对错、不写存储、不引用页面；仅透传选择事件 qpselect。 -->
+<view
+  class="qp-option qp-option--{{state}} {{disabled ? 'is-disabled' : ''}}"
+  hover-class="{{state === 'default' && !disabled ? 'qp-option--hover' : 'none'}}"
+  hover-stay-time="60"
+  bindtap="onTap"
+>
+  <view class="qp-option__key">{{label}}</view>
+  <view class="qp-option__text">
+    <text wx:if="{{text}}">{{text}}</text>
+    <slot wx:else></slot>
+  </view>
+  <view class="qp-option__mark" wx:if="{{state === 'correct' || state === 'incorrect'}}">
+    <text wx:if="{{state === 'correct'}}">✓</text>
+    <text wx:else>✕</text>
+  </view>
+</view>

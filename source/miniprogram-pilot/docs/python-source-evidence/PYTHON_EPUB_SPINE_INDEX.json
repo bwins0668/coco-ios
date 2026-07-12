@@ -1,0 +1,533 @@
+{
+  "count": 66,
+  "spine": [
+    {
+      "spineIndex": 1,
+      "href": "text00000.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 63,
+      "textHash": "de48a3138f0ce33c99f7f5865c6b9b4bcdc167ff7248f090b072fad2b3bc89dc",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 2,
+      "href": "text00001.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 431697,
+      "textHash": "4c5b00a3e7aecd2eaed485d8a47fca05b808447b4edf89c4af6bafd6f87e707f",
+      "codeBlockCount": 892
+    },
+    {
+      "spineIndex": 3,
+      "href": "text00002.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 5,
+      "textHash": "fa8d84566676ee2ee6627116304e7eef7c9b06875d230435a4b23264fcc34f98",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 4,
+      "href": "text00003.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 8671,
+      "textHash": "a435c733d4131bbacb0a09a022e2478b3c49ca9ff8b81e8f93acf7b3393464af",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 5,
+      "href": "text00004.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 375,
+      "textHash": "44fde0323425b3d3e77d8787387ae49e847d07017d4734c49ffc09d08ed6bfaf",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 6,
+      "href": "text00005.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 347,
+      "textHash": "f343ade1cda75fb88bdf1b94984f179bf8fb78eb287c71d1ea489a6cbc8cc516",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 7,
+      "href": "text00006.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 390,
+      "textHash": "4a57095e786bd3a7c2abaf7bcdeb1bf6c619b3a5616e148610d08a687fc3f254",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 8,
+      "href": "text00007.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 115,
+      "textHash": "a045c61780fcc04e4ce385870c1ec2593f33ab28acac895b9c435692b51d6738",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 9,
+      "href": "text00008.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 137,
+      "textHash": "89979b270c4084eeb63bbd72a239ecfe0f2332e5a3c51174c8c09f2a9bc65c03",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 10,
+      "href": "text00009.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 305,
+      "textHash": "2d9813a464ba90ee042c0c873be0efe7a7eee9eb6d5161d3d906d2b29b8a8e75",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 11,
+      "href": "text00010.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 730,
+      "textHash": "426807a329778bce9aced2e986b36fa38466dd09c3bcfd1d5508d082c9795b91",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 12,
+      "href": "text00011.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 7434,
+      "textHash": "ba8c614c4311f695e81767561acc63791c080c1b23f7fea336af237e4803bcf7",
+      "codeBlockCount": 5
+    },
+    {
+      "spineIndex": 13,
+      "href": "text00012.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 15,
+      "textHash": "11470a44868b7481bf3e7d7349d5ace94d5cee75da3013966e7a563e3759bdd8",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 14,
+      "href": "text00013.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 12000,
+      "textHash": "896ab753dc3ae32e596d8ca6bcdc9f990951525388d7adfd6f80e68e66a37062",
+      "codeBlockCount": 36
+    },
+    {
+      "spineIndex": 15,
+      "href": "text00014.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 15628,
+      "textHash": "1e2dbc549ffb987d932aa6b1a07d6f05ffb534c064607d68b22539829834bc2c",
+      "codeBlockCount": 41
+    },
+    {
+      "spineIndex": 16,
+      "href": "text00015.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 13274,
+      "textHash": "289c383875f9a6f24b4b5ce0bc8296ed93712b49eb052958dba8efd0e90bef9a",
+      "codeBlockCount": 41
+    },
+    {
+      "spineIndex": 17,
+      "href": "text00016.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 20309,
+      "textHash": "ee939c2a2ee43a044fcada01633f17d214daf5e9603a31e0e3b89b0c5b4137d8",
+      "codeBlockCount": 62
+    },
+    {
+      "spineIndex": 18,
+      "href": "text00017.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 14043,
+      "textHash": "ac6de1f181f2ed5216fa7f4487648742eaa0282896c9f7d5a555fdc29e84852b",
+      "codeBlockCount": 39
+    },
+    {
+      "spineIndex": 19,
+      "href": "text00018.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 17877,
+      "textHash": "84894c9882800239acd7babc2c3f7882e5bafb6e45eaac8d62135c590cd15480",
+      "codeBlockCount": 46
+    },
+    {
+      "spineIndex": 20,
+      "href": "text00019.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 10,
+      "textHash": "e1c6dffd1fbdc348da61d08f6d3cb77b63767b053facd475c52a4f09fe5bb2a0",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 21,
+      "href": "text00020.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 24715,
+      "textHash": "508ffec7b123f1c4e9d3b6ffe6bee64b51a487d7988d7fc1c112361e509fac94",
+      "codeBlockCount": 46
+    },
+    {
+      "spineIndex": 22,
+      "href": "text00021.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 23321,
+      "textHash": "ce64d3cf51cf8e84fa0a3d70a0c460e94f550f2e094f00412947f1fc30ac37ba",
+      "codeBlockCount": 40
+    },
+    {
+      "spineIndex": 23,
+      "href": "text00022.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 18237,
+      "textHash": "8b69388cda24a20679ef870f19cc8b755f1356d41cc3060332fc9640cd246105",
+      "codeBlockCount": 23
+    },
+    {
+      "spineIndex": 24,
+      "href": "text00023.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 16307,
+      "textHash": "224044c46025a14b3074fd9932f25bf89c6aaa4cf92b8ed7e8fb94df5e94c86b",
+      "codeBlockCount": 24
+    },
+    {
+      "spineIndex": 25,
+      "href": "text00024.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 29769,
+      "textHash": "cd515697dc9142632e60c2b3157feba18c128c5a59b9161b7cf32f63d1214c01",
+      "codeBlockCount": 34
+    },
+    {
+      "spineIndex": 26,
+      "href": "text00025.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 26614,
+      "textHash": "28084a64259d72cd37a4b5d8284340e210f5cc66226ac8233c8c3a04045be0c9",
+      "codeBlockCount": 37
+    },
+    {
+      "spineIndex": 27,
+      "href": "text00026.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 22404,
+      "textHash": "8f58162c0eb0e438d135c74924298aebb35e8e2c7b46f0dc04cb67e0a5020b56",
+      "codeBlockCount": 23
+    },
+    {
+      "spineIndex": 28,
+      "href": "text00027.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 15854,
+      "textHash": "88d55e0e8314dc555aeb27a014d868c4566649d310bff217f08baa141a219d62",
+      "codeBlockCount": 21
+    },
+    {
+      "spineIndex": 29,
+      "href": "text00028.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 26046,
+      "textHash": "e6ebfb260b7e1b0c0ecfe4eba1f1317db9288b1c1d1d46be67ef6e10e6bc0cdf",
+      "codeBlockCount": 37
+    },
+    {
+      "spineIndex": 30,
+      "href": "text00029.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 26685,
+      "textHash": "6b217a9659faea056fad7eadd517fbe64135b8a047e2444a6d7f6fbef4ef6044",
+      "codeBlockCount": 37
+    },
+    {
+      "spineIndex": 31,
+      "href": "text00030.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 21793,
+      "textHash": "ecd0e8faa934453bdbcf7e916529339060a72ac946971dc5514271d17f151c4a",
+      "codeBlockCount": 24
+    },
+    {
+      "spineIndex": 32,
+      "href": "text00031.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 24326,
+      "textHash": "3e57e152e025196d385b4c32d53b07ebec71a2bd212c5a8756e65a2c38f48ed7",
+      "codeBlockCount": 35
+    },
+    {
+      "spineIndex": 33,
+      "href": "text00032.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 1456,
+      "textHash": "50bc3b1705efcca000d5649c0ff594e7a5b2e9845c76b52778a494b5c0f19c9d",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 34,
+      "href": "text00033.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 1929,
+      "textHash": "cee754f54b17e6b495e730e438c8dab1384197456e842df7b67b6a43bb16f4b9",
+      "codeBlockCount": 1
+    },
+    {
+      "spineIndex": 35,
+      "href": "text00034.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 9731,
+      "textHash": "1e6d4e724388110cd11bd97ef4fb1e595c2fd99f132f56d97ae7c86f81a79f21",
+      "codeBlockCount": 7
+    },
+    {
+      "spineIndex": 36,
+      "href": "text00035.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 1141,
+      "textHash": "ff51b83607263f850dabaea8b0bde39e03f3408b51eaa85a2f1ab4bc28de8587",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 37,
+      "href": "text00036.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 5,
+      "textHash": "fa8d84566676ee2ee6627116304e7eef7c9b06875d230435a4b23264fcc34f98",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 38,
+      "href": "text00037.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 3565,
+      "textHash": "ce4575df438d2d504143698b2764466cd81ce1c5823b2741bd638ad8a7e6caaa",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 39,
+      "href": "text00038.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 374,
+      "textHash": "c7aa15ea5fb502681a8a7c659b0bd8a50e9e4db6cf397756f3c61dd00ef14e0f",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 40,
+      "href": "text00039.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 337,
+      "textHash": "7a03c954def58847f1bf686cce7b928a58866af90df86e492146484379ed4ca3",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 41,
+      "href": "text00040.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 397,
+      "textHash": "4d9222d2760c4a7c487f33619a6b575f251b8dd59776c9f287d597c4a108f466",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 42,
+      "href": "text00041.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 625,
+      "textHash": "4e65c1bdf3edb29351251d71b97928d5e1a86ed32af8f5e97a7b2ec3ee6fbcd2",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 43,
+      "href": "text00042.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 2831,
+      "textHash": "79ba7f905997ae620af2febb71b7d688ffdb95d9f74f7a16b93793beac21bfcf",
+      "codeBlockCount": 2
+    },
+    {
+      "spineIndex": 44,
+      "href": "text00043.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 49,
+      "textHash": "6e0e7529df5b359cdc1a87e61c9146f5fdc2341a5c9fbaeee5dda1e1a4857fc2",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 45,
+      "href": "text00044.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 13383,
+      "textHash": "1a9144da5ffd651e2059563a2d7c327c5e770aa421821e6846743b6b8200082c",
+      "codeBlockCount": 11
+    },
+    {
+      "spineIndex": 46,
+      "href": "text00045.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 19133,
+      "textHash": "852ad4c349702bda1e6ba67b4754611aba4617a4eda073f01c90a2d9e71f8e3d",
+      "codeBlockCount": 19
+    },
+    {
+      "spineIndex": 47,
+      "href": "text00046.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 37,
+      "textHash": "ba858ae2647aea5726fef1cf7be7c323198593880cfcff88945ec0769c261711",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 48,
+      "href": "text00047.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 9249,
+      "textHash": "9dc5eaa9b45376ca8a6f8b3916f5b0d92d007d183ed422bef643046164a3603f",
+      "codeBlockCount": 16
+    },
+    {
+      "spineIndex": 49,
+      "href": "text00048.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 12047,
+      "textHash": "a388c5ff365fc8dd3459872a92c452ef0d98ac0fb56afb322d75f07363349832",
+      "codeBlockCount": 9
+    },
+    {
+      "spineIndex": 50,
+      "href": "text00049.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 13907,
+      "textHash": "a399f281494bb507650dd9c8845ce964c3fef1a4360bfe93be1e05706b730c67",
+      "codeBlockCount": 20
+    },
+    {
+      "spineIndex": 51,
+      "href": "text00050.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 40,
+      "textHash": "5335400d1258062d81af5c098daa0a0d505881ea11d52435c00b280c389db716",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 52,
+      "href": "text00051.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 9460,
+      "textHash": "e2d38ccf098f2dc2c90ab1cffbaa94d503e043bdcefa805f949b0d048197bdf8",
+      "codeBlockCount": 9
+    },
+    {
+      "spineIndex": 53,
+      "href": "text00052.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 16108,
+      "textHash": "1c3f1187158bf39203ce0af2eb899419d311d1d028b1844f936907cc258c9603",
+      "codeBlockCount": 10
+    },
+    {
+      "spineIndex": 54,
+      "href": "text00053.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 11340,
+      "textHash": "3fa73af3187b991fc0b38b6911c95017026c8888534669b14a7dc20f40755bd1",
+      "codeBlockCount": 8
+    },
+    {
+      "spineIndex": 55,
+      "href": "text00054.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 173,
+      "textHash": "d1e7644699163ec1812119ef05be0bb1da87c7926cf4953a48a3b054568465c7",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 56,
+      "href": "text00055.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 22399,
+      "textHash": "fc09fadcee06d59e1ce3a537e20c7142166d4f3d36e50e1f9448ba38a5d52364",
+      "codeBlockCount": 20
+    },
+    {
+      "spineIndex": 57,
+      "href": "text00056.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 29803,
+      "textHash": "9822c36bca5f1b687aa50ac89403b91ac660f68445c2ba53d28e98de7ab1fe24",
+      "codeBlockCount": 18
+    },
+    {
+      "spineIndex": 58,
+      "href": "text00057.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 43666,
+      "textHash": "ca43fcd2c103aab911a6e611571e5aa3b531e5866c8ab8922be02795983b822e",
+      "codeBlockCount": 26
+    },
+    {
+      "spineIndex": 59,
+      "href": "text00058.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 63,
+      "textHash": "0b74972cd7d84ace06634bd382d10e54822ff3b5c8f97a44ac68b3d2b3f458e8",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 60,
+      "href": "text00059.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 10155,
+      "textHash": "bcb287442104499d8af1ff4ddfafd6d376088d800c450f33fc463caab1293b2b",
+      "codeBlockCount": 10
+    },
+    {
+      "spineIndex": 61,
+      "href": "text00060.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 18918,
+      "textHash": "f2148806c6d1eb8042cea735fddf18efb076c5b7b73f0c23f6531337ceb5c70a",
+      "codeBlockCount": 19
+    },
+    {
+      "spineIndex": 62,
+      "href": "text00061.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 19125,
+      "textHash": "07950856567018e5571719cd830e51ba5950235594d986ecb863ba5f18a97a1b",
+      "codeBlockCount": 25
+    },
+    {
+      "spineIndex": 63,
+      "href": "text00062.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 3770,
+      "textHash": "bf7547d0677f70c0019c83bc0a9f12f04ae31040a34c0966d60f62ef441aaffa",
+      "codeBlockCount": 7
+    },
+    {
+      "spineIndex": 64,
+      "href": "text00063.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 4437,
+      "textHash": "9c8902cf354c0b7e125d4d1c6f771e7e1d66d71b8046548f75074ae7c27890b8",
+      "codeBlockCount": 0
+    },
+    {
+      "spineIndex": 65,
+      "href": "text00064.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 6236,
+      "textHash": "0a0ba1c4f236ab959e00bd410fc9a26f6c224d05c905966e40fc352fd35e0aea",
+      "codeBlockCount": 15
+    },
+    {
+      "spineIndex": 66,
+      "href": "text00065.html",
+      "mediaType": "application/xhtml+xml",
+      "textLen": 1141,
+      "textHash": "95cc6abe55f80f702d67ab2023e15856542d51b7bc07611d3d4c9c3bbd442a29",
+      "codeBlockCount": 0
+    }
+  ]
+}

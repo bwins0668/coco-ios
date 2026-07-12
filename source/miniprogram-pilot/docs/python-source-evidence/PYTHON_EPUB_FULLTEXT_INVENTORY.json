@@ -1,0 +1,20 @@
+{
+  "generatedBy": "extract_python_epub_source_evidence.js",
+  "epubs": [
+    {
+      "bookId": "bundle-3in1",
+      "fileName": "Python编程三剑客：Python编程从入门到实践 快速上手 极客编程 (埃里克·马瑟斯 (Eric Matthes), Al Sweigart etc.) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "sha256": "860F181731A4699BD412686599596A6101AECE5EB70DD837A15FB2B88F25F7EF",
+      "sha256Matches": true,
+      "fileSize": 17260692,
+      "title": "Python编程三剑客（套装全3册）",
+      "opfPath": "OEBPS/content.opf",
+      "tocPath": "OEBPS/toc.ncx",
+      "spineCount": 66,
+      "navPointCount": 968,
+      "extractable": true,
+      "encodingIssues": [],
+      "imageOrCodeRenderingRisks": []
+    }
+  ]
+}

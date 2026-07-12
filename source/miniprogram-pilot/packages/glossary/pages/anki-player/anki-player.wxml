@@ -1,0 +1,141 @@
+<view class="container anki-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/glossary/pages/anki-player/anki-player">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-section" wx:if="{{isLoading}}">
+    <view class="loading-symbol"></view>
+    <text class="loading-text">正在加载闪卡...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view class="error-section" wx:elif="{{errorMsg}}">
+    <view class="error-symbol"></view>
+    <text class="error-text">{{errorMsg}}</text>
+    <view class="error-btn" bindtap="restartSession">重试</view>
+  </view>
+
+  <view class="anki-header" wx:if="{{!isLoading && !errorMsg && totalCount > 0 && !isComplete}}">
+    <view class="anki-header-row">
+      <view class="anki-info-block">
+        <text class="anki-info-label">进度</text>
+        <text class="anki-info-value">{{currentIndex + 1}}<text class="anki-info-sep">/</text>{{totalCount}}</text>
+      </view>
+      <view class="anki-info-block">
+        <text class="anki-info-label">已掌握</text>
+        <text class="anki-info-value anki-info-mastered">{{masteredCount}}</text>
+      </view>
+      <view class="anki-info-block" wx:if="{{selectedCategory !== 'all'}}">
+        <text class="anki-info-label">分类</text>
+        <text class="anki-info-value anki-info-category">{{selectedCategoryLabel}}</text>
+      </view>
+      <view class="anki-filter-btn" bindtap="toggleFilter" wx:if="{{dataSource === 'glossary'}}">
+        <text class="anki-filter-icon">{{showFilter ? '✕' : '☰'}}</text>
+      </view>
+    </view>
+    <view class="anki-progress-bar">
+      <view class="anki-progress-fill" style="width: {{progressPercent}}%"></view>
+    </view>
+    <view class="anki-filter-bar" wx:if="{{showFilter && dataSource === 'glossary'}}">
+      <scroll-view class="anki-filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="anki-filter-tag {{selectedCategory === 'all' ? 'anki-filter-tag-active' : ''}}"
+          data-category="all" bindtap="selectCategory"><text>全部</text></view>
+        <view wx:for="{{categories}}" wx:key="key" class="anki-filter-tag {{selectedCategory === item.key ? 'anki-filter-tag-active' : ''}}"
+          data-category="{{item.key}}" bindtap="selectCategory"><text>{{item.label}}</text></view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="card-area" wx:if="{{!isLoading && !errorMsg && !isComplete && totalCount > 0}}"
+    bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd">
+    <view class="card-swipe" style="{{swipeStyle}}">
+      <view class="card-inner {{isFlipped ? 'flipped' : ''}}" bindtap="toggleFlip">
+        <!-- 正面：记忆卡 -->
+        <view class="card-face card-front">
+          <view class="card-front-top">
+            <text class="card-category-tag" wx:if="{{currentTerm.category}}">{{currentTerm.categoryLabel}}</text>
+            <text class="card-index-badge">{{currentIndex + 1}}/{{totalCount}}</text>
+          </view>
+          <view class="card-front-center">
+            <text class="card-term">{{currentTerm.term}}</text>
+            <text class="card-ja-reading" wx:if="{{currentTerm.reading}}">{{currentTerm.reading}}</text>
+          </view>
+          <text class="card-loop-badge" wx:if="{{currentTerm.loopCount > 0}}">↺ {{currentTerm.loopCount}}</text>
+          <view class="card-front-bottom">
+            <text class="card-hint" wx:if="{{!isFlipped}}">タップして裏面を見る</text>
+          </view>
+        </view>
+        <!-- 背面：解析卡 -->
+        <view class="card-face card-back">
+          <view class="card-back-header">
+            <view class="card-back-symbol"></view>
+            <text class="card-back-label">解析</text>
+            <text class="card-index-badge card-index-badge-back">{{currentIndex + 1}}/{{totalCount}}</text>
+          </view>
+          <view class="card-back-body">
+            <view class="card-back-section">
+              <text class="card-section-label">中文释义</text>
+              <text class="card-zh">{{currentTerm.zh}}</text>
+            </view>
+            <view class="card-back-section" wx:if="{{currentTerm.ja}}">
+              <text class="card-section-label card-section-label-green">日本語 / 解析</text>
+              <text class="card-ja">{{currentTerm.ja}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="action-bar" wx:if="{{!isLoading && !errorMsg && !isComplete && totalCount > 0}}">
+    <view class="action-btn action-btn-forgot" catchtap="markForgot">
+      <text class="action-btn-icon">✕</text>
+      <text class="action-btn-label">未记住</text>
+    </view>
+    <view class="action-btn action-btn-mastered" catchtap="markMastered">
+      <text class="action-btn-icon">✓</text>
+      <text class="action-btn-label">已记住</text>
+    </view>
+  </view>
+  <view class="complete-section" wx:if="{{!isLoading && !errorMsg && isComplete && totalCount === 0}}">
+    <view class="summary-card" wx:if="{{summary}}">
+      <text class="summary-title">会话结算</text>
+      <view class="summary-grid">
+        <view class="summary-item">
+          <text class="summary-value summary-value-brand">{{summary.totalCards}}</text>
+          <text class="summary-label">复习总数</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-value summary-value-brand">{{summary.accuracy}}%</text>
+          <text class="summary-label">一记即中率</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-value">{{summary.totalLoops}}</text>
+          <text class="summary-label">循环次数</text>
+        </view>
+        <view class="summary-item" wx:if="{{dataSource === 'mistakes'}}">
+          <text class="summary-value summary-value-green">{{summary.eliminated}}</text>
+          <text class="summary-label">斩获错题</text>
+        </view>
+      </view>
+      <view class="summary-timer">
+        <text class="summary-timer-label">用时</text>
+        <text class="summary-timer-value">{{summary.elapsedStr}}</text>
+      </view>
+      <view class="summary-actions">
+        <view class="summary-btn summary-btn-primary" catchtap="restartSession">再来一轮</view>
+        <view class="summary-btn summary-btn-secondary" catchtap="goBack">返回菜单</view>
+      </view>
+    </view>
+  </view>
+  <view class="empty-section" wx:elif="{{!isLoading && !errorMsg && totalCount === 0 && !isComplete}}">
+    <view class="empty-symbol"></view>
+    <text class="empty-text" wx:if="{{dataSource === 'mistakes'}}">错题本空空如也</text>
+    <text class="empty-text" wx:else>暂无待复习术语</text>
+    <text class="empty-hint" wx:if="{{dataSource === 'mistakes'}}">太棒了！所有错题已攻克！</text>
+    <text class="empty-hint" wx:else>切换分类试试，或浏览术语表后重新开始。</text>
+    <view class="empty-btn" wx:if="{{dataSource === 'glossary'}}" bindtap="loadAllTerms">加载全部术语</view>
+    <view class="empty-btn" wx:elif="{{dataSource === 'mistakes'}}" bindtap="goBack">返回</view>
+  </view>
+</view>

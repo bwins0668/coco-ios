@@ -1,0 +1,174 @@
+<!--packages/glossary/pages/favorite-review/favorite-review.wxml-->
+<view class="container secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/glossary/pages/favorite-review/favorite-review">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- 有收藏时的内容 -->
+  <view wx:if="{{hasFavorites}}">
+    <!-- 顶部统计 -->
+    <view class="stats-header">
+      <view class="stats-row">
+        <text class="stats-count">共 {{totalCount}} 条收藏</text>
+        <text wx:if="{{lastSavedAtFormatted}}" class="stats-last-saved">最近收藏：{{lastSavedAtFormatted}}</text>
+      </view>
+    </view>
+
+    <!-- 搜索框 -->
+    <view class="search-bar">
+      <view class="search-input-wrap">
+        <view class="search-symbol"></view>
+        <input
+          class="search-input"
+          placeholder="搜索收藏术语"
+          value="{{searchKeyword}}"
+          bindinput="onSearchInput"
+          confirm-type="search"
+        />
+        <text wx:if="{{searchKeyword}}" class="search-clear" bindtap="clearSearch">✕</text>
+      </view>
+    </view>
+
+    <!-- 模式切换 -->
+    <view class="mode-switch">
+      <view class="mode-tab {{mode === 'list' ? 'mode-tab-active' : ''}}" bindtap="switchToListMode">
+        <text class="mode-tab-text">列表模式</text>
+      </view>
+      <view class="mode-tab {{mode === 'review' ? 'mode-tab-active' : ''}}" bindtap="switchToReviewMode">
+        <text class="mode-tab-text">复习模式</text>
+      </view>
+    </view>
+
+    <!-- ========== 列表模式 ========== -->
+    <view wx:if="{{mode === 'list'}}">
+      <!-- 搜索无结果 -->
+      <view class="empty-state" wx:if="{{searchEmpty}}">
+        <view class="empty-symbol"></view>
+        <text class="empty-text">没有匹配的收藏术语</text>
+        <text class="empty-hint">试试其他关键词</text>
+      </view>
+
+      <!-- 收藏列表 -->
+      <view class="fav-list" wx:if="{{!searchEmpty}}">
+        <view
+          class="fav-list-card"
+          wx:for="{{filteredFavorites}}"
+          wx:key="id"
+          bindtap="goDetailFromList"
+          data-id="{{item.id}}"
+        >
+          <view class="flc-left">
+            <view class="flc-header">
+              <text class="flc-term">{{item.term}}</text>
+              <text class="flc-category">{{item.category}}</text>
+              <text class="flc-level">{{item.level}}</text>
+            </view>
+            <view class="flc-translations">
+              <text class="flc-zh">{{item.zh}}</text>
+              <text wx:if="{{item.ja}}" class="flc-sep">/</text>
+              <text wx:if="{{item.ja}}" class="flc-ja">{{item.ja}}</text>
+            </view>
+            <text class="flc-saved-at">{{item._savedAtFormatted ? ('收藏于 ' + item._savedAtFormatted) : '已收藏'}}</text>
+          </view>
+          <view class="flc-actions">
+            <view class="flc-unfav-btn" catchtap="unfavoriteFromList" data-id="{{item.id}}">
+              <text class="flc-unfav-text">取消</text>
+            </view>
+            <view class="flc-detail-hint">
+              <text class="detail-arrow">›</text>
+              <text class="detail-label">详情</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ========== 复习模式 ========== -->
+    <view wx:if="{{mode === 'review'}}">
+      <!-- 进度 -->
+      <view class="progress-bar">
+        <text class="progress-text">第 {{currentIndex + 1}} / {{totalCount}} 个</text>
+      </view>
+
+      <!-- 术语卡片 -->
+      <view class="term-card">
+        <view class="term-header">
+          <text class="term-category">{{currentTerm.category}}</text>
+          <text class="term-level">{{currentTerm.level}}</text>
+          <text class="term-saved-at">收藏于 {{currentSavedAt}}</text>
+        </view>
+        <text class="term-english">{{currentTerm.term}}</text>
+        <text class="term-zh">{{currentTerm.zh}}</text>
+        <text class="term-ja">{{currentTerm.ja}}</text>
+
+        <!-- 解释区域 -->
+        <view class="explanation-section" wx:if="{{showExplanation}}">
+          <view class="explanation-divider"></view>
+          <text class="explanation-label">中文解释</text>
+          <text class="explanation-text">{{detail.explanationZh}}</text>
+          <text class="explanation-label expl-ja-label">日文解释</text>
+          <text class="explanation-text expl-ja-text">{{detail.explanationJa}}</text>
+          <view wx:if="{{exampleText}}">
+            <text class="explanation-label">示例</text>
+            <text class="explanation-text expl-example">{{exampleText}}</text>
+          </view>
+        </view>
+
+        <!-- 复习完成提示 -->
+        <view class="completion-hint" wx:if="{{isLastItem && reviewCompletionHint}}">
+          <text class="completion-text">{{reviewCompletionHint}}</text>
+          <view class="completion-actions">
+            <view class="completion-btn completion-btn-list" bindtap="switchToListMode">
+              <text class="completion-btn-text">去列表模式</text>
+            </view>
+            <view class="completion-btn completion-btn-glossary" bindtap="goToGlossary">
+              <text class="completion-btn-text">去术语表</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 显示解释按钮 -->
+        <view class="reveal-btn-wrap" wx:if="{{!showExplanation}}">
+          <view class="reveal-btn" bindtap="revealExplanation">
+            <text class="reveal-btn-text">显示解释</text>
+          </view>
+        </view>
+
+        <!-- 取消收藏按钮 -->
+        <view class="unfav-btn-wrap">
+          <view class="unfav-btn" bindtap="unfavoriteCurrent">
+            <text class="unfav-btn-text">取消收藏</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部操作按钮 -->
+      <view class="nav-buttons">
+        <view class="nav-btn {{isFirstItem ? 'nav-btn-disabled' : ''}}" bindtap="prevTerm">
+          <text class="nav-btn-text">上一个</text>
+        </view>
+        <view class="nav-btn nav-btn-detail" bindtap="goDetail">
+          <text class="nav-btn-text">查看详情</text>
+        </view>
+        <view class="nav-btn {{isLastItem ? 'nav-btn-disabled' : ''}}" bindtap="nextTerm">
+          <text class="nav-btn-text">{{nextBtnText}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 (无收藏) -->
+  <view class="empty-state" wx:if="{{!hasFavorites}}">
+    <view class="empty-symbol"></view>
+    <text class="empty-text">还没有收藏术语</text>
+    <text class="empty-hint">当前还没有收藏术语。遇到重要术语时，可以先收藏，之后在这里集中复习。</text>
+    <view class="go-search-btn" bindtap="goToGlossary">
+      <text class="go-search-text">去术语表</text>
+    </view>
+    <view class="go-search-btn go-search-btn-secondary" bindtap="goSearch" style="margin-top: 20rpx;">
+      <text class="go-search-text go-search-text-secondary">去搜索术语</text>
+    </view>
+  </view>
+</view>

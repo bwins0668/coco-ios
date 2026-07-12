@@ -1,0 +1,77 @@
+@import "../styles/tokens.wxss";
+
+/* R6.5: Shared tab-page shell contract.
+   TabBar must be fully opaque fixed bottom container.
+   Background uses hardcoded #F2EDE0 (canvas color) as primary,
+   with CSS variable fallback in case component isolation blocks :host resolution. */
+.r6-tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  /* safety: clip any content that somehow extends below */
+  pointer-events: auto;
+}
+
+.r6-tabbar__inner {
+  display: flex;
+  /* R6.6A.1.6P3: reduced from 100rpx to 80rpx — reclaims ~10px main content space */
+  height: calc(80rpx + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  /* R6.5: explicit opaque background — hardcoded + variable fallback */
+  background-color: #F2EDE0;
+  background-color: var(--qp-color-canvas, #F2EDE0);
+  border-top: 1rpx solid rgba(33,31,28,0.08);
+}
+
+.r6-tabbar__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* R6.6A.1.6P2: flex-end pushes visual group to bottom of 100rpx area,
+     closing the gap to Home Indicator above the safe-area padding */
+  justify-content: flex-end;
+  gap: 2rpx;
+  /* R6.6A.1.6P3: tighter bottom, visual group ~3rpx closer to safe-area edge */
+  padding: 0 0 1rpx;
+}
+
+.r6-tabbar__icon {
+  /* R6.6A.1.6P2: 34rpx — visible shrink from 40rpx */
+  width: 34rpx;
+  height: 34rpx;
+  display: block;
+}
+
+.r6-tabbar__item--active .r6-tabbar__icon {
+  /* active state handled by switching to *_active.svg */
+}
+
+.r6-tabbar__text {
+  /* R6.6A.1.6P2: 20rpx — visible shrink from 22rpx, line-height tightened */
+  font-size: 20rpx;
+  line-height: 1.2;
+  /* inactive color now set by .r6-tabbar__text--inactive */
+  font-weight: var(--qp-font-weight-regular);
+  transition: color 0.15s ease;
+}
+
+.r6-tabbar__item--active .r6-tabbar__text {
+  /* active color now set by .r6-tabbar__text--active */
+  font-weight: var(--qp-font-weight-semibold);
+}
+
+
+/* ---- state-aware label colors (R6.6C1P2) ---- */
+.r6-tabbar__text--active {
+  color: #37418A;
+}
+
+.r6-tabbar__text--inactive {
+  color: #C9C4BD;
+}
+
+/* ---- Icon area: SVG images (R6.6A.1.6) ---- */
+/* Old CSS pseudo-element icons removed — now using local SVG assets */

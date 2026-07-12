@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q45",
+    "sourceFingerprint": "sha256:1f8a2f5348eaf892a31c5bb6666be102c8cee961ec93a6b5d1619e31a7cd3707",
+    "questionZh": "项目中，作为正式批准新项目的文件，正确的是哪个？",
+    "optionsZh": {
+      "A": "利益相关者登记册",
+      "B": "项目章程",
+      "C": "项目范围说明书",
+      "D": "风险登记册"
+    },
+    "explanationZh": "项目章程是最高层级明确记载项目背景、目的、实施纲要和方针，在项目正式启动时创建的文件。它表明组织对项目的承诺，由项目经理起草并经相关方批准，正式授权项目活动并赋予项目经理使用组织资源的权限。因此「B」正确。\n- 利益相关者登记册记录利益相关者的名称、职位、联系方式、角色等信息。\n- 正确。\n- 项目范围说明书描述项目实施范围、除外事项、主要交付物、前提与制约条件等。\n- 风险登记册记录项目风险的名称、分类、分析结果、应对计划和当前状况等信息。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q46",
+    "sourceFingerprint": "sha256:2c9187dfd05aa5393b0fb7834c65cdff60262904ac9c66cb4269090149137360",
+    "questionZh": "作为IT服务管理中的问题管理流程的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "维护管理提供IT服务所需的硬件、软件、文档等构成信息。",
+      "B": "对计划外的IT服务中断迅速恢复服务。",
+      "C": "调查故障根本原因，提出问题的解决方案。",
+      "D": "制定实施程序修正的计划，确保确实修正。"
+    },
+    "explanationZh": "问题管理是以查明事件和故障的根本原因、为防止复发提出永久性解决方案为目的的流程。主要活动包括：识别事件根本原因和潜在预防措施、确定降低或消除服务影响的措施、为永久解决问题提出变更请求、记录已知错误并提供回避措施。因此「C」正确。\n- 构成管理的说明。\n- 事件管理的说明。\n- 正确。\n- 变更管理的说明。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q47",
+    "sourceFingerprint": "sha256:d7db8bf1398cd971ea8d7f460a80dad56d1cf6f5246ce37b7b5b02503813fb4d",
+    "questionZh": "将审计分为会计审计、业务审计、信息安全审计和系统审计时，关于系统审计最合适的描述是哪个？",
+    "optionsZh": {
+      "A": "验证业务使用信息的泄露相关风险管理是否有效实施。",
+      "B": "验证从财务报表制作的整体业务是否无违规和错误地被处理。",
+      "C": "验证组织对信息系统相关风险是否做出适当应对。",
+      "D": "验证包括信息系统利用在内的组织各项业务是否按组织方针合理且高效地运营。"
+    },
+    "explanationZh": "系统审计是由具备专业性和客观性的系统审计人对信息系统的治理、管理和控制的适当性进行综合检查、评估和探讨的活动。系统审计验证的对象是信息系统相关风险。因此「C」正确。\n- 信息安全审计的说明。\n- 会计审计的说明。\n- 正确。\n- 业务审计的说明。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q48",
+    "sourceFingerprint": "sha256:5c0fadb58fb54ef3c68ccbfccd50565b2a51747a168eccd7c03059e5220ad18a",
+    "questionZh": "某组织IT资产组每月检查共享磁盘使用量，不足时呼吁删除无用文件或将暂不使用文件移至其他介质以避免容量不足。磁盘扩容按年度计划实施。某日共享磁盘达上限导致业务受阻。将此事件应对分为事件管理、问题管理和服务管理系统改善时，属于服务管理系统改善的是哪个？\n- 调查共享磁盘使用量大的文件，将暂不使用的暂时移至其他存储。\n- 确定共享磁盘达上限的原因，探讨防止复发对策。\n- 使共享磁盘使用量能被及时掌握，能早期检测容量不足征兆。\n- 立即推进共享磁盘扩容手续。",
+    "optionsZh": {
+      "A": "a，d",
+      "B": "b，d",
+      "C": "c",
+      "D": "c，d"
+    },
+    "explanationZh": "事件管理：发生服务中断时尽快恢复；问题管理：查明根本原因提出永久解决方案；服务管理系统改善：持续改善组织提供服务机制（方针、计划、流程、信息、资源等）的适当性和有效性。\n- 不适当。尽快消除事件影响是事件管理活动。\n- 不适当。查明原因探讨根本解决方案是问题管理活动。\n- 适当。强化资源监控体制是改善服务管理流程，属于服务管理系统改善。\n- 不适当。扩容是消除容量不足的具体应对，属事件管理或变更管理。\n仅c属于服务管理系统改善，即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q49",
+    "sourceFingerprint": "sha256:ea392cf05d9cc8b9bdc841d581f7c962ec6e4873016a1cff2f65fd9c80104436",
+    "questionZh": "关于系统开发项目中项目会议的描述，最合适的是哪个？",
+    "optionsZh": {
+      "A": "为贯彻会议决定内容，制作会议记录并与必要相关人员共享。",
+      "B": "为不使讨论半途而废，不设定会议结束时间。",
+      "C": "为高效推进项目，所有利益相关者始终参加所有会议。",
+      "D": "为能在会议上讨论各种内容，在会议开始后由参会成员征集并确定议题。"
+    },
+    "explanationZh": "- 正确。项目沟通管理中，适当创建、分发、保管和管理项目信息非常重要。制作会议记录并共享是适当的管理步骤。\n- 无结束时间的会议易导致生产力低下。时间也是重要资源，应事先确定结束时间。\n- 应视需要邀请利益相关者参会而非所有人始终参加，否则参会者时间负担大且决策效率降低。\n- 会议议题原则上应会前整理并事先共享，便于参会者准备意见和资料，提高效率。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q5",
+    "sourceFingerprint": "sha256:1a793f067438e4bc5a6f464fc070bda339122facc00ecb7e84359cc6bd7793d5",
+    "questionZh": "将利用互联网的新型企业广告商业模式作为知识产权申请并以计算机系统实现。保护该商业模式知识产权的法律是哪个？",
+    "optionsZh": {
+      "A": "外观设计法",
+      "B": "实用新型法",
+      "C": "著作权法",
+      "D": "专利法"
+    },
+    "explanationZh": "专利不仅保护物和技术的发明，满足发明符合性、新颖性、进步性等要件的商业方法相关发明也受保护，一般称为「商业模式专利（商业相关发明）」。商业模式专利不是独立的专利类型，而是作为软件相关发明处理。需通过软件在计算机或网络上具体实现信息处理，单纯商业创意不够。因ICT和AI技术发展，近年备受关注。因此「D」正确。\n- 外观设计法保护工业上可利用、提升产品价值和魅力的形状/设计。\n- 实用新型法保护物品形状、结构或组合的方案中非发明的部分。\n- 著作权法保护表达思想或情感的创作物。\n- 正确。以计算机系统实现的商业模式，满足条件可受专利法保护。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q50",
+    "sourceFingerprint": "sha256:0383db0a259d54cd5ae9852b7a37f18f555ac581284f2026e01ab68f9dee9e8e",
+    "questionZh": "3人执行下表作业时，完成全部作业的最短天数是多少？需多人的作业必须全员到齐才能开始，超人数分配也不能缩短天数，已开始作业不可中断。\n作业A(1人,3天)→B(2人,3天)→D(1人,3天)；A→C(2人,3天)→E(1人,3天)；D,E→F(3人,3天)",
+    "optionsZh": {
+      "A": "9天",
+      "B": "12天",
+      "C": "15天",
+      "D": "18天"
+    },
+    "explanationZh": "整理先后关系：从A开始(3天)。A完成后B或C可开始，但总人数3人无法同时进行B(2人)和C(2人)，故先B(3天)。然后D(1人)和C(2人)可并行(3天)。此时F尚未满足前置条件，执行E(3天)。最后F(3天)。总计3×5=15天。因此「C」正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q51",
+    "sourceFingerprint": "sha256:9dcf6bc1f3d752cb4403f5b2be345496427ef45649dcbcf2eead0c6a3594c742",
+    "questionZh": "在系统审计中对各部门外部介质管理状况进行调查。将系统审计按审计计划、预备调查、正式调查、评估/结论的流程实施时，基于收集结果探讨外部介质管理状况审计意见的流程是哪个？",
+    "optionsZh": {
+      "A": "审计计划",
+      "B": "预备调查",
+      "C": "正式调查",
+      "D": "评估/结论"
+    },
+    "explanationZh": "系统审计一般按以下步骤实施：审计计划→预备调查→正式调查→评估/结论→审计报告会→跟踪。审计意见是在正式调查后通过详细确认探讨审计底稿内容导出的，对应「评估/结论」阶段。因此「D」正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q52",
+    "sourceFingerprint": "sha256:e46bf3a361642d6327428e64b524ff4300bab4a845d1213ab6bf89c3fa831758",
+    "questionZh": "业务系统开发中，开发者实施系统需求定义时，用户最合适的参与方式是哪个？",
+    "optionsZh": {
+      "A": "参加开发者进行的系统需求评审，确认其妥当性。",
+      "B": "全部委托给开发者并服从其决定。",
+      "C": "判断系统是否可维护。",
+      "D": "验证系统需求的技术可行性。"
+    },
+    "explanationZh": "系统需求定义由开发者主导，但开发者不一定熟悉运用现场。因此需实际使用系统的用户确认定义的需求是否符合业务内容和用户需求。这有助于早期发现认知偏差和需求过不足，提升最终系统质量。\n- 正确。参加评审确认需求定义内容是用户适当的参与方式。\n- 用户完全不参与可能导致系统不符合实际业务，不适当。\n- 维护性是开发者负责的事项。用户应确认的是系统能否在实际业务中运用（运用性）。\n- 验证技术可行性是开发者的职责，不具备系统技术知识的用户不应验证。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q53",
+    "sourceFingerprint": "sha256:068e1ba28c8eab952b891f88158ff25e25d784268e673bc669baae6f6acc273c",
+    "questionZh": "进行SLA的计划制定、服务内容谈判、草案作成、达成一致、导入、测量等活动的管理活动是哪个？",
+    "optionsZh": {
+      "A": "外包",
+      "B": "服务级别管理(SLM)",
+      "C": "服务级别协议(SLA)",
+      "D": "再工程化"
+    },
+    "explanationZh": "- 外包是将业务部分或全部委托给外部专业公司。\n- 正确。服务级别管理(SLM)是按照SLA中达成的服务级别目标设计服务、监控和报告服务级别的管理活动。包括SLA的作成、与客户谈判、达成一致等。\n- SLA是服务提供者与利用者之间关于服务提供的协议文件。\n- 再工程化指利用现有软件创建新软件的各类技术。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q54",
+    "sourceFingerprint": "sha256:4ff59b2f842e7ee4fe3d5118d677feab1d3f1a8870a72ffac60807c6c6f05bd5",
+    "questionZh": "某组织过去全员出勤，现在出勤与远程办公并用。从设施管理(FM)角度改善的事例是哪些？\n- 始终保持员工PC上的Web会议软件最新，提升便利性和安全性。\n- 变更办公区布局和设置大屏幕视频会议室，便于员工间沟通。\n- 基于出勤率增加自由座位区比例，缩小办公室。\n- 引入短时工作和在家外工作的制度，便于各类员工参与业务。",
+    "optionsZh": {
+      "A": "a，d",
+      "B": "b",
+      "C": "b，c",
+      "D": "b，d"
+    },
+    "explanationZh": "设施管理是从经营战略视角综合管理企业拥有或使用的全部设施资产及其使用环境的活动。管理对象是土地、建筑、设备等物理资产和物理空间。\n- 不适当。软件是技术资产，非FM管理对象。\n- 适当。办公区改善是最大化利用设施和设备的目的，属于FM。\n- 适当。增加自由座位区是高效利用办公空间的目的，属于FM。\n- 不适当。人是人力资源，非FM管理对象。\n适当的是「b，c」，即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q55",
+    "sourceFingerprint": "sha256:2e54aafa054a724923c4d9fd2d98adf038496793bb72079394513756c6df6eec",
+    "questionZh": "关于IoT安全，下列描述中a和b应填入的字句的正确组合是哪个？\n\n在网络摄像头图像被盗看的威胁中，作为对网络摄像头的a对策，为防止第三方访问摄像头浏览视频，应不使用b。",
+    "optionsZh": {
+      "A": "a：非法访问 b：有线线路",
+      "B": "a：DDoS攻击 b：初始密码",
+      "C": "a：非法访问 b：初始密码",
+      "D": "a：DDoS攻击 b：有线线路"
+    },
+    "explanationZh": "网络摄像头连接互联网可能受到第三方非法访问，导致隐私视频泄露或通过摄像头入侵内部网络。主要安全对策：①更改初始密码（出厂初始密码可从说明书或Web手册轻易获取，必须更改）；②更新固件和软件至最新版。\na：「图像被盗看」直接相关的是非法访问（DDoS攻击是使服务停止的攻击，非盗看图像）。\nb：对策是使用非初始密码。有线/无线并非关键，因为只要连接互联网就存在外部访问风险。因此a=非法访问、b=初始密码，即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q56",
+    "sourceFingerprint": "sha256:b27e500709461fdadd7245a20336a82172066d046f2f941d2bb7e72c628b760e",
+    "questionZh": "关于DBMS中检查点(Checkpoint)的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "事务正常处理时确定事务的一系列处理。",
+      "B": "事务因某种原因未正常处理时将数据库恢复到事务开始前的状态。",
+      "C": "并行处理多事务时因锁定影响事务间互相等待对方释放锁的状态。",
+      "D": "将多事务在内存中的数据更新结果一次性集中写入HDD等外部存储设备的操作或该操作发生的时间点。"
+    },
+    "explanationZh": "检查点是数据库处理中事务更新结果反映到磁盘上数据库的时间点。每次事务执行都写磁盘会导致访问次数增多、处理效率下降，因此DBMS先将更新内容存入内存缓冲区，定期集中写入磁盘。此写入时间点即检查点。检查点也作为故障恢复的基准点：系统故障时，检查点之前的更新已反映到磁盘，DBMS只需确认检查点之后提交的事务，可缩短恢复时间。因此「D」正确。\n- 提交的说明。\n- 回滚的说明。\n- 死锁的说明。\n- 正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q57",
+    "sourceFingerprint": "sha256:a1b7d29066e0185692fc24dcb0a07468928209d2d860298d1a9d920565ddb223",
+    "questionZh": "关系数据库管理「学生」表、「科目」表、「成绩」表。一个学生可选修多门科目，未在「学生」表注册的学生和未在「科目」表注册的科目不能在「成绩」表中注册。应设为外键的是哪个？下划线为主键。",
+    "optionsZh": {
+      "A": "「学生」表的学生编号，「成绩」表的学生编号",
+      "B": "「学生」表的学生姓名，「科目」表的科目名称",
+      "C": "「成绩」表的学生编号和科目代码",
+      "D": "「成绩」表的成绩"
+    },
+    "explanationZh": "外键用于关联两个表，某表的列参照另一表的主键时即为外键。外键效果：防止注册表中不存在的参照数据、防止更新为错误数据、控制关联数据的删除和更新。本题要求成绩表中不能注册不存在的学生和科目，因此「成绩」表的「学生编号」应参照「学生」表主键、「成绩」表的「科目代码」应参照「科目」表主键。外部键应设在参照侧即「成绩」表的「学生编号」和「科目代码」。因此「C」正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q58",
+    "sourceFingerprint": "sha256:8547ff8488b35a7feaabb11b8d50428997f5807b0c2d6e92997880902ae94aac",
+    "questionZh": "UX设计中有时使用的结构化场景法中的三个场景是哪个？",
+    "optionsZh": {
+      "A": "活动(Activity)、交互(Interaction)、价值(Value)",
+      "B": "活动、交互、人物角色(Persona)",
+      "C": "活动、价值、人物角色",
+      "D": "交互、价值、人物角色"
+    },
+    "explanationZh": "结构化场景法先设定虚构用户形象(人物角色)，然后将其需求、行为及与产品/系统的关系以三层场景描述。三层场景按价值→活动→交互的顺序创建。价值场景：描述用户状况、需求及产品/服务提供方针等，表示向用户提供的价值（不写具体产品/服务）。活动场景：基于用户信息描述用户在何种场面的具体行为和心情。交互场景：为实现活动场景中的行为，明确描述产品/系统/服务应具备的功能特征及其与用户的交互。三个场景的组合是「A」。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q59",
+    "sourceFingerprint": "sha256:4ccb3816b2f38c583de33539c3976c7d75d4992b65eb07f8e210f3844e1fc5fd",
+    "questionZh": "作为无线LAN中WPA2的功能，正确的是哪个？",
+    "optionsZh": {
+      "A": "使用两根天线加快数据收发速度。",
+      "B": "将接入点隐藏化。",
+      "C": "加密通信数据。",
+      "D": "拒绝除注册MAC地址设备以外的访问。"
+    },
+    "explanationZh": "WPA2(Wi-Fi Protected Access 2)是认证无线LAN用户并加密终端与接入点间通信的标准。无线通信电波在空间中传播，容易被第三方拦截，WPA2防止此类窃听和非法使用。现后继标准WPA3也已在运用中。因此WPA2的功能是加密，即「C」。\n- MIMO的说明。\n- SSID隐藏功能的说明。\n- 正确。\n- MAC地址过滤的说明。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q6",
+    "sourceFingerprint": "sha256:5330b803a39ee487a57313f9b5bfd255ce94917e07d170cabbab94f6ded8ccbc",
+    "questionZh": "关于数字化转型(DX)的说明，最合适的是哪个？",
+    "optionsZh": {
+      "A": "能用和不能用PC、智能手机等数字产品的人之间在各种机会上产生差异，导致社会差距。",
+      "B": "从出生起互联网、PC、智能手机等数字产品就在身边、使用它们长大的一代。",
+      "C": "将麦克风等收集的模拟信号转换为数字信号以保存为电子文件。",
+      "D": "数字技术影响人类生活和商业等各方面，带来变革。"
+    },
+    "explanationZh": "数字化转型(DX)是企业战略性运用云、移动、AI、IoT等新数字技术和数据，变革业务方式和商业模式，提升竞争力和创造新价值的举措。事例：零售业融合线上线下全渠道、制造业利用IoT和AI实现预测性维护、金融领域网银和移动支付普及、医疗领域在线诊疗。DX的本质不仅是IT化或数字化，而是以确立竞争优势和提升客户体验为目标的「变革」。因此「D」正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q60",
+    "sourceFingerprint": "sha256:49a8c621d388e8e0f4e7b87c84eec26a80eefbcaccbd18090b877f24b1b940e6",
+    "questionZh": "关于响应式Web设计，正确的是哪个？",
+    "optionsZh": {
+      "A": "在PC、智能手机等多种终端上都能易于阅读和操作，根据显示终端的屏幕尺寸等改变网站画面布局。",
+      "B": "Web浏览器流式播放视频内容时，为减轻服务器和网络负载，从多个内容分发服务器中选择适合用户的服务器连接获取数据。",
+      "C": "在智能手机等终端的Web应用中，使用终端内置加速度传感器和陀螺仪传感器数据以测量步数和移动速度等。",
+      "D": "无需阅读操作说明书即可理解网站使用方法，当用户将鼠标指针悬停在Web内容上时，通过弹出窗口显示功能说明和对象状态。"
+    },
+    "explanationZh": "响应式Web设计是对PC、智能手机、平板等所有终端发送相同HTML，通过CSS控制根据设备特性（屏幕宽高、分辨率、方向）显示适当布局的设计方法。优点：URL单一便于共享和链接、无需维护多个版本的相同内容、无需重定向加载延迟少。因此「A」正确。\n- 正确。\n- CDN的说明。\n- 传感器API的说明。\n- 工具提示的说明。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q61",
+    "sourceFingerprint": "sha256:0bcb0017f5d5282453e5e909ab1614477351e6e517e2959993465b7093a1813d",
+    "questionZh": "用于保持PC画面显示所需数据的专用内存是哪个？",
+    "optionsZh": {
+      "A": "EEPROM",
+      "B": "VRAM",
+      "C": "缓存",
+      "D": "闪存"
+    },
+    "explanationZh": "- EEPROM是用户可电气写入和擦除的非易失性存储器，用于保存少量频繁改写的数据如电子设备动作设定和控制程序。\n- 正确。VRAM(Video RAM)是暂时保存图像显示数据的专用内存，主要搭载于显卡上，支持GPU的动画描画处理。高分辨率视频播放、多显示器、AI处理等GPU使用场景增加，VRAM性能对处理速度和操作舒适度有重大影响。\n- 缓存是弥合CPU与主存速度差的存储设备，保持主存中曾被参照的数据。\n- 闪存是电气可改写、断电不丢失的半导体存储器，主要用于USB、SSD、SD卡等长期数据保存。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q62",
+    "sourceFingerprint": "sha256:0ebc2740cc58e2101017c92398d9cbf5b57ab3eb7f8f55e90fa77e0da3f3a87f",
+    "questionZh": "关于系统性能评估中的基准测试，正确的是哪个？",
+    "optionsZh": {
+      "A": "用与评估对象系统相同的数据和程序在其他模拟系统上执行来评估性能。",
+      "B": "将评估对象系统的动作特性以易处理的模型化方式在其他模拟系统上执行来评估性能。",
+      "C": "基于评估对象系统的程序步骤数、硬件性能、I/O次数等的理论计算值累算处理时间来评估性能。",
+      "D": "设定标准处理并在评估对象系统上实际执行评估用程序来评估性能。"
+    },
+    "explanationZh": "基准测试是使用评估对象业务的典型处理程序，测定包括硬件、软件、输入输出和控制程序的系统综合处理性能并定量评估的方法。在评估对象系统上实际执行评估程序来测定性能，不是在模拟系统上执行或通过理论计算评估。因此「D」正确。\n- 模拟系统上评估→不适当。\n- 模型化评估→不适当。\n- 理论计算评估→不适当。\n- 正确。基准测试的内容。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

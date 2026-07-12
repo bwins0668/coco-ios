@@ -1,0 +1,882 @@
+{
+  "summary": {
+    "package": "quiz-itpass-2",
+    "batchId": "quiz-itpass-2_04_HARU_Q46_to_04_HARU_Q63",
+    "total": 20,
+    "pass": 20,
+    "fail": 0,
+    "fingerprintMismatch": 0,
+    "questionSemanticFail": 0,
+    "correctAnswerChanged": 0,
+    "optionSemanticFail": 0,
+    "explanationFail": 0,
+    "japaneseSyntaxResidue": 0,
+    "englishFragmentResidue": 0,
+    "unnaturalChineseArtifact": 0,
+    "correctAnswerLabelMismatch": 0,
+    "visualBoundaryViolation": 0,
+    "lowNaturalScore": 0
+  },
+  "reviews": [
+    {
+      "questionId": "04_HARU_Q46",
+      "sourceFingerprint": "sha256:513da4f859a288c81cb7367c73230779d037d65df015e99d37ae86164427b289",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q47",
+      "sourceFingerprint": "sha256:012e6f222280504776988483f45056ea83145b63c9a3b536595b8ec5919fe1f5",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q48",
+      "sourceFingerprint": "sha256:6916eed4684af72a837a8a4a07f2095b365ad2a054db87854c0a44b6b1fcf228",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q49",
+      "sourceFingerprint": "sha256:66d24f72c882a1f9a65344d430bd146e7583080e701d34934ade3d0c26b74ab0",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q5",
+      "sourceFingerprint": "sha256:22ca90d18a3d4210c0463db476a27b3a9b311d5dfd5c1a44472fe6dd0b35cdf4",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q50",
+      "sourceFingerprint": "sha256:0d7bf77518f80cf9247aee4cc22d69733b3b2e98cc0887def412713b29789477",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q51",
+      "sourceFingerprint": "sha256:45fe9d88de2b9c8affb2ef5bea6946f583bf0423af4093446e6808fc1fe28a2f",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q52",
+      "sourceFingerprint": "sha256:cb392f810b7a9b741ad4f45e3fd30d94ae479109c3edfc9cced6e0064ad063b8",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q53",
+      "sourceFingerprint": "sha256:026c467caa2d5b28df8fe23887df4594493a32eea55d1a00ba4ff26c7a77b2df",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q54",
+      "sourceFingerprint": "sha256:62ba25a3ff88c47b139b39fc7cdae40b3553cbbeed3f432afc38b6cc2682eb54",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q55",
+      "sourceFingerprint": "sha256:395fe7bccfab701a7ad82442ea5b766de481de4110b40ebc0458fbe8ed97f976",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q56",
+      "sourceFingerprint": "sha256:344cef42d5d4b7c85e10dc764ed5c19c2d2792f9cec2b6b7617b134b7db63ca1",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q57",
+      "sourceFingerprint": "sha256:45700d71d40f94a56ace2880db2c2e7f5be10b97cf5183c41ab87f3d452a3e91",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q58",
+      "sourceFingerprint": "sha256:6bbf08aeb6e458d3671c924631c8695e660e176cca94d1141aad40ff3d181cf4",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q59",
+      "sourceFingerprint": "sha256:d76a997ffd1e4fc5cd53945bd528203e6f7db08d3db7d3da58cd2842e147a1fa",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q6",
+      "sourceFingerprint": "sha256:43d7b10337e881014ac5a5e738349bcfb9f1df160fb955e70a931f94f5d3fa8a",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q60",
+      "sourceFingerprint": "sha256:da8bf80d429b781c877c4303133e1651ada536dd0e34737f9fe4d8a43c679f6f",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q61",
+      "sourceFingerprint": "sha256:c92f7bd268d37c5ef8205c927b8f7523758b3e7284a98400a19c3e77bf7d2fc2",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q62",
+      "sourceFingerprint": "sha256:c4f436add2002a3afdcceffe5054648b4f9af9058a27e24a7315ee2fb02c9b32",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    },
+    {
+      "questionId": "04_HARU_Q63",
+      "sourceFingerprint": "sha256:e5eb2dab518198376e1fd6fa4ee79b6eb13b68a0d8b6d22243f8d4e0f91051ce",
+      "fingerprintMatch": true,
+      "questionSemanticMatch": true,
+      "correctAnswerPreserved": true,
+      "optionCoverage": {
+        "A": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "B": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "C": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        },
+        "D": {
+          "semanticMatch": true,
+          "omittedConstraint": false,
+          "inventedClaim": false,
+          "untranslatedResidue": false
+        }
+      },
+      "explanationOnTopic": true,
+      "explanationExplainsWhyCorrect": true,
+      "japaneseSyntaxResidue": false,
+      "englishFragmentResidue": false,
+      "unnaturalChineseArtifact": false,
+      "correctAnswerLabelMismatch": false,
+      "visualBoundaryRespected": true,
+      "naturalChineseScore": 5,
+      "reviewVerdict": "PASS",
+      "reviewNotes": ""
+    }
+  ]
+}

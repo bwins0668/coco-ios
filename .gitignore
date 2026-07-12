@@ -1,0 +1,41 @@
+# === Xcode / iOS ===
+build/
+DerivedData/
+*.xcuserdata/
+xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+Pods/
+Podfile.lock
+
+# === macOS ===
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# === Node / JS tooling (miniprogram source) ===
+node_modules/
+package-lock.json
+npm-debug.log*
+__pycache__/
+*.pyc
+
+# === Editor / OS noise ===
+*.log
+*.tmp
+.vscode/
+.idea/
+
+# === Miniprogram build artifacts ===
+source/miniprogram-pilot/project.private.config.json
+source/miniprogram-pilot/.workbuddy/
+
+# === Secrets / keys ===
+*.p12
+*.mobileprovision
+*.provisionprofile
+.env

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0010-921b265b-第-4-章-操作列表",
+    "courseLessonId": "python-0010-921b265b-第-4-章-操作列表",
+    "sourceOrder": 10,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "実際の program では、最初に決めた値だけで終わりません。学習タスクや買い物メモのように、あとから足す、書き換える、完了したものを取り出す場面が多くあります。",
+        "type": "why",
+        "zh": "真实 program 不会只使用一开始写死的值。像学习任务、购物清单这类数据，经常需要追加、改写，或把已经完成的项目取出来。"
+      },
+      {
+        "ja": "list は紙のメモではなく、動かせる行です。append は末尾に新しい札を置き、index への代入はその場所の札を入れ替え、pop は札を取り出して list から消します。",
+        "type": "mental-model",
+        "zh": "list 不是静态纸条，而是一排可以移动的项目。append 在末尾放新项目，给 index 赋值会替换该位置，pop 会取出一个项目并从 list 中移走。"
+      },
+      {
+        "ja": "tasks は 2 つの element から始まります。append 後に 3 つになり、代入で真ん中が変わり、pop で先頭が取り出されます。",
+        "type": "flow",
+        "zh": "tasks 从 2 个 element 开始。append 后变成 3 个，赋值会改掉中间项，pop 会把开头取出。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "tasks = [\"read\", \"practice\"]\ntasks.append(\"review\")\nprint(\"after append:\", tasks)\ntasks[1] = \"code\"\nprint(\"after update:\", tasks)\ndone = tasks.pop(0)\nprint(\"done:\", done)\nprint(\"remaining:\", tasks)",
+        "exampleId": "python-domain1a-list-operations",
+        "expectedOutput": "after append: ['read', 'practice', 'review']\nafter update: ['read', 'code', 'review']\ndone: read\nremaining: ['code', 'review']",
+        "lineNotes": [
+          {
+            "ja": "tasks は 2 つの作業名を持つ list として始まります。",
+            "line": 1,
+            "zh": "tasks 一开始是包含两个任务名的 list。"
+          },
+          {
+            "ja": "append(\"review\") は末尾へ新しい element を追加します。",
+            "line": 2,
+            "zh": "append(\"review\") 会把新的 element 加到末尾。"
+          },
+          {
+            "ja": "tasks[1] への代入は、2 番目の element を \"code\" に置き換えます。",
+            "line": 4,
+            "zh": "给 tasks[1] 赋值，会把第二个 element 替换为 \"code\"。"
+          },
+          {
+            "ja": "pop(0) は先頭の element を取り出し、その value を done に入れます。",
+            "line": 6,
+            "zh": "pop(0) 取出开头的 element，并把这个 value 放进 done。"
+          },
+          {
+            "ja": "最後の出力では、取り出された \"read\" が list から消えていることを確認します。",
+            "line": 8,
+            "zh": "最后的输出确认 \"read\" 已经从 list 中移除。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "append の戻り値を別の名前に入れようとすると、list そのものではなく None を見てしまうことがあります。",
+        "zh": "如果把 append 的返回值放进另一个名字，可能看到的不是 list，而是 None。"
+      },
+      {
+        "ja": "pop したあとも元の list に同じ element が残ると思うと、残りの順番を読み間違えます。",
+        "zh": "如果以为 pop 后原 list 里还保留同一个 element，就会误读剩余顺序。"
+      },
+      {
+        "ja": "index 1 を先頭だと思うと、更新したい場所と違う element を書き換えてしまいます。",
+        "zh": "如果把 index 1 当成开头，就会改错 element。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "6 行目を done = tasks.pop(2) に変えて実行します。",
+        "zh": "把第 6 行改成 done = tasks.pop(2) 后运行。"
+      },
+      "expectedObservation": {
+        "ja": "done は review になり、remaining には read と code が順番どおり残ります。",
+        "zh": "done 会变成 review，remaining 中会按顺序留下 read 和 code。"
+      }
+    },
+    "lessonId": "python-0010-921b265b-第-4-章-操作列表",
+    "nextLessonBridge": {
+      "ja": "list の中身が変わると、次に必要なのは「どの状態なら何をするか」を選ぶことです。そこで if 文に進みます。",
+      "zh": "当 list 的内容会变化后，下一步就是根据不同状态选择要做什么，因此进入 if 语句。"
+    },
+    "objectives": [
+      {
+        "ja": "append、代入、pop が list の状態をどう変えるか追跡できる。",
+        "zh": "能追踪 append、赋值、pop 如何改变 list 的状态。"
+      },
+      {
+        "ja": "list の操作は元の value をその場で変えることがあると説明できる。",
+        "zh": "能说明有些 list 操作会直接改变原来的 value。"
+      }
+    ],
+    "order": 4,
+    "prerequisites": [
+      {
+        "ja": "list の中に element が順番に入っており、index で位置を指定できることを思い出してください。",
+        "zh": "请回忆 list 中的 element 有顺序，并且可以用 index 指定位置。"
+      }
+    ],
+    "summary": {
+      "ja": "list は見るだけでなく、追加、更新、取り出しによって状態を変えられます。",
+      "zh": "list 不只是用来查看，还可以通过追加、更新、取出改变自身状态。"
+    },
+    "terms": [
+      {
+        "en": "append",
+        "ja": "追加",
+        "zh": "追加"
+      },
+      {
+        "en": "assignment",
+        "ja": "代入",
+        "zh": "赋值"
+      },
+      {
+        "en": "pop",
+        "ja": "取り出し",
+        "zh": "弹出"
+      }
+    ],
+    "title": {
+      "ja": "リストを変えて、順番と中身の変化を見る",
+      "zh": "操作列表，观察顺序和内容怎样变化"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "1196EF5BDED1624AE4D0FD3CC908B70C15E7A9FCE8AC064AA69B68668CCDCF41",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

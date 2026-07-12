@@ -1,0 +1,32 @@
+{
+  "package": "quiz-sg-1",
+  "batchId": "quiz-sg-1_SG_01_AKI_問46_to_SG_05_HARU_問4",
+  "questionIds": [
+    "SG_01_AKI_問46",
+    "SG_01_AKI_問47",
+    "SG_01_AKI_問48",
+    "SG_01_AKI_問49",
+    "SG_01_AKI_問5",
+    "SG_01_AKI_問50",
+    "SG_01_AKI_問6",
+    "SG_01_AKI_問7",
+    "SG_01_AKI_問8",
+    "SG_01_AKI_問9",
+    "SG_05_HARU_問1",
+    "SG_05_HARU_問10",
+    "SG_05_HARU_問11",
+    "SG_05_HARU_問12",
+    "SG_05_HARU_問13",
+    "SG_05_HARU_問14",
+    "SG_05_HARU_問15",
+    "SG_05_HARU_問2",
+    "SG_05_HARU_問3",
+    "SG_05_HARU_問4"
+  ],
+  "translatedCount": 20,
+  "semanticReviewPassed": true,
+  "styleLintPassed": true,
+  "fingerprintPassed": true,
+  "retryCount": 0,
+  "completedAt": "2026-07-06T10:30:40.482Z"
+}

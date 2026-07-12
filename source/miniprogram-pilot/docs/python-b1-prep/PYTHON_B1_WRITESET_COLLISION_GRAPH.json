@@ -1,0 +1,32 @@
+{
+  "sharedFilesSerialized": [
+    "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+    "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+    "utils/course-registry.js (pythonVisibleLessonIds)",
+    "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+    "app.json (仅当新增 subpackage 时)"
+  ],
+  "parallelGroups": {
+    "B1-basics-runnable": [
+      "python-0016-3a01ec9d-第-10-章-文件和异常",
+      "python-0017-fbf9e623-第-11-章-测试代码"
+    ],
+    "B1-project-nonrunnable-BLOCKED": [
+      "python-0020-809422bc-第-12-章-武装飞船",
+      "python-0021-659f0ecc-第-13-章-外星人来了",
+      "python-0022-76eb0652-第-14-章-记分",
+      "python-0024-1d0bf0bb-第-15-章-生成数据",
+      "python-0025-2a9640b1-第-16-章-下载数据",
+      "python-0026-ce415e36-第-17-章-使用api",
+      "python-0028-0baea43b-第-18-章-从django入手",
+      "python-0029-3b60fe5a-第-19-章-用户账户",
+      "python-0030-8429462f-第-20-章-设置应用程序的样式并部署"
+    ]
+  },
+  "rules": [
+    "Per-lesson content authoring may run in parallel WITHIN a group IF each lesson body lands in its own chapter data file / distinct lesson object.",
+    "ALL edits to SHARED files (releaseVisibility, public-summary, registry, manifest, app.json) must be single-writer at FINAL integration — never parallel.",
+    "B1-project-nonrunnable group is BLOCKED for authoring until the runtime-model decision (walkthrough vs defer) is made.",
+    "Do NOT touch the 9 published lessons; visible set is append-only."
+  ]
+}

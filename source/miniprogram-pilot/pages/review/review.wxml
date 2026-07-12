@@ -1,0 +1,28 @@
+<!--pages/review/review.wxml-->
+<view data-r6-active-tab="review" class="review-page" style="padding-top: {{navSafeTop}}px;">
+  <view class="review-head">
+    <text class="review-head__kicker">REVIEW · 復習</text>
+    <text class="review-head__title">复习</text>
+    <text class="review-head__sub">巩固薄弱点，温故知新</text>
+  </view>
+  <view class="review-rule"><view></view><text></text></view>
+
+  <view class="review-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">01</text><text class="review-section__title">今日复习</text></view>
+    <view class="review-card" bindtap="goFlashcards">
+      <text class="review-card__title">闪卡复习</text>
+      <text class="review-card__sub">IT Passport / SG 年度模拟闪卡</text>
+      <text class="review-card__chev">›</text>
+    </view>
+    <view class="review-card" bindtap="goMistakes">
+      <text class="review-card__title">错题复习</text>
+      <text class="review-card__sub">回顾错题，巩固薄弱知识点</text>
+      <text class="review-card__chev">›</text>
+    </view>
+    <view class="review-card" bindtap="goTermReview">
+      <text class="review-card__title">术语复习</text>
+      <text class="review-card__sub">复习收藏的术语与概念</text>
+      <text class="review-card__chev">›</text>
+    </view>
+  </view>
+</view>

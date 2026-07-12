@@ -1,0 +1,236 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/practice/practice",
+    "pages/review/review",
+    "pages/course/course",
+    "pages/course-topic/course-topic",
+    "pages/course-organize/course-organize",
+    "pages/flashcards/flashcards",
+    "pages/glossary/glossary",
+    "pages/mistakes/mistakes",
+    "pages/profile/profile"
+  ],
+  "subpackages": [
+    {
+      "root": "packages/glossary",
+      "name": "glossary",
+      "pages": [
+        "pages/term-search/term-search",
+        "pages/term-detail/term-detail",
+        "pages/favorite-review/favorite-review",
+        "pages/anki-player/anki-player"
+      ]
+    },
+    {
+      "root": "packages/quiz",
+      "name": "quiz",
+      "pages": [
+        "pages/exam-menu/exam-menu",
+        "pages/quiz/quiz",
+        "pages/mistakes/mistakes",
+        "pages/analysis-detail/analysis-detail",
+        "pages/flashcard-quiz/flashcard-quiz",
+        "pages/flashcard-deck-select/flashcard-deck-select"
+      ]
+    },
+    {
+      "root": "packages/quiz-itpass-1",
+      "name": "quiz-itpass-1",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/quiz-itpass-2",
+      "name": "quiz-itpass-2",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/quiz-itpass-3",
+      "name": "quiz-itpass-3",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/quiz-itpass-4",
+      "name": "quiz-itpass-4",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/quiz-itpass-5",
+      "name": "quiz-itpass-5",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/quiz-sg-1",
+      "name": "quiz-sg-1",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/quiz-sg-2",
+      "name": "quiz-sg-2",
+      "pages": [
+        "pages/quiz/quiz",
+        "pages/flashcard-bridge/flashcard-bridge",
+        "pages/flashcard-player/flashcard-player"
+      ]
+    },
+    {
+      "root": "packages/course-content",
+      "name": "course-content",
+      "pages": [
+        "pages/chapter-list/chapter-list",
+        "pages/unit-detail/unit-detail"
+      ]
+    },
+    {
+      "root": "packages/course-itpass",
+      "name": "course-itpass",
+      "pages": [
+        "pages/chapter-list/chapter-list",
+        "pages/unit-detail/unit-detail"
+      ]
+    },
+    {
+      "root": "packages/course-sg",
+      "name": "course-sg",
+      "pages": [
+        "pages/chapter-list/chapter-list",
+        "pages/unit-detail/unit-detail"
+      ]
+    },
+    {
+      "root": "packages/java-course",
+      "name": "java-course",
+      "pages": [
+        "pages/home/home",
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    },
+    {
+      "root": "packages/python-course",
+      "name": "python-course",
+      "pages": [
+        "pages/home/home",
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    },
+    {
+      "root": "packages/python-course-foundations-b",
+      "name": "python-course-foundations-b",
+      "pages": [
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    },
+    {
+      "root": "packages/java-course-a",
+      "name": "java-course-a",
+      "pages": [
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    },
+    {
+      "root": "packages/java-course-b",
+      "name": "java-course-b",
+      "pages": [
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    },
+    {
+      "root": "packages/java-course-c",
+      "name": "java-course-c",
+      "pages": [
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    },
+    {
+      "root": "packages/sql-course",
+      "name": "sql-course",
+      "pages": [
+        "pages/home/home",
+        "pages/chapter/chapter",
+        "pages/lesson/lesson"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarTitleText": "Study Tools",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "backgroundColor": "@bgColor"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "@tabColor",
+    "selectedColor": "@tabSelectedColor",
+    "backgroundColor": "@tabBgColor",
+    "borderStyle": "@tabBorderStyle",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/practice/practice",
+        "text": "刷题"
+      },
+      {
+        "pagePath": "pages/review/review",
+        "text": "复习"
+      },
+      {
+        "pagePath": "pages/glossary/glossary",
+        "text": "术语"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "preloadRule": {
+    "pages/home/home": {
+      "packages": [
+        "glossary"
+      ]
+    },
+    "pages/glossary/glossary": {
+      "packages": [
+        "glossary"
+      ]
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "darkmode": true,
+  "themeLocation": "theme.json"
+}

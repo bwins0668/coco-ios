@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0009-7d37969c-第-3-章-列表简介",
+    "courseLessonId": "python-0009-7d37969c-第-3-章-列表简介",
+    "sourceOrder": 9,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "値が一つだけなら variable で足ります。しかし曜日、単語、点数のように同じ種類の値が並ぶと、一つずつ別名を作るより、順番ごと一つにまとめたほうが読みやすくなります。",
+        "type": "why",
+        "zh": "只有一个值时 variable 就够了。但像星期、单词、分数这样有一组同类值时，与其给每个值都起一个名字，不如把它们连同顺序一起放进一个 list。"
+      },
+      {
+        "ja": "list は番号がついた小さな棚です。名前は棚全体を指し、index は棚の何番目を見るかを指定します。Python の最初の番号は 0 です。",
+        "type": "mental-model",
+        "zh": "list 像一排带编号的小格子。名字指向整排格子，index 指定查看第几个格子。Python 的第一个编号是 0。"
+      },
+      {
+        "ja": "最初に days という名前へ 3 つの文字列を入れます。次に len() で数を確認し、0 と -1 の index で先頭と末尾を表示します。",
+        "type": "flow",
+        "zh": "开始时把 3 个字符串放进 days。随后用 len() 查看数量，再用 0 和 -1 这两个 index 显示开头和结尾。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "days = [\"Mon\", \"Tue\", \"Wed\"]\nprint(\"list size:\", len(days))\nprint(\"first day:\", days[0])\nprint(\"last day:\", days[-1])",
+        "exampleId": "python-domain1a-list-intro",
+        "expectedOutput": "list size: 3\nfirst day: Mon\nlast day: Wed",
+        "lineNotes": [
+          {
+            "ja": "角かっこの中に 3 つの string を並べ、days という一つの名前に入れます。",
+            "line": 1,
+            "zh": "在方括号中排列 3 个 string，并把整个列表放进 days 这个名字。"
+          },
+          {
+            "ja": "len(days) は list の element 数を返します。",
+            "line": 2,
+            "zh": "len(days) 返回 list 中 element 的数量。"
+          },
+          {
+            "ja": "days[0] は最初の element です。Python の index は 0 から始まります。",
+            "line": 3,
+            "zh": "days[0] 是第一个 element。Python 的 index 从 0 开始。"
+          },
+          {
+            "ja": "days[-1] は末尾の element を指す便利な書き方です。",
+            "line": 4,
+            "zh": "days[-1] 是指向最后一个 element 的便捷写法。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "最初の element を days[1] で取ろうとすると、2 番目の値になります。",
+        "zh": "如果用 days[1] 取第一个 element，实际拿到的是第二个值。"
+      },
+      {
+        "ja": "角かっこを忘れると、複数の値を一つの list として作れません。",
+        "zh": "忘记方括号时，就不能把多个值组成一个 list。"
+      },
+      {
+        "ja": "list の中の comma を抜かすと、Python が値の区切りを読めません。",
+        "zh": "漏掉 list 中的逗号时，Python 无法识别值之间的分隔。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "1 行目を [\"Mon\", \"Tue\", \"Wed\", \"Thu\"] に変えて実行します。",
+        "zh": "把第 1 行改成 [\"Mon\", \"Tue\", \"Wed\", \"Thu\"] 后运行。"
+      },
+      "expectedObservation": {
+        "ja": "list size は 4 になり、last day は Thu になります。",
+        "zh": "list size 会变成 4，last day 会变成 Thu。"
+      }
+    },
+    "lessonId": "python-0009-7d37969c-第-3-章-列表简介",
+    "nextLessonBridge": {
+      "ja": "次は、作った list をそのまま眺めるだけでなく、あとから値を足したり書き換えたりします。",
+      "zh": "下一节不只是查看 list，而是会在运行过程中追加、改写和取出其中的值。"
+    },
+    "objectives": [
+      {
+        "ja": "list が複数の value を順番つきで持つ入れ物だと説明できる。",
+        "zh": "能说明 list 是按顺序保存多个 value 的容器。"
+      },
+      {
+        "ja": "index を使って、最初と最後の element を取り出せる。",
+        "zh": "能用 index 取出第一个和最后一个 element。"
+      }
+    ],
+    "order": 3,
+    "prerequisites": [
+      {
+        "ja": "GS2 の variable と value の考え方があれば十分です。list も一つの名前に入る value として扱います。",
+        "zh": "只需要理解 GS2 的 variable 和 value。list 也可以作为一个 value 放进名字里。"
+      }
+    ],
+    "summary": {
+      "ja": "list は、同じ意味の複数の value を順番ごと一つの名前で扱うための基本形です。",
+      "zh": "list 是用一个名字管理多个同类 value，并保留顺序的基础形式。"
+    },
+    "terms": [
+      {
+        "en": "list",
+        "ja": "リスト",
+        "zh": "列表"
+      },
+      {
+        "en": "element",
+        "ja": "要素",
+        "zh": "元素"
+      },
+      {
+        "en": "index",
+        "ja": "インデックス",
+        "zh": "索引"
+      }
+    ],
+    "title": {
+      "ja": "リストで複数の値を一つの名前にまとめる",
+      "zh": "用列表把多个值放在同一个名字下"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "7E78246EF79BAC5F147C59B6B75422AA737C72276FCADD856C4D2388FFFF2380",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

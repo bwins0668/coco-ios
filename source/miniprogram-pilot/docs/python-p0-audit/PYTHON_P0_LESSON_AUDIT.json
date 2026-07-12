@@ -1,0 +1,120 @@
+{
+  "generatedBy": "PYTHON.P0 audit — field-level review of runtime learner-visible lessons at 801e251",
+  "baselineHash": "801e251fe35655f9cbf22cd84f75d9a0c407ec65",
+  "auditScope": "9 runtime lessons across 2 published chapters (python-course + python-course-foundations-b). The 687-lesson artifacts/python-course-authoring-corpus is BACKLOG, not learner-visible, and is not per-lesson audited here.",
+  "verdictLegend": {
+    "auditVerdict": "CLEAN = content genuine & consistent; TARGETED_FIX = content ok but a field/projection needs repair; FULL_REWRITE; BLOCKED",
+    "existingWorkAssessment": "GENUINELY_COMPLETE | PARTIALLY_DONE | NOT_STARTED | REGRESSED | UNCERTAIN"
+  },
+  "crossCuttingFindings": [
+    {
+      "id": "XC-1-projection-drift",
+      "issueFamily": "DIRECTORY_PROJECTION_DRIFT",
+      "severity": "P1",
+      "evidence": "python-course-manifest.js publishes 9 lessons (python-0007..0015, totalSections:9). utils/course-registry.js pythonVisibleLessonIds lists only 5 (python-0007..0011). Missing: 0012,0013,0014,0015. Also stale: registry.description='… GS1 / GS2 已开放' and pythonPathLabelZh='Python 入门 / 列表 / 条件分支' reflect an earlier state (only through if语句).",
+      "toolSignal": "check_python_home_card_runtime_contract.js EXITS 1: 'manifest visible ID missing from registry projection: python-0015…'",
+      "impact": "4 genuinely-complete lessons (字典/输入while/函数/类) are authored but NOT surfaced to the learner via the home card registry projection.",
+      "repairMode": "Single-file registry fix (add 0012-0015 to pythonVisibleLessonIds + refresh description/pathLabel). NOT a content rewrite.",
+      "toolFalsePositive": false
+    },
+    {
+      "id": "XC-2-block-type-drift",
+      "issueFamily": "SEMANTIC_KEY_INVALID / SCHEMA_DRIFT",
+      "severity": "P3",
+      "evidence": "block.type is 'flow' for python-0009..0012 but 'execution-flow' for python-0007,0008,0013,0014,0015. semanticKeys themselves are valid & topic-consistent; only the sibling 'type' enum is inconsistent.",
+      "repairMode": "Mechanical normalization of block.type enum.",
+      "toolFalsePositive": false
+    },
+    {
+      "id": "XC-3-source-granularity",
+      "issueFamily": "SOURCE_MAPPING_MISSING (partial)",
+      "severity": "P2",
+      "evidence": "Lessons carry no inline sourceRef; python-source-manifest.js is toc-only (no per-lesson body/code evidence). Title↔chapter mapping is verifiable; original-book code fidelity is NOT verifiable from current assets.",
+      "repairMode": "Deferred to P-E full-text extraction round.",
+      "toolFalsePositive": false
+    }
+  ],
+  "lessons": [
+    {
+      "lessonId": "python-0007-gs1-run-visible-output", "order": 1, "chapterId": "python-gs-ch01",
+      "filePath": "packages/python-course/data/chapters/python-gs-ch01.js",
+      "sourceChapter": "第1章 起步 (GS 派生)",
+      "auditVerdict": "CLEAN", "severity": "P3", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-2-block-type-drift"],
+      "fieldEvidence": "title↔objectives↔code↔output consistent; print()×4 → 4 lines verbatim; 4 lineNotes map to physical lines 1-4; terms(Python/interpreter/statement) match topic; ja/zh parallel, no contamination.",
+      "recommendedRepairMode": "none (content) / block.type normalize"
+    },
+    {
+      "lessonId": "python-0008-gs2-values-and-variables", "order": 2, "chapterId": "python-gs-ch01",
+      "filePath": "packages/python-course/data/chapters/python-gs-ch01.js",
+      "sourceChapter": "第2章 变量和简单数据类型 (GS 派生)",
+      "auditVerdict": "CLEAN", "severity": "P3", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-2-block-type-drift"],
+      "fieldEvidence": "code assigns language/topic_count, expression concat, print — expectedOutput 'Python keeps values by name / visible topics: 2' matches; lineNotes lines 1-5 real; commonMistakes topically correct (str+int).",
+      "recommendedRepairMode": "none (content)"
+    },
+    {
+      "lessonId": "python-0009-7d37969c-第-3-章-列表简介", "order": 3, "chapterId": "python-gs-ch01",
+      "filePath": "packages/python-course/data/chapters/python-gs-ch01.js",
+      "sourceChapter": "第3章 列表简介",
+      "auditVerdict": "CLEAN", "severity": "P3", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-2-block-type-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "days list, len/index/-1; expectedOutput 'list size: 3 / first day: Mon / last day: Wed' correct; index-0 pedagogy accurate; terms list/element/index consistent.",
+      "recommendedRepairMode": "none (content)"
+    },
+    {
+      "lessonId": "python-0010-921b265b-第-4-章-操作列表", "order": 4, "chapterId": "python-gs-ch01",
+      "filePath": "packages/python-course/data/chapters/python-gs-ch01.js",
+      "sourceChapter": "第4章 操作列表",
+      "auditVerdict": "CLEAN", "severity": "P3", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-2-block-type-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "append/assign/pop(0); expectedOutput exactly models CPython list repr with single quotes; lineNotes annotate lines 1,2,4,6,8 (skips print-only lines) — faithful; append→None commonMistake correct.",
+      "recommendedRepairMode": "none (content)"
+    },
+    {
+      "lessonId": "python-0011-5c80c609-第-5-章-if语句", "order": 5, "chapterId": "python-gs-ch01",
+      "filePath": "packages/python-course/data/chapters/python-gs-ch01.js",
+      "sourceChapter": "第5章 if语句",
+      "auditVerdict": "CLEAN", "severity": "P3", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-2-block-type-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "RUNTIME-VERIFIED: check_python_domain1a_contract executes this code → stdout 'score: 78 / result: pass / check complete' matches expectedOutput exactly; colon/indent/==-vs-= commonMistakes correct.",
+      "recommendedRepairMode": "none (content)"
+    },
+    {
+      "lessonId": "python-0012-5cc0ecc6-第-6-章-字典", "order": 6, "chapterId": "python-gs-ch01",
+      "filePath": "packages/python-course/data/chapters/python-gs-ch01.js",
+      "sourceChapter": "第6章 字典",
+      "auditVerdict": "TARGETED_FIX", "severity": "P1", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-1-projection-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "Content CLEAN: dict read/add/update, sorted(keys) → ['focus','lessons','name','status'], lessons 6→7 correct. BUT lessonId absent from course-registry pythonVisibleLessonIds → not learner-visible.",
+      "recommendedRepairMode": "registry projection fix (XC-1), no content change"
+    },
+    {
+      "lessonId": "python-0013-3f4a9a6a-第-7-章-用户输入和while循环", "order": 7, "chapterId": "python-foundations-b-ch01",
+      "filePath": "packages/python-course-foundations-b/data/chapters/python-foundations-b-ch01.js",
+      "sourceChapter": "第7章 用户输入和while循环",
+      "auditVerdict": "TARGETED_FIX", "severity": "P1", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-1-projection-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "Content CLEAN: input()+int()+while counter, sampleInput 'Coco\\n3', expectedOutput models piped-stdin prompt concatenation correctly; safe-stdin contract PASS. Not in registry projection.",
+      "recommendedRepairMode": "registry projection fix (XC-1)"
+    },
+    {
+      "lessonId": "python-0014-75c7d812-第-8-章-函数", "order": 8, "chapterId": "python-foundations-b-ch01",
+      "filePath": "packages/python-course-foundations-b/data/chapters/python-foundations-b-ch01.js",
+      "sourceChapter": "第8章 函数",
+      "auditVerdict": "TARGETED_FIX", "severity": "P1", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-1-projection-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "Content CLEAN: def/param/return, make_status + total_minutes(15,25)=40, expectedOutput matches; return-vs-print commonMistake correct. Not in registry projection.",
+      "recommendedRepairMode": "registry projection fix (XC-1)"
+    },
+    {
+      "lessonId": "python-0015-0f96233e-第-9-章-类", "order": 9, "chapterId": "python-foundations-b-ch01",
+      "filePath": "packages/python-course-foundations-b/data/chapters/python-foundations-b-ch01.js",
+      "sourceChapter": "第9章 类",
+      "auditVerdict": "TARGETED_FIX", "severity": "P1", "existingWorkAssessment": "GENUINELY_COMPLETE",
+      "issueFamilies": ["XC-1-projection-drift", "XC-3-source-granularity"],
+      "fieldEvidence": "Content CLEAN: class/__init__/method state, add(20)→'Python: 20 min', add(10)→'Python: 30 min' correct; self/__init__ commonMistakes correct. This is the lessonId the failing tool names as missing from registry projection.",
+      "recommendedRepairMode": "registry projection fix (XC-1)"
+    }
+  ]
+}

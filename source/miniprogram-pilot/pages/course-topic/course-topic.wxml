@@ -1,0 +1,49 @@
+<!--pages/course-topic/course-topic.wxml · Generic exam-topic page (R1.6)-->
+<view class="ct-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="pages/course-topic/course-topic">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+
+  <view class="ct-top">
+    <view class="ct-back">返回</view>
+  </view>
+
+  <!-- Safe empty state: unknown course/topic -->
+  <block wx:if="{{notFound}}">
+    <view class="ct-empty">
+      <text class="ct-empty__title">主题暂不可用</text>
+      <text class="ct-empty__sub">该主题尚未开放或入口尚未确认</text>
+      <view class="ct-btn ct-btn--outline" bindtap="goBack">返回课程</view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="ct-head">
+      <text class="ct-head__course">{{courseName}}</text>
+      <text class="ct-head__title">{{topic.title}}</text>
+      <text class="ct-head__ja">{{topic.titleJa}}</text>
+    </view>
+
+    <!-- Related practice: only a verified bridge surfaces a real action -->
+    <view class="ct-section">
+      <text class="ct-section__title">关联练习</text>
+      <view wx:if="{{practiceVerified}}" class="ct-btn ct-btn--primary" bindtap="goPractice">开始本主题练习</view>
+      <text wx:else class="ct-pending">本主题的题目筛选能力正在核验中</text>
+    </view>
+
+    <!-- Honest cross-course mistakes bridge -->
+    <view class="ct-section">
+      <text class="ct-section__title">学习辅助</text>
+      <view class="ct-row" bindtap="goMistakes">
+        <view class="ct-row__body">
+          <text class="ct-row__text">全部错题复习</text>
+          <text class="ct-row__note">当前显示跨课程错题；课程筛选将在题目整理能力完成后开放。</text>
+        </view>
+        <text class="ct-row__arrow">→</text>
+      </view>
+    </view>
+  </block>
+</view>

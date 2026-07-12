@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q81",
+    "sourceFingerprint": "sha256:6099ebdd953fd3dbb02cf6db3b663f6c110d741589b0161f95244c42b6caf56e",
+    "questionZh": "蓝牙标准中包含的、实现设备间低功耗通信的是哪个？",
+    "optionsZh": {
+      "A": "BLE",
+      "B": "LPWA",
+      "C": "LTE",
+      "D": "PLC"
+    },
+    "explanationZh": "- 正确。BLE(Bluetooth Low Energy)是蓝牙标准中低功耗专用通信方式。通信速度虽低，但纽扣电池可运行数月至数年，成本低，适合IoT网络。通信距离约10m~400m。\n- LPWA是低功耗广域网，用于IoT设备，距离数km~数十km，但不是蓝牙标准。\n- LTE是3G到4G过渡的通信标准。\n- PLC是利用电力线进行数据通信的技术。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q82",
+    "sourceFingerprint": "sha256:9006a43f61f69e114adfaa9cee2d958e502bd11b9d26500a4dad2f91d3f6c665",
+    "questionZh": "神经网络学习中使用的反向传播(Backpropagation)所做的处理是哪个？",
+    "optionsZh": {
+      "A": "调整各节点权重，减小误差。",
+      "B": "调整各节点权重，选择最优激活函数。",
+      "C": "改变节点数量，减小误差。",
+      "D": "改变节点数量，提升处理速度。"
+    },
+    "explanationZh": "反向传播是神经网络学习的代表性算法：比较模型输出与正确答案计算误差，将误差从输出层逆向传播到输入层，同时调整各中间层权重。使用梯度下降法按误差影响程度逐步更新各节点权重使误差减小。因此「A」正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q83",
+    "sourceFingerprint": "sha256:6f6b8ebbdaadf4c391e594157c259458138ece8a9148ecbed3a35fe86ff46fa6",
+    "questionZh": "职场PC信息安全对策a~c中，除安装防恶意软件外，防止恶意软件感染的适当对策是哪个？\n- 安装OS安全补丁\n- 对启动硬盘设置密码\n- 引入复杂且足够长的登录密码",
+    "optionsZh": {
+      "A": "a",
+      "B": "a，b",
+      "C": "b",
+      "D": "c"
+    },
+    "explanationZh": "- 合适。安全补丁修复软件安全缺陷。恶意软件利用漏洞入侵，应用补丁修复已知漏洞是适当对策。\n- 不合适。HDD密码主要用于防范PC丢失/被盗时的信息泄露。恶意软件多在PC运行状态下入侵，HDD密码不能防止。\n- 不合适。强密码主要防范非法登录。恶意软件通过钓鱼邮件、网络攻击、恶意网站等途径感染，强密码不能防止。\n仅a合适，即「A」。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q84",
+    "sourceFingerprint": "sha256:2c4106607249119ea4e9e078946d3d6fb2ba4113baa21d019a8e8a9fff0fa6fe",
+    "questionZh": "某推理系统可执行演绎推理、归纳推理、假设形成等。关于输入输出的描述中，属于演绎推理执行例的是哪个？",
+    "optionsZh": {
+      "A": "输入「HDD和SSD是存储设备」后输入「HDD增加台数则存储容量增加」，输出「SSD增加台数则存储容量增加」。",
+      "B": "输入「HDD增加台数则存储容量增加」后输入「存储设备增加台数则存储容量增加」，输出「HDD是存储设备」。",
+      "C": "同时输入「存储设备HDD有存储容量」和「存储设备SSD有存储容量」，输出「所有存储设备都有存储容量」。",
+      "D": "输入「所有存储设备都有存储容量」后输入「HDD是存储设备」，输出「HDD有存储容量」。"
+    },
+    "explanationZh": "演绎推理是从一般规则导出必然成立的个别结论（三段论法）。归纳推理从多个具体事例导出一般规则。假设形成从结果推测原因。类推推理由相似对象类推。\n- 类推。\n- 假设形成。\n- 归纳推理。\n- 正确。「所有A是B」「C是A」→「C是B」是典型三段论法，即演绎推理。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q85",
+    "sourceFingerprint": "sha256:81dc09fb1a181532399ea3fd7cea3bf2079e6a7501bcbe9965a91059e3c2fdc2",
+    "questionZh": "函数isPrime接收正整数参数，素数返回true否则false。程序中a、b应填入的字句正确组合是哪个？\n程序：if 参数 a 2: 返回假; div=2; while num b div: if num%div==0: 返回假; div+=1; return true",
+    "optionsZh": {
+      "A": "a:≤ b:<=",
+      "B": "a:< b:≥",
+      "C": "a:≤ b:>",
+      "D": "a:< b:>"
+    },
+    "explanationZh": "a：素数定义是2以上自然数中仅能被1和自身整除的数。参数小于2（即1、0、负数）可直接判定为非素数。因此a应为「< (小于)」，若是≤则2被判定为非素数，错误。\nb：while循环检查num能否被div整除，div从2递增。当div等于num时无需再检查（num能被自身整除是素数的性质），应在num>div时继续循环。因此b应为「> (大于)」。若条件为≥则在div=num时仍进入循环，必然返回false。\n因此「D」正确(a:<, b:>)。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q86",
+    "sourceFingerprint": "sha256:3309b926c33285fca318676dfb6369b9fca81e11714ea67cc3b7f39679837911",
+    "questionZh": "为防范数据库故障，每天业务结束后获取备份。每周六全备份，周日至周五差分备份。差分备份是从上次全备份到获取当日所有差分数据的备份。周三数据库损坏，需恢复到周二业务结束时的状态。恢复所需最低限度的备份文件是哪个？",
+    "optionsZh": {
+      "A": "周日、周一、周二的差分备份",
+      "B": "周二的差分备份",
+      "C": "周六的全备份+周日、周一、周二的差分备份",
+      "D": "周六的全备份+周二的差分备份"
+    },
+    "explanationZh": "差分备份记录自上次全备份以来的所有变更内容。恢复时只需最近的全备份+最新的差分备份即可。\n周六全备份→周日差分(含周日变更)→周一差分(含周日+周一变更)→周二差分(含周日+周一+周二变更)。周二差分包含周日到周二的全部变更。恢复时先应用周六全备份再应用周二差分即可。因此仅需「周六全备份+周二差分」，即「D」。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q87",
+    "sourceFingerprint": "sha256:172785682ea40cdd911780a10f68c97c873e44854fe76ff75a9d084eb3169b1b",
+    "questionZh": "作为NAS的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "直接连接网络使用的外部存储设备，可通过PC和智能手机等经由网络使用。",
+      "B": "与存储介质上数据的位置和写入顺序无关，可直接访问目标数据的文件格式。",
+      "C": "将多个存储设备作为一台管理，分散存储数据以提升访问速度和容错性的技术。",
+      "D": "用于识别无线LAN网络的字符串。"
+    },
+    "explanationZh": "NAS(Network Attached Storage)是直接连接网络而非特定单台机器的文件服务器。最大特征是多个终端可共同使用。由控制器和HDD/SSD构成，专用OS提供高速数据提供和易管理功能。\n- 正确。NAS的说明。\n- 随机访问的说明。\n- RAID的说明。\n- SSID的说明。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q88",
+    "sourceFingerprint": "sha256:fed57eeab9f5db842c77bb55586aebfc9180680281de72149164416e064c0aa0",
+    "questionZh": "有一个可通过编程控制落笔/抬笔、直行和右转的机器人。制作绘制边长1m正六边形的程序。a和b应填入的字句正确组合是哪个？\n程序：落笔；计数器设为a；重复：直行1m；右转b度；计数器+1；若计数器<6则继续；抬笔。",
+    "optionsZh": {
+      "A": "a:0 b:60",
+      "B": "a:1 b:60",
+      "C": "a:0 b:120",
+      "D": "a:1 b:120"
+    },
+    "explanationZh": "a：正六边形有6条边。设初始值为0，每画一边+1，画完6边后计数器=6停止，正确。若初始=1，画5边后计数器=6停止，少画一边→错误。\nb：机器人转弯角度是外角，多边形外角和为360°，正六边形6个角，每次转弯360÷6=60°。若120°→内角60°，会画出正三角形而非正六边形。\n因此「A」(a:0,b:60)正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q89",
+    "sourceFingerprint": "sha256:e8dd0f2fb4c0e09d266db68894844e1e04f0ebd619ecb47663e9abd26604eb99",
+    "questionZh": "关于信息安全，下列描述中a和b应填入的字句的正确组合是哪个？\n\n可能对保护对象信息资产产生不良影响的原因称为a，可能损害信息资产自身价值的弱点称为b。",
+    "optionsZh": {
+      "A": "a:事件 b:风险",
+      "B": "a:威胁 b:漏洞",
+      "C": "a:风险 b:事件",
+      "D": "a:漏洞 b:威胁"
+    },
+    "explanationZh": "信息安全术语：事件是降低机密性、完整性、可用性的事象；威胁是导致信息资产损害的潜在因素（如恶意软件、网络攻击）；漏洞是组织或系统内在的缺点和弱点（如bug、安全漏洞）；风险是威胁利用漏洞造成损害的可能性。\na：「原因」→威胁。\nb：「弱点」→漏洞。\n因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q9",
+    "sourceFingerprint": "sha256:bc5ea1d9d3e9b534381d3c438e2badd7cacb8b318dec707f5caed61187a88d95",
+    "questionZh": "产品制造相关费用中，属于间接费用的是哪个？\n- 检查完成产品的劳务费\n- 维护工厂供电设备的劳务费\n- 产品外部加工费",
+    "optionsZh": {
+      "A": "a，b",
+      "B": "b",
+      "C": "b，c",
+      "D": "c"
+    },
+    "explanationZh": "直接费：与特定产品制造直接相关的费用（直接材料费、直接劳务费、直接经费）。间接费：无法直接对应特定产品、需按基准分摊的费用（间接材料费、间接劳务费、间接经费）。\n- 检查劳务费可按工时对应特定产品→直接费(直接劳务费)。\n- 供电设备为全厂共用，维护费无法对应特定产品→间接费(间接劳务费)。\n- 外部加工费直接对应特定产品→直接费(直接经费)。\n仅b是间接费，即「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q90",
+    "sourceFingerprint": "sha256:1c78397685c97ed72fd6d9cd20627083e7d027a6053e40b016bbb29804a78204",
+    "questionZh": "作为PKI(公钥基础设施)的特征，正确的是哪个？",
+    "optionsZh": {
+      "A": "提供确认共享密钥所有者的方法。",
+      "B": "通过「信任之环」由熟人签名来确认公钥的正当性。",
+      "C": "由认证机构(CA)保证电子证书的正当性。",
+      "D": "提供安全公开私钥的方法。"
+    },
+    "explanationZh": "PKI由认证机构(CA)、注册机构(RA)、证书吊销列表(CRL)等构成，安全运营公钥密码。CA确认申请者身份后发行电子证书保证公钥属于申请者，确保公钥密码的可靠性和安全性。\n- PKI证明的是公钥所有者，非共享密钥。\n- 「信任之环」是PGP使用的机制。\n- 正确。电子证书由可信第三方CA发行，附数字签名供验证。\n- 私钥应由所有者严格管理，不得对外公开。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q91",
+    "sourceFingerprint": "sha256:1a9d1bbf1e1823fed20eb950c8d942d4abf58c00f7f3283d1e756862649c8ceb",
+    "questionZh": "数字签名和区块链使用的哈希函数有SHA-256、SHA-512等。关于哈希函数的正确描述是哪个？",
+    "optionsZh": {
+      "A": "将哈希值再输入同一哈希函数可恢复原始数据。",
+      "B": "相同数据输入不同哈希函数得到的哈希值都相同。",
+      "C": "使用同一哈希函数时，输入数据相同则哈希值始终相同。",
+      "D": "所有哈希函数都存在逆函数，可从哈希值恢复原始数据。"
+    },
+    "explanationZh": "哈希函数特征：确定性（同输入→同输出）、雪崩效应（微小输入差异→输出大幅不同）、单向性（从哈希值难以反推原始数据）、碰撞耐性（不同输入产生相同哈希值的概率极低）。\n- 哈希函数有单向性，不可逆。\n- 不同哈希函数算法不同，相同输入产生不同哈希值（如SHA-256输出256位，SHA-512输出512位）。\n- 正确。同输入同函数→输出恒定（确定性）。\n- 哈希函数是单向转换，无逆函数。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q92",
+    "sourceFingerprint": "sha256:d358dad7e8ef07faaa88bfafa7d94ed6794bde332dfd9d69838a612e96440237",
+    "questionZh": "基于零信任安全理念的信息安全对策，正确的是哪个？",
+    "optionsZh": {
+      "A": "在互联网与内部网络边界设置防火墙，在边界阻断来自互联网的威胁。",
+      "B": "无论来自内部还是外部网络，访问网络信息资源都使用双因素认证。",
+      "C": "内部网络PC安装的软件发现漏洞时，补丁发布后立即安装。",
+      "D": "仅对连接互联网的内部PC安装防恶意软件。"
+    },
+    "explanationZh": "零信任是不信任传统认为安全的内部网络通信，无论内外对所有访问和通信进行监控验证的安全模型。传统「边界防御」假设内部安全，边界被突破则失效。零信任的本质是不论访问来源，所有通信初始都不被信任，每次访问均需认证授权。\n- 边界防御。\n- 正确。零信任核心理念。\n- 漏洞管理/终端管理。\n- 边界防御思维。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q93",
+    "sourceFingerprint": "sha256:be5f2b7b38b693954fe52220c1de8bc5762093e8b9d7cc3fb1e35d3dec0575c2",
+    "questionZh": "ISMS实施项目中，最先进行的是哪个？",
+    "optionsZh": {
+      "A": "确定ISMS适用范围",
+      "B": "信息安全风险评估",
+      "C": "信息安全风险应对",
+      "D": "内部审计"
+    },
+    "explanationZh": "ISMS活动分5个阶段：①确立适用范围和基本方针→②基于风险评估选择管理措施→③制定风险应对计划→④实施应对计划→⑤绩效评估和改善。最先做的是确定适用范围（明确管理对象部门、业务、场所、信息资产的边界）。因此「A」正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q94",
+    "sourceFingerprint": "sha256:01558253a90b796c309d2e9d06985973b9dac36ea8423da3e56f484d527febc6",
+    "questionZh": "将信息安全对策分为「技术」「人员」「物理」时，属于「物理安全对策」的是哪个？",
+    "optionsZh": {
+      "A": "制定含罚则的机密信息处理规则，对相关人员进行定期教育以使其遵守。",
+      "B": "为在受灾导致系统故障时仍能继续服务，在远程地点准备备份系统。",
+      "C": "为防范日益巧妙化的网络攻击，向员工传达攻击方法和对策信息。",
+      "D": "为防范恶意软件损害，引入防恶意软件并保持定义文件最新。"
+    },
+    "explanationZh": "技术对策：用软件/网络技术保护系统和资产。人员对策：减少人为错误和违规风险（教育培训、规章完善等）。物理对策：物理保护系统和资产免受入侵/盗窃/自然灾害（服务器室、灾害对策、出入管理、设备冗余等）。\n- 人员对策。\n- 正确。多地确保设备和场所是防范物理威胁的对策→物理对策。\n- 人员对策（意识教育）。\n- 技术对策（软件安全）。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q95",
+    "sourceFingerprint": "sha256:06e3b477ba7aa709a648f5db62f56836d268f347ebd7188b5a8999367a7af0fc",
+    "questionZh": "用于SQL注入对策等，为防止处理误动作，将用户输入中蕴含的有害字符串替换为无害字符串称为什么？",
+    "optionsZh": {
+      "A": "MAC地址过滤",
+      "B": "净化(Sanitizing)",
+      "C": "条带化(Striping)",
+      "D": "社会工程学"
+    },
+    "explanationZh": "净化是将用户输入值中含有的攻击代码无害化的处理。输入字符串可能含有HTML或SQL中的特殊字符，直接处理会被解释为命令或标签导致攻击。净化是Web应用防御攻击的基本且重要的对策。\n- MAC地址过滤是无线LAN访问控制功能。\n- 正确。净化。\n- 条带化(RAID 0)是分散写入多磁盘提升性能的方式。\n- 社会工程学是利用人的心理疏忽获取秘密信息的方法。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q96",
+    "sourceFingerprint": "sha256:4e4ed9b01afada27e102b1f48b722551a9d60dc0a7bed37d1f593b4e60b541c0",
+    "questionZh": "以获取机密信息为目的，针对特定组织或个人使用多种攻击手法长期持续攻击的网络攻击是哪个？",
+    "optionsZh": {
+      "A": "APT攻击",
+      "B": "DDoS攻击",
+      "C": "零日攻击",
+      "D": "密码列表攻击"
+    },
+    "explanationZh": "APT(Advanced Persistent Threats)是组合多种攻击方法、对特定组织或个人长期持续进行的网络攻击。攻击者先通过邮件等入侵内部终端，以此为跳板进一步深入组织内部，持续数月至数年，最终窃取知识产权和重要信息。\n- 正确。APT攻击。\n- DDoS是多台PC同时对特定站点发起DoS攻击。\n- 零日攻击利用补丁发布前的漏洞进行攻击。\n- 密码列表攻击利用他站泄露的ID/密码列表尝试登录其他网站。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q97",
+    "sourceFingerprint": "sha256:8fdbbbd2dc1070f64b63ca1e7acb24176becabf0c62f04c697c2e1746eba72a1",
+    "questionZh": "关于OSS处理，正确的是哪些？\n- 将OSS集成的记录介质有偿提供给客户。\n- 将修改后的OSS限制在特定使用领域作为OSS提供。\n- 将通过发现并修复缺陷后的OSS源代码在自己的网站提供。",
+    "optionsZh": {
+      "A": "a",
+      "B": "a，c",
+      "C": "b，c",
+      "D": "c"
+    },
+    "explanationZh": "根据OSI开源定义：自由再分发、可获取源码、允许派生作品、不歧视个人/团体、不歧视使用领域、不要求追加许可等。\n- 合适。自由再分发不问有偿或无偿。\n- 不合适。OSS不得歧视使用领域。\n- 合适。派生作品也可自由再分发。\n正确的是「a，c」，即「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q98",
+    "sourceFingerprint": "sha256:f85c96359b4d2d06e29b04af41c39475bc85592ef90afe9148fd791f4b70c3df",
+    "questionZh": "关于AI中提示工程(Prompt Engineering)的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "AI从大量事象和数据中获取普遍规则和知识。",
+      "B": "在画面上以符号或字符串表示AI可输入问题或指示的状态。",
+      "C": "为获得预期回答，对AI的问题和指示内容、信息提供、输出格式指定等进行优化。",
+      "D": "用计算机模拟神经细胞网络的计算模型。"
+    },
+    "explanationZh": "提示工程是为从生成AI获得符合目的的回答，优化输入提示（问题、命令、条件等）的技术和思路。基本要素：具体明确的指示、包含输出项目和格式等必要信息、给出输出示例、明示前提条件和制约条件。具体手法包括Zero-shot、Few-Shot、思维链(CoT)等。\n- 机器学习。\n- 提示符。\n- 正确。提示工程。\n- 神经网络。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q99",
+    "sourceFingerprint": "sha256:81f42c5e22696c40163f16fb292cc173c443d495a14135590dbb94f8265df3a8",
+    "questionZh": "关于输入设备，下列描述中a和b应填入的字句的正确组合是哪个？\n\na是对纸张等照射光线读取反射光、将文字和图形转换为数字数据输入PC的设备。表示a读取精细程度的性能单位使用b。",
+    "optionsZh": {
+      "A": "a:屏幕阅读器 b:bps",
+      "B": "a:图像扫描仪 b:dpi",
+      "C": "a:屏幕阅读器 b:dpi",
+      "D": "a:图像扫描仪 b:bps"
+    },
+    "explanationZh": "a：读取纸张上文字和图形转换为数字数据的设备是图像扫描仪。屏幕阅读器是将画面文字信息以语音朗读或输出到盲文显示器的辅助软件。因此a=图像扫描仪。\nb：表示扫描仪读取精细程度（分辨率）的单位是dpi(dots per inch)。bps是通信速度单位。因此b=dpi。即「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

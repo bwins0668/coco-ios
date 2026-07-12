@@ -1,0 +1,56 @@
+@import "../../styles/tokens.wxss";
+
+.qp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--qp-control-height);
+  padding: 0 var(--qp-space-4);
+  border-radius: var(--qp-radius-md);
+  font-size: var(--qp-font-size-body);
+  font-weight: var(--qp-font-weight-semibold);
+  line-height: var(--qp-line-height-normal);
+  box-sizing: border-box;
+}
+
+.qp-btn__label {
+  color: inherit;
+}
+
+/* primary：墨蓝实心，唯一强调色 */
+.qp-btn--primary {
+  background-color: var(--qp-color-primary);
+  color: var(--qp-color-surface);
+}
+
+.qp-btn--primary.qp-btn--pressed {
+  background-color: var(--qp-color-primary-pressed);
+}
+
+/* secondary：描边，安静低调 */
+.qp-btn--secondary {
+  background-color: var(--qp-color-surface);
+  color: var(--qp-color-primary);
+  border: var(--qp-border-width) solid var(--qp-color-line-strong);
+}
+
+.qp-btn--secondary.qp-btn--pressed {
+  background-color: var(--qp-color-surface-muted);
+}
+
+/* disabled */
+.qp-btn.is-disabled {
+  background-color: var(--qp-color-disabled-bg);
+  color: var(--qp-color-disabled-text);
+  border-color: transparent;
+}
+
+/* loading：锁定不可点，保留本色但降至次要文字色，安静提示进行中 */
+.qp-btn.is-loading {
+  color: var(--qp-color-text-secondary);
+}
+
+.qp-btn--primary.is-loading {
+  background-color: var(--qp-color-primary-soft);
+  color: var(--qp-color-primary);
+}

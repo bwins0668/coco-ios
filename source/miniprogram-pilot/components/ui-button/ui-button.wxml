@@ -1,0 +1,13 @@
+<!-- ui-button · Quiet Paper 基础按钮（variant: primary | secondary；支持 disabled / loading）
+     纯展示 + 透传点击事件 qptap；不含任何业务逻辑、不引用任何页面。
+     loading 时按钮锁定、不触发 qptap，并以低干扰文字提示加载中。 -->
+<view
+  class="qp-btn qp-btn--{{variant}} {{disabled ? 'is-disabled' : ''}} {{loading ? 'is-loading' : ''}}"
+  hover-class="{{disabled || loading ? 'none' : 'qp-btn--pressed'}}"
+  hover-stay-time="80"
+  bindtap="onTap"
+>
+  <text wx:if="{{loading}}" class="qp-btn__label">载入中…</text>
+  <text wx:elif="{{text}}" class="qp-btn__label">{{text}}</text>
+  <slot wx:else></slot>
+</view>

@@ -1,0 +1,66 @@
+<!--pages/mistakes/mistakes.wxml - 错题复盘中心-->
+<view class="container {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="pages/mistakes/mistakes">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- 顶部 Hero -->
+  <view class="mistakes-hero">
+    <view class="mistakes-hero-row">
+      <view class="mistakes-hero-text">
+        <text class="mistakes-hero-title">错题本</text>
+        <text class="mistakes-hero-subtitle">答错自动收录 · 复盘巩固</text>
+      </view>
+      <view class="mistakes-hero-count" wx:if="{{wrongCount > 0}}">
+        <text class="mistakes-hero-count-num">{{wrongCount}}</text>
+        <text class="mistakes-hero-count-label">待复盘</text>
+      </view>
+    </view>
+    <!-- 分类统计 -->
+    <view class="mistakes-category-row category-stats" wx:if="{{wrongCount > 0}}">
+      <view class="mistakes-cat-chip mistakes-cat-itpass" wx:if="{{itpassCount > 0}}">
+        <text class="mistakes-cat-chip-text">IT Passport {{itpassCount}}</text>
+      </view>
+      <view class="mistakes-cat-chip mistakes-cat-sg" wx:if="{{sgCount > 0}}">
+        <text class="mistakes-cat-chip-text">SG {{sgCount}}</text>
+      </view>
+      <text class="mistakes-last-time" wx:if="{{lastWrongTime}}">{{lastWrongTime}}</text>
+    </view>
+  </view>
+
+  <!-- 有错题时：操作区 -->
+  <view class="mistakes-actions" wx:if="{{wrongCount > 0}}">
+    <view class="action-grid">
+      <!-- 查看错题 -->
+      <view class="action-tile action-tile-red" bindtap="goToMistakesList">
+        <view class="action-symbol symbol-list"></view>
+        <text class="action-tile-title">查看错题详情</text>
+        <text class="action-tile-stat">{{wrongCount}} 道</text>
+      </view>
+      <!-- 错题闪卡 -->
+      <view class="action-tile action-tile-purple" bindtap="goToAnkiMistakes">
+        <view class="action-symbol symbol-anki"></view>
+        <text class="action-tile-title">闪卡复盘</text>
+        <text class="action-tile-stat">Anki</text>
+      </view>
+      <!-- 去学习 -->
+      <view class="action-tile action-tile-blue" bindtap="goStudy">
+        <view class="action-symbol symbol-practice"></view>
+        <text class="action-tile-title">继续练习</text>
+        <text class="action-tile-stat">做题</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="mistakes-empty enhanced-empty" wx:if="{{wrongCount === 0}}">
+    <view class="mistakes-empty-symbol"></view>
+    <text class="mistakes-empty-title">暂无错题记录</text>
+    <text class="mistakes-empty-desc">完成一次练习后，答错的题目会自动收录到这里</text>
+    <view class="mistakes-empty-btn" bindtap="goStudy">
+      <text class="mistakes-empty-btn-text">开始练习</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,171 @@
+/* pages/glossary/glossary.wxss - 术语学习中心 · R6.6A.1 widened + stronger hierarchy */
+
+.container {
+  min-height: 100vh;
+  box-sizing: border-box;
+  /* R6.6A.1: tighter gutter for glossary hub */
+  padding: 0 16rpx calc(100rpx + env(safe-area-inset-bottom));
+  background-color: var(--qp-color-canvas);
+  color: var(--qp-color-ink);
+}
+
+/* === Hero 区域 === */
+.glossary-hero {
+  /* R6.6A.1: zero side margin — container padding handles gutter */
+  margin: 16rpx 0 0;
+  padding: 30rpx;
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  border-radius: 26rpx;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.glossary-hero::before,
+.glossary-hero::after { display: none; }
+
+.glossary-hero-row {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.glossary-hero-text { flex: 1; }
+
+.glossary-hero-title {
+  display: block;
+  /* R6.6A.1: stronger title presence */
+  font-size: 46rpx; font-weight: 700; line-height: 1.18;
+  color: var(--text-primary); margin-bottom: 10rpx;
+}
+
+.glossary-hero-subtitle {
+  display: block;
+  /* R6.6A.1: clearer subtitle */
+  font-size: 26rpx; font-weight: 500; line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.glossary-hero-badge {
+  background: var(--bg-surface); border: 1rpx solid var(--border-color);
+  border-radius: 999rpx; padding: 8rpx 20rpx; flex-shrink: 0; margin-top: 6rpx;
+}
+
+.glossary-hero-badge-text { font-size: 20rpx; color: var(--text-secondary); font-weight: 600; }
+
+/* === 搜索入口卡片 === */
+.search-entry-card {
+  display: flex; align-items: center;
+  background: var(--bg-surface); border: 1rpx solid var(--border-color);
+  border-radius: 999rpx; padding: 24rpx 28rpx;
+  position: relative; z-index: 2;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.search-entry-card:active {
+  transform: translateY(2rpx) scale(0.985); background: var(--press-bg); border-color: var(--border-strong);
+}
+
+.search-entry-symbol {
+  width: 34rpx; height: 34rpx; margin-right: 16rpx;
+  border: 3rpx solid var(--text-secondary); border-radius: 50%;
+  position: relative; flex-shrink: 0;
+}
+
+.search-entry-symbol::after {
+  content: ''; position: absolute; right: -8rpx; bottom: -5rpx;
+  width: 14rpx; height: 3rpx; border-radius: 999rpx;
+  background: var(--text-secondary); transform: rotate(45deg);
+}
+
+.search-entry-placeholder,.search-entry-arrow { color: var(--text-hint); }
+
+.search-entry-placeholder {
+  flex: 1; font-size: 28rpx; font-weight: 500;
+}
+
+.search-entry-arrow { font-size: 36rpx; flex-shrink: 0; font-weight: 300; }
+
+/* === 功能卡片矩阵 === */
+.glossary-actions {
+  /* R6.6A.1: zero side padding — container handles gutter */
+  padding: 18rpx 0 0;
+  position: relative; z-index: 2;
+}
+
+.r6-glossary-entry-list {
+  display: grid; grid-template-columns: 1fr 1fr;
+  /* R6.6A.1: relaxed gap */
+  gap: 16rpx;
+}
+
+.r6-glossary-row {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 206rpx; padding: 32rpx 16rpx 28rpx;
+  border-radius: 22rpx; background: var(--card-bg); border: 1rpx solid var(--border-color);
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.r6-glossary-row:active {
+  transform: translateY(2rpx) scale(0.985); background: var(--press-bg); box-shadow: var(--shadow-sm);
+}
+
+.r6-glossary-row::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3rpx; background: var(--border-strong);
+}
+
+.r6-glossary-row-icon { font-size: 44rpx; margin-bottom: 12rpx; }
+
+/* R6.6A.1: WXML uses __title and __stat (BEM double underscore) */
+.r6-glossary-row__title {
+  /* R6.6A.1: clearer primary label */
+  font-size: 30rpx; font-weight: 600; line-height: 1.28;
+  color: var(--text-primary); margin-bottom: 8rpx;
+}
+
+/* R6.6A.1: note — older WXSS also defined .r6-glossary-row-title (single dash).
+   The WXML uses __title (double underscore) which is what the checker expects. */
+.r6-glossary-row-title {
+  font-size: 30rpx; font-weight: 600; line-height: 1.28;
+  color: var(--text-primary); margin-bottom: 8rpx;
+}
+
+.r6-glossary-row__stat {
+  /* R6.6A.1: distinct secondary meta */
+  font-size: 25rpx; font-weight: 500; line-height: 1.35;
+  color: var(--text-hint);
+}
+
+.r6-glossary-row-stat {
+  font-size: 25rpx; font-weight: 500; line-height: 1.35;
+  color: var(--text-hint);
+}
+
+/* === 底部提示 === */
+.glossary-footer-hint { padding: 24rpx 30rpx 0; text-align: center; }
+
+.glossary-footer-hint-text { font-size: 22rpx; color: var(--text-secondary); font-weight: 500; }
+
+/* === 几何 Symbol 系统 === */
+.r6-glossary-row__symbol {
+  width: 54rpx; height: 54rpx; border: 2rpx solid var(--text-primary);
+  border-radius: 16rpx; margin-bottom: 16rpx; position: relative;
+}
+
+.r6-glossary-row__symbol::before,
+.r6-glossary-row__symbol::after { content: ''; position: absolute; background: var(--text-primary); }
+
+.symbol-favorite::before { left: 13rpx; right: 13rpx; top: 25rpx; height: 2rpx; }
+.symbol-favorite::after { left: 25rpx; top: 13rpx; width: 2rpx; height: 28rpx; }
+.symbol-anki::before { left: 12rpx; top: 12rpx; width: 10rpx; height: 10rpx; box-shadow: 18rpx 0 0 var(--text-primary), 0 18rpx 0 var(--text-primary), 18rpx 18rpx 0 var(--text-primary); }
+.symbol-random::before { left: 15rpx; top: 15rpx; width: 20rpx; height: 20rpx; border: 2rpx solid var(--text-primary); border-radius: 50%; background: transparent; }
+.symbol-list::before { left: 13rpx; right: 13rpx; top: 15rpx; height: 2rpx; box-shadow: 0 10rpx 0 var(--text-primary), 0 20rpx 0 var(--text-primary); }
+
+/* R3.54 smoke anchor */
+.launcher-btn-random { display: none; }
+
+/* R6.1 glossary markers */
+.r6-glossary-search { /* R6.1 binding */ }
+.r6-glossary-entry-list { /* R6.1 binding */ }
+.r6-glossary-row { /* R6.1 binding */ }

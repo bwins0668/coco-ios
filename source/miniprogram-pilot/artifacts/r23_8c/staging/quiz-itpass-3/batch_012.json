@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q27",
+    "sourceFingerprint": "sha256:c893c7d05e2f84ddd425724859ca5c5f283365d2379bfa5d156c73e69d114967",
+    "questionZh": "从积累的销售数据中发现天气与畅销商品关联性等规律性的方法称为什么？",
+    "optionsZh": {
+      "A": "数据仓库",
+      "B": "数据处理",
+      "C": "数据挖掘",
+      "D": "数据建模"
+    },
+    "explanationZh": "- 数据仓库是整合企业内外数据库用于决策支持和发现新见解。\n- 数据处理是用计算机处理数据得出有用结果。\n- 正确。数据挖掘是从数据仓库中大量原始数据使用统计学和数学方法发现未知的数据规律和因果关系的技术。\n- 数据建模是用E-R图或UML结构化表达业务流程和数据。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q28",
+    "sourceFingerprint": "sha256:1b9c7e974dc136d43c952c21984b9d59fb6d035dde77aefd1a61620687138f4b",
+    "questionZh": "仓库A、B各有库存35个和15个，店铺C、D各需20个和30个。各仓到各店每件运费：A→C:4万,A→D:2万,B→C:2万,B→D:1万。最小总运费是多少万日元？",
+    "optionsZh": {
+      "A": "85",
+      "B": "100",
+      "C": "110",
+      "D": "125"
+    },
+    "explanationZh": "优先将运费低的仓库发送到需求大的店铺。方案1：D店由A仓30个(2万/个)，C店由A仓5个(4万)和B仓15个(2万)。总运费=4×5+2×15+2×30=110万。方案2：D店由B仓15个(1万)+A仓15个(2万)，C店由A仓20个(4万)。总运费=4×20+2×15+1×15=125万。最小110万，即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q29",
+    "sourceFingerprint": "sha256:b009415d507a943e8b411d1aaf518473dfc8cc2ddfd825a7a0ad3b744eefbb99",
+    "questionZh": "作为合规强化活动的事例，最合适的是哪个？",
+    "optionsZh": {
+      "A": "扩充支持员工社会贡献活动的计划。",
+      "B": "对员工进行应遵守的法律和规则教育。",
+      "C": "为快速推进业务而收购其他公司。",
+      "D": "从难以获利的业务撤退。"
+    },
+    "explanationZh": "合规是基于企业伦理完善规则、手册和检查系统，遵守法令和社会规范开展企业活动。合规=法令遵守。\n- CSR活动事例。\n- 正确。合规活动事例。\n- M&A活动事例。\n- 选择与集中活动事例。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q3",
+    "sourceFingerprint": "sha256:72ba8801a9e89934ce754bf3430de0dcaa97fb40e77c69b870494e2c5be2068a",
+    "questionZh": "仅对事先明确同意者发送广告邮件或获取个人信息的合规方法是什么？",
+    "optionsZh": {
+      "A": "激活(Activation)",
+      "B": "选择退出(Opt-out)",
+      "C": "选择加入(Opt-in)",
+      "D": "白名单"
+    },
+    "explanationZh": "Opt-in(选择加入)是在发送广告邮件或获取个人信息前征求对方同意，仅对同意者执行的技术。特定电子邮件法原则上禁止向同意者以外发送广告邮件。个人信息保护法也规定获取信息时须提示目的并获同意。\n- 激活是通过正当程序使账户或软件/硬件进入活动状态。\n- Opt-out是对已同意的行为事后拒绝的程序。\n- 正确。Opt-in。\n- 白名单是在默认拒绝状态下定义许可行为，用于垃圾邮件过滤等。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q30",
+    "sourceFingerprint": "sha256:f6c3261fdcf0ca2fa45c5ba88f958a848d36a046512553462e70feeb996fd94e",
+    "questionZh": "表示在店铺陈列、促销活动等中，以符合消费者需求的方式提供商品的一系列活动的术语是哪个？",
+    "optionsZh": {
+      "A": "目标市场选择",
+      "B": "主导战略",
+      "C": "商品化(Merchandising)",
+      "D": "物流"
+    },
+    "explanationZh": "- 目标市场选择是从多个候选中选择竞争优位的目标细分市场。\n- 主导战略是通过集中特定地区开店提高效率和市场份额。\n- 正确。商品化是在店头以适当数量、价格、时机提供消费者需求商品的一系列活动。\n- 物流是优化从原材料采购到生产销售整个物流过程。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q31",
+    "sourceFingerprint": "sha256:887e5bd1b42286f054dbbbe239a2ee623b9fecc9a327a4df866e487664eeeb46",
+    "questionZh": "规制利用系统安全漏洞入侵有访问限制的网络连接计算机行为的法律是哪个？",
+    "optionsZh": {
+      "A": "通信监听法",
+      "B": "禁止非法访问法",
+      "C": "信息流通平台处理法",
+      "D": "个人编号法"
+    },
+    "explanationZh": "- 通信监听法规定犯罪侦查中监听的要件和程序。\n- 正确。禁止非法访问法禁止未经本人同意使用他人ID/密码访问需认证的页面及向第三方提供他人认证信息等助长行为。\n- 信息流通平台处理法（旧称提供商责任限制法）规定网络平台运营者对权利被侵害者的应对义务。\n- 个人编号法规定个人编号的安全适当利用和高效信息管理条款。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q32",
+    "sourceFingerprint": "sha256:5d9a0c240f8dcdb2e7677ad017b4989029ff55b3957cb1bce32975c7c2b9e047",
+    "questionZh": "利用数据库化的客户信息提取优质客户的方法，正确的是哪个？",
+    "optionsZh": {
+      "A": "3C分析",
+      "B": "RFM分析",
+      "C": "SWOT分析",
+      "D": "价值链分析"
+    },
+    "explanationZh": "RFM分析关注客户购买行为的Recency(最近购买日)、Frequency(购买频率)、Monetary(累计购买金额)三点进行客户分析。将各要素分5-7级排名，按客户性质分组，展开针对性营销。\n- 3C分析是分析客户、本公司、竞争对手三要素。\n- 正确。RFM分析。\n- SWOT分析是分析优势/劣势/机会/威胁。\n- 价值链分析是将业务分为主活动和支援活动分析附加价值。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q33",
+    "sourceFingerprint": "sha256:53382e99cd6dc2a7418b2e2f23ac522c0ba2ec1590dc615acee8efc693a3512d",
+    "questionZh": "个人信息保护法中，个人信息处理经营者的义务是哪个？",
+    "optionsZh": {
+      "A": "为保障个人信息安全管理，监督业务委托方。",
+      "B": "为保障个人信息安全管理，接受行政机关系统审计。",
+      "C": "关于个人信息的使用，向监督机关备案。",
+      "D": "取得隐私标识认证。"
+    },
+    "explanationZh": "个人信息保护法对处理经营者规定以下义务：尽可能特定利用目的且不超过必要范围、获取时通知/公表利用目的、安全管理个人数据并监督员工和委托方、未经同意不向第三方提供、应本人要求开示/订正/删除、适当迅速处理投诉。\n- 正确。法律明确规定须监督委托方。\n- 法定义务中不包含接受行政审计。\n- 无需向监督机关备案。\n- 隐私标识是自愿认证制度，非法律义务。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q34",
+    "sourceFingerprint": "sha256:ef81f0cef3e21564e6145b047eaa799dd231a17946593952479901b325498b94",
+    "questionZh": "使用PPM区分产生资金的事业和需要投资的事业以实现资源优化配置。PPM中作为资金和利益有效源泉的「金牛」领域是哪个？",
+    "optionsZh": {
+      "A": "市场增长率和市场份额均高的事业。",
+      "B": "市场增长率和市场份额均低的事业。",
+      "C": "市场增长率高但市场份额低的事业。",
+      "D": "市场增长率低但市场份额高的事业。"
+    },
+    "explanationZh": "PPM(产品组合管理)以市场增长率和市场份额为两轴将产品/事业分为4象限：明星(高增长+高份额)、金牛(低增长+高份额，无需追加投资且稳定获利)、问题儿童(高增长+低份额，需大额投资)、瘦狗(低增长+低份额，应考虑撤退)。金牛的特征是低市场增长率+高市场份额，即「D」。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q35",
+    "sourceFingerprint": "sha256:7fccdfe69e3047540cdee1c5c930be925f9becc04f568df4cb13dae3a9935621",
+    "questionZh": "关于IT服务管理活动的描述，正确的是哪个？",
+    "optionsZh": {
+      "A": "将系统开发组织流程成熟度从1到5级定义并支持改善。",
+      "B": "为完成系统开发项目，定义角色和责任并制定人员调配计划。",
+      "C": "定义系统可用性相关指标，获取运行实绩，为达成目标进行计划、测定和改善。",
+      "D": "明确新系统所需交付物及创建交付物所需的作业。"
+    },
+    "explanationZh": "IT服务管理是为持续提供一定品质服务而适当管理信息系统和组织的机制。JIS Q 20000-1将IT服务管理分为4类：服务提供流程(含可用性管理)、关系流程、解决流程、统合控制流程。可用性管理是管理IT服务在需要时可用的流程。\n- CMMI的活动。\n- 项目管理活动。\n- 正确。可用性管理的活动属于IT服务管理。\n- 项目管理活动。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q36",
+    "sourceFingerprint": "sha256:d3392f39271fcfb140df11938fa710a6f336006592f0966a6c202f464a5debf3",
+    "questionZh": "关于内部开发软件的生产环境部署，最合适的描述是哪个？",
+    "optionsZh": {
+      "A": "无论软件规模大小，部署后必须进行系统审计并制作审计报告书。",
+      "B": "软件部署时必须明确实施者、责任人等实施体制。",
+      "C": "软件部署比开发短期可完成，无需制作部署步骤书。",
+      "D": "软件部署仅由系统部门实施，无需将作业结果文档化传达给使用部门。"
+    },
+    "explanationZh": "- 软件部署时系统审计非强制义务。\n- 正确。部署时需制定计划并获相关人员批准，计划应包含必要人员、预算、准备、进度等实施体制。\n- 部署也需制作步骤书并获得批准。\n- 部署作业应文档化记录，并由责任人批准作业结果。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q37",
+    "sourceFingerprint": "sha256:143004996973fbb3ff76d52bb3366d4824cd307949ed7ffcc3bcf297486438d1",
+    "questionZh": "关于信息系统管理的机密信息，从设施管理角度实施的泄露对策，正确的是哪个？",
+    "optionsZh": {
+      "A": "引入防病毒软件",
+      "B": "对计算机机房所在建筑的出入管理",
+      "C": "信息系统的ID和密码管理",
+      "D": "采用电子文档加密"
+    },
+    "explanationZh": "设施管理是综合管理企业拥有或使用的全部设施资产及其使用环境的经营活动。管理对象是土地、建筑、设备等物理资产和物理空间。\n- 技术对策（软件）。\n- 正确。出入管理是对物理资产的管控→设施管理。\n- 技术对策。\n- 技术对策。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q38",
+    "sourceFingerprint": "sha256:4d85b619ea6174df344176b5a29e930875ca1349b4d77f095ee4d141c82975e7",
+    "questionZh": "系统开发项目中，开发用PC导入延迟。但因事先计划了延迟时使用旧型PC作为替代机，开发作业按计划开始。此时实施的项目管理行为是哪个？",
+    "optionsZh": {
+      "A": "关键路径估算",
+      "B": "范围定义",
+      "C": "利益相关者识别",
+      "D": "执行风险应对计划"
+    },
+    "explanationZh": "事先制定替代方案并在风险发生时按计划执行，属于风险应对计划的执行。\n- 关键路径估算是识别不能延迟的作业。\n- 范围定义是明确项目范围。\n- 利益相关者识别是把握项目利害关系者。\n- 正确。执行事先计划的风险应对。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q39",
+    "sourceFingerprint": "sha256:aab7bbb724f629c403fb3e4fcc78d6b4bf3335fd72e3872e8850433935a225d1",
+    "questionZh": "计划制作20个程序，每个预计工期1天、成本4万日元。开始后10天完成8个，累计成本36万日元。其余未开始。按此生产率继续，最终超成本多少万日元？",
+    "optionsZh": {
+      "A": "4",
+      "B": "6",
+      "C": "10",
+      "D": "18"
+    },
+    "explanationZh": "8个程序花费36万，每个成本36÷8=4.5万日元。按此生产率完成20个：4.5×20=90万日元。原计划每个4万×20=80万，超成本10万日元。即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q4",
+    "sourceFingerprint": "sha256:05b2d4444364f575782a897a9e6ac85155d4fabcb688eaa691e206210930b438",
+    "questionZh": "将应定义的需求分为业务需求和系统需求时，属于业务需求的是哪个？",
+    "optionsZh": {
+      "A": "在线系统可用性99%以上。",
+      "B": "为防止信息泄露，加密网络收发数据。",
+      "C": "为提高操作性，画面显示使用Web浏览器。",
+      "D": "为削减物流成本，提高出库作业自动化率。"
+    },
+    "explanationZh": "业务需求是基于经营要求和课题明确「业务上要实现什么」，包括业务内容（步骤、输入输出、组织、责任）、业务特性（规则、制约）等整体业务流程和制约。系统需求是从中提取系统相关部分（功能、性能、安全等）。\n- 系统可靠性需求。\n- 系统安全需求。\n- 系统界面需求。\n- 正确。对整体业务自动化率的要求属于业务需求。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q40",
+    "sourceFingerprint": "sha256:239e1de67328f9bc91c4a793e5093f576c386452b922fa8cb29d50147d8c9504",
+    "questionZh": "将审计分为业务审计、系统审计、信息安全审计时的正确组合是哪个？\na:评估财务报表是否适当表示组织财产和损益状况等。\nb:含信息安全确保视角，评估信息系统相关风险的管控是否基于风险评估被适当构建和运营。\nc:为有效实施信息安全风险管理，评估基于风险评估的适当管控的构建和运营状况。\nd:评估组织制造、销售等非会计业务的整体执行状况。",
+    "optionsZh": {
+      "A": "a:系统 b:信息 c:业务",
+      "B": "a:信息 b:系统 c:业务",
+      "C": "a:业务 b:信息 c:系统",
+      "D": "a:会计 b:系统 c:信息 d:业务"
+    },
+    "explanationZh": "a:财务报表评估→会计审计。b:信息系统风险管控评估→系统审计。c:信息安全风险管理评估→信息安全审计。d:非会计业务执行评估→业务审计。因此「D」(a:会计,b:系统,c:信息,d:业务)正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q41",
+    "sourceFingerprint": "sha256:edfd634c98bc5f54f9b189e3196e15f8a7df0a13c1e53e672fdeda51f6ab5380",
+    "questionZh": "三个子系统A(4-6月,各1人)、B(5-7月,各2人)、C(7-9月,各3人)测试。测试期间合计人员最多的月份是几人？",
+    "optionsZh": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "6"
+    },
+    "explanationZh": "按月计算：4月(A):1人，5月(A+B):3人，6月(A+B):3人，7月(B+C):2+3=5人，8月(C):3人，9月(C):3人。最多是7月5人。即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q42",
+    "sourceFingerprint": "sha256:6f3f37c25e1c2f646f621907112a595a0348f7d3f53465673532977e57a8d37a",
+    "questionZh": "项目风险对策分为规避、减轻、接受、转移四类。某系统开发项目想委托A公司设计和开发，A公司过去有交付延迟，本次也可能延迟。属于风险减轻的对策是哪个？",
+    "optionsZh": {
+      "A": "让A公司将过去延迟原因分析和基于分析的预防措施纳入本次开发计划。",
+      "B": "取消委托A公司。",
+      "C": "签订延迟时A公司支付延迟损害赔偿金的合同。",
+      "D": "将延迟时的对策费用预先计入项目预算。"
+    },
+    "explanationZh": "风险减轻是缩小风险影响范围或降低发生概率/损害额。风险规避是消除风险源或改变目标。风险转移是将风险影响移转给第三方。风险接受是不特别对策直接接受。\n- 正确。降低延迟发生概率→减轻。\n- 消除风险源→规避。\n- 将损害移转A公司→转移。\n- 不改变风险直接接受→接受。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q43",
+    "sourceFingerprint": "sha256:e1d4cebb0eae4563ba36664ca18cd46b06a31eeee2e2cd8f43217eceba08c1e1",
+    "questionZh": "预计10个月完成的软件开发项目。投入人数和月末进度如下：3月10人(进度20%),4月10人(30%),5月10人(40%)。5月末计划进度50%实际40%。4月后生产率维持，为严守期限6月后至少需追加几人？追加人员生产率与4月后相同。",
+    "optionsZh": {
+      "A": "1",
+      "B": "2",
+      "C": "5",
+      "D": "12"
+    },
+    "explanationZh": "剩余60%需在5个月内完成，每月需60÷5=12%进度。5月止每月10人，4月和5月各推进10%，生产率=10%÷10人=1%/人月。每月需12人×1%=12%→需12人。当前10人，需追加2人。即「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q44",
+    "sourceFingerprint": "sha256:b54f3cf3af1407fe4199652199549de7cd9988e1ed85da3153618e0c59f4b5c2",
+    "questionZh": "内部控制完善中，将业务规定和手册等个别业务内容的步骤和详细以文章表示的是哪个？",
+    "optionsZh": {
+      "A": "业务描述书",
+      "B": "业务流程图",
+      "C": "电子表格",
+      "D": "需求定义书"
+    },
+    "explanationZh": "- 正确。业务描述书是将各业务流程内容、步骤及其关联等以文章明文化的文档，与业务流程图、风险控制矩阵并列称为业务流程内部控制的「三件套」。\n- 业务流程图是以流程图形式图表化业务流程。\n- 电子表格是Excel等表计算软件。\n- 需求定义书是记述开发系统中实现的功能和性能的文档。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

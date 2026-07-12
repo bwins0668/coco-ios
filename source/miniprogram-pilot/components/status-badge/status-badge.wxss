@@ -1,0 +1,39 @@
+@import "../../styles/tokens.wxss";
+
+.qp-badge {
+  display: inline-flex;
+  align-items: baseline;
+  padding: var(--qp-space-1) var(--qp-space-2);
+  border-radius: var(--qp-radius-sm);
+  font-size: var(--qp-font-size-caption);
+  line-height: var(--qp-line-height-tight);
+}
+
+.qp-badge__label {
+  margin-right: var(--qp-space-1);
+}
+
+.qp-badge__value {
+  font-family: var(--qp-font-family-data);
+  font-weight: var(--qp-font-weight-semibold);
+}
+
+.qp-badge--neutral {
+  background-color: var(--qp-color-surface-muted);
+  color: var(--qp-color-text-secondary);
+}
+
+.qp-badge--primary {
+  background-color: var(--qp-color-primary-soft);
+  color: var(--qp-color-primary);
+}
+
+.qp-badge--success {
+  background-color: var(--qp-color-success-soft);
+  color: var(--qp-color-success);
+}
+
+.qp-badge--danger {
+  background-color: var(--qp-color-danger-soft);
+  color: var(--qp-color-danger);
+}

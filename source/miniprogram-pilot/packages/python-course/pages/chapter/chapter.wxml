@@ -1,0 +1,42 @@
+<view class="pc-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/python-course/pages/chapter/chapter">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+  <block wx:if="{{loadError}}">
+    <view class="pc-empty">
+      <text class="pc-empty__title">章节暂不可用</text>
+      <text class="pc-empty__sub">找不到这个 Python 章节，可能是链接参数不完整。</text>
+      <view class="pc-btn pc-btn--outline" bindtap="goBack">返回 Python 课程</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="pc-hero">
+      <text class="pc-kicker">Chapter {{chapter.chapterOrder}}</text>
+      <text class="pc-title">{{chapter.title.ja}}</text>
+      <text class="pc-sub">{{chapter.title.zh}} · {{chapter.description.zh}}</text>
+      <view class="pc-stats">
+        <view class="pc-stat">
+          <text class="pc-stat__num">{{lessons.length}}</text>
+          <text class="pc-stat__label">小节</text>
+        </view>
+        <view class="pc-stat">
+          <text class="pc-stat__num">3.11</text>
+          <text class="pc-stat__label">Python</text>
+        </view>
+      </view>
+    </view>
+    <view class="pc-section">
+      <text class="pc-section__title">小节列表</text>
+      <view class="pc-chapter" wx:for="{{lessons}}" wx:key="lessonId" bindtap="openLesson" data-lesson-id="{{item.lessonId}}">
+        <view class="pc-chapter__body">
+          <text class="pc-chapter__ja">{{item.title.ja}}</text>
+          <text class="pc-chapter__zh">{{item.title.zh}}</text>
+          <text class="pc-chapter__meta">第 {{item.order}} 节 · 可运行示例 {{item.codeExamples.length}}</text>
+        </view>
+        <text class="pc-chapter__arrow">→</text>
+      </view>
+    </view>
+  </block>
+</view>

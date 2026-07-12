@@ -1,0 +1,17 @@
+{
+  "package": "quiz-itpass-5",
+  "batchId": "quiz-itpass-5_30_AKI_Q56_to_30_AKI_Q6",
+  "questionIds": [
+    "30_AKI_Q56",
+    "30_AKI_Q57",
+    "30_AKI_Q58",
+    "30_AKI_Q59",
+    "30_AKI_Q6"
+  ],
+  "translatedCount": 5,
+  "semanticReviewPassed": false,
+  "styleLintPassed": false,
+  "fingerprintPassed": false,
+  "retryCount": 0,
+  "completedAt": ""
+}

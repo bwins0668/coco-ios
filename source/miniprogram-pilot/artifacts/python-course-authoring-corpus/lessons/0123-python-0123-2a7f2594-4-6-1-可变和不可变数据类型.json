@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0123-2a7f2594-4-6-1-可变和不可变数据类型",
+    "courseLessonId": "python-0123-2a7f2594-4-6-1-可变和不可变数据类型",
+    "sourceOrder": 123,
+    "type": ""
+  },
+  "learner": {
+    "title": {
+      "ja": "Python Lesson",
+      "zh": "Python Lesson"
+    },
+    "objectives": [
+      {
+        "ja": "Python Lesson の基本概念を理解する",
+        "zh": "理解 Python Lesson 的基本概念"
+      },
+      {
+        "ja": "Python Lesson の使い方を実際に試す",
+        "zh": "实际尝试 Python Lesson 的用法"
+      }
+    ],
+    "prerequisites": {
+      "ja": "Python の基本的な print()、変数、リスト、辞書の知識",
+      "zh": "Python 基础 print()、变量、列表、字典知识"
+    },
+    "why": {
+      "ja": "Python Lesson は実際のプログラムでよく使われる重要な概念です。小さなコード例で動きを見ることで、自分のプロジェクトでも使えるようになります。",
+      "zh": "Python Lesson 是实际程序中常用的重要概念。通过小型代码示例观察其行为，你也可以在自己的项目中使用它。"
+    },
+    "mentalModel": {
+      "ja": "Python Lesson を「道具箱の中の一つの道具」と考えてください。状況に応じて適切な道具を選び、コードの中で正しく使いましょう。",
+      "zh": "把 Python Lesson 想象成工具箱里的一件工具。根据情况选择合适的工具，在代码中正确使用它。"
+    },
+    "blocks": [
+      {
+        "type": "why",
+        "ja": "Python Lesson は実際のプログラムでよく使われる重要な概念です。",
+        "zh": "Python Lesson 是实际程序中常用的重要概念。"
+      },
+      {
+        "type": "mental-model",
+        "ja": "Python Lesson を「道具箱の中の一つの道具」と考えてください。",
+        "zh": "把 Python Lesson 想象成工具箱里的一件工具。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "print('Python: Python Lesson')\nprint('学習中 / Learning...')",
+        "expectedOutput": "Python: Python Lesson\n学習中 / Learning...",
+        "lineNotes": [
+          {
+            "line": 1,
+            "ja": "print() でタイトルを表示します",
+            "zh": "用 print() 显示标题"
+          },
+          {
+            "line": 2,
+            "ja": "2つ目の print() で学習状況を表示します",
+            "zh": "第二个 print() 显示学习状态"
+          }
+        ],
+        "exampleId": "ex-0123-01"
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "print を pritn とタイプミスしてしまう",
+        "zh": "把 print 拼写错误写成 pritn"
+      },
+      {
+        "ja": "文字列の引用符（\" または '）を閉じ忘れる",
+        "zh": "忘记关闭字符串的引号"
+      },
+      {
+        "ja": "日本語文字を含むコードのエンコーディングが適切でない",
+        "zh": "包含日文字符的代码编码不合适"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "上のコードをコピーして自分の環境で実行し、出力を確認してください。",
+        "zh": "复制上面的代码在自己的环境中运行，确认输出。"
+      },
+      "expectedObservation": {
+        "ja": "タイトルと学習状況の2行が表示される",
+        "zh": "显示标题和学习状态两行"
+      }
+    },
+    "nextLessonBridge": {
+      "ja": "ここでは Python Lesson の基本を学びました。次のレッスンでは、さらに進んだ概念に進みます。",
+      "zh": "这里学习了 Python Lesson 的基础。下一课将继续学习更深入的概念。"
+    },
+    "terms": [
+      {
+        "ja": "Python",
+        "zh": "Python",
+        "en": "Python"
+      },
+      {
+        "ja": "スクリプト",
+        "zh": "脚本",
+        "en": "script"
+      },
+      {
+        "ja": "出力",
+        "zh": "输出",
+        "en": "output"
+      }
+    ]
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": false
+  },
+  "integrity": {
+    "contentDigest": "BF4365896418CFA10BA56320DA9E3ACAAB0C0E844C1475CBEB51EE875CC8BC23",
+    "generatedFrom": "original_teaching_conversion"
+  }
+}

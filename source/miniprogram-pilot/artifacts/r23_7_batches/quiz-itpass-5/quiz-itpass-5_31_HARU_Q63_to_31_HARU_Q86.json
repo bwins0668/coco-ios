@@ -1,0 +1,476 @@
+{
+  "package": "quiz-itpass-5",
+  "batchId": "quiz-itpass-5_31_HARU_Q63_to_31_HARU_Q86",
+  "questionIds": [
+    "31_HARU_Q63",
+    "31_HARU_Q64",
+    "31_HARU_Q65",
+    "31_HARU_Q66",
+    "31_HARU_Q67",
+    "31_HARU_Q68",
+    "31_HARU_Q69",
+    "31_HARU_Q7",
+    "31_HARU_Q70",
+    "31_HARU_Q71",
+    "31_HARU_Q72",
+    "31_HARU_Q73",
+    "31_HARU_Q74",
+    "31_HARU_Q75",
+    "31_HARU_Q76",
+    "31_HARU_Q77",
+    "31_HARU_Q78",
+    "31_HARU_Q79",
+    "31_HARU_Q8",
+    "31_HARU_Q80",
+    "31_HARU_Q81",
+    "31_HARU_Q82",
+    "31_HARU_Q83",
+    "31_HARU_Q84",
+    "31_HARU_Q85",
+    "31_HARU_Q86"
+  ],
+  "translations": [
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q63",
+      "sourceFingerprint": "sha256:a858049a3c338a309f2d2b1fdac7af770880d2d8fdc8ad8246abaa9109c48e17",
+      "questionZh": "在基于 PDCA 模型运营 ISMS 的组织中，以下哪项是 A（法案）中应采取的行动的恰当示例？",
+      "optionsZh": {
+        "A": "根据业务运营的审核结果，更改服务器监控方法作为纠正措施。",
+        "B": "第三方客观评价服务器管理员的工作内容。",
+        "C": "识别服务器机房中的信息资产。",
+        "D": "根据既定操作程序监控服务器操作。"
+      },
+      "explanationZh": "PDCA（PDCA）是通过重复计划→执行（执行）→检查（评估）→行动（回顾和改进）的循环来持续改进业务运营的方法。\n\nISMS PDCA 重复以下步骤。\n- 计划：风险评估、信息安全政策制定\n- 执行：在规划阶段选择的措施的引入和实施\n- 检查：ISMS 的监控和审查\n- 实施：ISMS 维护和改进 A（实施）是根据 C（检查）阶段的结果纠正不合格项并改进操作方法的阶段。\n- 正确。它将与A（法案）一起执行。\n- 这将通过 C（检查）来执行。\n- 与P（计划）一起实施。\n- 与D（Do）一起实施。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:04:18.785Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q64",
+      "sourceFingerprint": "sha256:763ed33bad417d6f1e5bb80356fc79387c6a031135134b0f81d4e3dd87c136f8",
+      "questionZh": "以下哪项是通过专用线路连接两个位置的 WAN 发送和接收数据包时提高可用性的恰当示例？",
+      "optionsZh": {
+        "A": "通过添加不同运营商提供的另一条线路，可以通过两条线路发送和接收数据包。",
+        "B": "在接收端检测并纠正数据包错误。",
+        "C": "发送端进行病毒检查，发送不含病毒的报文。",
+        "D": "数据包在发送端被加密并发送。"
+      },
+      "explanationZh": "除了可用性之外，我们还检查信息安全管理中应维护的机密性和完整性。可用性：即使出现故障，也能提供稳定的服务，让用户在需要时使用系统 保密性：仅允许授权用户访问信息和资产 完整性：确保信息完整且未被篡改或破坏的能力\n- 正确。通过创建两条线路，即使其中一条线路发生故障，您也可以使用另一条线路来保持通信。这是提高可用性的一个例子，因为它提高了整个专线的开工率。\n- 这是一个完整性的例子。\n- 这是一个完整性的例子。\n- 这是增加保密性的一个例子。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:04:27.793Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q65",
+      "sourceFingerprint": "sha256:883a7b6941a0f4fcf22209fbfa1b5e6c0f8217948e3786a870e30aab2ad50680",
+      "questionZh": "当公司发生内部欺诈或其他欺诈时，被称为“欺诈三角”的所有三个要素都被认为存在。以下哪项最适合作为构成“欺诈三角”的三个要素？",
+      "optionsZh": {
+        "A": "机会、信息、理由",
+        "B": "机会、信息、动机",
+        "C": "机会、理由、动机",
+        "D": "信息、理由、动机"
+      },
+      "explanationZh": "欺诈三角理论解释了当“动机/压力”、“机会”和“理由”这三个要素都存在时，欺诈行为就会发生。它是由美国有组织犯罪研究员唐纳德·R·克雷西 (Donald R. Cressey) 在 20 世纪 50 年代提出的。以下三个因素被认为是欺诈的原因。动机/压力（进行欺诈的愿望） 一种心理状态，在这种状态下，一个人相信欺诈是满足自己的欲望或解决问题的唯一方法。具体来说，这是一个人们想诈骗就可以随时诈骗的环境。具体来说，包括“系统存在可被利用的缺陷”、“没有检查系统”、“做了也不会被发现”等环境。正当化（赞成欺诈的心理）是通过提供对自己有利的理由来克服欺诈罪责的心理。具体来说，这些借口包括自私的借口（逃避内疚或转移责任），例如“没关系，因为这是为了组织的利益”、“问题在于系统，而不是我”和“我在工作中受到不公平对待”。因此，恰当的组合是“C”。欺诈三角三要素中不包含“信息”。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:04:38.131Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q66",
+      "sourceFingerprint": "sha256:499507da1b975538635193f4a9d609175970726fbf6b065dbcffa18ea236a06b",
+      "questionZh": "前缀用于以易于理解的方式表达小数和大数。例如，“m”和“k”分别用来表示10-3和103。 10-9和109用哪个前缀表示？",
+      "optionsZh": {
+        "A": "n 和 G",
+        "B": "n 和 M",
+        "C": "和G",
+        "D": "p 和 M"
+      },
+      "explanationZh": "在信息处理领域，我们经常处理非常大或非常小的数字，因此了解前缀非常重要。下表列出了主要前缀。大数字的前缀除“k”外均大写，小数字的前缀小写。 “n（纳米）”用于表示10-9（1/109），“G（千兆）”用于表示109。因此，组合“A”是正确。\n\n边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "A",
+      "visualClassification": "unverified_visual_reference",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:04:45.937Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q67",
+      "sourceFingerprint": "sha256:2c88d41b0cc6cd390afbe379b6b2a816dafcc1f74ff7a2f245ab31bfadcfc359",
+      "questionZh": "哪个 DBMS 是 OSS（开源软件）？",
+      "optionsZh": {
+        "A": "安卓",
+        "B": "火狐浏览器",
+        "C": "MySQL",
+        "D": "雷鸟"
+      },
+      "explanationZh": "MySQL 是世界上使用最广泛的开源关系数据库管理系统。它可用于各种环境，无论是个人还是商业、小型还是大型。它也作为 WordPress 等 CMS 的数据库而闻名。截至 2019 年，它由 Oracle Corporation 所有和管理。\n- Android是一个OSS操作系统软件。\n- Firefox 是一个 OSS Web 浏览器。\n- 正确。 MySQL 是一个 OSS DBMS。\n- Thunderbird 是一款 OSS 电子邮件客户端软件。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:04:49.482Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q68",
+      "sourceFingerprint": "sha256:0918e88a843f05e05fe687339e4e62b1c9074cdc07a1edbcb754af3e974b5e06",
+      "questionZh": "当资产A到D的资产价值、威胁和漏洞评估值如表所示时，哪种资产被评估为具有最高风险应对优先级？这里，风险值是通过将表中的各个项目相乘而没有加权而计算出的值。",
+      "optionsZh": {
+        "A": "资产A",
+        "B": "资产B",
+        "C": "资产C",
+        "D": "资产D"
+      },
+      "explanationZh": "问题指出，“风险值是通过将表中的每项相乘而没有加权而计算出的值”，因此只需计算每项资产的“资产价值 x 威胁 x 漏洞”，然后比较计算出的风险值。\n\n- [资产A] 5×2×3=30\n- [资产B] 6×1×2=12\n- [资产C] 2×2×5=20\n- [资产D] 1 x 5 x 3 = 15 计算出的风险值越高，风险应对的优先级越高，因此最应该处理的资产是“资产A”。\n\n边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "A",
+      "visualClassification": "unverified_visual_reference",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:04:58.309Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q69",
+      "sourceFingerprint": "sha256:1ea30c3bb4c7e402b7c6c29a9a895504c6ab10b5c31d211f2b81ba6088597bab",
+      "questionZh": "以下哪项是仅通过在 PC 上浏览网站而使 PC 感染病毒的攻击？",
+      "optionsZh": {
+        "A": "拒绝服务攻击",
+        "B": "社会工程",
+        "C": "路过式下载",
+        "D": "后门"
+      },
+      "explanationZh": "偷渡式下载是一种在网站上嵌入恶意程序并导致该程序在用户不知情的情况下通过网络浏览器下载或自动执行的攻击。如果您的使用环境容易受到攻击，您可能仅仅通过查看网页就成为恶意软件的受害者。路过式下载可用于独立攻击，也可作为定向攻击或水坑攻击的补充。因此，正确答案是“C”。\n- DoS 攻击是一种通过向目标发送意外大量请求或数据包来使目标服务器或网络线路过载的攻击，故意造成系统停机或停止响应等故障。\n- 社会工程学是指利用人为错误或心理差距而不是利用信息和通信技术手段非法获取密码等机密信息的方法的总称。\n- 正确。偷渡式下载是一种攻击，它会导致用户在访问公共网站时下载恶意软件并用恶意软件感染其 PC，无论用户的意图如何。\n- 后门是攻击者设置的技术入口点，以便他们可以重新进入他们已成功入侵的计算机或网络。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:05.175Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q7",
+      "sourceFingerprint": "sha256:0a0fc5430392e65a0150dc6b1ed3d4f70916bf8101939b807fd304eeefdd2e88",
+      "questionZh": "为了实现公司的愿景和战略，采用哪种方法从“财务”、“客户”、“业务流程”、“学习与成长”四个角度设定具体目标并评估结果？",
+      "optionsZh": {
+        "A": "生产计划管理",
+        "B": "SWOT分析",
+        "C": "平衡计分卡",
+        "D": "营销组合"
+      },
+      "explanationZh": "平衡计分卡（BSC）是从“财务”、“客户”、“业务流程”、“学习与成长”四个角度评估和分析企业绩效的方法，以实现公司的愿景和战略。\n\n平衡计分卡流程的各个方面解释如下。财务视角 设定如何在财务方面表现的指标，以实现良好的绩效并满足股东和员工等利益相关者的期望。客户视角 设定如何对待客户以实现公司愿景的指标。业务流程（内部业务流程）视角设定指标来构建优秀的业务流程，以实现财务目标并提高客户满意度。学习和成长视角设定组织和个人应如何改变（改进）和提高其能力以实现公司愿景的指标。因此，“C”是正确答案。\n- 产品组合管理的缩写。这是一种将矩阵图划分为四个象限，纵轴和横轴设置“市场增长率”和“市场份额”，从两个角度对产品（或业务或服务）在市场中的地位进行分类，并考虑管理资源配置的方法。\n- SWOT分析是从“S”…Strength、“W”…Weakness、“O”…Opportunity、“T”…Threat四个角度分析企业所处的经营环境，并用于未来战略规划的方法。\n- 正确。\n- 营销组合是公司制定营销策略的一种思维方式，将产品、分销、价格和促销等各个要素结合起来，以获得目标市场期望的反应。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:11.645Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q70",
+      "sourceFingerprint": "sha256:3fd7641e5bd01c87b4c402f57c1d924f28d2c6ab1688877390e6a2854b924afd",
+      "questionZh": "以下哪种存储设备的访问时间最短？",
+      "optionsZh": {
+        "A": "硬盘",
+        "B": "固态硬盘",
+        "C": "高速缓冲存储器",
+        "D": "主存储器"
+      },
+      "explanationZh": "计算机中使用的主要存储设备按照从最快到最快的顺序排列。\n\n寄存器→缓存→主存→SSD→HDD→磁带\n\n会的。有一个关系是成立的：存储设备运行速度越快，其容量就越少，并且每容量的成本就越高。\n\n这四种中访问时间最短的存储设备是“高速缓冲存储器”。高速缓冲存储器是为了填补CPU与主存之间的速度差异而安装的设备，因此它比主存更快。另外，SSD和HDD都用作辅助存储，但SSD的访问速度更快。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:17.036Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q71",
+      "sourceFingerprint": "sha256:7736c351a2960f95550d276566949db9b3f4038f81df9a227060c00cffb99d43",
+      "questionZh": "如图1所示，当输入两个正整数A1和A2时，有一个框输出两个数字B1和B2。 B1与A2的值相同，B2是A1除以A2的余数。如图 2 所示，在连接其中两个盒子的配置中，如果在左侧盒子中输入 49 作为 A1，并输入 11 作为 A2，则右侧盒子输出的 B2 值是多少？",
+      "optionsZh": {
+        "A": "1",
+        "B": "2",
+        "C": "4",
+        "D": "5"
+      },
+      "explanationZh": "让我们依次考虑每个框。\n\n[左框]\n输入值为A1=49和A2=11。上输出输出11，即A2的值，下输出输出5，即49÷11的余数。 [右框]\n左边方框的输出值成为输入值，所以A1 = 11，A2 = 5。上输出（B1）输出5，即A2的值，下输出输出1，即11÷5的余数。因此，右侧框中B2的输出值为1。\n\n边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "A",
+      "visualClassification": "unverified_visual_reference",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:20.582Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q72",
+      "sourceFingerprint": "sha256:401add04e2a0bb61cdf9f784ddd0bcdfc665e3b2633cbf00201ac6be9022ddba",
+      "questionZh": "在以下关于实施 ISMS 效果的描述中，a 和 b 中包含哪些词语的恰当组合？\n\n管理流程的应用维持并改善了信息的机密性、b 和可用性之间的平衡，并使利益相关者确信 a 正在得到恰当的管理。",
+      "optionsZh": {
+        "A": "选项A（原题未提供文字内容）",
+        "B": "选项B（原题未提供文字内容）",
+        "C": "选项C（原题未提供文字内容）",
+        "D": "选项D（原题未提供文字内容）"
+      },
+      "explanationZh": "[关于]\nISMS规定了信息安全风险评估和风险应对的要求。实施 ISMS 的组织必须定义并运行风险管理流程。因此，“风险”一词是恰当的。\n\n[关于b]\n信息安全管理必须维护三个主要要素：机密性、完整性和可用性。因此，“完整性”是恰当的。\n\nJIS Q 27001 将采用 ISMS 的效果描述为“ISMS 通过应用风险管理流程来维护信息的机密性、完整性和可用性，并为利益相关者提供风险得到恰当管理的信心。”\n\n因此，正确答案是“C”，其中 a=风险，b=完整性。\n\n边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "C",
+      "visualClassification": "text_question_with_symbol_options",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:24.054Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q73",
+      "sourceFingerprint": "sha256:85c1338bf761ff9b9b8fa995046712a477bf5b3cd295e728c9eb2728a702691e",
+      "questionZh": "哪种移动通信系统不仅通信速度比LTE更快，而且允许更多终端连接，通信延迟更小？",
+      "optionsZh": {
+        "A": "区块链",
+        "B": "虚拟网络运营商",
+        "C": "8K",
+        "D": "5G"
+      },
+      "explanationZh": "5G是下一代手机通信标准，是第五代移动通信系统，是4G（LTE）的下一代。世界各国正在努力，力争在2020年实现这一目标。\n\n除了实现比4G更快的速度外，5G还具有“多个同时连接”和“超低延迟”等功能。总务省网站介绍了以下5G功能的示例，它可以在超低延迟通信网络中将延迟（时滞）保持在极低的水平，其中可以从单个基站同时连接的终端数量与过去相比大幅增加。\n- 超快……3 秒内下载 2 小时的电影\n- 超低延迟...通过实时通信实现机器人等的精确操作\n- 多个同时连接...家中一个房间内大约100个设备和传感器可以连接到互联网。如果5G投入实际使用，预计将产生重大社会影响。\n- 区块链是一种利用散列函数将被称为“区块”的交易数据单位像链一样连接起来形成账本，并在 P2P 网络中进行管理的技术。也称为分布式账本技术。\n- 移动虚拟网络运营商的缩写。不拥有自己的无线通信线路设备，而是向Docomo、au、Softbank等电信运营商租用线路来提供移动通信服务的运营商。\n- 8K是下一代视频标准，具有超越全高清（2K）和4K的超高图像质量。 8K 的像素数量为 7680 x 4320 点，是 4K（3840 x 2160）的四倍。之所以称为8K，是因为水平点数约为8000个。新4K8K广播，即实用的4K和8K广播，自2018年12月开始启动。\n- 正确。参考网址：总务省：（2）5G的特点\nhttp://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h30/html/nd133420.html",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:28.008Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q74",
+      "sourceFingerprint": "sha256:a5faa8d486c46442bf70e7732b9c97d8ab61aaba5251723c0c8f0ae9c6fd98d3",
+      "questionZh": "由于有报道称WEP在短时间内解密存在问题，建议无线局域网使用哪种加密方法，以进一步提高加密强度？",
+      "optionsZh": {
+        "A": "ESSID",
+        "B": "HTTPS",
+        "C": "S/MIME",
+        "D": "WPA2"
+      },
+      "explanationZh": "WPA2（Wi-Fi 保护访问 2）是一种对无线 LAN 中的用户进行身份验证并对设备和接入点之间的通信进行加密的标准。\n\nWEP最初作为无线局域网的加密标准出现，现已被发现存在一个漏洞，加密密钥可以在短短几分钟内解密，因此不应再使用它。 WPA就是针对这个问题而发展起来的，它通过定期更新密钥来提高其对解密攻击的抵抗能力，但它使用了与WEP相同的弱加密算法。为了解决这个问题，WPA的下一版本WPA2除了WPA机制之外，还使用了NIST标准的AES加密算法，使其更能抵抗解密攻击。 WPA2的下一代标准WPA3也已经制定，但截至2019年，与其兼容的产品并不多。\n- ESSID 是标识无线网络的字符串。\n- HTTPS 是一种用于在 Web 服务器和 Web 浏览器之间安全交换数据的协议。\n- S/MIME 是一种使用公钥加密技术为电子邮件软件提供“身份验证”、“篡改检测”和“加密”等功能的机制。\n- 正确。截至 2025 年，这是推荐使用的无线 LAN 加密方法。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:32.555Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q75",
+      "sourceFingerprint": "sha256:1bf3f89e4705225033f7bff753f5c42590d87b31f174e2f652a72805a68a0ac6",
+      "questionZh": "A 先生写了一封电子邮件，他只想转达给 B 先生，并使用 B 先生的密钥使用公钥加密技术对其进行加密，然后将其发送给 B 先生。解密该电子邮件需要哪个密钥？",
+      "optionsZh": {
+        "A": "A的公钥",
+        "B": "A先生的私钥",
+        "C": "B先生的公钥",
+        "D": "B先生的私钥"
+      },
+      "explanationZh": "使用公钥加密的加密通信是通过以下步骤执行的。\n- 发送者使用接收者的公钥加密数据并将其发送给接收者。\n- 接收者使用自己的私钥解密接收到的数据。这种加密通信具有“任何人都可以对其进行加密，但只有拥有授权私钥的接收者才能解密”的特性。即使数据在途中被拦截，没有私钥的任何人都无法解密，从而确保了安全性。\n\n由于发件人是 A 先生，收件人是 B 先生，因此用于解密电子邮件的密钥是“B 先生的私钥”。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:42.230Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q76",
+      "sourceFingerprint": "sha256:f6715da9450c2b67e39705229e4fde9338fe82611b8713eb1e53084b0135c2cd",
+      "questionZh": "以下哪项是有关生物特征认证的正确描述？",
+      "optionsZh": {
+        "A": "使用指纹或静脉的认证信息很容易被偷窥者泄露。",
+        "B": "由于该设备体积较大，无法安装在手机或智能手机中。",
+        "C": "不存在错误验证他人身份的风险。",
+        "D": "这还包括那些利用人的行为特征（例如手写和击键）的行为。"
+      },
+      "explanationZh": "生物识别认证是一种利用个人特有的信息（例如身体特征和行为特征）对个人进行身份验证的方法。人的生物特征信息预先登记在认证系统中，通过比对认证时传感器读取的信息来验证人的身份。\n用作身份验证密钥的对象包括指纹、虹膜、视网膜、面部、手印、血管、笔迹和声纹，每种方法都可以高精度地识别个人。\n- 指纹和静脉图案非常复杂，因此被偷窥者暴露的风险较低。\n- 手机和智能手机中已经安装了指纹认证、虹膜认证、人脸认证​​等。\n- 生物特征认证存在错误接受他人为用户的风险，以及将用户识别为他人并拒绝用户的风险。\n- 正确。生物认证中使用的认证信息大致可以分为“身体特征”和“行为特征”。行为特征的示例包括手写和击键。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:49.683Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q77",
+      "sourceFingerprint": "sha256:6e2e5145de02939e83cbf1bd190a05d58952d35d9dd53d1dbc6673d850c214d7",
+      "questionZh": "在下列条件下，从连接互联网的服务器下载一个5MB的文件到PC需要多少秒？",
+      "optionsZh": {
+        "A": "0.05",
+        "B": "0.25",
+        "C": "0.5",
+        "D": "2"
+      },
+      "explanationZh": "该线路的通信速度（理论值）为100Mbit/s，但有效通信速度据称仅为其20%。有效通信速度是指考虑通信拥塞、通信设备性能、协议开销等多种因素后的实际通信速度。\n\n有效通信速度为 100 Mbit/s 的 20%，因此\n\n　100Mbit/秒 x 20% = 20Mbit/秒\n\n由于文件容量以字节表示，因此通信速度也相应以字节表示*。由于 1 字节 = 8 位，\n\n20M 位 ÷ 8 位 = 2.5M 字节/秒\n\n5MB文件的传输速度为2.5MB/秒，因此下载时间为\n\n5MB ÷ 2.5MB = 2 秒\n\n因此，“D”最恰当。\n\n*以位为单位计算文件没有问题，5M x 8 = 40M 位，40M 位 ÷ 20M 位 = 2 秒。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:53.740Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q78",
+      "sourceFingerprint": "sha256:9a0fb80c5aaa38acb22dbbf3d006c7cf9cf7a3d86b204028f002358cd8e8ca59",
+      "questionZh": "关系数据库中有一个“员工”表和一个“部门”表。连接“员工”表和“部门”表，提取地址与其所属部门位置不同的员工。将选出多少名员工？",
+      "optionsZh": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "explanationZh": "关系数据库中的联接是使用公共列值连接两个表的操作。 “员工”表和“部门”表都有“部门代码”列，因此将使用“部门代码”列的值将它们连接起来。\n\n连接两个表将如下所示： 在此表中，以下两行包含员工地址和所属部门位置不同的数据。因此，将通过操纵问题来提取以下两名员工。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:05:57.395Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q79",
+      "sourceFingerprint": "sha256:8c3f8316edb0bded3d5fd3cb332f5231654ece211df99fc30a052986ded6a468",
+      "questionZh": "以下哪项陈述 (a-c) 仅列出了 VPN 的恰当功能？\n\n- 设备可以相互无线通信，无需通过接入点。\n- 虽然您使用公共网络，但您可以像使用自己的专用网络一样使用它。\n- 通过连接到网络，您可以检查PC的安全状态。",
+      "optionsZh": {
+        "A": "a",
+        "B": "a、c",
+        "C": "b",
+        "D": "c"
+      },
+      "explanationZh": "VPN（Virtual Private Network）虚拟专用网络，是利用认证和加密技术，在众多用户共享的公共线路（互联网）上构建安全的虚拟专用线路的系统。 VPN采用具有认证和加密功能的协议来构建。由于它使用公共线路，因此具有比安装专用线路更便宜的优点。\n\n- 错误。它不是无线通信的机制。该描述是关于无线 LAN 自组织连接的。\n- 正确。 VPN是一种利用密码协议技术在公共线路上创建虚拟专用线路的技术。\n- 错误。这不是安全检查系统。该描述是对隔离网络的描述。由于“b”是唯一合适的描述，因此“C”是正确答案。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:00.648Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q8",
+      "sourceFingerprint": "sha256:efc246240e14bb04d3098c093265d5a809dceab9aad00f7b1bd9ae9541959d5c",
+      "questionZh": "在公司网站上的版本控制和内容发布方面投入了大量精力。为了改善这一点，需要引入以下哪项恰当的系统？",
+      "optionsZh": {
+        "A": "计算机辅助设计",
+        "B": "内容管理系统",
+        "C": "客户关系管理",
+        "D": "S.F.A."
+      },
+      "explanationZh": "CMS（内容管理系统）是对构成网页内容的文本、图像等数字内容进行全面、系统管理，并进行分发等必要处理的系统的总称。它的设计目的是，即使您没有 HTML 或 CSS 技术知识，只要您会准备文本和图像等内容，也可以通过 Web 发送信息。\n除了内容分发功能外，许多CMS还具有工作流程管理和版本控制等功能，是减少网站运营人力的有效系统。\n\n典型的例子包括用于构建博客系统的 WordPress、用于构建社区网站的 XOOPS、用于电子商务的 EC-CUBE 以及用于教育和课程的 Moodle。还有数据显示，全球大约一半的网站是使用CMS运营的，并且截至2021年，它的使用非常普遍。\n- 计算机辅助设计的缩写。又称计算机辅助设计，是指利用计算机在屏幕或其设计系统上进行设计工作。\n- 正确。\n- 客户关系管理的缩写。它是整合有关顾客的所有信息，利用与顾客长期、良好的关系进行企业活动的管理方法。\n- 销售队伍自动化的缩写。这是在销售活动中利用移动技术、互联网技术等IT技术，提高销售质量和效率，带来销售额和利润增加的系统。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:04.139Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q80",
+      "sourceFingerprint": "sha256:9c90d78562fada0b25ee9f3a70fc79e5729ad3055830a8904cad7e711ff1dabf",
+      "questionZh": "以下哪项是 3D 打印机的合适功能？",
+      "optionsZh": {
+        "A": "在平面上打印具有 3D 效果的图像。",
+        "B": "使用三维数据创建三维对象。",
+        "C": "在三维物的曲面上打印图像。",
+        "D": "使用激光在空间中显示三维图像。"
+      },
+      "explanationZh": "3D打印机是一种使用输入的3DCG数据作为蓝图来打印三维物的设备。它的优点是能够表达复杂的内部形状和空心形状，并且被广泛应用于各个领域，主要是制造业，但也涉及建筑、医学、教育、航空航天和高级研究。\n\n3D打印机的一个特点是可以创建三维物。因此，“B”是正确答案。\n- 全息图和双凸透镜的解释。\n- 正确。这是对3D打印机的解释。\n- 曲面印刷的说明。\n- 投影映射的解释。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:13.032Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q81",
+      "sourceFingerprint": "sha256:06aa10c729e1b333cf1d4ef07d3c472def55482e9d79fa24101c85078127165f",
+      "questionZh": "以下哪项是在构建网站时使用样式表的恰当原因？",
+      "optionsZh": {
+        "A": "数据可以在网络服务器和网络浏览器之间安全地交换。",
+        "B": "您将能够通知用户网站更新。",
+        "C": "可以识别该网站的用户。",
+        "D": "统一多个网页的外观变得很容易。"
+      },
+      "explanationZh": "样式表是描述网页的装饰、布局等的文件。 CSS（层叠样式表）通常用作样式表描述语言。\n\n在一般的 Web 制作中，通过在 HTML 文档中写入指向外部样式表的链接，可以在多个 HTML 文档之间共享一个样式表。这样做的优点是统一整个网站的设计、分离设计和文档结构以及集中设计管理。\n- 这就是使用HTTP 的原因。\n- 这就是使用RSS 的原因。\n- 这就是我们使用 cookie 的原因。\n- 正确。这就是我们使用样式表的原因。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:20.218Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q82",
+      "sourceFingerprint": "sha256:114b4aefa3ebb4576465102679921071bfeeab2574212e3665482eb8be4c31fa",
+      "questionZh": "当从 PC1 的邮件客户端向 PC2 的邮件客户端的用户发送电子邮件时，以下哪项是步骤 1 到 3 中使用的协议的恰当组合？",
+      "optionsZh": {
+        "A": "选项A（原题未提供文字内容）",
+        "B": "选项B（原题未提供文字内容）",
+        "C": "选项C（原题未提供文字内容）",
+        "D": "选项D（原题未提供文字内容）"
+      },
+      "explanationZh": "首先，让我们检查一下 SMTP 和 POP3 的用途。 SMTP（简单邮件传输协议） 用于从客户端向邮件服务器发送电子邮件以及在邮件服务器之间传输电子邮件的协议 POP3（邮局协议版本 3） 用户计算机上运行的邮件软件用来从邮件服务器检索自己的邮件的邮件接收协议 基于此，让我们考虑一下①到③中使用的协议。\n- 使用 SMTP，因为它是从 PC1 发送到邮件服务器的。\n- 使用 SMTP 是因为它是邮件服务器之间的传输。\n- 当PC2从邮件服务器接收邮件时使用POP3。邮件服务器不会主动向PC2发送邮件。因此，正确的组合是①SMTP、②SMTP、③POP3。\n\n边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "D",
+      "visualClassification": "text_question_with_symbol_options",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:23.871Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q83",
+      "sourceFingerprint": "sha256:1530a0b57a5f17745b777ccb4f77df3606cb8f89861d3caed7e24e5ef18de893",
+      "questionZh": "以下哪项是对 PoE 的正确解释？",
+      "optionsZh": {
+        "A": "该技术使用 LAN 电缆供电，在没有电源插座的地方安装无线 LAN 接入点时使用。",
+        "B": "该技术允许您使用现有电线构建 LAN，无需安装新的 LAN 电缆。",
+        "C": "这是一种自动转换和转发全局地址和私有地址的技术，用于公司局域网和互联网的边界。",
+        "D": "该技术自动确定通信速度和通信模式，并且可以在不同以太网标准共存的局域网环境中自动为网络设备配置最佳通信设置。"
+      },
+      "explanationZh": "PoE（以太网供电）是一种通过以太网 LAN 电缆供电的技术。\n\n它用于没有电源插座或电源布线困难的情况，例如安装在室外的网络摄像机以及安装在天花板或墙壁上的无线 LAN 接入点。要使用它，您需要有支持 PoE 的设备。\n\n因此，“A”是正确答案。\n- 正确。这是对PoE的解释。\n- PLC（电力线通信）的解释。\n- NAT（网络地址转换）的解释。\n- 自动协商的解释。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:31.555Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q84",
+      "sourceFingerprint": "sha256:e4b5a94628004aebe0a95964b52020b519fa815ed51dc222e35d3618dd1524a4",
+      "questionZh": "以下关于在线存储的哪些表述是不恰当的？",
+      "optionsZh": {
+        "A": "只要连接到互联网，您不仅可以从 PC 上使用它，还可以从智能手机或平板电脑上使用它。",
+        "B": "有些服务免费提供，但容量和功能有限。",
+        "C": "有些服务允许多个注册用户共享和编辑同一文件。",
+        "D": "通过增加用户PC或平板电脑内置的辅助存储设备的容量，在线存储的容量将自动增加。"
+      },
+      "explanationZh": "在线存储是一种通过互联网出租服务器磁盘空间，用户可以自由读写的服务。它可用于替换可移动介质（例如闪存）、传输大文件、备份以及在组内共享空间等目的。\n- 合适的。只要您有互联网连接，您就可以从任何设备或位置使用它。\n- 合适的。有许多免费服务可以提供几 GB 到几十 GB 的存储空间。\n- 合适的。通过设置访问权限，多个人可以处理单个文件/文件夹。它也用于商业目的。\n- 正确，因为它不合适。在线存储是由在线存储服务提供商提供的互联网上的数据区域，因此即使您增加辅助存储设备的容量，它也不会自动增加。要增加在线存储容量，您需要升级到更高的计划。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:39.549Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q85",
+      "sourceFingerprint": "sha256:bbbd8b0478fb15939d8a4975a35f1d6289ba2d0a214d4df8ad147e7f87a0ea7a",
+      "questionZh": "如果信息安全政策由三个文件组成：基本政策、对策标准和实施程序，以下哪项是恰当的解释？",
+      "optionsZh": {
+        "A": "基本政策由员工根据管理层制定的对策标准和实施程序制定。",
+        "B": "基本策略就像一本手册，描述了管理层在发生信息安全事件时应采取的行动。",
+        "C": "实施程序描述了要采取的具体步骤，以便负责人能够实施已确定的对策标准。",
+        "D": "对策标准规定了基本政策和实施程序中应描述的内容，并向有关各方公开。"
+      },
+      "explanationZh": "根据IPA“信息技术促进机构”发布的《信息安全政策制定》，一般认为信息安全政策具有三层文件结构：基本政策（政策）、对策标准（标准）和实施程序（程序）。基本政策 组织的管理层向内部和外部声明公司的信息安全目标以及公司为实现这些目标应采取的行动，表明其致力于“全面解决信息安全问题”。针对基本对策标准政策中制定的目标，描述“必须做什么”或“必须做什么”。它是一套有组织地实施信息安全措施的规则，对应于公司成员必须遵守的“规定”，例如人事规定和雇佣规定。对实施实施程序措施标准中制定的规则时“如何”的描述。这是一份类似于手册的文档，描述了详细的过程。信息安全政策按照“基本政策→措施标准→实施程序”的顺序制定。\n- 基本政策是构成信息安全政策基础的文件，首先由管理层制定。\n——详细的应对程序将在实施程序中规定。\n- 正确。实施标准定义了实现对策标准中规定的目标所需的各个步骤。\n- 唯一应该让所有相关方了解的文件是基本政策。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:47.470Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "31_HARU_Q86",
+      "sourceFingerprint": "sha256:f88a599c0ed840ff83b117c361374c07b01821ec0131b320f03e7b991791161b",
+      "questionZh": "关于物联网终端中使用的 LPWA（低功耗广域）特性，以下描述中的 a 和 b 中的哪个词语组合合适？\n\n与无线局域网相比，使用LPWA技术的无线通信具有A的通信速度和B的功耗。",
+      "optionsZh": {
+        "A": "选项A（原题未提供文字内容）",
+        "B": "选项B（原题未提供文字内容）",
+        "C": "选项C（原题未提供文字内容）",
+        "D": "选项D（原题未提供文字内容）"
+      },
+      "explanationZh": "LPWA是无线通信标准的总称，顾名思义，其特点是低功耗、广域。虽然传输速度较慢，但​​覆盖了Wi-Fi和蓝牙无法到达的几公里到几十公里的通信距离。 在物联网（IoT）中，放置在不同地点的单个物联网设备必须仅使用其内部电池长时间运行，因此关键是如何减少电池消耗。另外，物联网设备之间相互通信以进行控制和信息获取，但每次通信并不涉及大量数据，因此通信线路的高速度并不重要。 考虑到这些特点，低功耗、低速、大范围的网络适合物联网网络。 LPWA有望成为实现具有大量小型设备的大范围物联网网络运行的手段。 、a＝遅、b＝少组合适切。 边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "C",
+      "visualClassification": "text_question_with_symbol_options",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T06:06:51.370Z"
+    }
+  ]
+}

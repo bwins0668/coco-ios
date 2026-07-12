@@ -1,0 +1,102 @@
+@import "../../styles/tokens.wxss";
+
+.qp-option {
+  display: flex;
+  align-items: center;
+  min-height: var(--qp-control-height);
+  padding: var(--qp-space-2) var(--qp-space-3);
+  background-color: var(--qp-color-surface);
+  border: var(--qp-border-width) solid var(--qp-color-line);
+  border-radius: var(--qp-radius-md);
+  color: var(--qp-color-ink);
+  font-size: var(--qp-font-size-body);
+  line-height: var(--qp-line-height-normal);
+  box-sizing: border-box;
+}
+
+.qp-option__key {
+  flex: none;
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: var(--qp-space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--qp-radius-sm);
+  background-color: var(--qp-color-surface-muted);
+  color: var(--qp-color-text-secondary);
+  font-family: var(--qp-font-family-data);
+  font-size: var(--qp-font-size-caption);
+}
+
+.qp-option__text {
+  flex: 1;
+}
+
+.qp-option__mark {
+  flex: none;
+  margin-left: var(--qp-space-2);
+  font-size: var(--qp-font-size-section-title);
+}
+
+/* C1 默认态 · 触摸反馈 */
+.qp-option--hover {
+  background-color: var(--qp-color-surface-muted);
+}
+
+/* C2 已选择 · 待确认：墨蓝描边 + 极浅墨蓝底 */
+.qp-option--selected {
+  border-color: var(--qp-color-primary);
+  background-color: var(--qp-color-primary-soft);
+  color: var(--qp-color-primary);
+}
+
+.qp-option--selected .qp-option__key {
+  background-color: var(--qp-color-primary);
+  color: var(--qp-color-surface);
+}
+
+/* C3 作答正确：仅必要的反馈绿 */
+.qp-option--correct {
+  border-color: var(--qp-color-success);
+  background-color: var(--qp-color-success-soft);
+  color: var(--qp-color-success);
+}
+
+.qp-option--correct .qp-option__mark {
+  color: var(--qp-color-success);
+}
+
+/* C4 作答错误：仅必要的反馈红 */
+.qp-option--incorrect {
+  border-color: var(--qp-color-danger);
+  background-color: var(--qp-color-danger-soft);
+  color: var(--qp-color-danger);
+}
+
+.qp-option--incorrect .qp-option__mark {
+  color: var(--qp-color-danger);
+}
+
+.qp-option.is-disabled {
+  color: var(--qp-color-disabled-text);
+}
+
+/* ===== R6.2 option feedback states ===== */
+.option-item--selected .option-label {
+  background: var(--qp-color-primary-soft);
+  color: var(--qp-color-primary);
+}
+.option-item--correct .option-label {
+  background: var(--qp-color-success-soft);
+  color: var(--qp-color-success);
+}
+.option-item--incorrect .option-label {
+  background: var(--qp-color-danger-soft);
+  color: var(--qp-color-danger);
+}
+.option-item--default .option-label {
+  background: var(--qp-color-surface-muted);
+  color: var(--qp-color-text-secondary);
+}
+

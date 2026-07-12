@@ -1,0 +1,230 @@
+<!-- packages/quiz/pages/flashcard-quiz/flashcard-quiz.wxml v5 -->
+<!-- Four-state machine: loading / error / empty / content -->
+<view class="fc-container {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/quiz/pages/flashcard-quiz/flashcard-quiz">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+
+  <!-- ===== LOADING STATE ===== -->
+  <view class="fc-loading" wx:if="{{isLoading}}">
+    <view class="fc-loading-spinner"></view>
+    <text class="fc-loading-text">{{loadingMsg || '加载中...'}}</text>
+  </view>
+
+  <!-- ===== ERROR STATE ===== -->
+  <view class="fc-error" wx:elif="{{loadError}}">
+    <text class="fc-error-icon">!</text>
+    <text class="fc-error-title">闪卡数据加载失败</text>
+    <text class="fc-error-course">{{courseLabel}} · {{deckLabel}}</text>
+    <text class="fc-error-detail">{{errorDetail || loadError}}</text>
+    <view class="fc-error-actions">
+      <view class="fc-btn fc-btn-primary" bindtap="retryLoad">
+        <text>重新加载</text>
+      </view>
+      <view class="fc-btn fc-btn-ghost" bindtap="goBack">
+        <text>返回牌组选择</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== EMPTY STATE ===== -->
+  <view class="fc-empty" wx:elif="{{isEmpty}}">
+    <text class="fc-empty-title">暂无可用题目</text>
+    <text class="fc-empty-detail">该牌组（{{deckLabel}}）暂无有效题目</text>
+    <view class="fc-btn fc-btn-primary" bindtap="goBack">
+      <text>返回牌组选择</text>
+    </view>
+  </view>
+
+  <!-- ===== CONTENT STATE ===== -->
+  <block wx:else>
+    <!-- Header: course + year + progress -->
+    <view class="fc-header">
+      <view class="fc-header-left">
+        <view class="fc-badge {{course === 'sg' ? 'fc-badge-sg' : 'fc-badge-it'}}">{{course === 'sg' ? 'SG' : 'IT'}}</view>
+        <view class="fc-header-info">
+          <text class="fc-title">{{deckLabel}}</text>
+          <text class="fc-header-meta" wx:if="{{!isFinished && totalCards > 0}}">{{currentIndex + 1}} / {{totalCards}}</text>
+        </view>
+      </view>
+      <text class="fc-deck-timer" wx:if="{{timerText && !isFinished}}">{{timerText}}</text>
+    </view>
+
+    <!-- Progress Bar -->
+    <view class="fc-progress" wx:if="{{!isFinished && totalCards > 0}}">
+      <view class="fc-progress-bar" style="width: {{progressPercent}}%"></view>
+    </view>
+
+    <!-- Session Stats (compact) -->
+    <view class="fc-stats" wx:if="{{!isFinished && (sessionCorrect > 0 || sessionWrong > 0)}}">
+      <text class="fc-stat fc-stat-correct">✓ {{sessionCorrect}}</text>
+      <text class="fc-stat fc-stat-wrong">✗ {{sessionWrong}}</text>
+    </view>
+
+    <!-- ===== FRONT SIDE ===== -->
+    <block wx:if="{{!isFinished && currentCard && !showBack}}">
+      <!-- Question Card -->
+      <view class="fc-card fc-front">
+        <view class="fc-question-text" user-select="true">
+          <text>{{currentCard.questionJa}}</text>
+        </view>
+        <view class="fc-question-zh" wx:if="{{currentCard.questionZh && currentCard.questionZh !== currentCard.questionJa}}" user-select="true">
+          <text>{{currentCard.questionZh}}</text>
+        </view>
+      </view>
+
+      <!-- Options -->
+      <view class="fc-options">
+        <view
+          wx:for="{{currentCard.options}}"
+          wx:key="key"
+          class="fc-option {{selectedKey === item.key ? 'fc-option-selected' : ''}} {{hasAnswered && selectedKey === item.key && !item.isCorrect ? 'fc-option-wrong' : ''}} {{hasAnswered && item.isCorrect ? 'fc-option-correct' : ''}}"
+          bindtap="selectAnswer"
+          data-key="{{item.key}}"
+        >
+          <view class="fc-option-key">{{item.key}}</view>
+          <view class="fc-option-body">
+            <text class="fc-option-text" user-select="true">{{item.textJa}}</text>
+            <text class="fc-option-text-zh" wx:if="{{item.textZh && item.textZh !== item.textJa}}" user-select="true">{{item.textZh}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- Feedback + Actions -->
+      <view wx:if="{{hasAnswered}}" class="fc-feedback {{isCorrect ? 'fc-feedback-correct' : 'fc-feedback-wrong'}}">
+        <text class="fc-feedback-text">{{isCorrect ? '✓ 正解' : '× 不正解'}}</text>
+        <view class="fc-feedback-detail">
+          <view class="fc-feedback-item">
+            <text class="fc-feedback-label">あなたの選択 / 你的选择</text>
+            <text class="fc-feedback-value">{{selectedKey}}</text>
+          </view>
+          <view class="fc-feedback-item">
+            <text class="fc-feedback-label">正しい答え / 正确答案</text>
+            <text class="fc-feedback-value">{{currentCard.answer}}</text>
+          </view>
+        </view>
+        <view class="fc-action-row">
+          <view class="fc-btn fc-btn-primary" bindtap="showExplanation">
+            <text>裏面を見る</text>
+          </view>
+          <view class="fc-btn fc-btn-secondary" bindtap="nextCard">
+            <text>{{currentIndex + 1 >= totalCards ? '查看结果' : '下一题 →'}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- ===== BACK SIDE (解析) ===== -->
+    <block wx:if="{{!isFinished && currentCard && showBack}}">
+      <!-- 1. 题目回顾 -->
+      <view class="fc-back-block">
+        <text class="fc-back-label">题干</text>
+        <text class="fc-back-ja" user-select="true">{{currentCard.questionJa}}</text>
+        <text class="fc-back-zh" wx:if="{{currentCard.questionZh && currentCard.questionZh !== currentCard.questionJa}}" user-select="true">{{currentCard.questionZh}}</text>
+      </view>
+
+      <!-- 2. 用户选择 vs 正确答案 -->
+      <view class="fc-back-block fc-back-verdict">
+        <view class="fc-verdict-item">
+          <text class="fc-back-label">你的选择</text>
+          <text class="fc-verdict-value fc-verdict-wrong" wx:if="{{!isCorrect}}">{{selectedKey}}</text>
+          <text class="fc-verdict-value fc-verdict-correct" wx:else>{{selectedKey}}</text>
+        </view>
+        <view class="fc-verdict-item">
+          <text class="fc-back-label">正确答案</text>
+          <text class="fc-verdict-value fc-verdict-correct">{{currentCard.answer}}</text>
+        </view>
+      </view>
+
+      <!-- 3. 选项对照 -->
+      <view class="fc-back-block">
+        <text class="fc-back-label">选项</text>
+        <view class="fc-back-options">
+          <view
+            wx:for="{{currentCard.options}}"
+            wx:key="key"
+            class="fc-back-option {{item.isCorrect ? 'fc-back-option-correct' : ''}} {{item.key === selectedKey && !item.isCorrect ? 'fc-back-option-wrong' : ''}} {{item.key === selectedKey && item.isCorrect ? 'fc-back-option-selected-correct' : ''}}"
+          >
+            <view class="fc-back-option-head">
+              <text class="fc-back-option-key {{item.isCorrect ? 'fc-back-option-key-correct' : ''}}">{{item.key}}</text>
+              <text class="fc-back-option-mark" wx:if="{{item.key === selectedKey}}">你选</text>
+              <text class="fc-back-option-mark fc-back-option-mark-correct" wx:if="{{item.isCorrect}}">正解</text>
+            </view>
+            <text class="fc-back-option-ja" user-select="true">{{item.textJa}}</text>
+            <text class="fc-back-option-zh" wx:if="{{item.textZh && item.textZh !== item.textJa}}" user-select="true">{{item.textZh}}</text>
+            <!-- 4. 逐项解释 -->
+            <view class="fc-back-option-explain" wx:if="{{item.explanationJa || item.explanationZh}}">
+              <text class="fc-back-explain-ja" user-select="true">{{item.explanationJa}}</text>
+              <text class="fc-back-explain-zh" wx:if="{{item.explanationZh && item.explanationZh !== item.explanationJa}}" user-select="true">{{item.explanationZh}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 5. 详细解析 -->
+      <view class="fc-back-block fc-back-detail" wx:if="{{currentCard.explanationJa}}">
+        <text class="fc-back-label">详细解析</text>
+        <text class="fc-back-detail-ja" user-select="true">{{currentCard.explanationJa}}</text>
+        <text class="fc-back-detail-zh" wx:if="{{currentCard.explanationZh && currentCard.explanationZh !== currentCard.explanationJa}}" user-select="true">{{currentCard.explanationZh}}</text>
+      </view>
+
+      <!-- 6. 助记 -->
+      <view class="fc-back-block fc-back-mnemonic" wx:if="{{currentCard.mnemonicJa || currentCard.mnemonicZh}}">
+        <text class="fc-back-label">助记</text>
+        <text class="fc-back-mnemonic-ja" wx:if="{{currentCard.mnemonicJa}}" user-select="true">{{currentCard.mnemonicJa}}</text>
+        <text class="fc-back-mnemonic-zh" wx:if="{{currentCard.mnemonicZh && currentCard.mnemonicZh !== currentCard.mnemonicJa}}" user-select="true">{{currentCard.mnemonicZh}}</text>
+      </view>
+
+      <!-- 7. 下一题 -->
+      <view class="fc-action-row">
+        <view class="fc-btn fc-btn-primary fc-btn-full" bindtap="nextCard">
+          <text>{{currentIndex + 1 >= totalCards ? '查看结果' : '下一题 →'}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- ===== RESULT ===== -->
+    <block wx:if="{{isFinished && totalCards > 0}}">
+      <view class="fc-result">
+        <text class="fc-result-title">复习完成</text>
+        <view class="fc-result-accuracy">
+          <text class="fc-result-pct">{{totalCards > 0 ? Math.round(sessionCorrect / totalCards * 100) : 0}}%</text>
+          <text class="fc-result-label">正确率</text>
+        </view>
+        <view class="fc-result-stats">
+          <view class="fc-result-stat">
+            <text class="fc-result-stat-value">{{totalCards}}</text>
+            <text class="fc-result-stat-label">总题</text>
+          </view>
+          <view class="fc-result-stat fc-result-stat-correct">
+            <text class="fc-result-stat-value">{{sessionCorrect}}</text>
+            <text class="fc-result-stat-label">对</text>
+          </view>
+          <view class="fc-result-stat fc-result-stat-wrong">
+            <text class="fc-result-stat-value">{{sessionWrong}}</text>
+            <text class="fc-result-stat-label">错</text>
+          </view>
+        </view>
+        <view class="fc-result-actions">
+          <view class="fc-btn fc-btn-primary" bindtap="restartDeck">
+            <text>再练一次</text>
+          </view>
+          <view class="fc-btn fc-btn-retry" bindtap="retryWrongCards" wx:if="{{wrongIds.length > 0}}">
+            <text>重练错题 ({{wrongIds.length}})</text>
+          </view>
+          <view class="fc-btn fc-btn-ghost" bindtap="goBack">
+            <text>返回</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- Content status indicator -->
+    <view wx:if="{{currentCard && currentCard.contentStatus === 'japanese_only'}}" class="fc-status-tag fc-status-ja">日文练习版</view>
+    <view wx:elif="{{currentCard && currentCard.contentStatus === 'bilingual_partial'}}" class="fc-status-tag fc-status-partial">部分双语</view>
+    <view wx:elif="{{currentCard && currentCard.contentStatus === 'bilingual_complete'}}" class="fc-status-tag fc-status-full">中日双语深度解析</view>
+  </block>
+</view>

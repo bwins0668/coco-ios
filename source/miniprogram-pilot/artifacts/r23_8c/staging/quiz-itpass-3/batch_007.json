@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q27",
+    "sourceFingerprint": "sha256:828e158b62846b2eebaf34b20118f1b68f2a4ee67523545719b66cc4a413c611",
+    "questionZh": "将AI分为能对各类课题进行判断的「强AI」和只能判断特定课题的「弱AI」时，关于「弱AI」最合适的描述是哪个？",
+    "optionsZh": {
+      "A": "在计算机上再现与人类同等的智能，能像人类一样判断，但也会犯与人类相似的判断错误。",
+      "B": "并非像人类一样理解问题本身的意义或进行思考，但能够展示判断结果。",
+      "C": "比人类更聪明，无需人类帮助就能提升自身判断力。",
+      "D": "能自主运用自身知识和能力，具有灵活判断能力。"
+    },
+    "explanationZh": "「强AI」和「弱AI」是区分AI是否像人类一样拥有意识和意义理解的概念。近年来也常将强AI关联为通用AI(AGI)、弱AI关联为专用AI(ANI)。强AI：具有人类般的自我意识和广泛智能，可自律执行各种任务。弱AI：虽不拥有理解意义的心智，但外观上能应对特定任务或领域。当前实用化的AI均属「弱AI」。\n- 这是强AI的描述。弱AI不具备人类般的通用判断能力。\n- 正确。弱AI的描述。当前主流的弱AI并非理解语言和内容的意义，而仅是基于学习数据通过数学和统计处理给出最优判断。\n- 这是强AI/超AI(ASI)的描述。\n- 这是强AI的描述。弱AI的应对范围限于特定任务，不能广泛应用知识或灵活判断。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q28",
+    "sourceFingerprint": "sha256:b7755934674b3ecb4f870cba66b58b8ca18c459f263680cce374e43a324e19ea",
+    "questionZh": "在互联网交易相关风险中，使用第三方托管服务可以降低的风险是哪个？",
+    "optionsZh": {
+      "A": "在拍卖网站输入错误购买金额时无法取消交易。",
+      "B": "支付了商品货款但商品未配送。",
+      "C": "购物网站使用的密码泄露。",
+      "D": "一旦收到订购商品后无法因自身原因解约。"
+    },
+    "explanationZh": "第三方托管服务是在互联网交易中，由可信赖的中立第三方介入合同当事人之间，确保支付和商品发送等安全性的中介服务。流程为：①买家支付货款和手续费给托管方→②确认卖家已发货→③托管方将货款转给卖家。此机制降低了买家「付款后收不到货」和卖家「发货后收不到款」的风险，使双方安心交易。尤其在网络拍卖和二手交易App中，个人间交易易发生纠纷，可选用第三方托管服务。可降低的风险是买家付款未收到商品，即「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q29",
+    "sourceFingerprint": "sha256:73ea2c1d42fd829836b099a9b8d85577414800ac081deb23c1473d3fcc821442",
+    "questionZh": "关于程序开发业务委托中，承包合同无特别约定时发包方和承包方的权利义务，正确的描述是哪个？",
+    "optionsZh": {
+      "A": "承包方将部分工作再委托给其他业者时，必须事先获得发包方同意。",
+      "B": "完成程序存在缺陷时，发包方可随时请求修复缺陷。",
+      "C": "发包方在接受程序交付时，产生支付报酬的义务。",
+      "D": "发包方在程序完成前可随时解除承包合同而无需赔偿承包方损失。"
+    },
+    "explanationZh": "- 承包合同以「工作完成」为目的，工作推进方式原则上承包方自由。合同无特别约定（如禁止再委托）时，无需发包方同意即可再委托。\n- 交付物有缺陷时发包方可请求修复，但须在发现缺陷后1年内通知，且请求权有时效（最长交付后10年），非随时可请求。\n- 正确。承包合同是承包人完成工作、发包人对结果支付报酬的合同。交付与付款是同时履行关系，接受程序交付时产生付款义务。\n- 工作完成前发包方可随时解除合同，但需赔偿承包方因此产生的损失。本题说「无需赔偿」故不正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q3",
+    "sourceFingerprint": "sha256:5bd32f141e25abc8f3cbf8b0a60acc56e4538dac04a6484e45cbd5aa54170e12",
+    "questionZh": "投资公司A对不同投资策略的预期利润如下表。A采用最大最小策略且市场好转时的利润是多少？最大最小策略是选择各策略预期利润最小值中最大的策略的理论。\n表：投资策略a（好转:20, 平稳:5, 恶化:-15）；投资策略b（好转:5, 平稳:15, 恶化:0）",
+    "optionsZh": {
+      "A": "-15",
+      "B": "0",
+      "C": "5",
+      "D": "20"
+    },
+    "explanationZh": "此题涉及博弈论中的决策理论。最大最小策略是保守的（低风险低回报）思路，关注各策略的最小利润并选择其中最大者。各策略的最小利润：策略a=-15，策略b=0。最大最小策略选最小利润较大者→策略b。策略b在市场好转时利润为5。因此「C」正确。\n参考：最大最大策略（乐观）会选策略a，市场好转时得利润20。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q30",
+    "sourceFingerprint": "sha256:45ff3dedea3d515fd1bfb8893446f71230370f18ca3b594a86062d8440a5f851",
+    "questionZh": "属于事业部制组织的事例是哪个？",
+    "optionsZh": {
+      "A": "A在某事业部实施部门的采购组织工作。Y事业的采购由Y事业实施部门的采购组织负责。",
+      "B": "B在负责多事业人事功能的组织工作。开发、生产、销售功能同样由各专业组织负责。",
+      "C": "C负责地区M的产品X销售，接受地区M销售负责人和产品X销售负责人两位上司的指示。",
+      "D": "D为进行新事业企划开发而从相关部门横向召集人才的组织工作，该组织企划开发结束后解散。"
+    },
+    "explanationZh": "事业部制组织在最高管理层下设按产品、地区、市场等划分的事业部，各事业部拥有一定决策权限。特点是各事业部以独立核算制对收入和费用负责。事业部内设销售、生产、总务、管理等职能。因此各事业拥有独立的购买组织是事业部制的特征。\n- 正确。X和Y事业各有独立购买组织，这是事业部制特征。\n- 按人事、开发等职能划分组织，这是职能制组织的特征。\n- 接受两位上司指示（矩阵管理），这是矩阵制组织的特征。\n- 为特定目的临时组建、完成后解散，这是项目制组织的特征。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q31",
+    "sourceFingerprint": "sha256:d9b169b9ccc5f64e684287eac9ed55f55fd90caaf2ca8036f586366c6ef49cd1",
+    "questionZh": "在精益生产方式的业务改善视角「无理」「不均」「浪费」中，属于「浪费」的是哪个？",
+    "optionsZh": {
+      "A": "因个人化导致不同负责人产品质量不同的作业。",
+      "B": "超出组织能力施加负荷的不合理计划和作业标准。",
+      "C": "等待或过度加工等不产生附加价值的动作。",
+      "D": "长时间部分身体承受负担、可能危害健康的作业。"
+    },
+    "explanationZh": "精益生产方式源自丰田汽车的精益生产体系，重视消除生产工序中的「3M」：无理（超过人、设备、组织能力的过大负荷）、不均（作业量、质量、处理时间等不一致的不稳定状态）、浪费（等待、过度加工、不良、返工、不必要移动等不产生附加价值的作业和动作）。\n- 负责人间品质差异是不均。\n- 组织过大负担是无理。\n- 正确。过度加工产生不必要的管理费、保管费和移动费用等原本不需要的成本，属于浪费。\n- 作业者负担过重是无理。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q32",
+    "sourceFingerprint": "sha256:de4824113c3f48ef75512601870a3fe8888dcf1a97774abd42ea26c4f5c6f502",
+    "questionZh": "属于利基战略（Niche Strategy）事例的是哪个？",
+    "optionsZh": {
+      "A": "服装制造商A为降低生产成本将生产基地移至海外，以可大量销售的休闲服为中心，在全国销售廉价商品。",
+      "B": "行业第2的食品制造商B为获得最大市场份额，与行业第3的C公司进行经营整合。",
+      "C": "金属加工制造商D利用自身独特加工技术，面向高级餐厅销售密封度极高的高价无水烹饪锅。",
+      "D": "电机制造商E将销售下降的中型电视业务出售并完全撤退。"
+    },
+    "explanationZh": "利基战略不是面向整个市场，而是瞄准具有特定需求的小规模专业市场（利基市场/缝隙市场）。利基意为「缝隙」。利基市场规模虽小，但大企业未进入且客户需求尚未充分满足。将焦点集中于此市场，利用自身技术和服务建立独特地位以获取利润。\n- 成本领先战略的事例。\n- M&A战略/挑战者战略的事例。\n- 正确。面向高级餐厅这一有限市场提供高附加值的独特产品，属于利基战略。\n- 撤退战略的事例。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q33",
+    "sourceFingerprint": "sha256:f7bcdd20f4861e0eb29496e3f69148f6bdeaff44cc9defc16b4069570d253efe",
+    "questionZh": "综合管理从采购、制造到销售连接供应商到消费者的一系列业务，消除从物料采购到客户销售中的库存等浪费，追求整体流程优化的是哪个？",
+    "optionsZh": {
+      "A": "CRM",
+      "B": "POS",
+      "C": "SCM",
+      "D": "SFA"
+    },
+    "explanationZh": "- CRM（Customer Relationship Management）是构建客户关系、提升满意度的经营方法。\n- POS（Point Of Sales）是实时获取商品销售信息用于店铺管理的系统。\n- 正确。SCM（Supply Chain Management）是通过企业内和企业间共享管理从原材料采购到生产、物流、销售的一系列信息，追求供应到提供全流程最优化的经营管理方法。引入SCM可期待缩短交期和削减库存。\n- SFA（Sales Force Automation）是利用移动技术和互联网技术提升销售质量和效率的思路。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q34",
+    "sourceFingerprint": "sha256:6f3f7dda5b7ec4633bf2af1fc00cabaa1afcfd02a88a9e3de9f2fe5cab7fd043",
+    "questionZh": "在制定IT基本计划时，应明确的事项是哪些？\n- IT系统利用涉及的利益相关者\n- 对组织当前及未来需求的应对\n- 发生事件时的管理步骤\n- 基于与用户及相关方达成共识的业务需求及其优先级",
+    "optionsZh": {
+      "A": "a，b",
+      "B": "a，b，c",
+      "C": "a，b，d",
+      "D": "b，c，d"
+    },
+    "explanationZh": "IT基本计划是具体化组织整体IT战略、从中期视角整理明确IT利用方向和优先事项的计划。根据系统管理标准（令和5年），应明确：组织当前与未来需求的应对、IT系统利用相关利益相关者的识别及需求反映、组织数字化转型能力提升、IT战略目标达成评估的开发计划等绩效期望值和IT生态系统选择标准的设定。\n- 正确。应基于内外利益相关者需求制定。\n- 正确。需从中长期视角反映现状课题和未来需求。\n- 错误。事件管理步骤是具体运维管理事项，非基本计划层面内容。\n- 错误。业务需求定义和优先级是系统开发个案需求定义阶段的事项。\n应明确的事项是「a，b」，即「A」。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q35",
+    "sourceFingerprint": "sha256:7ec931c6ca0cbd90246b72199c4b6c6ccd9481871de5d56eb7e532556bb7b150",
+    "questionZh": "关于信息系统企划、开发、运维、维护相关的管理和流程，IT治理中经营层需实施评估、指示和监控活动。关于IT治理中经营层活动的正确描述是哪些？\n- 将责任和权限委托给外部顾问，从战略制定到监控全面委任。\n- 收集确认信息系统战略设想效果达成程度的信息。\n- 为实现信息系统战略，分配必要的责任和人员给组织。\n- 设想信息系统的多种未来形态，委托外部信息系统专家进行比较分析评估。",
+    "optionsZh": {
+      "A": "a，b，c",
+      "B": "a，c",
+      "C": "b，c",
+      "D": "b，c，d"
+    },
+    "explanationZh": "JIS Q 38500规定经营层通过「评估」「指示」「监控」三个活动统制IT。评估：评估当前及未来IT利用；指示：为确保IT利用符合业务目的而指示计划和方针的准备与实施；监控：监控对方针的符合性和计划绩效。\n- 不合适。IT治理的构建和统制是经营层的责任。可获IT专家支援，但利用和提供的最终责任仍在经营层，不能全部委让。\n- 合适。属于「监控」活动。经营层应使用适当测量系统持续确认IT绩效。\n- 合适。属于「指示」活动。经营层应明确定义计划方针的责任人并指示其制定和执行。\n- 合适。属于「评估」活动。经营层应调查当前及未来IT利用，综合判断包括内部对应和外部委托的供给方式。\n合适的是「b，c，d」，即「D」。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q36",
+    "sourceFingerprint": "sha256:b4c1222d0c20e18b2255ae2e41ed4de88ccd56476eec769c419c4ee44c303384",
+    "questionZh": "在包含向客户PC安装软件的合同中，关于安装作业的正确行为是哪些？\n- 安装作业中发现合同外的PC，将该PC排除在安装对象外。\n- 安装作业中被要求向合同外PC安装，按请求免费进行了对应。\n- 安装作业难以继续时，与发包方达成一致，恢复到安装前状态。",
+    "optionsZh": {
+      "A": "a",
+      "B": "a，b",
+      "C": "a，c",
+      "D": "b，c"
+    },
+    "explanationZh": "- 合适。合同外PC不在正式作业范围内。项目范围管理的基本原则是仅执行定义范围内作业，范围外作业不执行。将合同外PC排除在外的对应是正确的。\n- 不合适。合同外PC的安装不在原项目范围内。现场擅自应对合同外作业会导致范围蔓延，且对该PC的动作保证、故障应对和安全等责任模糊。追加作业应通过正式变更程序后实施。\n- 合适。安装中可能发生意外问题无法按计划完成。此时应预先准备回退步骤，在相关方一致同意下恢复到安装前状态。\n合适的是「a，c」，即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q37",
+    "sourceFingerprint": "sha256:6a67519eecbbe210876e9b1a20cf6ed5aec1d61c98e53133489e5061846c218f",
+    "questionZh": "A在新项目计划阶段着手估算开发成本。此阶段短期估算概算费用的最适方法是哪个？",
+    "optionsZh": {
+      "A": "使用功能点法估算。",
+      "B": "估算各工作单位成本后合计估算整体。",
+      "C": "基于预计软件代码行数估算。",
+      "D": "参考类似项目进行估算。"
+    },
+    "explanationZh": "- 功能点法基于外部输入输出和内部文件数及开发难度计算功能点数值，定量估算开发规模。需系统需求较明确，不适于计划阶段的概算。\n- 自下而上估算法需分解工作项，前提是实施作业有一定明确程度，精度高但费时，不适于计划阶段。\n- 代码行数法以代码行数为基准，但代码行数受程序语言和详细设计影响很大，确定前难以预测，不适于计划阶段。\n- 正确。类推估算法以过去类似项目数据为基础分析差异点来估算。成本低、短期可实施，精度稍低但完全满足计划阶段短期概算的需求。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q38",
+    "sourceFingerprint": "sha256:7a92ecfd468a0d91ad49590f134c77275f6906442a91ce0c14d8276f4cb0d17b",
+    "questionZh": "需求明确且预计规格变更少的软件开发，最适合使用的开发模型/方法是哪个？",
+    "optionsZh": {
+      "A": "敏捷开发",
+      "B": "瀑布模型",
+      "C": "螺旋模型",
+      "D": "原型模型"
+    },
+    "explanationZh": "瀑布模型是先确定整体计划和进度，按需求定义→设计→实现→测试→运维顺序逐次推进的方法。特点是前工序交付物确认后才进入下工序，各工序质量易保证，整体流程一致性高，适合大规模系统开发。弱点是后期返回前工序修正成本高。\n- 敏捷适合需求不确定或变更频繁的情况，本题需求明确且变更少则无法发挥优势。\n- 正确。瀑布模型对需求明确、变更少的项目，计划性和管理便利性优势明显，是最佳选择。\n- 螺旋模型通过各开发单位风险分析最小化风险，但需求明确时按计划顺序推进更高效。\n- 原型模型用于早期制作试制品探索需求，需求已明确时必要性不高。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q39",
+    "sourceFingerprint": "sha256:9754cbb551ecca9be385794263034e62ac011a74b6f8408eae90d604d8b3051a",
+    "questionZh": "关于系统开发项目管理中的WBS，最合适的说明是哪个？",
+    "optionsZh": {
+      "A": "记载关键路径上的作业。",
+      "B": "记载主要交付物的计划开始日和计划结束日。",
+      "C": "将所有为创建交付物所需的工作进行层次分解并记载。",
+      "D": "记载项目使用的工具。"
+    },
+    "explanationZh": "WBS（Work Breakdown Structure）是为达成项目目标、无遗漏地创建所需交付物，将项目团队应执行的作业以交付物为主体进行层次化分解的文档。目的是按各作业设定内容、进度和目标使项目管理更容易。\n- WBS记载项目范围包含的所有作业，不仅是关键路径上的作业。\n- WBS定义交付物和作业、明确作业范围，属范围管理领域。计划开始/结束日是进度管理内容，不记载在WBS。\n- 正确。WBS的说明。\n- WBS不记载工具。使用工具一般记载在项目管理计划书等中。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q4",
+    "sourceFingerprint": "sha256:1c491cb7f27f103542a0322dc9dc1cc565c5f96f83e742d18f7298f962ace1c9",
+    "questionZh": "以达成特定目的或解决课题为主题，软件开发者与策划者等在短期内集中提出创意，协作开发软件并竞争成果的活动是哪个？",
+    "optionsZh": {
+      "A": "贸易展",
+      "B": "黑客松",
+      "C": "专题讨论会",
+      "D": "招待会"
+    },
+    "explanationZh": "- 贸易展是企业或团体展示产品和服务、进行商谈和开拓销路的活动。\n- 正确。黑客松（Hackathon）是针对特定主题或课题，在给定短期（数小时到数天）内集中创意和开发、竞争成果的活动。用于创新创出、技术交流和教育目的。\n- 专题讨论会是多位专家围绕特定主题进行讨论的形式。\n- 招待会是以参加者交流和欢迎为目的的联谊会。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q40",
+    "sourceFingerprint": "sha256:5d472139ca6b31d9a97f1d9dbc7f1916ae5c70183507b87214b11ad59dc44ba1",
+    "questionZh": "关于企业活动的描述中，属于内部控制活动内容的是哪个？",
+    "optionsZh": {
+      "A": "决算发表内容有重大错误时，迅速对外公布。",
+      "B": "制作付款凭证时，制单人负责确认并最终批准。",
+      "C": "定期评估风险，对梳理出的所有风险均以「规避」应对。",
+      "D": "将内部举报必须通过直属上司进行作为规则贯彻。"
+    },
+    "explanationZh": "- 正确。内部控制的「信息与传达」要素要求必要信息被识别、把握、处理并在组织内外和关系者间正确传达。决算重大错误迅速对外公布属于适时的外部传达。\n- 内部控制「控制活动」要求权限和职责的赋予及职务分离。制单人自批准是违规和错误的温床，应分离制单人和批准人形成相互制衡。\n- 「风险评估与应对」要求在识别分析评估风险后，从规避、降低、转移、接受中合理选择对应。所有风险均以「规避」应对并不合理。\n- 「信息与传达」要求确保重要信息适时适当地传达至组织上层。将举报限定于直属上司，若上司或所属部门涉不正行为则可能被压下。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q41",
+    "sourceFingerprint": "sha256:c948bbbdc0efe9735ab7fb40a3ea3e58ec28d8976471d0151e2ccd916213d4b3",
+    "questionZh": "在IT治理活动中，关于董事会等领导力相关风险的描述，最合适的是哪个？",
+    "optionsZh": {
+      "A": "将授权制定的IT战略交付物的最终责任交给负责部门，否则董事会无法履行说明责任。",
+      "B": "组织整体的绩效期望值若由董事会参与设定，将变为维持现状型，无法达成组织目标。",
+      "C": "董事会制定规范但不率先遵守，则组织无法贯彻伦理行为。",
+      "D": "董事会明确组织的IT治理方针，会导致偏向信息系统部门主导的活动。"
+    },
+    "explanationZh": "系统管理标准（令和5年）要求董事会领导力作为IT治理实践要件，具体活动包括：绩效目标值设定、伦理规范制定与遵守、组织变革推进、IT知识持续改善、新技术等应对。\n- 部分权限可委让，但IT治理的最终执行责任和说明责任仍在经营层。\n- 为实现组织目标，经营层必须发挥领导力，对IT战略设定明确绩效期望值并通过指示/监控进行管理。\n- 正确。组织变革和伦理规范遵守需经营层率先实践伦理行为，通过有效指导发挥领导力。\n- 明确IT治理方针是经营层职责，将使经营主导的IT利用而非信息系统部门包办。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q42",
+    "sourceFingerprint": "sha256:1b7b3a2044827dc6e897c2a14bb65ddd6b8af79f8e1113b0ecf8788948458d92",
+    "questionZh": "关于服务台（Service Desk）的描述，最合适的是哪个？",
+    "optionsZh": {
+      "A": "在验收测试阶段受理用户缺陷报告的窗口。",
+      "B": "在系统上线后阶段受理用户咨询的窗口。",
+      "C": "在程序开发阶段受理用户提问的窗口。",
+      "D": "在需求定义阶段受理用户需求的窗口。"
+    },
+    "explanationZh": "服务台是为系统或IT服务用户提供「单一窗口」、统一受理各种咨询的窗口。也称帮助台、呼叫中心、用户支持等。不仅是电话受理，还统一管理咨询内容、应对状况和解决记录。一次应对无法解决时，向适当部门或流程移交处理（升级）也是其职责之一。服务台在系统上线后的运维阶段设置，基本职责是受理系统用户咨询。应理解为运维/维护阶段的用户支持机制而非开发工序。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q43",
+    "sourceFingerprint": "sha256:db189486878a4d36b4c02c6f000dd5df91d8e1538d118ef6be437ef06299b387",
+    "questionZh": "某企业计划开发智能手机应用，决定每2周反复发布包含新功能和缺陷修复的新版本。新功能候选和缺陷通过列表管理，按优先级开发并逐步发布。此开发最适合采用的软件开发模型是哪个？",
+    "optionsZh": {
+      "A": "DevOps",
+      "B": "敏捷",
+      "C": "瀑布",
+      "D": "逆向工程"
+    },
+    "explanationZh": "- DevOps是开发(Development)和运维(Operations)的合成词，强调开发团队与运维团队紧密协作、利用自动化工具灵活快速推进开发。是重视开发运维协作的理念，不是开发模型本身。\n- 正确。敏捷是在短期内重复设计/开发/测试、灵活应对需求变化、逐步推进开发的方法总称。每2周发布符合敏捷开发中的迭代周期。按功能优先级开发也符合产品待办列表的思路。\n- 瀑布是先确定整体计划、按需求定义→设计→实现→测试→运维顺序推进的方法。不适合短期多次重复发布。\n- 逆向工程是分析现有软件动作以解析产品结构、制造方法、设计图、源代码等的技术。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q44",
+    "sourceFingerprint": "sha256:d7612074dc30abcd070a951b7dd3b8ddd7b6c1e41b1b5ed238a7ffa2cc705ece",
+    "questionZh": "某服务台通过电子邮件应对咨询，由受理员确认邮件内容后分配回答负责人。此次为提升分配效率引入自动分配工具。工具基于邮件内容自动分配，但存在无法分配和分配错误需人工处理。引入前和引入半年后情况如下：引入前每天1000件，每件2分钟。引入后90%自动处理（错误率5%），错误和剩余10%人工处理（正常2分钟/件，错误4分钟/件）。分配时间整体削减了%多少？削减率四舍五入到小数点后1位。",
+    "optionsZh": {
+      "A": "80",
+      "B": "81",
+      "C": "85",
+      "D": "86"
+    },
+    "explanationZh": "引入前：1000件×2分=2000分。引入后：自动分配成功900件（90%），其中错误45件（5%），人工处理45件×4分=180分。剩余10%=100件人工处理100件×2分=200分。合计180+200=380分。削减时间=2000-380=1620分。削减率=1620÷2000=0.81→81%。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "package": "quiz-sg-1",
+  "batchId": "quiz-sg-1_SG_28_AKI_問14_to_SG_28_AKI_問31",
+  "questionIds": [
+    "SG_28_AKI_問14",
+    "SG_28_AKI_問15",
+    "SG_28_AKI_問16",
+    "SG_28_AKI_問17",
+    "SG_28_AKI_問18",
+    "SG_28_AKI_問19",
+    "SG_28_AKI_問2",
+    "SG_28_AKI_問20",
+    "SG_28_AKI_問21",
+    "SG_28_AKI_問22",
+    "SG_28_AKI_問23",
+    "SG_28_AKI_問24",
+    "SG_28_AKI_問25",
+    "SG_28_AKI_問26",
+    "SG_28_AKI_問27",
+    "SG_28_AKI_問28",
+    "SG_28_AKI_問29",
+    "SG_28_AKI_問3",
+    "SG_28_AKI_問30",
+    "SG_28_AKI_問31"
+  ],
+  "translatedCount": 20,
+  "semanticReviewPassed": true,
+  "styleLintPassed": true,
+  "fingerprintPassed": true,
+  "retryCount": 0,
+  "completedAt": "2026-07-06T10:30:40.854Z"
+}

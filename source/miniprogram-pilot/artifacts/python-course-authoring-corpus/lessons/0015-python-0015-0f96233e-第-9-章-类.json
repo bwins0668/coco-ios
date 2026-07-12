@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0015-0f96233e-第-9-章-类",
+    "courseLessonId": "python-0015-0f96233e-第-9-章-类",
+    "sourceOrder": 15,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "function だけでも処理は書けますが、同じ対象の状態を何度も更新するときは、data と操作を近くに置く方が読みやすくなります。class はその小さなまとまりを作ります。",
+        "type": "why",
+        "zh": "只用 function 也能写处理，但当同一个对象的状态会被多次更新时，把 data 和操作放近一点更容易读。class 就是在创建这种小型组合。"
+      },
+      {
+        "ja": "class は設計図です。instance はその設計図から作った実物です。attribute は実物が持つ状態で、method はその状態を読む・変える動きです。",
+        "type": "mental-model",
+        "zh": "class 是设计图，instance 是按设计图创建出来的实物。attribute 是实物持有的状态，method 是读取或改变状态的动作。"
+      },
+      {
+        "ja": "StudyTimer(\"Python\") で instance が作られ、__init__() が name と minutes を用意します。add() は minutes を増やし、label() は今の状態を文字列にします。",
+        "type": "execution-flow",
+        "zh": "StudyTimer(\"Python\") 创建 instance，__init__() 准备 name 和 minutes。add() 增加 minutes，label() 把当前状态变成字符串。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "class StudyTimer:\n    def __init__(self, name):\n        self.name = name\n        self.minutes = 0\n\n    def add(self, minutes):\n        self.minutes += minutes\n\n    def label(self):\n        return f\"{self.name}: {self.minutes} min\"\n\ntimer = StudyTimer(\"Python\")\ntimer.add(20)\nprint(timer.label())\ntimer.add(10)\nprint(timer.label())",
+        "exampleId": "python-class-study-timer",
+        "expectedOutput": "Python: 20 min\nPython: 30 min",
+        "lineNotes": [
+          {
+            "ja": "StudyTimer という新しい class の形を定義します。",
+            "line": 1,
+            "zh": "定义一个名为 StudyTimer 的新 class 形状。"
+          },
+          {
+            "ja": "__init__() は instance が作られた直後に初期状態を用意します。",
+            "line": 2,
+            "zh": "__init__() 在 instance 刚创建后准备初始状态。"
+          },
+          {
+            "ja": "minutes はこの instance が覚えている累計時間です。",
+            "line": 4,
+            "zh": "minutes 是这个 instance 记住的累计时间。"
+          },
+          {
+            "ja": "add() は外から渡された分数を現在の状態に足します。",
+            "line": 6,
+            "zh": "add() 把外部传入的分钟数加到当前状态上。"
+          },
+          {
+            "ja": "timer は StudyTimer class から作られた具体的な instance です。",
+            "line": 12,
+            "zh": "timer 是由 StudyTimer class 创建出来的具体 instance。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "self を忘れると、method がどの instance の状態を使うのか分からなくなります。",
+        "zh": "忘记 self 时，method 就不知道要使用哪个 instance 的状态。"
+      },
+      {
+        "ja": "__init__ の名前や下線を間違えると、初期状態が期待どおり作られません。",
+        "zh": "把 __init__ 的名字或下划线写错，初始状态就不会按预期创建。"
+      },
+      {
+        "ja": "class の attribute と普通の局所変数を混同すると、状態が保存されている場所を見失います。",
+        "zh": "混淆 class 的 attribute 和普通局部变量，会看不清状态到底保存在哪里。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "最後の print の前ではなく後ろに add(5) と print(timer.label()) を追加します。",
+        "zh": "不要加在最后一次 print 前面，而是在后面追加 add(5) 和 print(timer.label())。"
+      },
+      "expectedObservation": {
+        "ja": "既存の 20 min、30 min の出力に続いて、Python: 35 min が追加で表示されます。",
+        "zh": "原来的 20 min、30 min 输出之后，会新增 Python: 35 min。"
+      }
+    },
+    "lessonId": "python-0015-0f96233e-第-9-章-类",
+    "nextLessonBridge": {
+      "ja": "次の候補は file と exception を含むため、asset と実行安全性を別ラウンドで扱います。",
+      "zh": "下一个候选包含 file 与 exception，需要在单独的 asset / 执行安全轮次中处理。"
+    },
+    "objectives": [
+      {
+        "ja": "class、instance、attribute、method の関係を小さな状態変化で説明できる。",
+        "zh": "能通过小型状态变化说明 class、instance、attribute、method 的关系。"
+      },
+      {
+        "ja": "__init__() で初期状態を作り、method で instance の状態を変えられる。",
+        "zh": "能用 __init__() 创建初始状态，并用 method 改变 instance 的状态。"
+      }
+    ],
+    "order": 9,
+    "prerequisites": [
+      {
+        "ja": "function の parameter と return value、dictionary の key/value を追えれば始められます。",
+        "zh": "只要能追踪 function 的 parameter / return value，以及 dictionary 的 key/value，就可以开始。"
+      }
+    ],
+    "summary": {
+      "ja": "class は data と method を一緒に置き、instance ごとの状態を読みやすく管理します。",
+      "zh": "class 把 data 和 method 放在一起，让每个 instance 的状态更容易管理。"
+    },
+    "terms": [
+      {
+        "en": "class",
+        "ja": "クラス",
+        "zh": "类"
+      },
+      {
+        "en": "instance",
+        "ja": "インスタンス",
+        "zh": "实例"
+      },
+      {
+        "en": "attribute",
+        "ja": "属性",
+        "zh": "属性"
+      }
+    ],
+    "title": {
+      "ja": "class で data と動きを一つの小さな型にまとめる",
+      "zh": "用 class 把 data 和行为合成一个小型类型"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "C67CD38E6FE1F0BFBA13C85EB7CCA72A2454CF60AD4A74EDB4EA3FE7949B3978",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

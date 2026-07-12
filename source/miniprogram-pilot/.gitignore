@@ -1,0 +1,24 @@
+# Local automation memory and scratch artifacts
+.workbuddy/memory/
+
+# Local dependency/install output
+node_modules/
+package-lock.json
+
+# OS/editor and log noise
+.DS_Store
+*.log
+*.tmp
+tools/test-artifacts/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Local handoffs and review drafts
+.ai-bridge/
+.gpt-handoff/
+tools/review-batches/
+
+# Generated build cache (not deployed to WeChat)
+tools/generated-cache/

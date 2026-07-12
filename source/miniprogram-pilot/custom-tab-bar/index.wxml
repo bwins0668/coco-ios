@@ -1,0 +1,19 @@
+<!-- R6.6A.1.6: SVG icon assets, active/inactive switching -->
+<view class="r6-tabbar">
+  <view class="r6-tabbar__inner">
+    <view
+      wx:for="{{list}}"
+      wx:key="pagePath"
+      class="r6-tabbar__item {{selected === index ? 'r6-tabbar__item--active' : ''}}"
+      data-index="{{index}}"
+      data-path="{{item.pagePath}}"
+      bindtap="switchTab"
+    >
+      <image class="r6-tabbar__icon"
+        src="{{selected === index ? item.activeIcon : item.icon}}"
+        mode="aspectFit"
+      />
+      <text class="r6-tabbar__text {{selected === index ? 'r6-tabbar__text--active' : 'r6-tabbar__text--inactive'}}">{{item.text}}</text>
+    </view>
+  </view>
+</view>

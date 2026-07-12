@@ -1,0 +1,80 @@
+{
+  "phase": "R23_9_P0_TWO_PACKAGE_CONTENT_CLOSURE",
+  "currentQueue": "translation-retry",
+  "currentPackage": "quiz-itpass-1",
+  "currentBatch": "batch_008 (03_HARU_Q1 next)",
+  "translatedCount": 1245,
+  "verifiedCount": 445,
+  "retryQueueCount": 0,
+  "pendingTranslationCount": 1500,
+  "pendingVisualRecoveryCount": 12,
+  "runtimeMergedPackages": [],
+  "latestCommit": "7cddfb5d861c51886261b0845d5b589d86f85c6c",
+  "nextQuestionId": "03_HARU_Q1",
+  "lastSafeCheckpointAt": "2026-06-28T09:10:00.683Z",
+  "pipelineVersion": "R23.9",
+  "verificationResults": {
+    "canonicalManifest": "PASS",
+    "qualityGateSelftest": "PASS",
+    "mutationGate": "PASS",
+    "jsSyntax": "PASS",
+    "flashcardP0": "PASS",
+    "decks": "PASS",
+    "registry": "PASS"
+  },
+  "packageStatus": {
+    "quiz-itpass-1": {
+      "verified": 109,
+      "attempted": 140,
+      "target": 300,
+      "retry": 31
+    },
+    "quiz-itpass-2": {
+      "verified": 120,
+      "attempted": 220,
+      "target": 300,
+      "retry": 100
+    },
+    "quiz-itpass-3": {
+      "verified": 300,
+      "attempted": 300,
+      "target": 300,
+      "retry": 0
+    },
+    "quiz-itpass-4": {
+      "verified": 22,
+      "attempted": 40,
+      "target": 300,
+      "retry": 18
+    },
+    "quiz-itpass-5": {
+      "verified": 118,
+      "attempted": 140,
+      "target": 300,
+      "retry": 22
+    },
+    "quiz-sg-1": {
+      "verified": 145,
+      "attempted": 145,
+      "target": 145,
+      "retry": 0
+    },
+    "quiz-sg-2": {
+      "verified": 0,
+      "attempted": 0,
+      "target": 300,
+      "retry": 0
+    }
+  },
+  "updatedAt": "2026-06-28T09:32:29.507Z",
+  "r23_9_completion": {
+    "packagesCompleted": [
+      "quiz-sg-1",
+      "quiz-itpass-3"
+    ],
+    "retryResolved": 32,
+    "newTranslated": 40,
+    "totalProcessed": 72,
+    "reviewLedger": "artifacts/r23_8c/reviews/r23_9_p0_review_ledger.jsonl"
+  }
+}

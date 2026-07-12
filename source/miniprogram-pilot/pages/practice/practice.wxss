@@ -1,0 +1,177 @@
+/* pages/practice/practice.wxss · R6.5 DC-aligned (Frame 2) */
+@import "../../styles/tokens.wxss";
+
+.r6-practice-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0 var(--qp-space-5) calc(100rpx + env(safe-area-inset-bottom));
+  background-color: var(--qp-color-canvas);
+  color: var(--qp-color-ink);
+}
+
+/* ===== Masthead ===== */
+.r6-practice-mast {
+  /* R6.6A.1.6P4: flex-start aligns date top with kicker top — same as course/profile */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4rpx 0 0;
+  margin-bottom: 22rpx;
+}
+.r6-practice-mast__kicker {
+  display: block;
+  margin-bottom: 8rpx;
+  font-family: var(--qp-font-family-data);
+  font-size: 20rpx;
+  font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-editorial);
+}
+.r6-practice-mast__title {
+  display: block;
+  font-size: var(--qp-font-size-masthead);
+  line-height: 1;
+  font-weight: 800;
+  color: var(--qp-color-ink);
+}
+.r6-practice-mast__date {
+  padding-bottom: 4rpx;
+  font-family: var(--qp-font-family-data);
+  font-size: 18rpx;
+  color: var(--qp-color-editorial);
+  font-weight: var(--qp-font-weight-semibold);
+  letter-spacing: .1em;
+}
+
+/* ===== Rule ===== */
+.r6-practice-rule {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+.r6-practice-rule__accent {
+  width: 60rpx;
+  height: 4rpx;
+  background: var(--qp-color-primary);
+}
+.r6-practice-rule__line {
+  flex: 1;
+  height: 2rpx;
+  background: var(--qp-color-ink);
+  opacity: 0.72;
+}
+
+/* ===== Sections ===== */
+.r6-practice-section {
+  margin-bottom: 32rpx;
+}
+
+/* ===== Section label ===== */
+.r6-section-label {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  margin-bottom: 6rpx;
+}
+.r6-section-label__num {
+  font-family: var(--qp-font-family-data);
+  font-size: 48rpx;
+  font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-text-phantom);
+  line-height: .8;
+}
+.r6-section-label__title {
+  font-size: var(--qp-font-size-section-title);
+  font-weight: var(--qp-font-weight-semibold);
+}
+
+/* ===== Cards ===== */
+.r6-practice-continue {
+  margin-bottom: 24rpx;
+}
+
+.r6-practice-card {
+  padding: 26rpx 28rpx;
+  background: var(--qp-color-surface);
+  border: var(--qp-border-width) solid var(--qp-color-line);
+  border-radius: var(--qp-radius-md);
+  margin-bottom: 8rpx;
+}
+.r6-practice-card--continue {
+  border-top: 5rpx solid var(--qp-color-editorial);
+  border-color: rgba(55,65,138,0.20);
+}
+.r6-practice-card--primary {
+  background: var(--qp-color-primary-soft);
+  border-left: 3rpx solid var(--qp-color-primary);
+}
+.r6-practice-card--muted {
+  opacity: 0.55;
+}
+.r6-practice-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.r6-practice-card__kicker {
+  font-family: var(--qp-font-family-data);
+  font-size: 20rpx;
+  font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-primary);
+  letter-spacing: 2rpx;
+}
+.r6-practice-card__meta {
+  font-family: var(--qp-font-family-data);
+  font-size: 22rpx;
+  color: var(--qp-color-text-ghost);
+}
+.r6-practice-card__title {
+  display: block;
+  font-size: 31rpx;
+  font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-ink);
+}
+.r6-practice-card__title-sub {
+  font-size: 26rpx;
+  color: var(--qp-color-text-ghost);
+  font-weight: var(--qp-font-weight-regular);
+}
+.r6-practice-card__sub {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: var(--qp-color-text-secondary);
+}
+.r6-practice-card__body {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.r6-practice-card__action {
+  margin-top: 20rpx;
+  padding: 18rpx 0;
+  border-radius: var(--qp-radius-md);
+  background: var(--qp-color-primary);
+  color: var(--qp-color-surface);
+  font-size: 26rpx;
+  font-weight: var(--qp-font-weight-semibold);
+  text-align: center;
+}
+.r6-practice-card--exam {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12rpx;
+}
+.r6-practice-card__chev {
+  flex: none;
+  font-size: 32rpx;
+  color: var(--qp-color-text-ghost);
+  margin-left: 8rpx;
+}
+.r6-practice-card__badge {
+  flex: none;
+  margin-left: 16rpx;
+  font-size: 22rpx;
+  color: var(--qp-color-text-tertiary);
+}

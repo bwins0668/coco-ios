@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0013-3f4a9a6a-第-7-章-用户输入和while循环",
+    "courseLessonId": "python-0013-3f4a9a6a-第-7-章-用户输入和while循环",
+    "sourceOrder": 13,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "本物のアプリでは user input が毎回変わります。でも学習では、まず同じ sample input を使うと、loop が何回動き、どの output が出るかを安定して確認できます。",
+        "type": "why",
+        "zh": "真实应用里的 user input 每次可能不同。但学习时先使用同一组 sample input，就能稳定确认 loop 会运行几次、产生哪些 output。"
+      },
+      {
+        "ja": "input() は外から届いた文字を受け取る入口です。数字として比べたいときは int() で変換し、counter を 1 ずつ進めると while は終点に近づきます。",
+        "type": "mental-model",
+        "zh": "input() 是接收外部文字的入口。需要当数字比较时用 int() 转换；counter 每次加 1，while 就会逐步接近终点。"
+      },
+      {
+        "ja": "最初に name と回数を読みます。round_number は 1 から始まり、出力するたびに 1 増えます。count を超えた瞬間、条件が false になって loop を抜けます。",
+        "type": "execution-flow",
+        "zh": "一开始读取 name 和次数。round_number 从 1 开始，每输出一次就加 1；当它超过 count 时，条件变成 false，程序退出 loop。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "name = input(\"name: \")\ncount_text = input(\"practice count: \")\ncount = int(count_text)\nround_number = 1\nwhile round_number <= count:\n    print(f\"{round_number}: {name} practices Python\")\n    round_number += 1\nprint(\"loop complete\")",
+        "exampleId": "python-domain1c-safe-input-while",
+        "expectedOutput": "name: practice count: 1: Coco practices Python\n2: Coco practices Python\n3: Coco practices Python\nloop complete",
+        "lineNotes": [
+          {
+            "ja": "1 行目は名前を文字列として受け取ります。",
+            "line": 1,
+            "zh": "第 1 行把名字作为字符串接收。"
+          },
+          {
+            "ja": "2 行目も文字列なので、まだ数として比較できません。",
+            "line": 2,
+            "zh": "第 2 行同样先得到字符串，还不能直接当数字比较。"
+          },
+          {
+            "ja": "int() で回数を整数に変換します。",
+            "line": 3,
+            "zh": "用 int() 把次数转换成整数。"
+          },
+          {
+            "ja": "while は round_number が count 以下の間だけ続きます。",
+            "line": 5,
+            "zh": "while 只在 round_number 小于等于 count 时继续。"
+          },
+          {
+            "ja": "counter を増やさないと、条件が変わらず終わりません。",
+            "line": 7,
+            "zh": "如果不增加 counter，条件不会变化，循环也不会结束。"
+          }
+        ],
+        "sampleInput": "Coco\n3"
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "input() の戻り値をすぐ数として扱うと、文字列と数の違いでつまずきます。",
+        "zh": "把 input() 的返回值立刻当数字用，会在字符串和数字的差异上出错。"
+      },
+      {
+        "ja": "while の中で counter を更新し忘れると、同じ条件がずっと true のままになります。",
+        "zh": "忘记在 while 里面更新 counter，条件就可能一直保持 true。"
+      },
+      {
+        "ja": "sample input の行数より input() が多いと、プログラムは次の入力を待ち続けます。",
+        "zh": "如果 input() 次数多于 sample input 的行数，程序会继续等待下一次输入。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "practice count を 3 から 2 に変え、code はそのまま実行します。",
+        "zh": "把 practice count 从 3 改成 2，代码本身不变后运行。"
+      },
+      "expectedObservation": {
+        "ja": "practice の行は 1 と 2 だけになり、最後の loop complete はそのまま出ます。",
+        "zh": "practice 行只剩 1 和 2，最后的 loop complete 仍然会输出。"
+      }
+    },
+    "lessonId": "python-0013-3f4a9a6a-第-7-章-用户输入和while循环",
+    "nextLessonBridge": {
+      "ja": "次は、同じ形の処理に名前を付け、function として何度も使えるようにします。",
+      "zh": "下一节会给同一形状的处理起名字，把它变成可以多次使用的 function。"
+    },
+    "objectives": [
+      {
+        "ja": "input() が文字列を受け取り、必要な型へ変換してから使う流れを説明できる。",
+        "zh": "能说明 input() 先收到字符串，再按需要转换类型后使用的流程。"
+      },
+      {
+        "ja": "while の条件を更新し、終わりがある loop として安全に読める。",
+        "zh": "能更新 while 条件，把循环读成一个有结束点的安全 loop。"
+      }
+    ],
+    "order": 7,
+    "prerequisites": [
+      {
+        "ja": "print()、変数、if、list、dictionary の基本を見たあとなら始められます。",
+        "zh": "已经看过 print()、变量、if、list、dictionary 的基本用法后即可开始。"
+      }
+    ],
+    "summary": {
+      "ja": "input() は外から文字列を受け取り、while は更新される条件で繰り返しを制御します。",
+      "zh": "input() 从外部接收字符串，while 用会更新的条件控制重复执行。"
+    },
+    "terms": [
+      {
+        "en": "input",
+        "ja": "入力",
+        "zh": "输入"
+      },
+      {
+        "en": "while loop",
+        "ja": "while ループ",
+        "zh": "while 循环"
+      },
+      {
+        "en": "counter",
+        "ja": "カウンタ",
+        "zh": "计数器"
+      }
+    ],
+    "title": {
+      "ja": "input() と while で、決まった回数の対話を作る",
+      "zh": "用 input() 和 while 做一段可控交互"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "7F4BE6B44B849A041FEB94C1E18617E9FD8771ADECEFB8B218A16AE97260E6FB",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

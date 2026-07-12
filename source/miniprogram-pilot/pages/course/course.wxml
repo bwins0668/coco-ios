@@ -1,0 +1,113 @@
+<!--pages/course/course.wxml · R6.6 DC-aligned course detail shell -->
+<view class="cs-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+
+  <!-- Safety: unknown / unresolved courseId -->
+  <block wx:if="{{notFound}}">
+    <view class="cs-back">
+      <view class="cs-back__btn" bindtap="goBack" data-secondary-route="pages/course/course">
+        <text class="cs-back__icon">‹</text>
+      </view>
+    </view>
+    <view class="cs-empty">
+      <text class="cs-empty__title">课程暂不可用</text>
+      <text class="cs-empty__sub">该课程尚未开放或入口尚未确认</text>
+      <view class="cs-btn cs-btn--outline" bindtap="goBackHome">返回课程</view>
+    </view>
+  </block>
+
+  <!-- Certification: IT Passport / SG -->
+  <block wx:elif="{{course.courseKind === 'certification'}}">
+    <!-- R6.6A.2P3.1: back button as dedicated hit target, not full-width -->
+    <view class="cs-back">
+      <view class="cs-back__btn" bindtap="goBack" data-secondary-route="pages/course/course">
+        <text class="cs-back__icon">‹</text>
+      </view>
+    </view>
+    <view class="cs-head">
+      <text class="cs-head__title">{{course.displayName}}</text>
+      <text class="cs-head__kind">资格考试</text>
+    </view>
+
+    <!-- Honest history -->
+    <view class="cs-last" wx:if="{{state.hasHistoricalAttempt}}">
+      <text class="cs-last__label">上次练习</text>
+      <text class="cs-last__meta">{{lastMetaText}}</text>
+    </view>
+
+    <!-- Primary action -->
+    <view class="cs-actions">
+      <view class="cs-btn cs-btn--primary" bindtap="goPractice">{{state.hasHistoricalAttempt ? '选择练习方式' : '开始刷题'}}</view>
+    </view>
+
+    <!-- Exam knowledge structure -->
+    <view class="cs-section" wx:if="{{topics.length > 0}}">
+      <text class="cs-section__title">考试知识结构</text>
+      <view class="cs-topic" wx:for="{{topics}}" wx:key="id"
+            data-topic-id="{{item.id}}" bindtap="goTopic">
+        <view class="cs-topic__body">
+          <text class="cs-topic__title">{{item.title}}</text>
+          <text class="cs-topic__ja">{{item.titleJa}}</text>
+        </view>
+        <text class="cs-topic__arrow" wx:if="{{item.enterable}}">→</text>
+        <text class="cs-topic__pending" wx:else>主题映射整理中</text>
+      </view>
+    </view>
+
+    <!-- Learning aids -->
+    <view class="cs-section">
+      <text class="cs-section__title">学习辅助</text>
+      <view class="cs-row cs-row--textbook" wx:if="{{course.capabilities.textbook}}" bindtap="goTextbook">
+        <view class="cs-row__body">
+          <text class="cs-row__text">教材章节</text>
+          <text class="cs-row__note">按原书目录学习双语解説与 PDF 原书定位</text>
+        </view>
+        <text class="cs-row__arrow">→</text>
+      </view>
+      <view class="cs-row cs-row--organizer" wx:if="{{course.capabilities.questionOrganization}}" bindtap="goQuestionOrganizer">
+        <view class="cs-row__body">
+          <text class="cs-row__text">题目整理</text>
+          <text class="cs-row__note">按课程查看错题与收藏题目</text>
+        </view>
+        <text class="cs-row__arrow">→</text>
+      </view>
+      <view class="cs-row cs-row--secondary" bindtap="goMistakes">
+        <view class="cs-row__body">
+          <text class="cs-row__text">全部错题复习</text>
+          <text class="cs-row__note">当前显示跨课程错题；课程筛选将在题目整理能力完成后开放。</text>
+        </view>
+        <text class="cs-row__arrow">→</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- Learning: Python / Java / Algorithm -->
+  <block wx:elif="{{course.courseKind === 'learning'}}">
+    <view class="cs-back">
+      <view class="cs-back__btn" bindtap="goBack" data-secondary-route="pages/course/course">
+        <text class="cs-back__icon">‹</text>
+      </view>
+    </view>
+    <view class="cs-head">
+      <text class="cs-head__title">{{course.displayName}}</text>
+      <text class="cs-head__kind">课程学习</text>
+    </view>
+    <view class="cs-empty cs-empty--planned">
+      <text class="cs-empty__title">课程内容正在整理</text>
+      <text class="cs-empty__sub">课程目录、教材导航与章节练习将在内容校验完成后开放。</text>
+      <view class="cs-btn cs-btn--outline" bindtap="goBackHome">返回课程</view>
+    </view>
+  </block>
+
+  <!-- Fallback -->
+  <block wx:else>
+    <view class="cs-back">
+      <view class="cs-back__btn" bindtap="goBack" data-secondary-route="pages/course/course">
+        <text class="cs-back__icon">‹</text>
+      </view>
+    </view>
+    <view class="cs-empty">
+      <text class="cs-empty__title">课程暂不可用</text>
+      <view class="cs-btn cs-btn--outline" bindtap="goBackHome">返回课程</view>
+    </view>
+  </block>
+</view>

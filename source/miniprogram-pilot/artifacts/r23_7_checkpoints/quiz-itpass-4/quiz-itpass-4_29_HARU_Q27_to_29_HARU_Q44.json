@@ -1,0 +1,32 @@
+{
+  "package": "quiz-itpass-4",
+  "batchId": "quiz-itpass-4_29_HARU_Q27_to_29_HARU_Q44",
+  "questionIds": [
+    "29_HARU_Q27",
+    "29_HARU_Q28",
+    "29_HARU_Q29",
+    "29_HARU_Q3",
+    "29_HARU_Q30",
+    "29_HARU_Q31",
+    "29_HARU_Q32",
+    "29_HARU_Q33",
+    "29_HARU_Q34",
+    "29_HARU_Q35",
+    "29_HARU_Q36",
+    "29_HARU_Q37",
+    "29_HARU_Q38",
+    "29_HARU_Q39",
+    "29_HARU_Q4",
+    "29_HARU_Q40",
+    "29_HARU_Q41",
+    "29_HARU_Q42",
+    "29_HARU_Q43",
+    "29_HARU_Q44"
+  ],
+  "translatedCount": 20,
+  "semanticReviewPassed": true,
+  "styleLintPassed": true,
+  "fingerprintPassed": true,
+  "retryCount": 0,
+  "completedAt": "2026-07-07T03:11:24.841Z"
+}

@@ -1,0 +1,58 @@
+<!--pages/glossary/glossary.wxml - 术语学习中心-->
+<view data-r6-active-tab="glossary" class="container {{__themeDark ? 'dark-theme' : ''}}" style="padding-top: {{navSafeTop}}px;">
+  <!-- 顶部 Hero -->
+  <view class="glossary-hero">
+    <view class="glossary-hero-row">
+      <view class="glossary-hero-text">
+        <text class="glossary-hero-title">术语表</text>
+        <text class="glossary-hero-subtitle">1500 条 IT 术语 · 中英日三语</text>
+      </view>
+      <view class="glossary-hero-badge" wx:if="{{favoriteCount > 0}}">
+        <text class="glossary-hero-badge-text">{{favoriteCount}} 收藏</text>
+      </view>
+    </view>
+    <!-- 搜索入口卡片 -->
+    <view class="search-entry-card r6-glossary-search" bindtap="goToGlossarySearch">
+      <view class="search-entry-symbol"></view>
+      <text class="search-entry-placeholder">搜索术语、关键词...</text>
+      <text class="search-entry-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 功能卡片矩阵 -->
+  <view class="glossary-actions">
+    <view class="r6-glossary-entry-list">
+      <!-- 收藏复习 -->
+      <view class="r6-glossary-row r6-glossary-row--orange" bindtap="goToFavoriteReview">
+        <view class="action-symbol symbol-favorite"></view>
+        <text class="r6-glossary-row__title">收藏复习</text>
+        <text class="r6-glossary-row__stat" wx:if="{{favoriteCount > 0}}">{{favoriteCount}} 条</text>
+        <text class="r6-glossary-row__stat" wx:else>暂无</text>
+      </view>
+      <!-- 闪卡记忆 -->
+      <view class="r6-glossary-row r6-glossary-row--purple" bindtap="goToAnkiPlayer">
+        <view class="action-symbol symbol-anki"></view>
+        <text class="r6-glossary-row__title">闪卡记忆</text>
+        <text class="r6-glossary-row__stat">Anki</text>
+      </view>
+      <!-- 随机术语 -->
+      <!-- R3.54 smoke anchor: 🎲 -->
+      <view class="r6-glossary-row r6-glossary-row--teal" bindtap="goToRandomTerm">
+        <view class="action-symbol symbol-random"></view>
+        <text class="r6-glossary-row__title">随机术语</text>
+        <text class="r6-glossary-row__stat">探索</text>
+      </view>
+      <!-- 全部浏览 -->
+      <view class="r6-glossary-row r6-glossary-row--blue" bindtap="goToGlossarySearch">
+        <view class="action-symbol symbol-list"></view>
+        <text class="r6-glossary-row__title">全部浏览</text>
+        <text class="r6-glossary-row__stat">1500 条</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 收藏提示 -->
+  <view class="glossary-footer-hint" wx:if="{{favoriteCount > 0}}">
+    <text class="glossary-footer-hint-text">已收藏 {{favoriteCount}} 条术语，可随时复习</text>
+  </view>
+</view>

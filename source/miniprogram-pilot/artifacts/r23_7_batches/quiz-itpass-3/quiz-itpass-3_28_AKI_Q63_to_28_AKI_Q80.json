@@ -1,0 +1,368 @@
+{
+  "package": "quiz-itpass-3",
+  "batchId": "quiz-itpass-3_28_AKI_Q63_to_28_AKI_Q80",
+  "questionIds": [
+    "28_AKI_Q63",
+    "28_AKI_Q64",
+    "28_AKI_Q65",
+    "28_AKI_Q66",
+    "28_AKI_Q67",
+    "28_AKI_Q68",
+    "28_AKI_Q69",
+    "28_AKI_Q7",
+    "28_AKI_Q70",
+    "28_AKI_Q71",
+    "28_AKI_Q72",
+    "28_AKI_Q73",
+    "28_AKI_Q74",
+    "28_AKI_Q75",
+    "28_AKI_Q76",
+    "28_AKI_Q77",
+    "28_AKI_Q78",
+    "28_AKI_Q79",
+    "28_AKI_Q8",
+    "28_AKI_Q80"
+  ],
+  "translations": [
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q63",
+      "sourceFingerprint": "sha256:7d08b2516d7c8281eeab9a9857bf3d392a6683324c9e9da2f46f332163087805",
+      "questionZh": "以下哪项是对 Intranet 的正确解释？",
+      "optionsZh": {
+        "A": "利用Internet技术构建的内部网络",
+        "B": "公司外部任何人都可以自由连接的内部网络",
+        "C": "为在多家公司之间进行电子商务而建立的网络",
+        "D": "仅由有线组成的网络，不使用无线"
+      },
+      "explanationZh": "Intranet是利用为Internet开发的技术和设备构建的内部网络。它是一个由“intra”（意思是内部）和“internet”组合而成的新词。许多是通过将互联网技术与数据库、组件和网络浏览器相结合而创建的。外联网是连接相互开展业务的公司的内联网的网络。\n- 正确。这是对内网的解释。\n- Intranet 是一种仅限于组织内部使用的网络。\n- 外网解释。\n- 以太网的解释。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:09.231Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q64",
+      "sourceFingerprint": "sha256:772e258ba2ae6e45f9ae8b4f02018d6a9035a558a6a1e7a2d8c6b93893d41e31",
+      "questionZh": "当从办公室或家庭网络访问其他网络（例如 Internet）时，以下哪项充当其他网络的网关？",
+      "optionsZh": {
+        "A": "分离器",
+        "B": "默认网关",
+        "C": "中心",
+        "D": "中继器"
+      },
+      "explanationZh": "默认网关是与专用网络上不存在的设备进行通信时充当与外部网络的连接点的设备。私网设备与外网设备通信时，首先向默认网关发送数据，请求选路并进行中继。\n\n通常，位于专用网络和Internet之间边界的路由器扮演着默认网关的角色。\n- 分配器是分离或组合高频数据信号和低频音频信号的设备。\n- 正确。\n- 集线器是位于星形网络拓扑 LAN 中心的线路集中器，配备多个端口（连接）并能够增加连接的计算机数量。\n- 中继器是一种 LAN 连接设备，可放大数据传输过程中变弱的电信号并延长数据传输的距离。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:14.028Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q65",
+      "sourceFingerprint": "sha256:527dc9e68abb66394de68d62c432e4ed7236c00c265082878c517a8095fab8dc",
+      "questionZh": "以下哪项是对通信协议最合适的解释？",
+      "optionsZh": {
+        "A": "用于将 PC 和打印机等设备连接到 LAN 的电缆集中器。",
+        "B": "描述 Web 浏览器中指定的信息的位置以及如何获取它",
+        "C": "在互联网通信中用于识别计算机的号码",
+        "D": "为通过网络进行通信而建立的一组约定"
+      },
+      "explanationZh": "通信协议也称为通信协议，是数据通信所必需的协议。\n已经建立了多种协议，从用作通信路由的传输路径的物理规则到用于通信的消息内容的逻辑规则、通信过程以及发生错误时的控制方法。\n具有不同操作系统和体系结构的计算机之所以能够相互通信，是因为已经为该通信建立了协议，并且两台计算机在传输和接收数据时都遵循这些协议。\n- 这是集线器的描述。\n- URL（统一资源定位符）的说明。\n- IP 地址描述。\n- 正确。这是通信协议的解释。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:21.081Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q66",
+      "sourceFingerprint": "sha256:34cf8386fbb9530e1d8e79f91a62bf007b6705171022fa0d08ccd8d90f24ff98",
+      "questionZh": "身份验证利用个人的身体和行为特征，不需要个人记忆信息或拥有物，但以下哪项需要特殊设备进行身份验证？",
+      "optionsZh": {
+        "A": "公开个人认证",
+        "B": "发送域认证",
+        "C": "生物识别认证",
+        "D": "许可证验证"
+      },
+      "explanationZh": "生物识别认证是一种利用个人独有的信息（例如人的身体特征和行为特征）来对人进行身份验证的系统。人的生物特征信息预先登记在认证系统中，通过比对认证时传感器读取的信息来验证人的身份。\n使用物理特征作为密钥的方法的示例包括“指纹认证”、“静脉图案识别”、“虹膜识别”、“声纹识别”、“面部识别”和“视网膜识别”，而使用行为特征作为密钥的方法包括“手写识别”。\n\n正确答案是“C”，因为生物识别身份验证是唯一使用个人的身体和行为特征作为密钥的方法。\n- 公共个人认证是一种通过获取个人编号卡并在使用服务时出示该卡来公开验证您的身份的系统。\n- 发送域认证是一种验证发送邮件服务器的真实性以防止垃圾邮件的技术。\n- 正确。\n- 许可证认证是一种验证用户是否是授权用户的技术，以防止未经授权的软件复制。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:28.415Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q67",
+      "sourceFingerprint": "sha256:2dfc64c0a696e8583795fd874a5e961a50eed20a1538465258f2747f31e6384c",
+      "questionZh": "以下哪项是即使系统的某个部分发生故障也能确保处理能够正常执行的所有恰当措施的列表？\n- 配置硬盘镜像。\n- 一旦系统稳定运行，尽可能减少维护和检查的频率。\n- 将多条冗余网络线路合并为一条更快的线路。\n- 通过安装不间断电源来实现多路电源。",
+      "optionsZh": {
+        "A": "①、③",
+        "B": "①、④",
+        "C": "②、③",
+        "D": "②、④"
+      },
+      "explanationZh": "- 正确。镜像是一种通过同时（同步）将相同数据写入两个磁盘来提高容错能力的方法。即使其中一个磁盘出现物理故障，也可以进行恢复。\n- 错误。为了在发生故障时可靠地切换处理系统，还必须不断检查备份系统。\n- 错误。提高容错能力的有效方法是使系统组件冗余。通过将它们合并到一条网络线路中，该位置的故障将成为单点故障，从而导致整个系统停止运行。\n- 正确。这是为了确保系统即使在突然停电的情况下也能继续运行的措施。因此，合适的组合是“①、④”。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:37.965Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q68",
+      "sourceFingerprint": "sha256:3dec4c4caefde635df6aad100b4aa34a06d80ca41a8916284b1eef7761f3b3b4",
+      "questionZh": "以下哪项用于识别无线 LAN 网络？",
+      "optionsZh": {
+        "A": "蓝牙",
+        "B": "ESSID",
+        "C": "LTE",
+        "D": "WPA2"
+      },
+      "explanationZh": "- 蓝牙是一种使用 2.4 GHz 无线电波在数米至 100 米距离内的信息设备之间进行无线通信的标准，无需申请许可证或注册。\n- 正确。 ESSID（扩展服务集标识符）是IEEE802.11系列无线局域网标准中为避免“干扰”而在接入点和终端上设置的标识符。\n与有线 LAN 不同，无线 LAN 可能会导致与多个接入点进行通信的“干扰”。为了避免这种情况，为每个接入点和终端设置一个ESSID，并实施访问控制，使得只有具有匹配ESSID的设备才能相互通信。\n- 长期进化的缩写。在第三代移动通信系统（3G）向第四代移动通信系统（4G）过渡期间出现的通信标准。它支持最大超过100Mbps的下载速度和超过50Mbps的最大上传速度，是一种可以在手机上实现堪比家庭宽带的高速通信的标准。\n- Wi-Fi Protected Access 2 的缩写。用于对无线 LAN 中的用户进行身份验证以及对设备和接入点之间的通信进行加密的标准。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:45.829Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q69",
+      "sourceFingerprint": "sha256:a72b4c7790f4819131a264ee97f41e4c478150591f69f624d20ff30190c008bf",
+      "questionZh": "哪种计算机用于全球环境模拟和基因分析，并且是为了超高速处理大量计算而开发的？",
+      "optionsZh": {
+        "A": "虚拟计算机",
+        "B": "超级计算机",
+        "C": "通用计算机",
+        "D": "微型计算机"
+      },
+      "explanationZh": "超级计算机是指系统中配备了数十至数十万个处理器，用于快速处理需要大量计算量的科学技术计算和高级3DCG计算的计算机。它具有阵列处理器（矢量处理器），可高速处理一般复杂的矢量运算和矩阵运算，并通过使用先进的流水线控制并行执行计算来实现高速处理。\n它应用于天气预报、物理模拟、量子力学等需要高度复杂和大量计算的领域。\n- 虚拟计算机是利用虚拟化软件的功能在计算机内部虚拟创建的机器。虚拟化技术的优点是将多个服务器（操作系统和应用程序）整合到单个服务器上。\n- 正确。\n- 通用计算机是指根据安装的软件，可用于业务处理、办公、控制和科学计算等多种用途的计算机，如个人计算机或公司核心系统中使用的大型通用机器（大型机）。\n- 微型计算机是一种小型计算机，作为控制汽车、相机、医疗设备、玩具和家用电器等设备操作的组件。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:51.653Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q7",
+      "sourceFingerprint": "sha256:b587c01575e9d12a8deaacc76ce90b7dad9c57e86645e9c17dfd4e9311c80a35",
+      "questionZh": "假设发生大规模自然灾害，以下哪项是创建 BCP 的最合适目的？",
+      "optionsZh": {
+        "A": "在管理资源减少的情况下继续重要的业务运营",
+        "B": "保护建筑物和设备等资产",
+        "C": "确保灾区的通讯手段",
+        "D": "降低导致工业事故的风险发生概率及其影响"
+      },
+      "explanationZh": "BCP（业务连续性计划）是一项行动计划，使企业能够在发生意外重大灾难时快速恢复和恢复运营，同时继续进行最低限度的必要运营。近年来，发生了一系列地震、火灾/爆炸、大规模系统故障等，导致核心业务和运营停止的情况时有发生，因此制定它们的重要性日益增加。有计划和没有计划在紧急情况下会起到决定性的作用，所以这是从管理角度应该建立的。\n\n根据经济产业省和厚生劳动省的文件，从BCP启动到全面恢复的过程分为以下四个阶段。 1. BCP激活阶段 从检测到灾难或事故的发生（或可能发生）到实施初步响应并激活BCP的阶段 2. 业务恢复阶段 从激活BCP到使用备份站点或手动工作等替代方法重新启动业务运营以使事情回到正轨的阶段 3. 业务恢复阶段 在恢复最紧急的操作和功能后，需要恢复的操作范围进一步扩大 阶段 4. 全面恢复阶段 从替代设备/方法切换到正常操作的阶段 顾名思义， BCP 是一个旨在业务连续性的计划，因此描述“A”最恰当。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:20:59.229Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q70",
+      "sourceFingerprint": "sha256:970435d9f11c84373fda1884512ab954536268fbf5023ab872846d69b2c97933",
+      "questionZh": "关于使用具有网络共享功能的智能手机的 PC 互联网连接，以下哪项陈述是正确的？",
+      "optionsZh": {
+        "A": "PC 和智能手机之间的连接仅限于无线 LAN，因此需要支持无线 LAN 的 PC。",
+        "B": "由于使用手机网络，安全有保障，PC端无需病毒防护。",
+        "C": "由于您可以将智能手机用作路由器，因此无需准备单独的路由器。",
+        "D": "您需要准备一台支持网络共享协议的电脑。"
+      },
+      "explanationZh": "网络共享是利用智能手机等移动终端的互联网连接功能，例如移动线路，将其他计算机和信息终端连接到互联网的过程。它使用您的移动设备作为接入点（基本单元），并通过 3G/4G 线路连接到互联网，因此即使您外出没有 Wi-Fi，也可以轻松地将笔记本电脑、平板电脑、游戏机等连接到互联网。另一个优点是无需单独签订PC的互联网连接环境合同。\n- 使用有线连接（USB 电缆）连接到智能手机没有问题。\n- 需要防病毒保护，因为它会带来与常规互联网访问相同的风险。\n- 正确。从 PC 连接互联网时，无需准备路由器，智能手机可作为默认网关。\n- PC端不需要特别兼容网络共享；只需 USB 连接、蓝牙或无线 LAN 接口就足够了。但是，您必须使用支持网络共享的智能手机。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:05.839Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q71",
+      "sourceFingerprint": "sha256:b3b9e57de4d9ce4653b8df5b7e92c3bb7bb7a01a5c3f705e8713e4a272375b83",
+      "questionZh": "在公司的ISMS活动中，以下哪项显示了公司所处理的信息资产保护的基本概念和方法？",
+      "optionsZh": {
+        "A": "BCP",
+        "B": "信息安全管理体系要求",
+        "C": "PDCA",
+        "D": "信息安全政策"
+      },
+      "explanationZh": "信息安全政策是组织最高管理层最终负责的文件，它表明组织致力于为信息安全做出全面努力，并向内部和外部声明信息安全目标以及公司/组织为实现这些目标应采取的行动。它全面规定了应利用何种威胁来保护信息资产、如何保护信息资产的基本概念，以及保障信息安全的制度、组织和操作。\n此外，已制定的信息安全政策必须定期改进，以保持其有效性和有效性，并且必须让所有员工知晓。\n\n从问题中的表述“在ISMS活动中”和“表明基本的思维方式和方法”可以确定这是一项信息安全政策。\n- 业务连续性计划的缩写。这是一项行动计划，可在发生意外重大灾难时，在继续进行最低限度必要运营的同时，尽早恢复和恢复运营。\n- ISMS要求是构建信息安全管理体系以及管理运行过程中产生的文件和记录所需的项目。它已标准化为 JIS Q 27001 (ISO 27001)。\n- PDCA是通过重复计划→执行（执行）→检查（评估）→行动（回顾和改进）四个步骤来持续改进运营的方法。\n- 正确。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:10.857Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q72",
+      "sourceFingerprint": "sha256:9c7909dac93cde2afe05288b0bb11d7400835445e09c10145cea5ca26165bfff",
+      "questionZh": "以下哪项是有关私有 IP 地址的正确描述？",
+      "optionsZh": {
+        "A": "私有 IP 地址由 ICANN（互联网名称与数字地址分配机构）分配。",
+        "B": "私有IP地址可以分配给PC和路由器，但不能分配给服务器等大量用户访问的设备。",
+        "C": "通过使用 NAT 功能，可以使用私有 IP 地址从公司网络上的设备访问外部 Internet。",
+        "D": "要使用私有 IP 地址，您需要向提供商 (ISP) 申请并获得批准。"
+      },
+      "explanationZh": "IP地址是分配用于识别连接到IP网络（例如Internet或LAN）的计算机的号码，并且类似于IP网络上的地址。设备上设置的IP地址分为私有IP地址和全局IP地址。私有 IP 地址 在封闭网络（例如未连接到 Internet 的组织 LAN）中分配的 IP 地址。它可以由网络管理员在指定的地址范围内自由设置。您无法使用私有 IP 地址连接到 Internet。全局 IP 地址 连接到 Internet 时所需的 IP 地址。它由 ICANN 管理，以防止世界范围内的重复，并且可以通过与 ISP 签订合同来获得使用许可。访问 Internet 需要全球 IP 地址。内部LAN上的计算机发送的数据是从私有IP地址发送的，因此无法按原样连接到Internet。解决这个问题的办法就是在路由器和防火墙中安装“NAT功能”。\nNAT（网络地址转换）是一种将公司或组织网络内自由分配的私有 IP 地址与全局 IP 地址（互联网上唯一的地址）进行一一转换的技术。通常，IP 地址转换由位于互联网边界的路由器或防火墙执行。\n- 私有IP地址可以由网络管理员自由设置。全球 IP 地址由 ICANN 分配。\n- 也为您的服务器分配一个私有IP地址。\n- 正确。通过使用 NAT 功能进行地址相互转换，可以实现 Internet 访问。\n- 网络管理员可以在默认范围内自由设置私有IP地址。它是您向 ISP 申请的全球 IP 地址。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:17.753Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q73",
+      "sourceFingerprint": "sha256:f304eb9f3f721317d121f72aea1e10b8bdab48a5bb5ba2077142cc5bbc39cc17",
+      "questionZh": "以下哪项是可以通过互联网进行渗透测试发现的漏洞示例？",
+      "optionsZh": {
+        "A": "从外部网络到公共服务器的入侵点",
+        "B": "使用记录介质取出机密信息",
+        "C": "尝试连接公司网络的 PC 被病毒感染",
+        "D": "未经授权进入安全房间"
+      },
+      "explanationZh": "渗透测试是一种通过实际尝试使用各种方法渗透连接到网络的系统来检查漏洞是否存在的测试。\n一般来说，有两种类型的检查：针对操作系统和服务器软件执行的检查以及针对 Web 应用程序执行的检查。以下项目是每种检查的典型检查目标。由于该问题的测试是通过互联网进行的，因此目的很可能是发现可能允许外部攻击者进行未经授权访问的漏洞。因此，“A”是正确答案。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:24.374Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q74",
+      "sourceFingerprint": "sha256:89165e596f7a815ae27450c67eb2f7975a71131144e733c63f592e79189e74b5",
+      "questionZh": "我想提取“温度”表中2011年7月1日至8月31日期间最高温度为35度或更高的所有记录。下列哪项最恰当提取条件？",
+      "optionsZh": {
+        "A": "年=2011 AND (月=7 AND 月=8) AND 最高气温<=35",
+        "B": "年=2011 AND (月=7 AND 月=8) AND 最高气温>=35",
+        "C": "年=2011 AND (月=7 OR 月=8) AND 最高气温<=35",
+        "D": "年=2011 AND (月=7 OR 月=8) AND 最高气温>=35"
+      },
+      "explanationZh": "本题要从“气温”表中抽出2011年7月1日至8月31日之间，且最高气温为35度以上的记录。月份条件应是7月或8月，因此要使用“月=7 OR 月=8”；如果写成两个月份同时满足的AND条件，就没有记录能够匹配。温度条件是35度以上，所以不等号应为“最高气温>=35”。\n因此，同时满足“年=2011”“月为7或8”“最高气温>=35”的选项D正确。",
+      "correctAnswer": "D",
+      "visualClassification": "unverified_visual_reference",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:31.078Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q75",
+      "sourceFingerprint": "sha256:4867c52042357e78867edb0fda19fa8437160279a220355720610ca3e8c6dba2",
+      "questionZh": "在如图所示的层次结构的文件系统中，当从标有星号的目录（当前目录）指定“..\\..\\DIRB\\Fn.txt”时，会引用哪个文件？这里显示的是图中的目录名，指定文件的方法如下。\n\n[规格方法]\n- 对于文件，按顺序列出路径上的目录，用“\\”分隔，例如“目录名\\…\\目录名\\文件名”，然后用“\\”指定文件名。\n- 当前目录用“.”表示。\n- 上一级目录用“..”表示。\n- 如果以“\\”开头，则假定省略最左边的根目录。",
+      "optionsZh": {
+        "A": "①Fn.txt",
+        "B": "②Fn.txt",
+        "C": "③Fn.txt",
+        "D": "④Fn.txt"
+      },
+      "explanationZh": "根据问题中的【指定方法】，指定的文件路径可以解释如下。也就是说，带*标记的目录的上两级目录是“Root\\DIRB”，所以那里存在的“DIRB\\Fn.txt”就是存在于“Root\\DIRB\\DIRB\\Fn.txt”位置的文件④。",
+      "correctAnswer": "D",
+      "visualClassification": "unverified_visual_reference",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:39.817Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q76",
+      "sourceFingerprint": "sha256:4dfd2aa7919eee0b7f01a9743f1196b5df8aa7c08343c979db1c476e8efc48dd",
+      "questionZh": "以下关于 OSS（开源软件）的哪项陈述最恰当？",
+      "optionsZh": {
+        "A": "您可以修改并重新分发源代码。",
+        "B": "源代码免费提供，但需要付费维护支持。",
+        "C": "版权已被放弃，因此无需许可即可使用。",
+        "D": "如果版权不放弃，运营也必须得到保障。"
+      },
+      "explanationZh": "OSS（开源软件）是一种许可证类型，意味着免费发布源代码，同时保护软件作者或根据该许可证类型提供的软件的版权。\n\nOSS的许可格式有多种，如GPL、BSD、MIT、Apache Software等，内容略有不同，但原则上都具有以下特点。\n- 可以重新分发\n- 可用源代码\n- 您可以基于它创作衍生作品。\n- 重新分发不需要额外的许可证\n- 无保修\n- 保留版权声明\n- 正确。如果满足某些条件，修改后的衍生软件可以免费分发或出售。\n- 如果产品是收费出售的，卖家可能有支持系统，但基本上没有创作者的支持。\n- 版权未放弃。放弃版权的许可形式称为公共领域。\n- OSS 基本上是没有保修的软件。即使因使用而造成损坏，也不予赔偿。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:48.095Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q77",
+      "sourceFingerprint": "sha256:a9ce4e36d28034d7f0efb39851d662e3d5eb1cea28a5237cc56e9beb62488728",
+      "questionZh": "以下哪项 a 到 d 仅列出了 DBMS 的恰当功能？\n\n- 病毒检查\n- 数据搜索/更新\n- 表标准化\n- 并发控制",
+      "optionsZh": {
+        "A": "a、b、c",
+        "B": "a、c",
+        "C": "b、c、d",
+        "D": "b、d"
+      },
+      "explanationZh": "DBMS（数据库管理系统）是充当用户和数据库之间的接口并有效且恰当地管理数据库的软件。 DBMS 提供的主要功能有：\n- 事务控制功能，允许多个用户同时访问而不会出现不一致的情况\n- 能够从事务失败、系统故障和存储介质故障中恢复\n- 安全功能，例如访问控制和数据加密\n- 数据库语言功能，例如关系数据库中的SQL\n- 错误。它没有病毒检查功能。\n- 正确。 DBMS 的作用是请求处理，例如对数据库进行搜索、插入、删除和更新。在关系数据库中，您通过发出 SQL 来操作数据库。\n- 错误。表的规范化由数据库设计者完成。\n- 正确。事务经过调度，即使多个事务并行执行也不会出现数据不一致的情况。因此，正确的组合是“b，d”。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:51.614Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q78",
+      "sourceFingerprint": "sha256:779a802ddbfc9152d69ec83d389adab8a56b638318a3d3bf06294c0aa6b67c51",
+      "questionZh": "图像数据由 300 x 600 点组成，并使用 24 位来记录一个像素的信息。将其转换为由 150 x 300 点组成的图像数据，并使用 8 位来记录一个像素的信息。需要多少存储容量？",
+      "optionsZh": {
+        "A": "1/12",
+        "B": "1/6",
+        "C": "1/4",
+        "D": "1/2"
+      },
+      "explanationZh": "计算每个图像的数据量。\n\n[300×600：24位]\n首先，通过将垂直像素数乘以水平像素数来计算组成图像的像素总数。\n\n300×600=180,000（像素）\n\n接下来，通过将像素数乘以每位所具有的数据来计算图像中的数据量。这次为了简化计算，我们以字节为单位来计算。将 24 位转换为字节是 3 个字节，所以\n\n180,000×3=540,000（字节）\n\n[150×300：8位]\n与上面类似，\n150×300=45,000（像素）\n由于 8 位 = 1 字节，\n45,000×1=45,000（字节）\n\n【数据量对比】\n　540,000:45,000=12:1\n\n因此，数据量将改变1/12。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:21:57.098Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q79",
+      "sourceFingerprint": "sha256:d13e7c816e914ddf206a99c3391f900e9b02b7e1092abfaaf769a6b69f43af8c",
+      "questionZh": "我有一个配置为 WPA2 加密的接入点。如图所示，当通过此接入点将 PC 连接到互联网上的 Web 服务器时，以下哪项是 WPA2 加密的恰当范围？",
+      "optionsZh": {
+        "A": "从 PC 到接入点",
+        "B": "从PC到防火墙",
+        "C": "从 PC 到网络服务器",
+        "D": "从接入点到网络服务器"
+      },
+      "explanationZh": "WPA2（Wi-Fi 保护访问 2）是一种对无线 LAN 中的用户进行身份验证并对设备和接入点之间的通信进行加密的标准。采用NIST标准AES加密算法，增强对解密攻击的抵抗能力。\n\nWPA2 对“无线 LAN 中的终端和接入点之间”进行加密，因此从 PC 到接入点的无线部分之间的“A”最恰当。",
+      "correctAnswer": "A",
+      "visualClassification": "unverified_visual_reference",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:22:04.620Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q8",
+      "sourceFingerprint": "sha256:c06936bec33b820b791328ffcdd8ae79a2fd1d7c7ce324914e8f5577e9d3a8da",
+      "questionZh": "根据管理战略制定全公司的信息系统战略，然后进行各个系统的规划和开发工作。此时，在制定全公司信息系统战略阶段最适合执行以下哪项任务？",
+      "optionsZh": {
+        "A": "制定系统迁移计划",
+        "B": "创建系统测试计划",
+        "C": "信息技术投资计划的策划",
+        "D": "起草采购计划"
+      },
+      "explanationZh": "信息系统战略的制定是为了明确执行管理战略所需的整个信息系统的理想状态，并确定优化组织整体信息系统的政策。根据既定的信息系统战略，制定“系统化总体规划”和“信息化投资规划”。\n\n各个系统的规划和开发工作是根据系统化总体规划进行的，因此这些过程比信息系统战略的制定要晚一些。因此，“C”适合与制定信息系统策略同时执行的任务。\n- 这是开发工作中完成的工作。\n- 这是开发工作中完成的工作。\n- 正确。制定信息系统战略阶段要完成的任务\n- 这是在规划工作中完成的工作。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:22:11.232Z"
+    },
+    {
+      "package": "quiz-itpass-3",
+      "questionId": "28_AKI_Q80",
+      "sourceFingerprint": "sha256:806d231ec99451637d89965022eb985befd5bb6e889a61e342093fcaeca0a82c",
+      "questionZh": "键盘记录程序和蠕虫等恶意软件的总称是什么？",
+      "optionsZh": {
+        "A": "共享软件",
+        "B": "固件",
+        "C": "恶意软件",
+        "D": "中间件"
+      },
+      "explanationZh": "- 共享软件是可以在一定期限内免费试用的软件，但如果在使用期限后想要继续使用它，则必须向开发者支付许可费。\n- 固件是以ROM等形式嵌入到硬件中并控制该硬件的程序。\n- 正确。恶意软件是出于恶意目的而创建的软件或程序的总称，其目的是执行未经授权的有害操作。 “Mal”的意思是“邪恶的……”该术语的含义广泛，不仅包括传统病毒，还包括机器人、间谍软件、特洛伊木马、键盘记录程序、修改工具和域欺骗。\n- 中间件是将某一领域常用的通用交互整合到一个包中的软件，例如 DBMS 和 Web 服务器，以便可以轻松地从应用程序中使用。它被称为中间件，因为它运行在操作系统和应用程序之间的中间位置。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-06T14:22:14.987Z"
+    }
+  ]
+}

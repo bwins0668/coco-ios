@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q1",
+    "sourceFingerprint": "sha256:125c315f371ff7d6d1b2b64c7424b13861033da49e4fdda41885d0e0c03148ba",
+    "questionZh": "关于劳务派遣的说明中，正确的是哪个？",
+    "optionsZh": {
+      "A": "无论业务种类，派遣期限无限制。",
+      "B": "无论派遣合同种类，派遣员工由派遣接收方选定。",
+      "C": "派遣接收方支付派遣员工工资。",
+      "D": "派遣员工期满后，派遣接收方可雇用该员工。"
+    },
+    "explanationZh": "劳务派遣合同关系中，雇佣关系在派遣方，指挥命令关系在派遣接收方。\n- 派遣期限有「个人单位」和「事业所单位」两种限制，最长3年。\n- 除介绍预定派遣外，派遣接收方不能选定派遣员工。\n- 派遣员工工资由雇主（派遣方）支付。\n- 正确。合同期满后，派遣接收方可雇用希望继续工作的员工为公司员工。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q10",
+    "sourceFingerprint": "sha256:f61889ce749172561ece2fe51e101978efaf004dde8c3fd48cd3b8d0cb9af879",
+    "questionZh": "对比订单生产和预测生产方式时，属于订单生产方式特征的是哪个？",
+    "optionsZh": {
+      "A": "接单时不能立即出货，但无产品过剩库存风险。",
+      "B": "需提高订单预测精度以维持适当库存量。",
+      "C": "伴随产品库存不足导致失去接单机会的风险。",
+      "D": "按基于产品订单预测制定的生产计划进行生产。"
+    },
+    "explanationZh": "订单生产是按客户订单后开始生产，预测生产是按计划生产预估数量。\n- 正确。订单生产仅保持最低库存，无过剩库存风险。\n- 预测生产的特征。订单生产库存极少，管理成本也低。\n- 预测生产的特征。订单生产通常无库存，不会因库存问题失去接单机会。\n- 预测生产的特征。订单生产接单后才开始生产。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q100",
+    "sourceFingerprint": "sha256:2a18fe6b91697fa7285235b35d2c37144aca8c87291fb20492d7238ac7efca50",
+    "questionZh": "将仅限特定人员阅览的纸质名册电子化作为名册文件管理。以下a~d中属于个人信息泄露对策的是哪些？\n- 为名册文件设置读取密码。\n- 将名册文件加密保存。\n- 将保存名册文件的服务器做双冗余配置。\n- 电子化后用碎纸机销毁纸质名册。",
+    "optionsZh": {
+      "A": "a，b",
+      "B": "a，b，c",
+      "C": "a，b，d",
+      "D": "c，d"
+    },
+    "explanationZh": "- 正确。设置密码防止非授权者查看，即使文件被带出也无法泄露内容。\n- 正确。加密保存即使媒体被盗/丢失，无解密密钥的第三方也无法获取内容。\n- 错误。双冗余提高可靠性但不提升机密性，存储介质增多反而增加泄露风险。\n- 正确。直接丢弃含机密信息的纸张可能被翻垃圾箱窃取，应用碎纸机切碎后丢弃。\n正确组合为「a，b，d」，即「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q11",
+    "sourceFingerprint": "sha256:0b7398103ba9021161b7a82dcb848f1a87c354b1168f18b2c35b4d13618d1fc8",
+    "questionZh": "现金流量表中，导致现金流量减少的因素是哪个？",
+    "optionsZh": {
+      "A": "应收账款增加",
+      "B": "折旧费增加",
+      "C": "库存减少",
+      "D": "短期借款增加"
+    },
+    "explanationZh": "间接法现金流量表以税前净利润为基础，加减期初差异计算。现金流量减少意味着现金从企业流出。\n- 正确。应收账款增加表示现金流出（销售了但未收回现金）。\n- 折旧费是不伴随现金流出的费用。税前净利润中已扣除折旧费，但实际无现金流出，故在现金流量表中加回→增加因素。\n- 库存减少意味着库存变现为现金→增加因素。\n- 短期借款增加表示企业现金增多→增加因素。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q12",
+    "sourceFingerprint": "sha256:bbe8d9ab64bb5f87495d0adda29ae1fdd6e14ed22e5a2d61c9eb3e6c72de24d2",
+    "questionZh": "关于M&A的描述，正确的是哪个？",
+    "optionsZh": {
+      "A": "分析企业产品和服务价值创造的流程及价值链。",
+      "B": "按业务或地区分割企业以提升业务战略自主性。",
+      "C": "根本性改革业务流程，利用IT技术提升业务处理能力和成本效率。",
+      "D": "通过企业收购等方式从其他公司获取自身不足的功能，加速业务发展。"
+    },
+    "explanationZh": "M&A(Mergers and Acquisitions)是合并与收购，通过吸收合并或取得股份子公司化来增加经营资源、强化竞争力。用于新事业/市场进入、企业重组、业务整合、救助经营不善企业等目的。\n- 价值链管理的说明。\n- 事业部制组织的说明。\n- BPR的说明。\n- 正确。M&A的说明。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q13",
+    "sourceFingerprint": "sha256:2f3a1d8999fd8ca1f92ff6c4b2a196c14772c7a949e74561a9eb0561e0c49131",
+    "questionZh": "采用平衡计分卡(BSC)的目的，最合适的是哪个？",
+    "optionsZh": {
+      "A": "不仅用财务指标，也用非财务指标进行业绩评估。",
+      "B": "推进纳入员工、股东、客户、供应商、地区社会等各种相关方视角的经营计划。",
+      "C": "从优势、劣势、机会、威胁四个视角导出适应业务环境的企业战略。",
+      "D": "基于资产负债表将企业业绩计分，进行与其他企业的客观业绩比较。"
+    },
+    "explanationZh": "平衡计分卡(BSC)从「财务」「客户」「业务流程」「学习与成长」四个视角评估分析业绩，不仅财务指标还包含非财务指标，实现多面业绩管理。\n- 正确。BSC的目的。\n- 公司治理的目的。\n- SWOT分析的目的。\n- 评分表的目的。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q14",
+    "sourceFingerprint": "sha256:29f619dbab7e94d0b2f415ee588f510a736263cc5e308d11c70aec964d6cb449",
+    "questionZh": "计划新开发某业务系统的企业向SI供应商发出RFI的目的，正确的是哪个？",
+    "optionsZh": {
+      "A": "签约前想了解供应商的开发计划和体制。",
+      "B": "为判断该供应商是否适合委托开发获取必要信息。",
+      "C": "委托开发时想了解供应商的正式报价金额。",
+      "D": "委托开发时想与供应商签订保密协议。"
+    },
+    "explanationZh": "RFI(Request For Information)是在采购或业务委托前，向供应商请求提供技术、经验等信息以确认对方能力。基于RFI信息整理自身需求后再发出RFP。\n- RFP的目的。\n- 正确。RFI的目的。\n- RFP的目的。\n- NDA(保密协议)的目的。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q15",
+    "sourceFingerprint": "sha256:22d79b0dce9483c72b97c2182b387eaec914d2243d6892b726d8974152dcb63c",
+    "questionZh": "多人聚集，互不批判意见，重量不重质自由提出意见以创造创意的技法是哪个？",
+    "optionsZh": {
+      "A": "头脑风暴",
+      "B": "标杆管理",
+      "C": "角色扮演",
+      "D": "工作设计法"
+    },
+    "explanationZh": "头脑风暴是按「批判禁止」「自由奔放」「质量不如数量」「结合/便乘欢迎」四规则进行的群体创意讨论方法。\n- 正确。\n- 标杆管理是测量自身并与行业最佳企业比较差距的方法。\n- 角色扮演是模拟现实场景分角色演戏以应对实际情况的教育技法。\n- 工作设计法是先设定理想系统像，再整理现状向理想推进所需行动的方法。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q16",
+    "sourceFingerprint": "sha256:249785c7cb6481a856d3853d6cc590783105ddb6c007d707e6068b321f0fbbe6",
+    "questionZh": "关于公司治理的说明，最合适的是哪个？",
+    "optionsZh": {
+      "A": "竞争对手无法提供的、为客户带来价值的核心能力。",
+      "B": "维持经营者纪律和重要事项的透明性、保护利益相关者角色和权利等维持企业活动健全性的框架。",
+      "C": "面向业务成功确立持续竞争优势的业务领域设定和经营资源投入的基本框架。",
+      "D": "向社会和利益相关者公布的企业存在价值和社会意义等经营中普遍的信念和价值观。"
+    },
+    "explanationZh": "公司治理以强化收益力和防止丑闻为目的，是利益相关者监督规范企业经营的机制。具体措施包括董事会监督、监事/外部董事设置、执行董事制度引入、信息披露规则完善等。\n- 核心竞争力的说明。\n- 正确。公司治理的说明。\n- 业务组合等框架的说明。\n- CSR的说明。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q17",
+    "sourceFingerprint": "sha256:9debf090a45119989696563a422bca5c1f0394a4756db755afe1dc10408838ba",
+    "questionZh": "库存周转率是分析资本效率的指标之一，数值越高表示从采购到实际销售的期间越短、库存管理越高效。库存周转率的计算公式正确的是哪个？",
+    "optionsZh": {
+      "A": "(期初库存额＋期末库存额)÷2",
+      "B": "销售收入÷总资产",
+      "C": "销售收入÷平均库存额",
+      "D": "平均库存额÷销售收入"
+    },
+    "explanationZh": "库存周转率表示一定期间库存周转次数。库存周转率＝销售收入÷平均库存额。\n- 平均库存额的计算公式。\n- 总资产周转率的计算公式。\n- 正确。库存周转率的计算公式。\n- 库存周转期间的计算公式。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q18",
+    "sourceFingerprint": "sha256:91f5a1558374e16f64a669816dc2d3a88e45c1bb4317a36206dc0f26ef7bb662",
+    "questionZh": "通过「构建POS系统」可实现的经营目标是哪个？",
+    "optionsZh": {
+      "A": "提升销售人员业务生产力和强化销售部门组织力。",
+      "B": "削减零部件和在产品库存量。",
+      "C": "优化从采购到制造、配送、销售的一系列流程。",
+      "D": "改善各店铺商品配备及提升订货和库存管理效率。"
+    },
+    "explanationZh": "POS(Point Of Sales)系统是在商品销售时点实时获取信息用于店铺管理。主要用于超市、便利店等中大型连锁店。\n- SFA系统的导入效果。\n- MRP系统的导入效果。\n- SCM系统的导入效果。\n- 正确。POS系统的导入效果。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q19",
+    "sourceFingerprint": "sha256:2a6ef83070e183cfd5f86a8d5a2906840f4c13c065d153b4f9c4f51da60c3641",
+    "questionZh": "推进以太网LAN和无线LAN等标准化活动的美国学会是哪个？",
+    "optionsZh": {
+      "A": "ICANN",
+      "B": "IEEE",
+      "C": "ISO",
+      "D": "W3C"
+    },
+    "explanationZh": "IEEE(电气与电子工程师学会)是美国总部的电气/电子工程标准化专业组织。著名的有IEEE 802.3(以太网)、IEEE 802.11(无线LAN)等。\n- ICANN管理IP地址分配和DNS根服务器。\n- 正确。\n- ISO是除电气外工业领域的国际标准组织。\n- W3C是Web技术标准化团体（HTML、XML、CSS等）。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q2",
+    "sourceFingerprint": "sha256:57186501dd93c68f9de99178008b0ade2ef4f360ecaa76a71d0bc80317e0ae4a",
+    "questionZh": "关于BPR的描述，正确的是哪个？",
+    "optionsZh": {
+      "A": "重新审视业务步骤，从根本上再设计。",
+      "B": "服务提供者向用户以具体数值保证服务质量的合同。",
+      "C": "参与者可自由发帖的计算机系统公告板。",
+      "D": "引入信息系统时，用户向供应商提供的系统概要及采购条件文件。"
+    },
+    "explanationZh": "BPR(Business Process Reengineering)是彻底重审现有组织和业务规则，再设计职务、业务流程、管理机构和信息系统，从根本上提升效率和生产力。\n- 正确。BPR的说明。\n- SLA的说明。\n- BBS的说明。\n- RFP的说明。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q20",
+    "sourceFingerprint": "sha256:2ad5ac6f59aa2635209b1e4ebe26a5944287ba59270eb8238a69a1560f2cc310",
+    "questionZh": "A公司分析与竞争公司的定位。3家公司中A公司要获最高评价，A公司品牌评价项目最低需多少分？各项目最低1分最高10分，按加权合计值评价。\n评价项目(权重)：价格(1)、性能(4)、品牌(2)、售后(3)。A:10,10,?,6；B:9,7,10,6；C:6,9,7,10。",
+    "optionsZh": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "9"
+    },
+    "explanationZh": "B公司总分：9×1+7×4+10×3+6×2=79。C公司总分：6×1+9×4+7×3+10×2=83。A公司除品牌外：10×1+10×4+6×3=68。需超过C公司83分，品牌得分×权重2需≥16→品牌分≥8。因此「C」正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q21",
+    "sourceFingerprint": "sha256:26a9fef327fe76781fd6674863c4fd593eda8f5b0a51b0770d923cfdb3c5f6fb",
+    "questionZh": "关于专利权，下列描述中a和b应填入的字句的正确组合是哪个？\n\n专利权是独占排他性利用a的权利，在我国法律中授予b。",
+    "optionsZh": {
+      "A": "a:发明 b:先申请者",
+      "B": "a:外观设计 b:先发明者",
+      "C": "a:发明 b:先发明者",
+      "D": "a:外观设计 b:先申请者"
+    },
+    "explanationZh": "专利权是授予发明者独占使用其发明的权利。日本采用先申请主义，最早申请者获得专利权。发明对象须为「可产业利用之物」，纯学术实验性发明不在保护范围。表中外观设计对应的权利是外观设计权。因此「A」(a:发明,b:先申请者)正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q22",
+    "sourceFingerprint": "sha256:3b77b663b9d97138310f0202388e9c0bc7335203e1c57afb36eeddbb6296d5e0",
+    "questionZh": "为防范自然灾害等导致系统故障，想在自有计算机中心以外的地区设置备份服务器。此时应使用的外部服务是哪个？",
+    "optionsZh": {
+      "A": "ASP",
+      "B": "BPO",
+      "C": "SaaS",
+      "D": "主机托管"
+    },
+    "explanationZh": "主机托管服务是将客户通信设备和服务器放置在安全及线路设施完备的专业运营商设施中的服务。题目中「自家服务器放在他处」即主机托管。\n- ASP是互联网提供业务应用的服务。\n- BPO是业务流程外部委托。\n- SaaS是网络使用专业运营商运维的软件形态。\n- 正确。主机托管服务。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q23",
+    "sourceFingerprint": "sha256:26ccf698f9a30f7e103149bd790bcfba0939cc75a4178e53e92bc1666cfd23d5",
+    "questionZh": "无特别约定时，A公司委托B公司开发软件，软件著作权的归属正确的是哪个？",
+    "optionsZh": {
+      "A": "软件著作权由A和B双方共有。",
+      "B": "软件著作权消失，双方均不保有。",
+      "C": "软件著作权全部归A公司。",
+      "D": "软件著作权全部归B公司。"
+    },
+    "explanationZh": "委托开发构成承包合同关系。承包合同中承包方开发的著作物著作权归属承包方。综上，软件著作权归属于承包方即B公司。故「D」正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q24",
+    "sourceFingerprint": "sha256:bfaed24b2df8bb341577f47288066557cb396ac95bf7f202ce5f7f77ac3b7ec4",
+    "questionZh": "关于技术开发战略中制作的路线图(Roadmap)，说明正确的是哪个？",
+    "optionsZh": {
+      "A": "以技术竞争力水平和技术生命周期为两轴的矩阵上标记现有和新技术。",
+      "B": "以研发投资额及其成果为两轴的坐标上图表化新旧技术成长过程，表示旧技术向新技术转换状况。",
+      "C": "以市场面和技术面的有望度为两轴的矩阵上标记本公司技术开发项目。",
+      "D": "横轴为时间，纵轴为市场/产品/技术等，将研发相关的要素技术和功能的进展路径在时间轴上表示。"
+    },
+    "explanationZh": "路线图以时间为横轴、技术/产品/服务/市场等为纵轴，按时间序列表示要素的未来展望和进展目标。作用是明确未来像以促进实现它的计划性协作。\n- 技术组合的说明。\n- 技术S曲线/技术生命周期的说明。\n- 技术组合的说明。\n- 正确。路线图的说明。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q25",
+    "sourceFingerprint": "sha256:b839e5fd705446d970623ab4c5350091d17546580f0df8c4a241d5634ab8df08",
+    "questionZh": "图中所示的企业组织形态是哪个？(图：经营层下按营业、制造、财务、总务等职能划分的部门)",
+    "optionsZh": {
+      "A": "事业部制组织",
+      "B": "社内创业组织",
+      "C": "职能制组织",
+      "D": "矩阵制组织"
+    },
+    "explanationZh": "图中经营层下设按营业、制造、财务、总务等职能划分的部门，各部门专注各自职能的专业性→这是职能制组织的特征。事业部制按产品/地区划分并采用独立核算；矩阵制有两条指挥系统；项目制为临时性有期限组织；社内创业是内部独立运营创业项目。因此「C」正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q26",
+    "sourceFingerprint": "sha256:89adb991f5e99c0d2297d6f7e382be92485718fcf454891e50e7899f20cb613c",
+    "questionZh": "具有电子邮件、电子公告板交流、信息共享、电子会议等多种功能，提供协同工作环境的软件称为什么？",
+    "optionsZh": {
+      "A": "群件(Groupware)",
+      "B": "共享软件(Shareware)",
+      "C": "固件(Firmware)",
+      "D": "免费软件(Freeware)"
+    },
+    "explanationZh": "群件是利用计算机网络实现组织内信息管理和共享、高效运营组织的软件。主要功能包括电子会议室、公告板、日程管理、会议室预约、文档共享、工作流系统等。当前主流是Web服务器型，用户通过浏览器使用。\n- 正确。群件。\n- 共享软件是试用期后需付费的软件。\n- 固件是嵌入硬件ROM中控制硬件的程序。\n- 免费软件是互联网上公开免费使用的软件。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

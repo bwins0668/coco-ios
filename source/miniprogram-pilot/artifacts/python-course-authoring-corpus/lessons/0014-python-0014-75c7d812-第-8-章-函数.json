@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0014-75c7d812-第-8-章-函数",
+    "courseLessonId": "python-0014-75c7d812-第-8-章-函数",
+    "sourceOrder": 14,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "同じ形の code を何度も直接書くと、直す場所が増えます。function にすると、何をしたい処理なのかを名前で読めて、使う側の script が短くなります。",
+        "type": "why",
+        "zh": "如果同一形状的 code 到处重复，修改点会变多。做成 function 后，可以通过名字读懂它要做什么，调用侧 script 也会变短。"
+      },
+      {
+        "ja": "parameter は function に渡す入口です。return は外へ返す出口です。中の処理は名前の内側に閉じ込め、呼び出し側は結果だけを受け取ります。",
+        "type": "mental-model",
+        "zh": "parameter 是传入 function 的入口，return 是把结果送回外面的出口。内部处理被封装在名字里，调用侧只接收结果。"
+      },
+      {
+        "ja": "script は def の中身を先に登録します。function call が来たときだけ中へ入り、return value を作って呼び出し元へ戻します。",
+        "type": "execution-flow",
+        "zh": "script 会先注册 def 里面的内容。只有遇到 function call 时才进入函数内部，生成 return value 后回到调用位置。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "def make_status(name, minutes):\n    return f\"{name}: {minutes} min\"\n\ndef total_minutes(first, second):\n    return first + second\n\nmorning = make_status(\"reading\", 15)\nevening = make_status(\"coding\", 25)\nprint(morning)\nprint(evening)\nprint(\"total:\", total_minutes(15, 25))",
+        "exampleId": "python-functions-status-total",
+        "expectedOutput": "reading: 15 min\ncoding: 25 min\ntotal: 40",
+        "lineNotes": [
+          {
+            "ja": "make_status は名前と分数を受け取る入口を持ちます。",
+            "line": 1,
+            "zh": "make_status 有两个入口：名称和分钟数。"
+          },
+          {
+            "ja": "return は表示ではなく、文字列の結果を呼び出し元へ返します。",
+            "line": 2,
+            "zh": "return 不是显示，而是把字符串结果交回调用位置。"
+          },
+          {
+            "ja": "total_minutes は数値を足す処理だけに集中しています。",
+            "line": 4,
+            "zh": "total_minutes 只专注于把数值相加。"
+          },
+          {
+            "ja": "function call の結果を morning という名前に保存します。",
+            "line": 7,
+            "zh": "把 function call 的结果保存到 morning 这个名字里。"
+          },
+          {
+            "ja": "print は return value を受け取ってから画面へ出します。",
+            "line": 11,
+            "zh": "print 接收 return value 后再输出到屏幕。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "function の中で print だけを書くと、呼び出し元で再利用できる値が残りません。",
+        "zh": "如果 function 里面只 print，调用侧就拿不到可复用的值。"
+      },
+      {
+        "ja": "parameter の順番を呼び出し側で入れ替えると、意味が変わります。",
+        "zh": "调用时把 parameter 顺序弄反，含义也会改变。"
+      },
+      {
+        "ja": "def の block をインデントしないと、Python は function の中身として読めません。",
+        "zh": "如果 def 的 block 没有缩进，Python 就不会把它读成 function 内部。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "review = make_status(\"review\", 10) を作り、print(review) を evening の後に置きます。",
+        "zh": "创建 review = make_status(\"review\", 10)，并把 print(review) 放到 evening 后面。"
+      },
+      "expectedObservation": {
+        "ja": "reading と coding の間の仕組みは変わらず、review: 10 min が新しい行として増えます。",
+        "zh": "reading 和 coding 的机制不变，只会多出 review: 10 min 这一行。"
+      }
+    },
+    "lessonId": "python-0014-75c7d812-第-8-章-函数",
+    "nextLessonBridge": {
+      "ja": "次は、function だけでなく data と動きを一緒に置く class を見ます。",
+      "zh": "下一节会看 class：不只放 function，还把 data 和行为放在一起。"
+    },
+    "objectives": [
+      {
+        "ja": "def で処理の入口を作り、parameter と return value の役割を説明できる。",
+        "zh": "能用 def 创建处理入口，并说明 parameter 与 return value 的作用。"
+      },
+      {
+        "ja": "同じ形の処理を function に分け、呼び出し側の code を読みやすくできる。",
+        "zh": "能把相同形状的处理拆成 function，让调用侧代码更易读。"
+      }
+    ],
+    "order": 8,
+    "prerequisites": [
+      {
+        "ja": "変数、文字列、数値、input の値を順番に追える状態なら始められます。",
+        "zh": "只要能按顺序追踪变量、字符串、数值和 input 的值，就可以开始。"
+      }
+    ],
+    "summary": {
+      "ja": "function は処理に名前を付け、parameter を受け取り、return value を呼び出し元へ返します。",
+      "zh": "function 给处理命名，接收 parameter，并把 return value 返回给调用侧。"
+    },
+    "terms": [
+      {
+        "en": "function",
+        "ja": "関数",
+        "zh": "函数"
+      },
+      {
+        "en": "parameter",
+        "ja": "引数",
+        "zh": "参数"
+      },
+      {
+        "en": "return value",
+        "ja": "戻り値",
+        "zh": "返回值"
+      }
+    ],
+    "title": {
+      "ja": "function で処理に名前を付け、同じ形で再利用する",
+      "zh": "用 function 给处理命名，并按同一形状复用"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "C4A18D1720D79B10E8CF12D02FC43C24700D89E55D9876106ED318FC444FDF29",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

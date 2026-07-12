@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0008-f41e62b5-第-2-章-变量和简单数据类型",
+    "courseLessonId": "python-0008-gs2-values-and-variables",
+    "sourceOrder": 8,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "同じ言葉や数を何度も直接書くと、直す場所が増えて混乱します。variable に入れると、名前を読むだけで「今どの value を使っているか」を追いやすくなります。",
+        "type": "why",
+        "zh": "如果同一个文字或数字每次都直接写，修改时会到处找。放进 variable 后，只要读名字，就能追踪现在使用的是哪个 value。"
+      },
+      {
+        "ja": "variable は「名前のラベル」が付いた小さな箱のように考えます。右側の value を先に作り、左側の名前でその value を取り出せるようにします。",
+        "type": "mental-model",
+        "zh": "可以把 variable 想成贴着名字标签的小盒子。先生成右边的 value，再让左边的名字能把这个 value 取出来。"
+      },
+      {
+        "ja": "最初に language へ string を入れ、次に topic_count へ number を入れます。その後、expression で message を作り、print() が名前の中身を画面へ出します。",
+        "type": "execution-flow",
+        "zh": "先把 string 放进 language，再把 number 放进 topic_count。之后用 expression 生成 message，最后 print() 把名字里的内容输出到屏幕。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "language = \"Python\"\ntopic_count = 2\nmessage = language + \" keeps values by name\"\nprint(message)\nprint(\"visible topics:\", topic_count)",
+        "exampleId": "python-gs2-values-variables",
+        "expectedOutput": "Python keeps values by name\nvisible topics: 2",
+        "lineNotes": [
+          {
+            "ja": "language という名前に、string の value を入れます。",
+            "line": 1,
+            "zh": "把一个 string value 放进名为 language 的变量。"
+          },
+          {
+            "ja": "topic_count には number の value を入れます。文字とは別の種類です。",
+            "line": 2,
+            "zh": "topic_count 存放 number value，和文字是不同类型。"
+          },
+          {
+            "ja": "expression が language の中身と新しい string をつなぎ、message を作ります。",
+            "line": 3,
+            "zh": "expression 把 language 里的内容和新的 string 连接起来，生成 message。"
+          },
+          {
+            "ja": "print(message) は名前そのものではなく、message の中の value を表示します。",
+            "line": 4,
+            "zh": "print(message) 显示的是 message 里的 value，而不是名字本身。"
+          },
+          {
+            "ja": "comma を使うと、文字と number を一つの出力行に並べられます。",
+            "line": 5,
+            "zh": "使用逗号可以把文字和 number 放在同一行输出里。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "variable の名前を引用符で囲むと、名前の中身ではなく文字そのものとして出力されます。",
+        "zh": "如果把 variable 名字放进引号，输出的是名字这几个字符，而不是里面的 value。"
+      },
+      {
+        "ja": "右側の value を作る前に名前を使うと、Python はその名前をまだ知りません。",
+        "zh": "在生成右侧 value 之前就使用名字时，Python 还不知道这个名字代表什么。"
+      },
+      {
+        "ja": "string と number をそのまま + でつなごうとすると、型の違いで止まることがあります。",
+        "zh": "直接用 + 连接 string 和 number 时，可能因为类型不同而停止运行。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "1 行目の \"Python\" だけを書き換え、残りの statement はそのまま実行します。",
+        "zh": "只改第 1 行的 \"Python\"，其余 statement 保持不变后运行。"
+      },
+      "expectedObservation": {
+        "ja": "1 行目の出力の先頭だけが新しい単語になり、2 行目の topic_count は 2 のままです。",
+        "zh": "输出第 1 行的开头会变成新单词，第 2 行的 topic_count 仍然是 2。"
+      }
+    },
+    "lessonId": "python-0008-gs2-values-and-variables",
+    "nextLessonBridge": {
+      "ja": "この先は、string を少し加工したり、number を expression で計算したりして、value の扱いを広げます。",
+      "zh": "后续会继续加工 string，或用 expression 计算 number，逐步扩展对 value 的使用。"
+    },
+    "objectives": [
+      {
+        "ja": "variable は value に名前を付け、あとから同じ value を使うための置き場所だと説明できる。",
+        "zh": "能说明 variable 是给 value 起名字、方便之后再次使用的存放位置。"
+      },
+      {
+        "ja": "string と number を別々の value として扱い、expression が新しい結果を作る流れを追える。",
+        "zh": "能把 string 和 number 当作不同的 value，并追踪 expression 生成新结果的过程。"
+      }
+    ],
+    "order": 2,
+    "prerequisites": [
+      {
+        "ja": "print() で画面に出力できること、script が上から順に動くことを理解していれば始められます。",
+        "zh": "只要理解 print() 可以输出到屏幕，以及 script 会从上到下运行，就可以开始。"
+      }
+    ],
+    "summary": {
+      "ja": "variable は value を名前で扱うための基礎です。名前を使うと、script の意味を追いやすくなります。",
+      "zh": "variable 是用名字管理 value 的基础。使用名字后，script 的含义更容易追踪。"
+    },
+    "terms": [
+      {
+        "en": "variable",
+        "ja": "変数",
+        "zh": "变量"
+      },
+      {
+        "en": "string",
+        "ja": "文字列",
+        "zh": "字符串"
+      },
+      {
+        "en": "expression",
+        "ja": "式",
+        "zh": "表达式"
+      }
+    ],
+    "title": {
+      "ja": "値を名前に入れて、あとから使う",
+      "zh": "把值放进名字里，再拿出来使用"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "D870AD49677614F2E5504A43979AA0F306111A48C4CC9482461B2F133EEF6DC1",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

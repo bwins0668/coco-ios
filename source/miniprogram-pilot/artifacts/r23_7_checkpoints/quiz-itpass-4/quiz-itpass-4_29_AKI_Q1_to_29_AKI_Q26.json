@@ -1,0 +1,32 @@
+{
+  "package": "quiz-itpass-4",
+  "batchId": "quiz-itpass-4_29_AKI_Q1_to_29_AKI_Q26",
+  "questionIds": [
+    "29_AKI_Q1",
+    "29_AKI_Q10",
+    "29_AKI_Q100",
+    "29_AKI_Q11",
+    "29_AKI_Q12",
+    "29_AKI_Q13",
+    "29_AKI_Q14",
+    "29_AKI_Q15",
+    "29_AKI_Q16",
+    "29_AKI_Q17",
+    "29_AKI_Q18",
+    "29_AKI_Q19",
+    "29_AKI_Q2",
+    "29_AKI_Q20",
+    "29_AKI_Q21",
+    "29_AKI_Q22",
+    "29_AKI_Q23",
+    "29_AKI_Q24",
+    "29_AKI_Q25",
+    "29_AKI_Q26"
+  ],
+  "translatedCount": 20,
+  "semanticReviewPassed": true,
+  "styleLintPassed": true,
+  "fingerprintPassed": true,
+  "retryCount": 0,
+  "completedAt": "2026-07-07T03:11:24.127Z"
+}

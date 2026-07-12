@@ -1,0 +1,3 @@
+@import "../../../../styles/secondary-page-shell.wxss";
+@import "../../../../styles/tokens.wxss";
+@import "../../styles/chapter-visual-contract.wxss";

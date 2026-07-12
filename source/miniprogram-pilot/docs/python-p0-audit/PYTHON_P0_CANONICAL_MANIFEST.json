@@ -1,0 +1,41 @@
+{
+  "generatedBy": "PYTHON.P0 audit — one canonical record per learner-visible lesson",
+  "baselineHash": "801e251fe35655f9cbf22cd84f75d9a0c407ec65",
+  "baselineBranch": "feature/r8-python-full-corpus-auto",
+  "baselineClone": "study-tools-miniprogram-python-full-corpus-auto-clean",
+  "recomputable": "All counts below are derived from this manifest's records array; no cross-Java/ITP/SG/glossary cumulative statistics are mixed in.",
+  "runtimePackages": [
+    {"packageRoot": "packages/python-course", "chapterFile": "data/chapters/python-gs-ch01.js", "manifest": "data/python-course-manifest.js", "loader": "utils/python-course-loader.js", "lessonCount": 6},
+    {"packageRoot": "packages/python-course-foundations-b", "chapterFile": "data/chapters/python-foundations-b-ch01.js", "manifest": "data/python-foundations-b-manifest.js", "loader": "utils/python-foundations-b-loader.js", "lessonCount": 3}
+  ],
+  "duplicateRegistryTraceability": {
+    "note": "Two runtime packages is by-design shard architecture (not accidental projection duplication). The home-card registry projection lives in utils/course-registry.js and is a THIRD surface that is currently drifted (see XC-1).",
+    "surfaces": [
+      "packages/python-course/data/python-course-manifest.js (9 sections — authoritative)",
+      "utils/course-registry.js pythonVisibleLessonIds (5 ids — STALE, drift)",
+      "packages/*/data/chapters/*.js (9 lesson bodies — authoritative content)"
+    ]
+  },
+  "counts": {
+    "totalRuntimeChapters": 2,
+    "totalRuntimeLessons": 9,
+    "genuinelyComplete": 9,
+    "cleanNoAction": 5,
+    "targetedFix": 4,
+    "fullRewrite": 0,
+    "blocked": 0,
+    "notLearnerVisibleDueToProjectionDrift": 4,
+    "authoringBacklogLessonsNotPublished": "687 (artifacts/python-course-authoring-corpus/lessons) + ~360 asset-specs — NOT runtime, NOT audited per-lesson"
+  },
+  "records": [
+    {"lessonId": "python-0007-gs1-run-visible-output", "chapterId": "python-gs-ch01", "order": 1, "sourceChapter": "第1章 起步", "learnerVisible": true, "verdict": "CLEAN", "existingWork": "GENUINELY_COMPLETE", "frozen": false},
+    {"lessonId": "python-0008-gs2-values-and-variables", "chapterId": "python-gs-ch01", "order": 2, "sourceChapter": "第2章 变量和简单数据类型", "learnerVisible": true, "verdict": "CLEAN", "existingWork": "GENUINELY_COMPLETE", "frozen": false},
+    {"lessonId": "python-0009-7d37969c-第-3-章-列表简介", "chapterId": "python-gs-ch01", "order": 3, "sourceChapter": "第3章 列表简介", "learnerVisible": true, "verdict": "CLEAN", "existingWork": "GENUINELY_COMPLETE", "frozen": false},
+    {"lessonId": "python-0010-921b265b-第-4-章-操作列表", "chapterId": "python-gs-ch01", "order": 4, "sourceChapter": "第4章 操作列表", "learnerVisible": true, "verdict": "CLEAN", "existingWork": "GENUINELY_COMPLETE", "frozen": false},
+    {"lessonId": "python-0011-5c80c609-第-5-章-if语句", "chapterId": "python-gs-ch01", "order": 5, "sourceChapter": "第5章 if语句", "learnerVisible": true, "verdict": "CLEAN", "existingWork": "GENUINELY_COMPLETE", "runtimeVerified": true, "frozen": false},
+    {"lessonId": "python-0012-5cc0ecc6-第-6-章-字典", "chapterId": "python-gs-ch01", "order": 6, "sourceChapter": "第6章 字典", "learnerVisible": false, "verdict": "TARGETED_FIX", "existingWork": "GENUINELY_COMPLETE", "issue": "XC-1 projection drift", "frozen": false},
+    {"lessonId": "python-0013-3f4a9a6a-第-7-章-用户输入和while循环", "chapterId": "python-foundations-b-ch01", "order": 7, "sourceChapter": "第7章 用户输入和while循环", "learnerVisible": false, "verdict": "TARGETED_FIX", "existingWork": "GENUINELY_COMPLETE", "issue": "XC-1 projection drift", "frozen": false},
+    {"lessonId": "python-0014-75c7d812-第-8-章-函数", "chapterId": "python-foundations-b-ch01", "order": 8, "sourceChapter": "第8章 函数", "learnerVisible": false, "verdict": "TARGETED_FIX", "existingWork": "GENUINELY_COMPLETE", "issue": "XC-1 projection drift", "frozen": false},
+    {"lessonId": "python-0015-0f96233e-第-9-章-类", "chapterId": "python-foundations-b-ch01", "order": 9, "sourceChapter": "第9章 类", "learnerVisible": false, "verdict": "TARGETED_FIX", "existingWork": "GENUINELY_COMPLETE", "issue": "XC-1 projection drift (tool-flagged id)", "frozen": false}
+  ]
+}

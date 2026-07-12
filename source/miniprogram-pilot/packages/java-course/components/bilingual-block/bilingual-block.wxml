@@ -1,0 +1,1 @@
+<view class="jb-block"><text>{{titleJa}}</text><text>{{titleZh}}</text><text>{{ja}}</text><text>{{zh}}</text></view>

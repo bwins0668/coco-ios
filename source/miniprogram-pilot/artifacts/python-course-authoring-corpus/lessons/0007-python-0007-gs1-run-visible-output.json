@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0007-7a787e55-第-1-章-起步",
+    "courseLessonId": "python-0007-gs1-run-visible-output",
+    "sourceOrder": 7,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "最初の学習では、頭の中だけで「動いたはず」と思うより、画面に出た文字を確認する方が安全です。print() は、script の中の statement が本当に実行されたことを見せてくれます。",
+        "type": "why",
+        "zh": "刚开始学习时，不要只在脑子里觉得“应该运行了”。先让屏幕出现文字，才能确认 statement 真的被执行了；print() 就是最小的可见反馈。"
+      },
+      {
+        "ja": "script は上から下へ並んだ instruction の列です。interpreter は一行を読み、statement として処理し、必要なら output を外に出します。",
+        "type": "mental-model",
+        "zh": "可以把 script 想成从上到下排列的指令队列。interpreter 每次读一行，把它当作 statement 处理，需要显示时才把结果送到屏幕。"
+      },
+      {
+        "ja": "実行前、画面にはまだ何もありません。1 行目の print() が終わると最初の文字が出ます。同じ流れを 2 行目、3 行目、4 行目で繰り返します。",
+        "type": "execution-flow",
+        "zh": "运行前，屏幕上还没有这段程序的结果。第 1 行 print() 完成后出现第一行文字，后面的第 2、3、4 行按同样顺序继续输出。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "print(\"Python script starts\")\nprint(\"interpreter reads line 2\")\nprint(\"statement creates output\")\nprint(\"visible result appears\")",
+        "exampleId": "python-gs1-visible-output",
+        "expectedOutput": "Python script starts\ninterpreter reads line 2\nstatement creates output\nvisible result appears",
+        "lineNotes": [
+          {
+            "ja": "1 行目は script が始まったことを、そのまま画面へ出します。",
+            "line": 1,
+            "zh": "第 1 行把脚本开始这件事直接输出到屏幕。"
+          },
+          {
+            "ja": "2 行目は interpreter が次の statement に進んだことを見せます。",
+            "line": 2,
+            "zh": "第 2 行展示 interpreter 已经进入下一条 statement。"
+          },
+          {
+            "ja": "3 行目では statement が output を作る、という関係を言葉で確認します。",
+            "line": 3,
+            "zh": "第 3 行用文字确认 statement 会生成 output 这一关系。"
+          },
+          {
+            "ja": "最後の行が出たら、上から下への実行順を目で追えます。",
+            "line": 4,
+            "zh": "最后一行出现时，就能用眼睛追踪从上到下的执行顺序。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "print の後ろの丸かっこを忘れると、Python は function call として読めません。",
+        "zh": "忘记 print 后面的圆括号时，Python 就无法把它读成一次 function call。"
+      },
+      {
+        "ja": "文字列の引用符を片方だけ消すと、どこまでが string なのか分からなくなります。",
+        "zh": "如果只删掉一边引号，Python 就不知道 string 到哪里结束。"
+      },
+      {
+        "ja": "出力の順番を逆に読んでしまうと、script が上から順に進む感覚が崩れます。",
+        "zh": "如果把输出顺序倒着理解，就会误解 script 从上到下执行的基本节奏。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "2 行目だけを書き換え、他の 3 行はそのままにして実行します。",
+        "zh": "只改第 2 行，另外 3 行保持不变后运行。"
+      },
+      "expectedObservation": {
+        "ja": "出力の 2 行目だけが変わり、1・3・4 行目の順番と文字は変わりません。",
+        "zh": "只有输出的第 2 行发生变化，第 1、3、4 行的顺序和文字不变。"
+      }
+    },
+    "lessonId": "python-0007-gs1-run-visible-output",
+    "nextLessonBridge": {
+      "ja": "次は、毎回文字を直接書くのではなく、value に名前を付けてあとから使います。",
+      "zh": "下一节不再每次直接写文字，而是给 value 起名字，再在后面使用它。"
+    },
+    "objectives": [
+      {
+        "ja": "Python の script が上から順に実行され、print() の行が画面の出力になることを説明できる。",
+        "zh": "能说明 Python script 会从上到下执行，而 print() 这一行会变成屏幕上的输出。"
+      },
+      {
+        "ja": "interpreter がコードを読み、statement ごとに処理して visible output を作る流れを追える。",
+        "zh": "能跟踪 interpreter 读取代码、逐条处理 statement、生成可见输出的过程。"
+      }
+    ],
+    "order": 1,
+    "prerequisites": [
+      {
+        "ja": "Python 3.11 を実行できる環境と、短い文字列を入力できる editor があれば十分です。",
+        "zh": "只需要能运行 Python 3.11，并且有一个能输入短字符串的编辑器。"
+      }
+    ],
+    "summary": {
+      "ja": "Python の最初の一歩は、script を実行し、statement が output になるところを確認することです。",
+      "zh": "Python 的第一步，是运行 script，并确认 statement 如何变成屏幕上的 output。"
+    },
+    "terms": [
+      {
+        "en": "Python",
+        "ja": "Python",
+        "zh": "Python 语言"
+      },
+      {
+        "en": "interpreter",
+        "ja": "インタプリタ",
+        "zh": "解释器"
+      },
+      {
+        "en": "statement",
+        "ja": "文",
+        "zh": "语句"
+      }
+    ],
+    "title": {
+      "ja": "Pythonスクリプトを動かして、見える結果を出す",
+      "zh": "运行 Python 脚本，得到看得见的结果"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "206398403C3001A15CD8494F8BCB4836DC1D8E5E6B710A8A982BA7D99E52785F",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

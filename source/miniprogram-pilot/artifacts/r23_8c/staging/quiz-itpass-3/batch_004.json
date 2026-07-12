@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q63",
+    "sourceFingerprint": "sha256:5b9e99aefd0d24e7bb1c3156863178335c13f7af80053e1f880e611daa907e7c",
+    "questionZh": "将数据尺度分为名义尺度、顺序尺度、间隔尺度和比例尺度四类时，属于间隔尺度的是哪个？",
+    "optionsZh": {
+      "A": "学年",
+      "B": "血型",
+      "C": "时刻",
+      "D": "睡眠时间"
+    },
+    "explanationZh": "尺度是按数据值的性质进行分类的数学/统计学概念。有以下四类：名义尺度和顺序尺度属于「定性数据」，间隔尺度和比例尺度属于「定量数据」。\n名义尺度：只能比较相同或不同。例）姓名、电话号码、性别等\n顺序尺度：除名义尺度性质外，可按顺序比较。例）排名、等级、评价等级等\n间隔尺度：除顺序尺度性质外，值之间的间隔相等。例）日期、气温（摄氏/华氏）等\n比例尺度：除间隔尺度性质外，零点表示绝对零。例）长度、质量、速度、绝对温度、价格等\n- 学年属于顺序尺度。有小学1年级、2年级等顺序，但没有值之间间隔的概念。\n- 血型属于名义尺度。A/B/O/AB只是名称不同，无顺序。\n- 正确。时刻属于间隔尺度。是数值数据，可排序，差和间隔相等。\n- 睡眠时间属于比例尺度。是数值数据，可排序，差和间隔相等，且0表示量是零。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q64",
+    "sourceFingerprint": "sha256:b36fc9e07a08694f296d7c2c9a14a7e294a2923b4203547b3ee064f941475597",
+    "questionZh": "在网站上常看到RSS的标记。关于RSS的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "定义网页统一设计和布局的标准",
+      "B": "描述网页标题、链接和摘要等的格式",
+      "C": "通过网络书签将高价值网站信息与其他用户共享的服务",
+      "D": "加密浏览器与Web服务器间数据安全收发的协议"
+    },
+    "explanationZh": "RSS（Really Simple Syndication）是自动分发和获取网站更新信息的标准。将Web内容的标题、摘要和链接等以XML格式描述并公开，专用软件（RSS阅读器）自动收集，使用户高效获取更新信息。主要用于新闻网站、博客和信息网站等频繁更新且对最新信息需求高的网站。因此「B」是正确的描述。\n- 这是CSS（层叠样式表）的说明。\n- 正确。RSS的说明。\n- 这是社交书签的说明。\n- 这是HTTPS或TLS（传输层安全）的说明。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q65",
+    "sourceFingerprint": "sha256:88404d562cef84a5fb0dd8387a582db4d69da3824bf818529f913a14c0b1bd7a",
+    "questionZh": "在DBMS中，以高速检索数据为目的、根据需要设置使用的信息是哪个？",
+    "optionsZh": {
+      "A": "索引",
+      "B": "外键",
+      "C": "主键",
+      "D": "模式"
+    },
+    "explanationZh": "- 正确。数据库索引是为提高数据库访问效率，对表中特定列创建的辅助数据结构（索引）。索引以较少计算量即可定位目标数据。使用索引无需全表扫描即可访问目标数据，大幅提升检索执行速度。\n- 外键是为保证与参照表主键的对应关系而对表列附加的约束。\n- 主键是表中唯一标识各行的列（或列组合）。需同时满足唯一约束和NOT NULL约束。\n- 模式是规定数据库结构、构成和各种定义的元数据。有概念模式、外部模式、内部模式三种。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q66",
+    "sourceFingerprint": "sha256:6b27150584d54a6886c532def0439edc1e22a8a536e882d57282dd381dc37efc",
+    "questionZh": "在关系数据库管理的「登录记录」表和「部门」表中，登录结果为失败、或2022年4月10日09:00:00以前登录结果为成功的员工所属的部门名称是哪些？",
+    "optionsZh": {
+      "A": "销售部，系统部",
+      "B": "销售部，系统部，人事部",
+      "C": "销售部，人事部",
+      "D": "系统部，人事部"
+    },
+    "explanationZh": "从登录记录中提取符合以下任一条件的记录：登录结果为失败；或登录结果为成功且日期时间在2022年4月10日09:00:00以前。\n「登录失败」记录有3条；「登录成功且日期在2022年4月10日09:00:00以前」记录有2条。符合条件的记录涉及员工的部门编号为003、001、002。查看部门表，003是「人事部」、001是「销售部」、002是「系统部」。因此这三个部门均符合条件。正确答案是「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q67",
+    "sourceFingerprint": "sha256:874dbe279bde16685ca3ef0ab12c6e9e2ebac5819fa7adcb407f418f17e3ed57",
+    "questionZh": "具有3D图像处理加速和使视频流畅等功能的、用于绘图处理的硬件是哪个？",
+    "optionsZh": {
+      "A": "CGI",
+      "B": "GPU",
+      "C": "GUI",
+      "D": "UPS"
+    },
+    "explanationZh": "- CGI（Common Gateway Interface）是Web服务器调用程序处理请求内容并将结果返回浏览器的机制总称。用于实现交互式网页。\n- 正确。GPU（Graphics Processing Unit）是计算机中专司图像处理的运算装置。拥有数千个核心，专攻大量数据的并行计算，在视频播放和3DCG渲染等高负荷运算场景中补充CPU的作用。\n- GUI（Graphical User Interface）是通过窗口和图标等图像显示在屏幕上，使用鼠标等指点设备直观操作计算机的用户界面。\n- UPS（Uninterruptible Power Supply）是在雷击等突发停电时，在自发电装置开始供电前为服务器提供电源的装置。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q68",
+    "sourceFingerprint": "sha256:1bffe2c93c7047b9e19a6702ea296eb46c3f75a6a861b5ec3113358d93f20d32",
+    "questionZh": "作为CSIRT进行活动的例子，最合适的是哪个？",
+    "optionsZh": {
+      "A": "定期为操作系统和应用软件安装安全补丁。",
+      "B": "设想地震洪水等自然灾害，为保护信息资产制定全公司业务连续性计划。",
+      "C": "安全事故发生时调查影响范围，支持实施防止损害扩大的对策。",
+      "D": "审计维护人员在服务器机房作业当天的出入记录是否适当记录。"
+    },
+    "explanationZh": "CSIRT（Computer Security Incident Response Team）是在组织或企业等有限范围内发生安全事件时，进行初期应对、分析、原因调查、报告和制定防止复发对策等的专业团队，在应对网络攻击威胁和最小化损害方面发挥核心作用。\n- CSIRT主要以安全事件发生后的应对为主要活动，预防性应对不包含在直接活动中。安装安全补丁是IT系统部门应执行的业务。\n- CSIRT应对范围限于网络攻击、非法访问、信息泄露等计算机相关安全，自然灾害等业务事件不在应对范围内。业务连续性计划制定是管理层应执行业务。\n- 正确。CSIRT不仅进行安全事件的初期应对，还进行事件原因调查分析及防止复发对策的制定。但防止复发对策的执行本身由IT系统部门或改善对象部门实施。\n- 审计不包含在CSIRT活动中。这些是内部审计部门或信息安全审计人员应执行的业务。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q69",
+    "sourceFingerprint": "sha256:bef22da3d90a1e3039a7f2ae0ffa7d66d2093f86c02f32b9b3ae2aed0c30bc27",
+    "questionZh": "关于生物特征认证的他人接受率和本人拒绝率，下列描述中a和b应填入的字句的正确组合是哪个？\n\n在生物特征认证的认证精度中，降低他人接受率时a会变高，降低本人拒绝率时b会变高。",
+    "optionsZh": {
+      "A": "a：便利性 b：安全性",
+      "B": "a：安全性 b：便利性",
+      "C": "a：便利性 b：可用性",
+      "D": "a：可用性 b：安全性"
+    },
+    "explanationZh": "生物特征认证是基于生体信息或行为信息等个人特有信息进行本人认证的方式，也称生物认证。该方式由计算机进行比对，与人类判断不同，会产生本人也被拒绝的概率（本人拒绝率）和错误接受他人的概率（他人接受率）。二者存在以下权衡关系：\n- 降低本人拒绝率时，他人接受率会上升\n- 降低他人接受率时，本人拒绝率会上升\n引入生物特征认证时，理解此权衡关系并设定适当的阈值使双方概率在容许范围内非常重要。\n〔关于a〕降低他人接受率，错误接受他人的风险降低，安全性提升。但本人拒绝率上升，便利性下降。变高的是安全性。\n〔关于b〕降低本人拒绝率，本人被误判为他人而拒绝的风险降低，便利性提升。但他人接受率上升，安全性下降。变高的是便利性。因此「B」的组合是正确的。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q7",
+    "sourceFingerprint": "sha256:17329d76b76edd04c2ca2de98a8faee6a8a1225136f3432a48c81680e3eb776d",
+    "questionZh": "以验证新概念或想法为目的，在开发前阶段进行验证的术语是哪个？",
+    "optionsZh": {
+      "A": "CRM",
+      "B": "PoC",
+      "C": "RAS",
+      "D": "SLA"
+    },
+    "explanationZh": "- CRM（Customer Relationship Management）是企业构建和维护与客户的良好关系，最大化各客户终身价值的一系列措施。\n- 正确。PoC（Proof of Concept：概念验证）是在新概念、理论、技术或理念的开发或引入正式化之前，验证其有效性和可行性的活动。尤其在IT领域，常在引入新系统或服务前用于验证技术课题和预期效果，PoC结果用作实施判断和投资判断的参考。\n- RAS是R（Reliability：可靠性）、A（Availability：可用性）、S（Serviceability：可维护性）的首字母组合，是表示系统可靠性的指标，也用作Remote Access Server的缩写。\n- SLA（Service Level Agreement）是服务提供者与使用者之间就服务项目、内容和质量等达成的协议。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q70",
+    "sourceFingerprint": "sha256:2327daefee953598dbdd87f3ff8604a777c07583b2cde2ec671f58f84a0b5eb2",
+    "questionZh": "在信息安全威胁中，对软件应用修复漏洞的安全补丁是最有效对策的是哪个？",
+    "optionsZh": {
+      "A": "暴力破解攻击",
+      "B": "社会工程学",
+      "C": "密码列表攻击",
+      "D": "缓冲区溢出"
+    },
+    "explanationZh": "- 暴力破解攻击是尝试所有密码组合以非法登录的攻击。该攻击相关漏洞源于密码长度、可使用字符种类、连续失败锁定机制等Web应用实现问题，安装安全补丁无法对策。\n- 社会工程学不是使用信息通信技术方法，而是利用人的失误或心理疏忽非法获取密码等秘密信息的行为。针对人的心理弱点，安装安全补丁无法对策。\n- 密码列表攻击是利用攻击其他网站获得的ID/密码列表，尝试非法登录其他网站的攻击。原因是同一密码的重复使用，安装安全补丁无法对策。需通过双因素认证、一次性密码、登录历史显示、登录通知等Web应用端对策。\n- 正确。缓冲区溢出是故意读入比程序分配的内存区域（缓冲区）更大的数据，在溢出部分写入非法数据从而执行非法处理的攻击。针对操作系统或编程语言实现上的安全漏洞，安装安全补丁填补漏洞是有效对策。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q71",
+    "sourceFingerprint": "sha256:dbe0d6677e4a9c2647e2802482109adb1765b3434cffba6601926cc3f19fe35d",
+    "questionZh": "关于手机使用的电波，下列描述中a和b应填入的字句的正确组合是哪个？\n\n电波具有频率越a越容易绕射、越容易到达障碍物背后的性质。日本国内手机使用的频率中，700b带～900b带的频段因具有此性质而容易接通，被称为「铂金频段」。",
+    "optionsZh": {
+      "A": "a：高 b：GHz",
+      "B": "a：高 b：MHz",
+      "C": "a：低 b：GHz",
+      "D": "a：低 b：MHz"
+    },
+    "explanationZh": "〔关于a〕电波具有「波」的性质，碰到障碍物时会从边缘绕到背后传播，这称为绕射现象。绕射现象波长越长（频率越低）范围越大，波长越短（频率越高）范围越小。因此a应填入「低」。\n〔关于b〕铂金频段是指分配给手机通信的主要700MHz～900MHz频段。与以往手机使用的1.5GHz～3.5GHz频段以及5G用的28GHz频段相比频率更低，因此通过绕射现象，在建筑物内、地下、山区等障碍物多的地方也容易到达。因此b应填入「MHz」。正确答案是「D」。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q72",
+    "sourceFingerprint": "sha256:ccdd22f7fd77d3f85f46fa4563ac70910976d591b7171935b01c805031145fef",
+    "questionZh": "关于让观看者容易理解意图的设计四项原则，下列描述中a和b应填入的字句的正确组合是哪个？\n\n〔四项原则〕\n邻近：将相互关联的元素靠近分组。\na：按意图规则配置元素。\n重复：各元素重复设计规则。\nb：明确元素间的大小和强弱等差异。",
+    "optionsZh": {
+      "A": "a：对比 b：对齐",
+      "B": "a：对齐 b：对比",
+      "C": "a：重复 b：对比",
+      "D": "a：对齐 b：重复"
+    },
+    "explanationZh": "设计中至少应知道的四项原则是邻近、对齐、重复和对比。这四项对按意图传达视觉信息非常重要，不仅印刷品，在网站和应用界面设计中也需要重视。\n- 邻近：人将距离近的事物认知为有关联的组。因此相关元素靠近配置，无关元素远离配置。\n- 对齐：人对有规则性的元素排列感到稳定和美感，视线可无压力移动。因此调整文字对齐方式和留白使元素配置整齐。\n- 重复：人对相同元素按一定规则重复使用感到统一和稳定。因此统一标题、字体、按钮、导航菜单等格式，使用相同元素。\n- 对比：人通过元素大小、颜色和密度等差异认知元素的不同和优先级。因此重要元素用大字体和醒目颜色，辅助元素用小字体和浅色，明确各元素对比，形成层次表达。\na是「规则化元素配置」→对齐；b是「明确元素大小和强弱」→对比。因此「B」是正确的组合。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q73",
+    "sourceFingerprint": "sha256:aca197abde55e5b2dcd3a43c5fd547cf821058a0240c520c703983b878ee54c6",
+    "questionZh": "关于针对Web服务的攻击，描述与攻击名称的正确组合是哪个？\n\n- Web服务使用的软件发现漏洞后，在修复程序发布前利用该漏洞进行攻击。\n- 从多台计算机同时发送大量数据包，使Web服务无法正常提供。\n- 依次尝试理论上可能的密码组合，找到正确密码并侵入目标Web服务。",
+    "optionsZh": {
+      "A": "a：零日攻击 b：DDoS攻击 c：SQL注入",
+      "B": "a：DDoS攻击 b：暴力破解 c：零日攻击",
+      "C": "a：零日攻击 b：DDoS攻击 c：暴力破解",
+      "D": "a：DDoS攻击 b：暴力破解 c：零日攻击"
+    },
+    "explanationZh": "- 这是零日攻击的说明。以问题解决对策公开日为第1天，此前开始的攻击被称为零日（0day）攻击。\n- 这是DDoS攻击的说明。从多台计算机同时向服务器发送大量请求使其过载，导致系统宕机或响应停止等故障的攻击。\n- 这是暴力破解攻击的说明。尝试特定字符数和字符种类可能设置的所有密码以非法登录的攻击。因此正确组合是「C」。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q74",
+    "sourceFingerprint": "sha256:a5b5bd9ab7aa1350cafbefde80f8e1f89a570f3cbe543b15827e8253ff94e73f",
+    "questionZh": "作为数字取证（Digital Forensics）的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "发生计算机相关犯罪或法律纠纷时，恢复被删除的电子邮件等，收集和保全证据的活动",
+      "B": "实际攻击系统调查是否存在漏洞",
+      "C": "加密通信路径等，使公共线路如同专用线路般使用",
+      "D": "用本人私钥加密电子邮件或文件等的哈希数据"
+    },
+    "explanationZh": "数字取证是在事件发生时，对相关数字设备上的电磁记录进行可靠且准确的收集和获取，同时进行保全、分析和解析，为法律纠纷和问题中的举证提供支持的活动。\n确定PC、服务器、智能手机、网络设备等需要保全证据的设备，以符合法律要求的方式获取和保全残留的电子痕迹，而这需要高度的专业技术。\n适当保全电磁记录不仅是应对网络攻击的对策，从应对犯罪和内部违规等法律纠纷的角度也很重要，数字取证的需求正在增长。\n因此「A」是正确的描述。\n- 正确。数字取证的说明。\n- 渗透测试的说明。\n- VPN（虚拟专用网络）的说明。\n- 数字签名生成（RSA方式）的说明。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q75",
+    "sourceFingerprint": "sha256:98cf5500f8424e63c022db97885909e8486cc0c60b6462c160e42e5cf371dcdb",
+    "questionZh": "下列存储介质中，使用半导体存储器作为存储元件的是哪些？\n\n- CD-ROM\n- DVD-RAM\n- RAM\n- SSD\n- USB存储器",
+    "optionsZh": {
+      "A": "a，b，c",
+      "B": "a，b，e",
+      "C": "c，d，e",
+      "D": "c，e"
+    },
+    "explanationZh": "半导体存储器是以具有导电和绝缘双重性质的半导体为存储元件、通过电气方式记录和保持信息的装置。\n首先可排除光碟CD-ROM和DVD-RAM。光碟是通过激光读取盘面凹凸（凹坑和平面）的机制，不使用半导体。\n剩余3个使用半导体存储器：\nRAM（随机存取存储器）：通过电气方式记录和擦除数据的存储器，DRAM和SRAM等属于此类。存储元件使用晶体管和电容等半导体部件。\nSSD（固态硬盘）：使用闪存作为存储元件的辅助存储设备。闪存通过电气方式记录和擦除，由半导体制成。\nUSB存储器：使用闪存作为存储元件的外接存储设备。闪存所以是半导体基础。\n正确组合是「c，d，e」，因此「C」是正确答案。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q76",
+    "sourceFingerprint": "sha256:46d6b122a1ae28a42e28a31b9d6625983532808b5609e8451adcdd059aebdfad",
+    "questionZh": "有一个计算商品含税价格的电子表格工作表。单元格B1输入了消费税率，单元格B4～B6输入了税前价格。为在C4～C6显示含税价格，在C4输入公式并复制到C5、C6。C4应输入的公式是哪个？其中B1以百分比格式显示。",
+    "optionsZh": {
+      "A": "B$4＊(1＋B$1)",
+      "B": "B$4＊(1＋B1)",
+      "C": "B4＊(1＋B$1)",
+      "D": "B4＊(1＋B1)"
+    },
+    "explanationZh": "电子表格中，输入公式时指定单元格地址有「相对引用」和「绝对引用」两种方式。\n相对引用：公式复制到其他单元格时，参照的单元格地址根据复制目标与复制源的位置关系而变化。默认方式。\n绝对引用：公式复制到其他单元格时，参照的单元格地址不变。在要固定的列号或行号前加「$」。例）单元格A3：固定列→$A3，固定行→A$3，固定两者→$A$3。\n单元格C4～C6是根据左侧税前价格（B4～B6）显示含税价格的单元格，各单元格应输入的公式如下。本次是纵向复制，只有行号移动。\n参照各商品税前价格的B4在复制时需逐行下移「B4→B5→B6」，因此行号使用「相对引用」，指定为B4。\n而参照消费税率的B1，复制目标单元格也始终参照同一行，所以行号使用「绝对引用」，指定为「$B$1」$1。\n因此「C」的B4＊(1＋B$1)是正确的。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q77",
+    "sourceFingerprint": "sha256:341612e9b00ba02c905910be4bc0503a650ff8a9bd345b6524da5fdbb8618255",
+    "questionZh": "通过监控网络和主机发现非法访问或可疑通信并报告的机制是哪个？",
+    "optionsZh": {
+      "A": "DMZ",
+      "B": "IDS",
+      "C": "防尾随（Anti-passback）",
+      "D": "僵尸网络（Bot）"
+    },
+    "explanationZh": "- DMZ（DeMilitarized Zone）是组织网络中防火墙内外之间的隔离中间区域。将需要与外部通信的服务器放置在DMZ中，限制从互联网对内部网络的直接访问。\n- 正确。IDS（Intrusion Detection System：入侵检测系统）是监控计算机和网络，检测到非法或异常通信时通过警告邮件等通知管理员的机制。防火墙是屏蔽外部非法访问的墙，而IDS是检测越过防火墙的非法入侵。分为监控网络通信包的网络型IDS（NIDS）和在服务器上检测非法入侵或数据篡改的主机型IDS（HIDS）。\n- 防尾随是基于出入记录禁止不一致出入的机制，是防止尾随的有效对策。\n- 僵尸网络是在感染恶意软件的计算机上运行，接收外部C&C服务器指令并执行攻击等的软件。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q78",
+    "sourceFingerprint": "sha256:ef58ddd8e7eb30ffd5d799b1d3fccee625ff9ce6096c5ffe772d38e8de4831c6",
+    "questionZh": "调用过程calcMod3时的输出是哪个？\n\n〔程序〕\ntotalValue ← 0\nfor i从1到7递增1\n  若i mod 3 = 0则\n    totalValue ← totalValue + i\n输出totalValue",
+    "optionsZh": {
+      "A": "2",
+      "B": "3",
+      "C": "7",
+      "D": "9"
+    },
+    "explanationZh": "求程序输出或返回值的题目，通过逐步跟踪得出答案。该程序在i从1到7循环中，当i能被3整除时，将i加到totalValue上。\n- totalValue ← 0\n- i从1到7循环：\ni=1：不能被3整除，不操作\ni=2：不能被3整除，不操作\ni=3：能被3整除，totalValue加3（totalValue=3）\ni=4：不能被3整除，不操作\ni=5：不能被3整除，不操作\ni=6：能被3整除，totalValue加6（totalValue=9）\ni=7：不能被3整除，不操作\n循环结束，输出totalValue→9。因此「D」是正确答案。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q79",
+    "sourceFingerprint": "sha256:94fa6403f60aec21c9868f025b065e8be894ab1a3d676ae21ebb3d662402ea28",
+    "questionZh": "作为缩略图（Thumbnail）的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "将图像或文档文件内容缩小显示",
+      "B": "表示处理内容或对象的小图画或符号",
+      "C": "在网络上作为用户分身行动的虚拟形象",
+      "D": "将多个文件汇总为一个文件"
+    },
+    "explanationZh": "缩略图（Thumbnail）是在网站、应用、文件管理软件等显示多张图像的界面上，为便于一览把握图像和视频内容而以小尺寸显示的缩略图。无需打开文件即可看到图像内容，与仅显示文件图标相比可更直观地访问目标数据。且小图像更轻量，也有助于缩短显示时间。是PC文件夹管理界面、YouTube等视频分享网站和Instagram等照片分享网站的标配UI元素。因此「A」的描述正确。\n- 正确。缩略图的说明。\n- 这是图标的说明。\n- 这是虚拟形象（Avatar）的说明。\n- 这是归档文件的说明。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q8",
+    "sourceFingerprint": "sha256:1135aace2f967251e0decd832d19f9a264949389859d243c8db69f47257df4c0",
+    "questionZh": "关于AI机器学习所用数据的处理，为减少偏差和确保数据质量应考虑的对策是哪些？\n\n- 确认数据适合学习目的。\n- 确认数据的获取来源和创建经过。\n- 根据学习目的对数据进行标注。\n- 排除人眼也难以识别的图像识别用数据。",
+    "optionsZh": {
+      "A": "a，b",
+      "B": "a，b，c，d",
+      "C": "a，d",
+      "D": "b，c，d"
+    },
+    "explanationZh": "- 合适。用不符合学习目的的数据训练，模型可能学习不适当的特征，导致数据集偏差。确认数据内容与学习任务的一致性是最基本的事项。\n- 合适。来源不透明的数据可能包含偏颇信息，或存在伦理或法律问题。为使模型学习可靠数据，确认获取路径和创建背景很重要。\n- 合适。标注是为让AI从数据中学习，对目标数据赋予有意义信息（标签）的工作。即使学习相同数据，学习目的改变则标注内容也改变。例如图像分类中对狗的图像标注「dog」，但行为识别中需标注「running」或「sitting」等动作标签。\n- 合适。模型要准确学习，需要具有明确特征的数据。人类也难以识别的模糊数据会成为噪声，导致学习错误模式，从数据质量角度应排除。\n「a，b，c，d」全部合适，因此正确组合是「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "07_HARU_Q80",
+    "sourceFingerprint": "sha256:a7b053ba0316d7c362b38608454ef46f7ba3d63b20867adbe27f489b58a40aae",
+    "questionZh": "在AI中，使用广泛且大量数据训练、通过微调等可适应文本生成AI等多种用途的特征模型称为什么？",
+    "optionsZh": {
+      "A": "标注（Annotation）",
+      "B": "专家系统",
+      "C": "基础模型",
+      "D": "卷积神经网络"
+    },
+    "explanationZh": "- 标注是为让AI从数据中学习而对目标数据赋予有意义信息（标签）的工作。\n- 专家系统是1980年代人工智能研究中诞生的计算机系统，在计算机上再现人类专家决策过程。\n- 正确。基础模型是用大规模数据完成预训练的通用人工智能模型。可适应各种任务，基于基础模型进行微调和迁移学习可应用于特定任务。\n- 卷积神经网络是具有卷积层和池化层的深度学习模型。尤其在图像识别领域表现出高性能。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

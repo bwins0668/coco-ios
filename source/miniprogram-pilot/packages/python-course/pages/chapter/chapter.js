@@ -1,0 +1,42 @@
+var secondaryNav = require('../../../../utils/secondary-navigation');
+var loader = require('../../utils/python-course-loader');
+var PACKAGE_ROOT = 'packages/python-course';
+
+Page({
+  data: {
+    navSafeTop: 64,
+    chapterId: '',
+    chapter: null,
+    lessons: [],
+    loadError: false,
+    __themeDark: false
+  },
+  onLoad: function (query) {
+    secondaryNav.syncNavLayout(this);
+    this._applyTheme();
+    var chapterId = (query && query.chapterId) || '';
+    var result = loader.getChapterWithLessons(chapterId);
+    if (!result) {
+      this.setData({ chapterId: chapterId, loadError: true });
+      return;
+    }
+    this.setData({ chapterId: chapterId, chapter: result.chapter, lessons: result.lessons, loadError: false });
+  },
+  onShow: function () {
+    secondaryNav.syncNavLayout(this);
+    this._applyTheme();
+  },
+  openLesson: function (event) {
+    var lessonId = event.currentTarget.dataset.lessonId;
+    if (!lessonId) return;
+    wx.navigateTo({ url: '/' + PACKAGE_ROOT + '/pages/lesson/lesson?chapterId=' + this.data.chapterId + '&sectionId=' + lessonId });
+  },
+  goBack: function () {
+    secondaryNav.back(this, PACKAGE_ROOT + '/pages/chapter/chapter', { type: 'navigateTo', url: '/packages/python-course/pages/home/home' });
+  },
+  _applyTheme: function () {
+    var app = getApp();
+    var dark = !!(app && app.globalData && app.globalData.themeDark);
+    if (this.data.__themeDark !== dark) this.setData({ __themeDark: dark });
+  }
+});

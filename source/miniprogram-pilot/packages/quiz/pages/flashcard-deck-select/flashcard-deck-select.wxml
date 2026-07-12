@@ -1,0 +1,54 @@
+<!-- packages/quiz/pages/flashcard-deck-select/flashcard-deck-select.wxml -->
+<view class="fds-container {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/quiz/pages/flashcard-deck-select/flashcard-deck-select">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- Loading -->
+  <view class="fds-loading" wx:if="{{isLoading}}">
+    <view class="fds-loading-spinner"></view>
+    <text class="fds-loading-text">加载牌组列表...</text>
+  </view>
+
+  <!-- Error -->
+  <view class="fds-error" wx:elif="{{loadError}}">
+    <text class="fds-error-title">{{loadError}}</text>
+    <view class="fds-btn fds-btn-primary" bindtap="loadDecks" data-course="{{course}}">重新加载</view>
+    <view class="fds-btn" bindtap="goBack">返回</view>
+  </view>
+
+  <!-- Deck List -->
+  <block wx:else>
+    <view class="fds-header">
+      <text class="fds-course-title">{{courseLabel}}</text>
+      <text class="fds-course-desc">{{courseDesc}}</text>
+    </view>
+
+    <view class="fds-section-title">选择年度牌组</view>
+
+    <view class="fds-deck-list">
+      <view
+        class="fds-deck-card"
+        wx:for="{{decks}}"
+        wx:key="yearId"
+        bindtap="selectDeck"
+        data-year-id="{{item.yearId}}"
+        data-label="{{item.label}}"
+        data-deck-id="{{item.deckId}}"
+        data-package-name="{{item.packageName}}"
+      >
+        <view class="fds-deck-info">
+          <text class="fds-deck-label">{{item.label}}</text>
+          <text class="fds-deck-count">{{item.count}} 题</text>
+        </view>
+        <view class="fds-deck-arrow">›</view>
+      </view>
+    </view>
+
+    <view class="fds-footer">
+      <view class="fds-btn" bindtap="goBack">返回</view>
+    </view>
+  </block>
+</view>

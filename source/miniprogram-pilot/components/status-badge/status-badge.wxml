@@ -1,0 +1,9 @@
+<!-- status-badge · 状态 / 数据徽标
+     tone: neutral | primary | success | danger
+     value 走等宽数据字体（题号、耗时、正确率、年份等短数字内容）。
+     纯展示组件，无逻辑、无事件、不引用页面。 -->
+<view class="qp-badge qp-badge--{{tone}}">
+  <text wx:if="{{label}}" class="qp-badge__label">{{label}}</text>
+  <text wx:if="{{value}}" class="qp-badge__value">{{value}}</text>
+  <slot></slot>
+</view>

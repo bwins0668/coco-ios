@@ -1,0 +1,32 @@
+{
+  "package": "quiz-sg-1",
+  "batchId": "quiz-sg-1_SG_01_AKI_問1_to_SG_01_AKI_問27",
+  "questionIds": [
+    "SG_01_AKI_問1",
+    "SG_01_AKI_問10",
+    "SG_01_AKI_問11",
+    "SG_01_AKI_問12",
+    "SG_01_AKI_問13",
+    "SG_01_AKI_問14",
+    "SG_01_AKI_問15",
+    "SG_01_AKI_問16",
+    "SG_01_AKI_問17",
+    "SG_01_AKI_問18",
+    "SG_01_AKI_問19",
+    "SG_01_AKI_問2",
+    "SG_01_AKI_問20",
+    "SG_01_AKI_問21",
+    "SG_01_AKI_問22",
+    "SG_01_AKI_問23",
+    "SG_01_AKI_問24",
+    "SG_01_AKI_問25",
+    "SG_01_AKI_問26",
+    "SG_01_AKI_問27"
+  ],
+  "translatedCount": 20,
+  "semanticReviewPassed": true,
+  "styleLintPassed": true,
+  "fingerprintPassed": true,
+  "retryCount": 0,
+  "completedAt": "2026-07-06T10:30:40.249Z"
+}

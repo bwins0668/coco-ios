@@ -1,0 +1,62 @@
+{
+  "generatedBy": "PYTHON.P0 audit (read-only)",
+  "sourceRootReadOnly": "G:/项目/python教材",
+  "epub": {
+    "fileName": "Python编程三剑客：Python编程从入门到实践 快速上手 极客编程 (埃里克·马瑟斯 (Eric Matthes), Al Sweigart etc.) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+    "sizeBytes": 17260692,
+    "mtime": "2026-07-02T23:27:56+09:00",
+    "sha256": "860F181731A4699BD412686599596A6101AECE5EB70DD837A15FB2B88F25F7EF",
+    "sha256VerifiedAgainstManifest": true,
+    "manifestBindingPath": "packages/python-course/data/python-source-manifest.js",
+    "opf": {
+      "path": "OEBPS/content.opf",
+      "title": "Python编程三剑客（套装全3册）",
+      "publisher": "人民邮电出版社有限公司",
+      "language": "zh",
+      "date": "2020-10-01",
+      "creators": ["埃里克·马瑟斯", "斯维加特", "Mahesh Venkitachalam"],
+      "identifiers": ["urn:uuid:273fd756-62f2-4858-8d67-99e08f24bba9", "B0957H468D"],
+      "manifestItemCount": 380,
+      "spineItemCount": 66,
+      "tocId": "ncx"
+    },
+    "toc": {
+      "ncxPath": "OEBPS/toc.ncx",
+      "authority": "toc.ncx",
+      "navPath": null,
+      "extractable": true,
+      "encoding": "utf-8",
+      "encodingAnomalies": "none observed at TOC level (text nodes clean)"
+    },
+    "content": {
+      "primaryTextDoc": "OEBPS/text00001.html (1.1MB — book 1 bulk)",
+      "imageAssets": "Image00000.jpg + several small gif spacers",
+      "codeBlocks": "present as inline HTML in chapter docs; NOT yet extracted to per-lesson evidence",
+      "extractionConfidence": "HIGH for TOC/spine/OPF metadata; LOW for per-section body text + code (not yet extracted)"
+    }
+  },
+  "booksDetected": [
+    {
+      "bookIndex": 1,
+      "title": "Python编程：从入门到实践（第2版）",
+      "englishTitle": "Python Crash Course (2nd ed.)",
+      "role": "PRIMARY from-zero spine — runtime course maps here",
+      "structure": "第一部分 基础知识 (第1–11章) + 第二部分 项目 (第12–20章) + 附录A–D"
+    },
+    {
+      "bookIndex": 2,
+      "title": "Python编程快速上手——让繁琐工作自动化",
+      "englishTitle": "Automate the Boring Stuff with Python",
+      "role": "自动化实践（后续轨道）",
+      "structure": "第一部分 Python编程基础 (第1–6章) + 自动化项目 (第7–18章) + 附录A–C"
+    },
+    {
+      "bookIndex": 3,
+      "title": "Python极客项目编程",
+      "englishTitle": "Python Playground",
+      "role": "进阶趣味项目（后续轨道）",
+      "structure": "热身/模拟生命/图像/三维/硬件 五部分 (第1–14章) + 附录A–C"
+    }
+  ],
+  "note": "The existing python-source-manifest.js is a toc-only-curriculum-map: it binds the EPUB (sha256/spine/opf) and maps curriculum entries to TOC anchors, but does NOT carry extracted per-section body text or per-lesson code evidence. Deep source↔code fidelity verification (P-E) requires a full-text extraction pass, which this read-only P0 round did NOT perform (no modification of the EPUB)."
+}

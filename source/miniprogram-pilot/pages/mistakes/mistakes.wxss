@@ -1,0 +1,296 @@
+@import "../../styles/secondary-page-shell.wxss";
+/* pages/mistakes/mistakes.wxss - 错题复盘中心 */
+
+.container {
+  min-height: 100vh;
+  background-color: var(--qp-color-canvas);
+  padding-bottom: 40rpx;
+}
+
+/* === Hero 区域 === */
+.mistakes-hero {
+  margin: 16rpx 28rpx 0;
+  padding: 30rpx;
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  border-radius: 26rpx;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.mistakes-hero::before,
+.mistakes-hero::after {
+  display: none;
+}
+
+.mistakes-hero-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.mistakes-hero-text {
+  flex: 1;
+}
+
+.mistakes-hero-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6rpx;
+}
+
+.mistakes-hero-subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.mistakes-hero-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-error-light);
+  border: 1rpx solid rgba(138, 95, 100, 0.26);
+  border-radius: 18rpx;
+  padding: 10rpx 24rpx;
+  flex-shrink: 0;
+  margin-top: 4rpx;
+}
+
+.mistakes-hero-count-num {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: var(--color-error);
+}
+
+.mistakes-hero-count-label {
+  font-size: 18rpx;
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+/* 分类标签行 */
+.mistakes-category-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+
+.mistakes-cat-chip {
+  padding: 6rpx 16rpx;
+  border-radius: 14rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+  background: var(--bg-surface);
+  border: 1rpx solid var(--divider-color);
+}
+
+.mistakes-cat-itpass .mistakes-cat-chip-text,
+.mistakes-cat-sg .mistakes-cat-chip-text {
+  color: var(--text-secondary);
+}
+
+.mistakes-last-time {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+/* === 操作区 === */
+.mistakes-actions {
+  padding: 18rpx 28rpx 0;
+  position: relative;
+  z-index: 2;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14rpx;
+}
+
+.action-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 188rpx;
+  padding: 28rpx 12rpx 24rpx;
+  border-radius: 22rpx;
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.action-tile:active {
+  transform: translateY(2rpx) scale(0.985);
+  background: var(--press-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.action-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3rpx;
+  background: var(--border-strong);
+}
+
+.action-tile-icon {
+  font-size: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.action-tile-title {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.action-tile-stat {
+  font-size: 20rpx;
+  color: var(--text-hint);
+  font-weight: 500;
+}
+
+/* === 空状态 === */
+.mistakes-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 44rpx 28rpx 0;
+  padding: 64rpx 36rpx;
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  border-radius: 26rpx;
+  box-shadow: var(--shadow-sm);
+}
+
+.mistakes-empty-symbol {
+  width: 86rpx;
+  height: 86rpx;
+  border: 3rpx solid var(--text-hint);
+  border-radius: 26rpx;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.mistakes-empty-symbol::before,
+.mistakes-empty-symbol::after {
+  content: '';
+  position: absolute;
+  background: var(--text-hint);
+}
+
+.mistakes-empty-symbol::before {
+  left: 22rpx;
+  right: 22rpx;
+  top: 40rpx;
+  height: 3rpx;
+}
+
+.mistakes-empty-symbol::after {
+  top: 22rpx;
+  bottom: 22rpx;
+  left: 40rpx;
+  width: 3rpx;
+}
+
+.mistakes-empty-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12rpx;
+}
+
+.mistakes-empty-desc {
+  font-size: 26rpx;
+  color: var(--text-hint);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 36rpx;
+  max-width: 400rpx;
+}
+
+.mistakes-empty-btn {
+  background: var(--text-primary);
+  border: 1rpx solid var(--text-primary);
+  border-radius: 44rpx;
+  padding: 24rpx 60rpx;
+  box-shadow: 0 14rpx 32rpx rgba(17, 24, 39, 0.16);
+}
+
+.mistakes-empty-btn:active {
+  transform: translateY(2rpx) scale(0.97);
+  opacity: 0.9;
+}
+
+.mistakes-empty-btn-text {
+  font-size: 28rpx;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* === 几何 Symbol 系统 === */
+.action-symbol {
+  width: 50rpx;
+  height: 50rpx;
+  border: 2rpx solid var(--text-primary);
+  border-radius: 15rpx;
+  margin-bottom: 14rpx;
+  position: relative;
+}
+
+.action-symbol::before,
+.action-symbol::after {
+  content: '';
+  position: absolute;
+  background: var(--text-primary);
+}
+
+.symbol-list::before {
+  left: 12rpx;
+  right: 12rpx;
+  top: 14rpx;
+  height: 2rpx;
+  box-shadow: 0 9rpx 0 var(--text-primary), 0 18rpx 0 var(--text-primary);
+}
+
+.symbol-anki::before {
+  left: 11rpx;
+  top: 11rpx;
+  width: 9rpx;
+  height: 9rpx;
+  box-shadow: 17rpx 0 0 var(--text-primary), 0 17rpx 0 var(--text-primary), 17rpx 17rpx 0 var(--text-primary);
+}
+
+.symbol-practice::before {
+  left: 12rpx;
+  right: 12rpx;
+  top: 23rpx;
+  height: 2rpx;
+}
+
+.symbol-practice::after {
+  top: 12rpx;
+  bottom: 12rpx;
+  left: 23rpx;
+  width: 2rpx;
+}
+
+/* Smoke anchor: legacy class stubs */
+.category-stats { display: flex; gap: 12rpx; }
+.category-item { display: flex; flex-direction: column; align-items: center; }
+.enhanced-empty { display: flex; flex-direction: column; align-items: center; }

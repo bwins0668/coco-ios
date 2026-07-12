@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0012-5cc0ecc6-第-6-章-字典",
+    "courseLessonId": "python-0012-5cc0ecc6-第-6-章-字典",
+    "sourceOrder": 12,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "list は順番を見るときに便利ですが、「名前に対応する値」「設定名に対応する値」のように、位置より意味で取り出したい data もあります。dictionary は key を使って、value の意味を直接たどれるようにします。",
+        "type": "why",
+        "zh": "list 适合按顺序查看数据，但有些 data 更适合按含义查找，比如“名字对应的值”“设置项对应的值”。dictionary 使用 key，让我们直接沿着含义找到 value。"
+      },
+      {
+        "ja": "dictionary はラベル付きの引き出しです。key は引き出しのラベル、value は中身です。順番の番号ではなく、ラベルを指定して中身を取り出します。",
+        "type": "mental-model",
+        "zh": "dictionary 像一组贴了标签的抽屉。key 是抽屉标签，value 是里面的内容。我们不是用顺序编号，而是用标签取出内容。"
+      },
+      {
+        "ja": "最初に profile へ 3 つの key/value を入れます。name と focus を key で読み、status を追加し、lessons を更新してから、key の一覧と更新後の value を表示します。",
+        "type": "flow",
+        "zh": "一开始把 3 组 key/value 放进 profile。随后用 key 读取 name 和 focus，追加 status，更新 lessons，最后输出 key 列表和更新后的 value。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "profile = {\"name\": \"learner\", \"focus\": \"Python\", \"lessons\": 6}\nprint(\"name:\", profile[\"name\"])\nprint(\"focus:\", profile[\"focus\"])\nprofile[\"status\"] = \"review ready\"\nprofile[\"lessons\"] = profile[\"lessons\"] + 1\nprint(\"keys:\", sorted(profile.keys()))\nprint(\"status:\", profile[\"status\"])\nprint(\"lessons:\", profile[\"lessons\"])",
+        "exampleId": "python-domain1b-dictionary-lookup",
+        "expectedOutput": "name: learner\nfocus: Python\nkeys: ['focus', 'lessons', 'name', 'status']\nstatus: review ready\nlessons: 7",
+        "lineNotes": [
+          {
+            "ja": "波かっこの中に key/value を 3 組入れ、profile という一つの名前に保存します。",
+            "line": 1,
+            "zh": "在花括号中放入 3 组 key/value，并保存到 profile 这个名字里。"
+          },
+          {
+            "ja": "profile[\"name\"] は name という key に対応する value を読みます。",
+            "line": 2,
+            "zh": "profile[\"name\"] 会读取 name 这个 key 对应的 value。"
+          },
+          {
+            "ja": "同じ dictionary から focus の value も key で取り出します。",
+            "line": 3,
+            "zh": "同一个 dictionary 也可以通过 focus 这个 key 取出对应 value。"
+          },
+          {
+            "ja": "まだなかった status という key に、新しい value を追加します。",
+            "line": 4,
+            "zh": "给原本不存在的 status 这个 key 追加新的 value。"
+          },
+          {
+            "ja": "既存の lessons を読み、1 を足した結果で同じ key の value を更新します。",
+            "line": 5,
+            "zh": "先读取已有 lessons，再加 1，并用结果更新同一个 key 的 value。"
+          },
+          {
+            "ja": "sorted(profile.keys()) で key の一覧を安定した順番にして表示します。",
+            "line": 6,
+            "zh": "sorted(profile.keys()) 会把 key 列表按稳定顺序输出。"
+          },
+          {
+            "ja": "追加した status の value が dictionary に入ったことを確認します。",
+            "line": 7,
+            "zh": "确认刚追加的 status value 已经进入 dictionary。"
+          },
+          {
+            "ja": "更新後の lessons は 6 ではなく 7 として表示されます。",
+            "line": 8,
+            "zh": "更新后的 lessons 会显示为 7，而不是原来的 6。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "存在しない key をそのまま読むと、Python はどの value を返せばよいか分からず止まります。",
+        "zh": "直接读取不存在的 key 时，Python 不知道该返回哪个 value，会停止运行。"
+      },
+      {
+        "ja": "key の引用符を忘れると、文字ラベルではなく variable 名として読まれてしまいます。",
+        "zh": "忘记 key 的引号时，它会被当作 variable 名，而不是文字标签。"
+      },
+      {
+        "ja": "list のように位置番号だけで考えると、dictionary の「意味で取り出す」強みを見落とします。",
+        "zh": "如果只按 list 的位置编号来理解，就会忽略 dictionary “按含义查找”的优势。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "5 行目の後に profile[\"level\"] = \"start\" を追加し、最後に print(\"level:\", profile[\"level\"]) を足して実行します。",
+        "zh": "在第 5 行后追加 profile[\"level\"] = \"start\"，并在最后添加 print(\"level:\", profile[\"level\"]) 后运行。"
+      },
+      "expectedObservation": {
+        "ja": "keys の出力に level が含まれ、最後の行に level: start が表示されます。",
+        "zh": "keys 的输出会包含 level，最后一行会显示 level: start。"
+      }
+    },
+    "lessonId": "python-0012-5cc0ecc6-第-6-章-字典",
+    "nextLessonBridge": {
+      "ja": "key/value の対応を読めるようになると、設定や状態を一つの data として整理しやすくなります。次の公開範囲では、その data をどう動かすかをさらに細かく見ます。",
+      "zh": "读懂 key/value 对应关系后，就更容易把设置或状态整理成一份 data。下一次公开范围会继续观察如何让这些 data 动起来。"
+    },
+    "objectives": [
+      {
+        "ja": "dictionary は key と value の対応を一つの名前で持つ container だと説明できる。",
+        "zh": "能说明 dictionary 是用一个名字保存 key 与 value 对应关系的 container。"
+      },
+      {
+        "ja": "角かっこと key を使って value を読み、代入で新しい key/value を追加できる。",
+        "zh": "能用方括号和 key 读取 value，并通过赋值追加新的 key/value。"
+      }
+    ],
+    "order": 6,
+    "prerequisites": [
+      {
+        "ja": "variable に value を入れること、list が複数の element を順番で持つこと、if で状態を確認できることを思い出してください。",
+        "zh": "请回忆 variable 可以保存 value、list 可以按顺序保存多个 element、if 可以根据状态做判断。"
+      }
+    ],
+    "summary": {
+      "ja": "dictionary は、順番ではなく key の意味で value を取り出すための container です。追加と更新も key を通して行います。",
+      "zh": "dictionary 是通过 key 的含义而不是顺序来取出 value 的 container。追加和更新也通过 key 完成。"
+    },
+    "terms": [
+      {
+        "en": "dictionary",
+        "ja": "辞書",
+        "zh": "字典"
+      },
+      {
+        "en": "key",
+        "ja": "キー",
+        "zh": "键"
+      },
+      {
+        "en": "value",
+        "ja": "値",
+        "zh": "值"
+      },
+      {
+        "en": "lookup",
+        "ja": "検索",
+        "zh": "查找"
+      }
+    ],
+    "title": {
+      "ja": "辞書で key から value を取り出す",
+      "zh": "用字典通过 key 找到 value"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "F629391B108A413EED7E06625EBD536800315022BE2D3082D66F3268E575349F",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

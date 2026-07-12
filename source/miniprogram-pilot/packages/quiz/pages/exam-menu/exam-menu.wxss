@@ -1,0 +1,143 @@
+@import "../../../../styles/secondary-page-shell.wxss";
+/* packages/quiz/pages/exam-menu/exam-menu.wxss · R6.6 DC-aligned (Frames 6+7) */
+@import "../../../../styles/tokens.wxss";
+
+.r6-exam-menu {
+  min-height: 100vh; box-sizing: border-box;
+  padding: 0 var(--qp-space-5) var(--qp-space-8);
+  background-color: var(--qp-color-canvas); color: var(--qp-color-ink);
+}
+
+/* ===== Custom nav bar ===== */
+.r6-exam-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 88rpx; margin-bottom: 8rpx;
+}
+.r6-exam-nav__back {
+  width: 72rpx; height: 72rpx; display: flex; align-items: center; justify-content: center;
+}
+.r6-exam-nav__back-icon { font-size: 44rpx; color: var(--qp-color-text-secondary); font-weight: 300; }
+.r6-exam-nav__title { font-size: var(--qp-font-size-body); font-weight: var(--qp-font-weight-semibold); color: var(--qp-color-ink); }
+.r6-exam-nav__spacer { width: 72rpx; }
+
+/* ===== Masthead ===== */
+.r6-exam-mast { margin-bottom: 20rpx; }
+.r6-exam-mast__kicker {
+  display: block; font-family: var(--qp-font-family-data);
+  font-size: 20rpx; font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-editorial); margin-bottom: 8rpx;
+}
+.r6-exam-mast__title {
+  display: block; font-size: 52rpx; line-height: 1; font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-ink); letter-spacing: -.01em;
+}
+.r6-exam-mast__sub {
+  display: block; margin-top: 8rpx; font-size: var(--qp-font-size-caption); color: var(--qp-color-text-secondary);
+}
+
+/* ===== Continue card ===== */
+.r6-exam-continue {
+  display: flex; align-items: center; gap: 12rpx; margin-bottom: 20rpx;
+  padding: 24rpx 28rpx; border: var(--qp-border-width) solid var(--qp-color-line);
+  border-radius: var(--qp-radius-md); background: var(--qp-color-surface);
+}
+.r6-exam-continue__body { flex: 1; min-width: 0; }
+.r6-exam-continue__kicker { display: block; font-size: 20rpx; color: var(--qp-color-primary); font-weight: var(--qp-font-weight-semibold); }
+.r6-exam-continue__text { display: block; margin-top: 6rpx; font-size: var(--qp-font-size-caption); color: var(--qp-color-text-secondary); }
+.r6-exam-continue__btn {
+  flex: none; padding: 14rpx 28rpx; border-radius: var(--qp-radius-md);
+  background: var(--qp-color-primary); color: var(--qp-color-surface);
+  font-size: var(--qp-font-size-caption); font-weight: var(--qp-font-weight-semibold);
+}
+
+/* ===== Sections ===== */
+.r6-exam-section { margin-bottom: 28rpx; }
+
+/* ===== Section label (shared) ===== */
+.r6-section-label { display: flex; align-items: center; gap: 10rpx; margin-bottom: 6rpx; }
+.r6-section-label__num {
+  font-family: var(--qp-font-family-data); font-size: 48rpx; font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-text-phantom); line-height: .8;
+}
+.r6-section-label__title { font-size: var(--qp-font-size-section-title); font-weight: var(--qp-font-weight-semibold); }
+.r6-section-label__meta { font-family: var(--qp-font-family-data); font-size: var(--qp-font-size-label); color: var(--qp-color-text-ghost); }
+.r6-section-label::after { content: ''; flex: 1; height: 1rpx; background: var(--qp-color-line); }
+
+/* ===== Stat strip ===== */
+.r6-exam-stat-strip {
+  display: flex; border-top: 1rpx solid rgba(33,31,28,0.10); border-bottom: 1rpx solid rgba(33,31,28,0.10);
+  padding: 26rpx 0; margin-bottom: 12rpx;
+}
+.r6-exam-stat-strip__box { flex: 1; text-align: center; }
+.r6-exam-stat-strip__div { width: 1rpx; background: rgba(33,31,28,0.10); }
+.r6-exam-stat-strip__num { font-family: var(--qp-font-family-data); font-size: 44rpx; font-weight: var(--qp-font-weight-semibold); color: var(--qp-color-ink); }
+.r6-exam-stat-strip__num--success { color: var(--qp-color-success); }
+.r6-exam-stat-strip__label { display: block; font-family: var(--qp-font-family-data); font-size: 20rpx; color: var(--qp-color-text-ghost); margin-top: 6rpx; }
+
+/* ===== Suggestion ===== */
+.r6-exam-suggestion { padding: 20rpx 24rpx; background: var(--qp-color-surface-muted); border-radius: var(--qp-radius-sm); margin-top: 8rpx; }
+.r6-exam-suggestion__text { font-size: var(--qp-font-size-caption); color: var(--qp-color-text-secondary); line-height: 1.45; }
+
+/* ===== Rows ===== */
+.r6-exam-row {
+  display: flex; align-items: center; gap: 12rpx; padding: 24rpx 28rpx;
+  border-radius: var(--qp-radius-md); margin-bottom: 6rpx;
+  background: var(--qp-color-surface); border: var(--qp-border-width) solid var(--qp-color-line);
+}
+.r6-exam-row--primary { background: var(--qp-color-primary-soft); border-left: 3rpx solid var(--qp-color-primary); }
+.r6-exam-row--aux { background: var(--qp-color-surface-muted); }
+.r6-exam-row__body { flex: 1; min-width: 0; }
+.r6-exam-row__name { display: block; font-size: 30rpx; font-weight: var(--qp-font-weight-semibold); color: var(--qp-color-ink); }
+.r6-exam-row__desc { display: block; margin-top: 4rpx; font-size: 22rpx; color: var(--qp-color-text-secondary); }
+.r6-exam-row__count { display: block; margin-top: 8rpx; font-family: var(--qp-font-family-data); font-size: 22rpx; color: var(--qp-color-text-ghost); }
+.r6-exam-row__action {
+  flex: none; padding: 12rpx 24rpx; border-radius: var(--qp-radius-md);
+  background: var(--qp-color-primary); color: var(--qp-color-surface);
+  font-size: var(--qp-font-size-caption); font-weight: var(--qp-font-weight-semibold);
+}
+.r6-exam-row__chev { flex: none; font-size: 32rpx; color: var(--qp-color-text-ghost); }
+.r6-exam-row__stats { flex: none; text-align: center; margin-right: 8rpx; }
+.r6-exam-row__stat-num { display: block; font-family: var(--qp-font-family-data); font-size: 28rpx; font-weight: var(--qp-font-weight-semibold); color: var(--qp-color-ink); }
+.r6-exam-row__stat-label { display: block; font-size: 18rpx; color: var(--qp-color-text-ghost); margin-top: 2rpx; }
+
+/* ===== Category rows ===== */
+.r6-exam-cat-row {
+  display: flex; align-items: center; gap: 14rpx; padding: 24rpx 8rpx;
+  border-bottom: 1rpx solid var(--qp-color-line);
+}
+.r6-exam-cat-row__letter { font-family: var(--qp-font-family-data); font-size: 24rpx; color: var(--qp-color-text-ghost); width: 32rpx; flex: none; }
+.r6-exam-cat-row__label { font-size: 30rpx; font-weight: 500; color: var(--qp-color-ink); flex: 1; }
+.r6-exam-cat-row__chev { flex: none; font-size: 32rpx; color: var(--qp-color-text-ghost); }
+
+/* ===== Empty state ===== */
+.r6-exam-empty {
+  display: flex; align-items: flex-start; gap: 16rpx; margin-top: 14rpx;
+  padding: 24rpx 28rpx; background: var(--qp-color-surface-muted); border-radius: var(--qp-radius-sm);
+}
+.r6-exam-empty__dot { width: 14rpx; height: 14rpx; border-radius: 50%; background: var(--qp-color-text-ghost); flex: none; margin-top: 6rpx; }
+.r6-exam-empty__text { font-size: 24rpx; color: var(--qp-color-text-secondary); line-height: 1.45; }
+.r6-exam-empty__bold { color: var(--qp-color-ink); font-weight: var(--qp-font-weight-semibold); }
+
+/* ===== Year selector (DC-compatible expandable list) ===== */
+.r6-exam-row__toggle {
+  flex: none; width: 48rpx; height: 48rpx; display: flex; align-items: center; justify-content: center;
+  font-size: 24rpx; color: var(--qp-color-text-ghost);
+}
+.r6-exam-year-list {
+  margin: -2rpx 0 6rpx; padding: 16rpx 28rpx 20rpx;
+  background: var(--qp-color-surface); border-radius: 0 0 var(--qp-radius-md) var(--qp-radius-md);
+  border: var(--qp-border-width) solid var(--qp-color-line); border-top: none;
+}
+.r6-exam-year-list__label {
+  display: block; font-size: 22rpx; color: var(--qp-color-text-ghost); margin-bottom: 12rpx;
+}
+.r6-exam-year-list__chips { display: flex; flex-wrap: wrap; gap: 12rpx; }
+.r6-exam-year-chip {
+  display: flex; align-items: center; gap: 8rpx; padding: 10rpx 20rpx;
+  border-radius: var(--qp-radius-sm); border: var(--qp-border-width) solid var(--qp-color-line);
+  background: var(--qp-color-surface); font-size: 24rpx;
+}
+.r6-exam-year-chip--active { background: var(--qp-color-primary-soft); border-color: var(--qp-color-primary); }
+.r6-exam-year-chip__year { font-weight: var(--qp-font-weight-semibold); color: var(--qp-color-ink); }
+.r6-exam-year-chip__count { font-family: var(--qp-font-family-data); font-size: 20rpx; color: var(--qp-color-text-ghost); }
+.r6-exam-year-chip--active .r6-exam-year-chip__year { color: var(--qp-color-primary); }

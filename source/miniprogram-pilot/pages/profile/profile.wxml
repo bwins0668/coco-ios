@@ -1,0 +1,109 @@
+<!--pages/profile/profile.wxml · R6.5 DC-authoritative profile (Frame 5) -->
+<view data-r6-active-tab="profile" class="r6-profile {{__themeDark ? 'dark-theme' : ''}}" style="padding-top: {{navSafeTop}}px;">
+  <!-- Masthead -->
+  <view class="r6-profile-mast">
+    <view>
+      <text class="r6-profile-mast__kicker">PROFILE · 我的</text>
+      <text class="r6-profile-mast__title">我的</text>
+    </view>
+    <view class="r6-profile-mast__right">
+      <text class="r6-profile-mast__date" wx:if="{{jstDateStr}}">{{jstDateStr}}</text>
+    </view>
+  </view>
+  <view class="r6-profile-rule">
+    <view class="r6-profile-rule__accent"></view>
+    <view class="r6-profile-rule__line"></view>
+  </view>
+
+  <!-- 01 学习数据 -->
+  <view class="r6-profile-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">01</text><text class="r6-section-label__title">学习数据</text></view>
+    <view class="r6-profile-stat-strip">
+      <view class="r6-profile-stat-strip__box">
+        <text class="r6-profile-stat-strip__num">{{totalAttempts}}</text>
+        <text class="r6-profile-stat-strip__label">总答题</text>
+      </view>
+      <view class="r6-profile-stat-strip__div"></view>
+      <view class="r6-profile-stat-strip__box">
+        <text class="r6-profile-stat-strip__num r6-profile-stat-strip__num--success">{{accuracy}}%</text>
+        <text class="r6-profile-stat-strip__label">正确率</text>
+      </view>
+      <view class="r6-profile-stat-strip__div"></view>
+      <view class="r6-profile-stat-strip__box">
+        <text class="r6-profile-stat-strip__num r6-profile-stat-strip__num--danger">{{wrongQuestionCount}}</text>
+        <text class="r6-profile-stat-strip__label">错题</text>
+      </view>
+    </view>
+    <view class="r6-profile-row">
+      <text class="r6-profile-row__label">已收藏术语</text>
+      <text class="r6-profile-row__value">{{favoriteCount}}</text>
+    </view>
+  </view>
+
+  <!-- 学习状态（诚实空状态 / 有数据状态） -->
+  <view class="r6-profile-section" wx:if="{{learningStatus || isNewUser}}">
+    <view class="r6-profile-card r6-profile-card--status">
+      <text class="r6-profile-card__status-text" wx:if="{{learningStatus}}">{{learningStatus}}</text>
+      <block wx:elif="{{isNewUser}}">
+        <view class="r6-profile-empty-icon"></view>
+        <text class="r6-profile-card__empty-title">还没有练习记录</text>
+        <text class="r6-profile-card__empty-desc">从首页选择 IT Passport 或 SG 方向开始练习，也可以先浏览术语表了解考试词汇。遇到重要术语可以先收藏，答错的题目会自动收录到错题本。</text>
+      </block>
+    </view>
+  </view>
+
+  <!-- 02 分类正确率 -->
+  <view class="r6-profile-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">02</text><text class="r6-section-label__title">分类正确率</text></view>
+    <view class="r6-profile-accuracy-list">
+      <view class="r6-profile-accuracy-row">
+        <text class="r6-profile-accuracy-row__label">IT Passport</text>
+        <view class="r6-profile-accuracy-row__bar">
+          <view class="r6-profile-accuracy-row__fill" style="width: {{itpassAccuracy || 0}}%"></view>
+        </view>
+        <text class="r6-profile-accuracy-row__num">{{itpassAccuracy || 0}}%</text>
+      </view>
+      <view class="r6-profile-accuracy-row">
+        <text class="r6-profile-accuracy-row__label">SG</text>
+        <view class="r6-profile-accuracy-row__bar">
+          <view class="r6-profile-accuracy-row__fill r6-profile-accuracy-row__fill--sg" style="width: {{sgAccuracy || 0}}%"></view>
+        </view>
+        <text class="r6-profile-accuracy-row__num r6-profile-accuracy-row__num--sg">{{sgAccuracy || 0}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 03 数据与设置 -->
+  <view class="r6-profile-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">03</text><text class="r6-section-label__title">数据与设置</text></view>
+    <view class="r6-profile-row r6-profile-row--link" bindtap="copyBackup">
+      <text class="r6-profile-row__label">备份与恢复</text>
+      <text class="r6-profile-row__meta">本地</text>
+      <text class="r6-profile-row__chev">›</text>
+    </view>
+    <view class="r6-profile-row r6-profile-row--link" bindtap="showHelp">
+      <text class="r6-profile-row__label">使用帮助</text>
+      <text class="r6-profile-row__chev">›</text>
+    </view>
+    <view class="r6-profile-row r6-profile-row--link" bindtap="showFeedback">
+      <text class="r6-profile-row__label">意见反馈</text>
+      <text class="r6-profile-row__chev">›</text>
+    </view>
+  </view>
+
+  <!-- Version info -->
+  <view class="r6-profile-section r6-profile-section--about">
+    <view class="r6-profile-row">
+      <text class="r6-profile-row__label">当前版本</text>
+      <text class="r6-profile-row__value r6-profile-row__value--highlight">{{version}}</text>
+    </view>
+    <text class="r6-profile-notice">当前版本为本地学习版，不含登录和云同步。收藏、错题和学习记录仅保存在本机。请定期使用"复制备份数据"保存学习进度，剪贴板仅用于用户主动备份/恢复本地数据。</text>
+  </view>
+
+  <!-- Clear data (danger zone, kept minimal) -->
+  <view class="r6-profile-section r6-profile-section--danger">
+    <view class="r6-profile-danger-btn" bindtap="clearAllData">
+      <text class="r6-profile-danger-btn__text">清空全部本地数据</text>
+    </view>
+  </view>
+</view>

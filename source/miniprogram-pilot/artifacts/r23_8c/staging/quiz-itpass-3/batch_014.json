@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q63",
+    "sourceFingerprint": "sha256:7d08b2516d7c8281eeab9a9857bf3d392a6683324c9e9da2f46f332163087805",
+    "questionZh": "关于内联网的说明，正确的是哪项？",
+    "optionsZh": {
+      "A": "利用互联网技术构建的组织内部网络",
+      "B": "公司外部任何人都可自由连接的公司内部网络",
+      "C": "多家企业间为进行电子商务而构建的网络",
+      "D": "不使用无线而仅由有线构成的网络"
+    },
+    "explanationZh": "内联网是利用互联网技术在组织内部构建的私有网络，使用与互联网相同的技术标准但范围限定于组织内部，安全性较高。选项A正确。选项B是公共开放网络的概念；选项C是外联网的概念；选项D与有线无线无关，不是内联网的定义要素。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q64",
+    "sourceFingerprint": "sha256:772e258ba2ae6e45f9ae8b4f02018d6a9035a558a6a1e7a2d8c6b93893d41e31",
+    "questionZh": "从办公室或家庭网络访问互联网时，充当与其他网络之间出入口角色的是哪项？",
+    "optionsZh": {
+      "A": "分路器",
+      "B": "默认网关",
+      "C": "集线器",
+      "D": "中继器"
+    },
+    "explanationZh": "在协议网络中，向所属网络外部发送数据时使用默认网关。默认网关是通往其他网络的出口设备（通常为路由器），数据包通过它转发到外部网络。选项B正确。分路器分离电话信号和网络信号；集线器连接多台设备形成星形网络；中继器放大衰减信号延长传输距离。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q65",
+    "sourceFingerprint": "sha256:527dc9e68abb66394de68d62c432e4ed7236c00c265082878c517a8095fab8dc",
+    "questionZh": "关于通信协议的说明，最合适的是哪项？",
+    "optionsZh": {
+      "A": "用于将电脑和打印机等设备连接到局域网的电缆集线装置",
+      "B": "在浏览器中指定的信息位置及其获取方法的描述",
+      "C": "通信中用于识别计算机的编号",
+      "D": "为通过网络进行通信而制定的约定规则集合"
+    },
+    "explanationZh": "通信协议是为实现计算机间通信而预先制定的规则集合，规定了数据格式、传输步骤、错误处理等约定。只要遵循相同的通信协议，不同硬件之间即可通信。各种标准协议均为协议实例。选项D正确。选项A描述的是集线器等硬件；选项B描述的是网址格式；选项C描述的是网络地址。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q66",
+    "sourceFingerprint": "sha256:34cf8386fbb9530e1d8e79f91a62bf007b6705171022fa0d08ccd8d90f24ff98",
+    "questionZh": "使用个人身体或行为特征进行认证，无需个人记忆信息或携带物品，但需要特殊认证装置的是哪项？",
+    "optionsZh": {
+      "A": "一次性密码认证",
+      "B": "智能卡认证",
+      "C": "生物特征认证",
+      "D": "密码认证"
+    },
+    "explanationZh": "生物特征认证利用人的身体特征（指纹、虹膜、静脉、面部等）或行为特征（笔迹、声音等）进行个人认证。优点是不需要记忆密码或携带卡片，缺点是需要专用读取装置且身体特征一旦泄露无法更改。选项C正确。选项A和D属于记忆信息类认证；选项B属于携带物品类认证。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q67",
+    "sourceFingerprint": "sha256:2dfc64c0a696e8583795fd874a5e961a50eed20a1538465258f2747f31e6384c",
+    "questionZh": "系统部分发生故障时仍能正常执行处理的措施中，正确的选项组合是哪项？",
+    "optionsZh": {
+      "A": "硬盘镜像、不间断电源",
+      "B": "硬盘镜像、双工系统",
+      "C": "硬盘镜像、双工系统、镜像加双工",
+      "D": "全部"
+    },
+    "explanationZh": "冗余化和双工化是提高系统可用性的典型措施。硬盘镜像将相同数据写入多台磁盘，即使一块磁盘故障也能继续运行。双工系统由主系统和待机系统组成，主系统故障时切换到待机系统继续处理。不间断电源虽能应对停电，但系统部分故障时无法独立维持处理。因此正确组合是硬盘镜像和双工系统。选项B正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q68",
+    "sourceFingerprint": "sha256:3dec4c4caefde635df6aad100b4aa34a06d80ca41a8916284b1eef7761f3b3b4",
+    "questionZh": "用于识别无线局域网网络的是哪项？",
+    "optionsZh": {
+      "A": "服务集标识符",
+      "B": "互联网地址",
+      "C": "物理地址",
+      "D": "默认网关"
+    },
+    "explanationZh": "服务集标识符是分配给无线接入点的网络标识符，用于区分多个无线网络。用户连接时选择对应的标识符来接入目标网络。选项A正确。互联网地址是网络中识别设备的编号；物理地址是分配给网络设备的硬件地址；默认网关是通往其他网络的出口设备地址。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q69",
+    "sourceFingerprint": "sha256:a72b4c7790f4819131a264ee97f41e4c478150591f69f624d20ff30190c008bf",
+    "questionZh": "用于全球环境模拟和基因解析等，以超高速处理大量计算为目的开发的计算机是哪项？",
+    "optionsZh": {
+      "A": "超级计算机",
+      "B": "服务器",
+      "C": "嵌入式系统",
+      "D": "个人计算机"
+    },
+    "explanationZh": "超级计算机是为实现远超一般计算机的运算性能而设计的计算机系统，主要用于科学研究领域的模拟计算、数据分析等需要大量计算的场景。地球环境模拟、基因解析、天气预报、核聚变模拟等均利用超级计算机。选项A正确。服务器是提供网络服务的计算机；嵌入式系统是嵌入特定设备中的专用控制系统；个人计算机是面向个人使用和办公的通用计算机。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q7",
+    "sourceFingerprint": "sha256:b587c01575e9d12a8deaacc76ce90b7dad9c57e86645e9c17dfd4e9311c80a35",
+    "questionZh": "设想大规模自然灾害场景编制BCP的目的，以下哪项最合适？",
+    "optionsZh": {
+      "A": "在经营资源缩减的情况下确保重要业务的持续运行",
+      "B": "保护建筑物和设备等资产",
+      "C": "确保灾区的联络手段",
+      "D": "降低引发劳动灾害的风险发生概率及其影响"
+    },
+    "explanationZh": "业务连续性计划（BCP）是在发生大地震等大规模灾害时，将经营资源受损控制在最小限度并确保重要业务持续的计划。灾害发生时员工作为经营资源会大幅减少，需筛选出必须持续的重要业务。因此BCP的目的不是保护设备的资产保全，而是确保业务在困境下持续运行。选项A正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q70",
+    "sourceFingerprint": "sha256:970435d9f11c84373fda1884512ab954536268fbf5023ab872846d69b2c97933",
+    "questionZh": "关于利用具有网络共享功能的智能手机实现电脑互联网连接的描述中，正确的是哪项？",
+    "optionsZh": {
+      "A": "智能手机通过无线局域网连接到移动通信网络，电脑通过连接该智能手机利用移动通信网络连接互联网",
+      "B": "需要为智能手机和电脑分别与移动通信运营商签订线路合同",
+      "C": "通过该连接方式，电脑可以使用与智能手机相同的通信速度进行数据通信",
+      "D": "智能手机的网络共享功能仅限Android设备可用"
+    },
+    "explanationZh": "网络共享功能是将智能手机的移动数据通信功能作为调制解调器，使电脑等外部设备通过智能手机连接到互联网的功能。电脑通过无线局域网或通用串行总线连接到智能手机，经由智能手机的移动通信线路接入互联网。选项A正确。不需要为电脑单独签订线路合同；通信速度可能受共享方式影响；网络共享功能在主流系统中均可使用。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q71",
+    "sourceFingerprint": "sha256:b3b9e57de4d9ce4653b8df5b7e92c3bb7bb7a01a5c3f705e8713e4a272375b83",
+    "questionZh": "在企业的信息安全管理体系活动中，表明公司处理的信息资产保护基本方针和做法的文件是哪项？",
+    "optionsZh": {
+      "A": "信息安全方针",
+      "B": "信息安全规程",
+      "C": "项目计划",
+      "D": "业务连续计划"
+    },
+    "explanationZh": "信息安全方针是组织在信息安全管理中表明信息资产保护基本理念和方向的最高级别文件。根据国际标准，安全方针是信息安全管理体系的最高层级战略文件，组织整体必须遵守。选项A正确。信息安全规程是具体的安全实施规则；项目计划是特定项目的推进计划；业务连续计划是灾害时的业务持续计划。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q72",
+    "sourceFingerprint": "sha256:9c7909dac93cde2afe05288b0bb11d7400835445e09c10145cea5ca26165bfff",
+    "questionZh": "关于私有互联网地址的描述中，正确的是哪项？",
+    "optionsZh": {
+      "A": "可以在互联网上自由使用",
+      "B": "在组织内部网络中可以自由使用",
+      "C": "由各国政府分配给各组织",
+      "D": "必须是互联网服务提供商分配的地址"
+    },
+    "explanationZh": "私有互联网地址是在组织内部局域网络中自由使用的地址范围，但不能直接在互联网上使用。当需要从私有地址访问互联网时，需要通过地址转换（网络地址转换）将私有地址转换为全局地址。选项B正确。私有地址不能直接在互联网上使用；私有地址不是在互联网上分配的，而是各组织自行分配的。选项A、C、D均错误。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q73",
+    "sourceFingerprint": "sha256:f304eb9f3f721317d121f72aea1e10b8bdab48a5bb5ba2077142cc5bbc39cc17",
+    "questionZh": "通过互联网进行的渗透测试可发现的漏洞示例，正确的是哪项？",
+    "optionsZh": {
+      "A": "办公桌上的便签上写着密码",
+      "B": "服务器操作系统存在未应用安全补丁的已知漏洞",
+      "C": "重要文件未被加密就保存在硬盘上",
+      "D": "出入管理松懈导致外部人员可自由进入办公室"
+    },
+    "explanationZh": "渗透测试是模拟攻击者行为、实际尝试侵入系统来评估安全性的方法。通过互联网进行的渗透测试可发现外部可访问的网络服务中的漏洞（如未应用补丁的已知漏洞、开放不必要端口等）。选项B正确。选项A、C、D是物理安全或内部安全问题，无法通过互联网渗透测试发现。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q74",
+    "sourceFingerprint": "sha256:89165e596f7a815ae27450c67eb2f7975a71131144e733c63f592e79189e74b5",
+    "questionZh": "气温表中提取2011年7月1日至8月31日期间最高气温35度以上的所有记录，正确的提取条件是哪项？",
+    "optionsZh": {
+      "A": "日期>=2011/7/1 且 日期<=2011/8/31 且 最高气温>=35",
+      "B": "日期>=2011/7/1 或 日期<=2011/8/31 且 最高气温>=35",
+      "C": "日期>=2011/7/1 且 日期<=2011/8/31 或 最高气温>=35",
+      "D": "日期=2011/7/1 且 日期=2011/8/31 且 最高气温>=35"
+    },
+    "explanationZh": "提取条件需要同时满足两个条件：日期在指定期间内且最高气温达标。日期条件为日期在7月1日至8月31日之间（日期>=2011/7/1且日期<=2011/8/31），气温条件为最高气温>=35度。两者需同时成立（逻辑与）。选项A正确。选项B使用或条件导致不符合要求；选项C先日期后气温的或运算逻辑错误；选项D仅指定两个特定日期而非期间。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q75",
+    "sourceFingerprint": "sha256:4867c52042357e78867edb0fda19fa8437160279a220355720610ca3e8c6dba2",
+    "questionZh": "在如图所示层级结构的文件系统中，从当前目录用相对路径指定文件，参照的是哪个文件？",
+    "optionsZh": {
+      "A": "文件X",
+      "B": "文件Y",
+      "C": "文件Z",
+      "D": "不存在"
+    },
+    "explanationZh": "相对路径用于指定文件。其中父目录表示移至上一级目录。通过从当前目录逐级上移再进入目标目录的方式来定位文件。根据图中层级结构，路径按指定规则解析后到达目标文件。参照图示具体目录结构判断。选项A对应解析结果。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q76",
+    "sourceFingerprint": "sha256:4dfd2aa7919eee0b7f01a9743f1196b5df8aa7c08343c979db1c476e8efc48dd",
+    "questionZh": "关于开源软件的描述中，正确的是哪项？",
+    "optionsZh": {
+      "A": "任何人都可以自由使用、修改和分发源代码",
+      "B": "必须付费才能使用",
+      "C": "修改后的代码不能再次分发",
+      "D": "仅限于个人使用，企业不能使用"
+    },
+    "explanationZh": "开源软件是基于特定许可证公开源代码的软件。只要遵守许可证规定的条件，任何人都可以自由使用、修改和再分发。代表性的开源许可证有通用公共许可证、伯克利软件发行版许可证、麻省理工学院许可证等。选项A正确。开源软件的特点是可自由使用；修改后的代码通常可在相应许可证条件下再分发；个人和企业均可使用。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q77",
+    "sourceFingerprint": "sha256:a9ce4e36d28034d7f0efb39851d662e3d5eb1cea28a5237cc56e9beb62488728",
+    "questionZh": "以下功能中，数据库管理系统应具备的功能组合是哪项？",
+    "optionsZh": {
+      "A": "病毒检查、数据检索更新",
+      "B": "病毒检查、表格规范化",
+      "C": "数据检索更新、并发控制",
+      "D": "表格规范化、病毒检查"
+    },
+    "explanationZh": "数据库管理系统的主要功能包括数据检索与更新、并发控制、故障恢复、安全管理和数据完整性维持。病毒检查属于安全软件的功能，不属于数据库管理系统；表格规范化是数据库设计阶段的工作，不是数据库管理系统的运行时功能。因此正确组合是数据检索更新和并发控制。选项C正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q78",
+    "sourceFingerprint": "sha256:779a802ddbfc9152d69ec83d389adab8a56b638318a3d3bf06294c0aa6b67c51",
+    "questionZh": "将300x600像素、每像素24位的图像转换为150x300像素、每像素8位时，数据量变为原来的多少倍？",
+    "optionsZh": {
+      "A": "1/12",
+      "B": "1/8",
+      "C": "1/4",
+      "D": "1/2"
+    },
+    "explanationZh": "原始数据量=300x600x24位。转换后数据量=150x300x8位。转换后/原始=(150x300x8)/(300x600x24)=(360000)/(4320000)=1/12。因此选项A正确。关注两个变化因子：像素数缩减为原来的(150/300)x(300/600)=1/4，每像素位数缩减为8/24=1/3，综合缩减为1/4x1/3=1/12。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q79",
+    "sourceFingerprint": "sha256:d13e7c816e914ddf206a99c3391f900e9b02b7e1092abfaaf769a6b69f43af8c",
+    "questionZh": "终端通过设置了加密协议的接入点连接到服务器时，加密协议加密的通信区间是哪部分？",
+    "optionsZh": {
+      "A": "终端与接入点之间",
+      "B": "接入点与服务器之间",
+      "C": "终端与服务器之间",
+      "D": "所有区间均不加密"
+    },
+    "explanationZh": "加密协议是无线局域网的安全标准，对无线通信区间进行加密。具体来说，加密协议加密的是终端（如电脑）与接入点之间的无线通信区间。接入点之后的有线网络区间不受加密协议保护。选项A正确。终端与服务器之间的全程加密需由传输层安全等上层协议实现。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q8",
+    "sourceFingerprint": "sha256:c06936bec33b820b791328ffcdd8ae79a2fd1d7c7ce324914e8f5577e9d3a8da",
+    "questionZh": "根据经营战略制定全公司信息系统战略，然后据此开展各系统的规划和开发工作。在信息系统战略制定阶段应完成的工作是以下哪项？",
+    "optionsZh": {
+      "A": "为实现业务目标实施各系统的规划和开发",
+      "B": "明确各业务所需的信息系统",
+      "C": "制定与信息系统战略目标保持一致的业务战略",
+      "D": "对信息系统进行现状分析和未来预测"
+    },
+    "explanationZh": "系统化推进方法分为三层。经营层根据经营战略制定全公司信息系统战略，此阶段需分析信息系统现状并预测未来趋势。之后根据信息系统战略明确各业务所需系统，最后实施个别系统的规划和开发。现状分析和未来预测是信息系统战略制定阶段的工作。选项C正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q80",
+    "sourceFingerprint": "sha256:806d231ec99451637d89965022eb985befd5bb6e889a61e342093fcaeca0a82c",
+    "questionZh": "键盘记录器、蠕虫等恶意软件的统称是哪项？",
+    "optionsZh": {
+      "A": "恶意软件",
+      "B": "间谍软件",
+      "C": "垃圾邮件",
+      "D": "广告软件"
+    },
+    "explanationZh": "恶意软件是对具有恶意行为的软件的总称，包括病毒、蠕虫、特洛伊木马、间谍软件、键盘记录器等。键盘记录器是记录用户按键输入的软件；蠕虫是自我复制并传播的软件。这些都属于恶意软件的范畴。选项A正确。间谍软件是恶意软件的一种子类；垃圾邮件不是软件；广告软件是显示广告的软件。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

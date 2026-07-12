@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ui-button": "../../../../components/ui-button/ui-button",
+    "status-badge": "../../../../components/status-badge/status-badge"
+  },
+  "navigationStyle": "custom"
+}

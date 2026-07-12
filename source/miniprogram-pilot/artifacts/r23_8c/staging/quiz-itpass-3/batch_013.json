@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q45",
+    "sourceFingerprint": "sha256:f6758cefb0ddb603a18b0dfe412871c0d2c93b2ccb5f6af1a8c52db55e7dc7d9",
+    "questionZh": "关于通用框架(Software Life Cycle Process)定义的内容，最合适的是哪个？",
+    "optionsZh": {
+      "A": "为推进软件开发及其交易的适当化，定义和标准化基本作业项目。",
+      "B": "关于软件开发规模、工时和成本的估算方法。",
+      "C": "软件开发项目管理所需的知识体系。",
+      "D": "依法制定的信息处理术语及软件产品质量和评价项目。"
+    },
+    "explanationZh": "通用框架是为推进软件开发及其交易适当化，定义和标准化基本作业项目的标准，旨在成为软件产业界「共同的标尺」。涵盖业务分析、业务设计、软件企划到开发维护及相关活动。通过标准化作业项目、范围、术语，期待达成「交易明确化」「应对国际交易」等效果。\n- 正确。通用框架的内容。\n- 通用框架不依赖特定开发模型/技法/工具，不定义估算方法。\n- PMBOK的内容。\n- JIS标准的内容。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q46",
+    "sourceFingerprint": "sha256:37b29995f47c9f2cd9c61073d3f6e35a2c8246ea2b53bd568c09816730cd0e2c",
+    "questionZh": "瀑布模型的特征说明，最合适的是哪个？",
+    "optionsZh": {
+      "A": "各开发工序的应实施作业全部完成后才进入下一工序。",
+      "B": "将开发功能分割，利用开发工具和部件对各功能高效快速开发。",
+      "C": "在开发早期制作试制品让用户以可见形式确认需求。",
+      "D": "将系统功能分割，对分割功能重复设计和开发以逐步完成系统。"
+    },
+    "explanationZh": "瀑布模型先确定整体计划和进度，按需求定义→设计→实现→测试→运维逐次推进。前工序确认完毕才进入下一工序，各工序品质易保证，适合大规模开发。弱点是后期返回修正成本高。\n- 正确。瀑布模型的特征。\n- RAD的特征。\n- 原型模型的特征。\n- 螺旋模型的特征。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q47",
+    "sourceFingerprint": "sha256:456ca0406ea5684901b67bd13147559394335826d5be4c7e4db1d7698587e3d1",
+    "questionZh": "服务提供者活动中，对提高可用性有效的是哪个？",
+    "optionsZh": {
+      "A": "测量响应时间",
+      "B": "监控故障发生",
+      "C": "管理组织使用的服务器构成",
+      "D": "记录程序修改历史"
+    },
+    "explanationZh": "提高可用性需要延长正常运转时间或缩短故障修复导致的停机时间。监控故障发生可在故障时迅速应对，有效缩短停机时间。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q48",
+    "sourceFingerprint": "sha256:63ca0dfdcdbdd667c98035ffe07a81392dd8fab5e34987f901916692ba2d81fc",
+    "questionZh": "为达成项目目标，将项目需创建的交付物及创建交付物所需作业进行细化。该活动属于项目管理的哪个知识领域？",
+    "optionsZh": {
+      "A": "项目成本管理",
+      "B": "项目范围管理",
+      "C": "项目时间管理",
+      "D": "项目风险管理"
+    },
+    "explanationZh": "项目范围管理是明确项目实施范围(Scope)，按交付物单位将项目整体层次化分解(WBS)的管理流程。目的是无遗漏地定义和控制项目所需作业。「交付物细化」是WBS的创建，属于范围管理。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q49",
+    "sourceFingerprint": "sha256:ff9227c1aca51cc9f2e767f6a182d00d42b37876ce831a57a47a86d06b5cc1c8",
+    "questionZh": "在IT服务管理流程中，判断资产管理是否适当执行的有效测量项目是哪个？",
+    "optionsZh": {
+      "A": "已解决问题件数",
+      "B": "紧急发布件数",
+      "C": "规格变更实现失败件数",
+      "D": "未使用的软件许可证数"
+    },
+    "explanationZh": "IT服务管理中资产管理是管理软件、硬件和软件许可证三类资产，以优化成本、安全和许可证等风险。经济上仅购买业务所需许可证为最优，过多的未使用许可证导致成本浪费。适当的资产管理应将未使用许可证数控制在最低限度。因此通过「未使用许可证数」可判断资产管理活动的适当性。即「D」。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q5",
+    "sourceFingerprint": "sha256:c72051eb481dcf2da54dbbafb562fbc76da61863d32d505e19d5e42fb10ff497",
+    "questionZh": "作为CRM前提的理念，最合适的是哪个？",
+    "optionsZh": {
+      "A": "率先进入竞争少的领域是利润源泉。",
+      "B": "构建和维持与客户的良好关系是利润源泉。",
+      "C": "缩短产品生命周期是利润源泉。",
+      "D": "在特定市场获得大份额是利润源泉。"
+    },
+    "explanationZh": "CRM重视与客户建立长期关系，通过提升满意度和便利性最大化客户终身价值。整合管理商谈历史、通话记录、交易实绩等所有客户信息以服务企业活动。\n- 蓝海战略的理念。\n- 正确。CRM的理念。\n- 计划性淘汰的理念。\n- 利基战略的理念。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q50",
+    "sourceFingerprint": "sha256:5ada0e169fbe46a15863e5deb31763b50be35e8df3d47a32b4b803290c49ccb6",
+    "questionZh": "某系统开发项目出现大量不良，为明确应重点解决的课题，按原因调查不良发生件数并图表化。此时应使用的适当图表是哪个？",
+    "optionsZh": {
+      "A": "特性要因图",
+      "B": "帕累托图",
+      "C": "散布图",
+      "D": "流程图"
+    },
+    "explanationZh": "帕累托图是按数值大小降序排列的柱状图加累积构成比折线图的复合图表，主要用于从多个分析对象中识别应管理的重要要素。题目中「明确应重点解决的课题」和「按原因调查件数」→适合使用帕累托图。因此「B」正确。\n- 特性要因图(鱼骨图)：系统表达结果与影响因素关系。\n- 散布图：分析两项目间相关关系。\n- 流程图：图表化作业和处理的顺序。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q51",
+    "sourceFingerprint": "sha256:447cfeac2e77b408f3c7f5971145aeebc9c5e55e7b28d8375445b3dadd2fbede",
+    "questionZh": "关于IT治理的说明，最合适的是哪个？",
+    "optionsZh": {
+      "A": "企业为构建竞争优势，控制IT战略的制定和执行、引导向应有方向的组织能力。",
+      "B": "实施和管理满足业务需求的优质IT服务。",
+      "C": "由与当事人和管理者不同的第三方验证信息系统相关风险管控是否适当构建和运营的活动。",
+      "D": "为满足项目需求，将必要知识、技能、工具和技法应用于项目活动。"
+    },
+    "explanationZh": "IT治理是企业为构建竞争优势而引导IT战略制定和执行、引导向应有方向的组织能力，是持续优化IT投资/效果/风险的组织机制。从公司治理派生，由董事会和经营层负责确保IT战略适当设定。\n- 正确。IT治理。\n- IT服务管理。\n- 系统审计。\n- 项目管理。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q52",
+    "sourceFingerprint": "sha256:a72964144f83731e38270559e91279cfb19d26d05f8875e989d039222aaff275",
+    "questionZh": "项目成立时，项目经理为进行项目运营而制作的是哪个？",
+    "optionsZh": {
+      "A": "提案征询书",
+      "B": "项目实施报告书",
+      "C": "项目管理计划书",
+      "D": "需求定义书"
+    },
+    "explanationZh": "PMBOK项目管理中，项目启动时制作项目章程并经批准后正式成立。之后进入计划流程群，各管理流程制作必要计划书，其中统合管理和调整各流程的目的而制作的是「项目管理计划书」。\n- 提案征询书(RFP)是外部采购时征求提案的文件。\n- 项目实施报告书是项目结束时制作。\n- 正确。项目管理计划书。\n- 需求定义书是项目成立前由经营层或系统化委员会制作。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q53",
+    "sourceFingerprint": "sha256:605578b946002681495ae63c2447b4f5fb795e6a0edcce2ee1b288a5e8430510",
+    "questionZh": "引入新系统时需明确硬件、软件实现范围和手工作业范围。明确这些范围的工序是哪个？",
+    "optionsZh": {
+      "A": "运行测试",
+      "B": "系统方式设计",
+      "C": "软件部署",
+      "D": "软件需求定义"
+    },
+    "explanationZh": "系统方式设计是明确实现所需系统需要的硬件构成项目、软件构成项目和手工作业的工序。定义的各项系统需求需分配到这些项目。\n- 运行测试是运维部门按业务流程测试系统。\n- 正确。系统方式设计。\n- 软件部署是制定计划并按计划将软件安装到实环境。\n- 软件需求定义是明确各软件所需功能和能力。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q54",
+    "sourceFingerprint": "sha256:67208c7b127e833e5599f45c13ad96796224ea131073fe2d8bd726eafe376af6",
+    "questionZh": "关于规定系统审计人行为规范的系统审计标准的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "为确保审计业务品质、有效且高效实施审计业务而制定的标准。",
+      "B": "在系统审计中，为在信息系统企划/开发/运维/维护全生命周期中适当构建和运营降低风险的管控而制定的标准。",
+      "C": "作为系统审计人判断信息处理现场管理适当性的尺度而制定的标准。",
+      "D": "为组织构建有效信息安全管理体制、适当构建和运营管控而制定的标准。"
+    },
+    "explanationZh": "系统审计标准是确保审计业务品质、有效且高效实施审计的审计人行为规范。由「一般标准」(审计人资格和遵守事项)、「实施标准」(审计计划和程序框架)、「报告标准」(审计报告注意事项和记载方式)构成。系统审计标准规定审计人行为，不涉及具体管理措施和判断尺度(后者在系统管理标准中规定)。\n- 正确。系统审计标准。\n- 系统管理标准。\n- 系统管理标准。\n- 信息安全管理标准。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q55",
+    "sourceFingerprint": "sha256:696ebaf9a49ca360747a705cb25edca1c113cab904105504763f4508f418936d",
+    "questionZh": "在PKI中，关于数字签名电子邮件的正确描述是哪些？\n- 接收者可以确认发送者是否为本人。\n- 可以防止邮件在途中被偷窥。\n- 接收者可以确认邮件内容未被篡改。",
+    "optionsZh": {
+      "A": "a，b",
+      "B": "a，c",
+      "C": "b，c",
+      "D": "a，b，c"
+    },
+    "explanationZh": "数字签名利用公钥密码技术保证数字文档的正当性。发送时附加数字签名，接收方可确认「发送源正当性」和「篡改有无」。但可检测篡改，无法定位和纠正。\n- 正确。通过数字证书验证公钥正当性，确认发送者本人身份。\n- 错误。数字签名防止的是「篡改」和「冒充」，不加密通信内容。\n- 正确。通过比较哈希值和发送者公钥验证签名可检测篡改。\n正确的是「a，c」，即「B」。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q56",
+    "sourceFingerprint": "sha256:00ea1c88593ced47e665106ba5dc2e6f2327ae95812ce0c43bc7d8a18bb360c6",
+    "questionZh": "以下存储介质中记录容量最大的是哪个？介质直径均为12cm。",
+    "optionsZh": {
+      "A": "BD-R",
+      "B": "CD-R",
+      "C": "DVD-R",
+      "D": "DVD-RAM"
+    },
+    "explanationZh": "BD-R单层25GB/双层50GB；CD-R为650～700MB；DVD-R单层4.7GB或双层8.5GB；DVD-RAM单面4.7GB或双面9.4GB。BD-R容量最大。因此「A」正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q57",
+    "sourceFingerprint": "sha256:112b971e33e9c07bebfeb42e0f813158db0593e597686878eeff8acca343d0f8",
+    "questionZh": "利用通信运营商构建的网络，使用与互联网相同的网络协议，在签约方场所之间以确保安全如专线般连接的WAN服务是哪个？",
+    "optionsZh": {
+      "A": "DHCP",
+      "B": "IP-VPN",
+      "C": "ISDN",
+      "D": "VLAN"
+    },
+    "explanationZh": "VPN是在共享公网上利用认证和加密技术构建安全虚拟专线的机制。特征是利用公网成本低。IP-VPN是使用运营商提供的封闭IP网络构建VPN，安全性高但成本较高，仅限IP协议。\n- DHCP是自动分配IP地址的协议。\n- 正确。IP-VPN。\n- ISDN是数字化电话网的通信服务。\n- VLAN是在交换机上按逻辑而非物理分组终端。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q58",
+    "sourceFingerprint": "sha256:0f55cef803842df5927da7b59a711a3959c661ab240e0c9d718c80ffb702a3bb",
+    "questionZh": "关于GPU的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "表示CPU每秒可执行多少亿次指令的处理能力指标。",
+      "B": "CPU为取得运算处理同步的周期性信号。",
+      "C": "设置在CPU与主存之间的、比主存读写更快的存储设备。",
+      "D": "代替CPU高速执行三维图形图像处理等的运算装置。"
+    },
+    "explanationZh": "GPU是专司图像处理的运算装置，数千个核心专攻大规模数据并行计算，补充CPU的视频播放和3DCG渲染等。近年也用于GPGPU(通用GPU计算)如科学模拟和机器学习。\n- GFLOPS的说明。\n- 时钟的说明。\n- 缓存的说明。\n- 正确。GPU的说明。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q59",
+    "sourceFingerprint": "sha256:dce464b88412077a2e6908be4be3ada4ce0bc0f8ade362e49c96e93caeb17320",
+    "questionZh": "关于公司业务用PC的OS、中间件和应用程序等适用的安全补丁，正确的是哪个？",
+    "optionsZh": {
+      "A": "应作为病毒感染的预防来适用。",
+      "B": "应在病毒感染后适用。",
+      "C": "若对现有功能满意，即使有安全补丁也无需适用。",
+      "D": "停止支持且安全补丁提供终止的软件，只要已适用了此前所有补丁就可安全使用。"
+    },
+    "explanationZh": "安全补丁是修正软件漏洞的开发方/销售方免费分发数据，目的是堵塞安全漏洞防止漏洞攻击。\n- 正确。补丁目的即为预防。\n- 补丁不是杀毒数据。\n- 不适用补丁则可能受漏洞攻击受害，应立即适用。\n- 停止支持软件的新漏洞无补丁，继续使用等于对攻击无防备。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q6",
+    "sourceFingerprint": "sha256:b2396b1882b3468a668155e59bfee51767744daa74283d0ac8ffaab7d60d7ba5",
+    "questionZh": "在系统化计划中评价信息系统的费用对效果。适当的评价指标是哪个？",
+    "optionsZh": {
+      "A": "PER",
+      "B": "ROI",
+      "C": "自有资本比率",
+      "D": "流动比率"
+    },
+    "explanationZh": "ROI(投资回报率)是效益金额除以投资额，衡量投资产生了多少利润的指标。ROI=利润÷投入资本×100。值越大收益力越强。\n- PER是市盈率。\n- 正确。ROI。\n- 自有资本比率是自有资本占总资本的比例。\n- 流动比率是流动资产与流动负债的比率，衡量短期支付能力。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q60",
+    "sourceFingerprint": "sha256:6ac8ee35b51dc9af349134fbb9a9e44cf60b64b342593b3797da76962bc39aeb",
+    "questionZh": "PC产品目录中有表列项目。关于这些项目的正确描述是哪个？",
+    "optionsZh": {
+      "A": "工作频率表示每秒发生的用于同步运算处理的信号数，CPU内部处理速度与工作频率成反比。",
+      "B": "核心数表示CPU内嵌入的承担运算处理的核心部分数，有双核CPU和四核CPU等。",
+      "C": "线程数表示应用内可同时执行线程处理的数量，越小处理越快。",
+      "D": "缓存是设在CPU内部的高速读写存储设备，二级缓存比一级缓存更靠近CPU核心。"
+    },
+    "explanationZh": "- 工作频率表示每秒时钟振荡次数，同型号CPU中频率越高处理性能越高(正比非反比)。\n- 正确。多核是在一个封装内集成多个核心，双核=2个，四核=4个。\n- 线程数越多越能高效并行处理，越小处理越快是错误的。\n- 缓存越靠近CPU速度越快、容量越小。一级缓存比二级缓存更靠近CPU。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q61",
+    "sourceFingerprint": "sha256:7da55fb2f49d83a74ea621966f008c0b4f4d2f6c814aa677a479425a3819995a",
+    "questionZh": "密码长度8字符，每字符可用M种字符时，可设定的密码总数表达式是哪个？",
+    "optionsZh": {
+      "A": "8×M",
+      "B": "8M",
+      "C": "M^8－1",
+      "D": "M^8"
+    },
+    "explanationZh": "每字符M种选择，8位密码每位独立选择，总数为M×M×M×M×M×M×M×M=M^8。因此「D」正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q62",
+    "sourceFingerprint": "sha256:a921f48c28dbc7880350c6e1756468376bed0d18cb988b6d7bfcf375ac55ac2d",
+    "questionZh": "安全风险应对分为风险转移、风险规避、风险接受和风险降低。属于风险降低的事例是哪个？",
+    "optionsZh": {
+      "A": "实施安全对策降低问题发生可能性。",
+      "B": "为防范问题发生时的损害而投保。",
+      "C": "确认风险较小，决定问题发生时自行承担损害。",
+      "D": "从风险大的服务撤退。"
+    },
+    "explanationZh": "风险转移：投保或外包将风险转移给第三方。风险规避：消除风险源使概率为零。风险降低：降低发生概率或损害。风险接受：不采取对策直接接受。\n- 正确。实施对策降低概率→风险降低。\n- 投保→风险转移。\n- 自行承担→风险接受。\n- 撤退→风险规避。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

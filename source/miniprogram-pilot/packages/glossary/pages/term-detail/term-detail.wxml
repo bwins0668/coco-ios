@@ -1,0 +1,114 @@
+<view class="page term-detail {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/glossary/pages/term-detail/term-detail">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- 返回导航 (Round 3.23) -->
+  <view class="back-nav" bindtap="onBackToSearch">
+    <text class="back-arrow">‹</text>
+    <text class="back-text">返回术语搜索</text>
+  </view>
+
+  <block wx:if="{{term}}">
+    <view class="card">
+      <view class="term-header">
+        <view class="term-title-row">
+          <text class="term-main">{{term.term}}</text>
+          <!-- R3.56 复制术语按钮 -->
+          <!-- R3.56 smoke anchor: 📋 -->
+          <view class="copy-term-btn" bindtap="copyTerm">
+            <view class="copy-term-symbol"></view>
+          </view>
+        </view>
+        <text class="level">{{term.level}}</text>
+      </view>
+
+      <text class="term-line">中文：{{term.zh}}</text>
+      <text class="term-line">日文：{{term.ja}}</text>
+      <view class="category-row" wx:if="{{categoryLabel}}">
+        <text class="category-badge">{{categoryLabel}}</text>
+      </view>
+
+      <view class="tag-row">
+        <text class="tag" wx:for="{{term.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <text class="section-title">中文解释</text>
+      <text class="paragraph">{{term.explanationZh}}</text>
+    </view>
+
+    <view class="card">
+      <text class="section-title">日本語説明</text>
+      <text class="paragraph">{{term.explanationJa}}</text>
+    </view>
+
+    <view class="card">
+      <text class="section-title">Example</text>
+      <text class="paragraph">{{exampleText}}</text>
+      <!-- R3.64 复制示例按钮 -->
+      <view class="copy-example-btn" wx:if="{{exampleText}}" bindtap="copyExample">
+        <view class="copy-example-symbol"></view>
+        <text class="copy-example-text">复制示例</text>
+      </view>
+    </view>
+
+    <!-- 学习建议 -->
+    <view class="card learning-tip-card" wx:if="{{learningTip}}">
+      <text class="section-title learning-tip-title">学习建议</text>
+      <text class="paragraph learning-tip-text">{{learningTip}}</text>
+    </view>
+
+    <!-- R3.39 相关术语推荐 -->
+    <view class="card" wx:if="{{relatedTerms.length > 0}}">
+      <text class="section-title">相关术语</text>
+      <view
+        class="related-item"
+        wx:for="{{relatedTerms}}"
+        wx:key="id"
+        bindtap="goToRelatedTerm"
+        data-id="{{item.id}}"
+      >
+        <view class="related-main">
+          <text class="related-term">{{item.term}}</text>
+          <text class="related-trans">{{item.zh}} / {{item.ja}}</text>
+        </view>
+        <text class="related-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- R3.49 学习笔记 -->
+    <view class="card" wx:if="{{isFavorite}}">
+      <text class="section-title">学习笔记</text>
+      <textarea
+        class="note-input"
+        placeholder="记录学习心得、记忆技巧..."
+        value="{{note}}"
+        bindinput="onNoteInput"
+        maxlength="500"
+      />
+      <view class="note-save-btn" bindtap="saveNote">
+        <text class="note-save-text">保存笔记</text>
+      </view>
+    </view>
+
+    <!-- 收藏按钮增强 (Round 3.23) -->
+    <view class="favorite-btn {{isFavorite ? 'favorite-btn-active' : ''}}" bindtap="onFavorite">
+      <text class="favorite-star">{{isFavorite ? '★' : '☆'}}</text>
+      <view class="favorite-info">
+        <text class="favorite-text">{{isFavorite ? '取消收藏' : '收藏术语'}}</text>
+        <text class="favorite-hint">{{isFavorite ? '已加入收藏列表，可在收藏复习中查看' : '收藏后可在我的页面查看和复习'}}</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="card">
+      <text class="section-title">术语不存在</text>
+      <text class="paragraph">请返回术语表重新选择。</text>
+    </view>
+  </block>
+</view>

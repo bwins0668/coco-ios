@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q63",
+    "sourceFingerprint": "sha256:aaa70d67e3e839fc3456029e02a15791f89ae78559bdf37be04ef68148a03889",
+    "questionZh": "为降低使PC中保存文件无法使用的勒索病毒造成的损害，正确的对策是哪个？",
+    "optionsZh": {
+      "A": "引入UPS",
+      "B": "数据加密",
+      "C": "数据备份",
+      "D": "更改登录密码"
+    },
+    "explanationZh": "勒索病毒会加密或锁定PC内数据文件以勒索赎金。支付赎金也无法保证数据恢复，感染后自行恢复困难。因此定期在其他介质备份数据是基本对策。IPA建议的主要对策：定期备份（最重要）、保持OS和软件最新、安装安全软件并保持最新、注意邮件和社交网络附件及URL。\n- UPS是停电时供电设备，不防勒索病毒。\n- 数据加密后勒索病毒会再次加密使数据无法使用。\n- 正确。定期备份是有效对策。\n- 勒索病毒通过漏洞、钓鱼邮件等途径入侵，更改密码不能防感染。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q64",
+    "sourceFingerprint": "sha256:d979aa06ddd09ce369e7337d586ee6b97048e229fa595d7e65ada369ee932b77",
+    "questionZh": "关于载波聚合(Carrier Aggregation)的说明，正确的是哪个？",
+    "optionsZh": {
+      "A": "移动中手机切换连接基站的技术",
+      "B": "提升手机通信安全功能的技术",
+      "C": "将多个不同频率的电波束合以实现无线通信高速化的技术",
+      "D": "在无线LAN中终端通过接入点通信的技术"
+    },
+    "explanationZh": "载波聚合是在移动通信中将不同频段的多个载波束合实现更高速通信的机制。Carrier意为载波，Aggregation意为聚合。同时使用多频段可集中收发更多数据，实现更快通信。从4G的LTE-Advanced开始引入。\n- 这是切换(Handover)的说明。\n- 载波聚合是提速技术，与安全无关。\n- 正确。\n- 这是基础设施模式的说明。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q65",
+    "sourceFingerprint": "sha256:77f4ae40737201c3c065156f789f9817bb9baae79913b12e6764af0a0c562e2f",
+    "questionZh": "关于DNS服务器的角色，正确的是哪个？",
+    "optionsZh": {
+      "A": "中继LAN上PC对互联网Web服务器的请求，代PC访问并返回响应。",
+      "B": "从PC接收文件收发请求并传输文件。",
+      "C": "自动为PC分配IP地址，通知子网掩码和默认网关IP。",
+      "D": "将域名转换为IP地址，或将IP地址转换为域名。"
+    },
+    "explanationZh": "DNS将域名/主机名与IP地址对应进行名称解析。TCP/IP网络中通过IP地址识别节点，但IP地址难记，故赋予域名。DNS服务器保持IP与域名的关系，按需相互转换。\n- 代理服务器。\n- FTP服务器。\n- DHCP服务器。\n- 正确。DNS服务器。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q66",
+    "sourceFingerprint": "sha256:a1bbe54d17233bed1a676849b0d3df7dd793df1b0e180e0d564479462e046182",
+    "questionZh": "操作应用软件时，通过问答对话形式使繁琐操作变简单的功能是哪个？",
+    "optionsZh": {
+      "A": "归档",
+      "B": "向导(Wizard)",
+      "C": "自动补全",
+      "D": "弹出窗口"
+    },
+    "explanationZh": "向导是逐步回答问题使复杂操作变简单的对话式界面。用于OS首次启动、软件安装、商品订购等多项目设定场景。特点是分步显示而非一次显示所有设置项目。软件安装时的「同意许可→选择安装位置→确认设置→安装」流程即典型例子。Wizard语源为「魔法师/贤者」，意为引导用户不迷路的向导。\n- 归档：整理保管大量数据或将多文件汇总为一个。\n- 正确。向导是按用户回答逐步引导复杂操作的对话式操作支持功能。\n- 自动补全：输入首几个字符时从输入历史中自动补全的辅助功能。\n- 弹出窗口：在当前画面上方显示的小窗口，用于通知、警告、确认等。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q67",
+    "sourceFingerprint": "sha256:9c6a299b3fbe9938e6303b8d4b3c144ff778902860af475c73d437e698481061",
+    "questionZh": "过程sort接收元素数≥2的整数数组numberArray，将其按升序排列并输出。为确认动作，在过程中间输出j值和workArray全部元素。数组numberArray为{3,5,1,2,4}，调用sort(numberArray)时，j值输出为3之后立即输出的workArray全部元素是哪个？元素编号从1开始。",
+    "optionsZh": {
+      "A": "1,2,3,4,5",
+      "B": "1,2,3,5,4",
+      "C": "4,5,3,2,1",
+      "D": "5,4,3,2,1"
+    },
+    "explanationZh": "程序使用双重循环实现选择排序：外层j从1到4，内层k找最小值位置并交换。跟踪执行：初始{3,5,1,2,4}；j=1时找最小值1(位置3)，交换1和3→{1,5,3,2,4}；j=2时找最小值2(位置4)，交换5和2→{1,2,3,5,4}；j=3时找最小值3(位置3)，不变→{1,2,3,5,4}。j=3输出后workArray为{1,2,3,5,4}。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q68",
+    "sourceFingerprint": "sha256:e94e670988504ccce69bd1dd8d4c3e692875c8789ec4d6c5ec59ba2c50ec316a",
+    "questionZh": "邮件软件收发电子邮件使用的协议组合，正确的是哪个？",
+    "optionsZh": {
+      "A": "发送:POP3 接收:IMAP4",
+      "B": "发送:IMAP4 接收:SMTP",
+      "C": "发送:SMTP 接收:POP3",
+      "D": "发送:SMTP 接收:IMAP4或POP3"
+    },
+    "explanationZh": "三种邮件协议：IMAP4在服务器上管理邮件，支持多端统一管理和选择接收；POP3从服务器取回邮件到本地；SMTP用于发送邮件和服务器间转发。发送用SMTP，接收用POP3或IMAP4。因此「D」正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q69",
+    "sourceFingerprint": "sha256:5b3cf7230c46eaeafff889afa73df6c74d08d3c4ffba265271d8de8eb6c1f9b2",
+    "questionZh": "关于关系数据库中数据规范化，下列描述中a和b应填入的字句的正确组合是哪个？\n\n规范化的主要目的是消除数据重复，a。规范化有多个阶段，推进会b。",
+    "optionsZh": {
+      "A": "a：提升数据独立性 b：表的数量逐渐减少",
+      "B": "a：提升数据独立性 b：表的数量逐渐增加",
+      "C": "a：维持数据一致性 b：表的数量逐渐增加",
+      "D": "a：维持数据一致性 b：表的数量逐渐减少"
+    },
+    "explanationZh": "数据库规范化是为消除数据重复和矛盾，在保持数据关联的同时将数据分解为多个表的工作。a：目的为减少数据重复，使更新/追加/删除时不易产生不一致，即维持数据一致性。b：规范化按规则将一个表分解为多个表→表的数量增加。因此「C」正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q7",
+    "sourceFingerprint": "sha256:2d17f053e1ed44f7b944bf8807799c27d0ed7da03dba831c0834f3940b032c7d",
+    "questionZh": "有价值工程(VE)这一方法以功能与成本的关系把握产品和服务价值、提升价值。价值工程中价值、功能、成本的关系式正确的是哪个？",
+    "optionsZh": {
+      "A": "价值＝功能/(成本＋功能)",
+      "B": "价值＝功能/成本",
+      "C": "价值＝功能×成本",
+      "D": "价值＝成本/功能"
+    },
+    "explanationZh": "价值工程将抽象的「价值」概念公式化为：价值(Value)＝功能(Function)/成本(Cost)。即功能越高、成本越低，价值越高。VE不仅削减成本，而是在维持/提升必要功能的同时降低成本，或同成本下提升功能来提升价值。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q70",
+    "sourceFingerprint": "sha256:bf1cd9e5b40c3ab4f417b231148c44061220fde61b4377ee90a64a09f8d5de63",
+    "questionZh": "关于ISMS中信息安全事件管理，正确的描述是哪个？",
+    "optionsZh": {
+      "A": "安全事件需随机应变，因此不事先文档化应对步骤而是记录实际应对内容。",
+      "B": "从安全事件获得的知识为防止模仿，不用于强化信息安全管理措施。",
+      "C": "安全事象无需等待评估，在报告时点即被分类为安全事件。",
+      "D": "安全事象应事先准备联络路径和机制，以便迅速向适当管理者报告。"
+    },
+    "explanationZh": "- 安全事件必须按文档化步骤进行应对，不能仅依赖临场判断。\n- 从事件分析解决获得的知识应用于强化管理措施。\n- 安全事象需先评估再决定是否分类为事件，非报告即分类。安全事象是可能影响信息安全的各类事情，与事件在ISMS中有区别。\n- 正确。安全事象应通过联络路径尽快报告给适当管理者，需事先准备报告步骤（包括报告对象、路径、时机、格式等）。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q71",
+    "sourceFingerprint": "sha256:70a9543904daf0722f3922a273d4bfc6dad7c2f5bfd70d3d5ca6dea176420db1",
+    "questionZh": "作为网银等网站使用的基于风险的认证的例子，正确的是哪个？",
+    "optionsZh": {
+      "A": "用户使用不同于平常登录的PC登录时，追加进行只有本人知道的秘密问题认证。",
+      "B": "用户登录后画面操作一定时间无响应，自动登出并要求重新登录。",
+      "C": "用户登录时连续多次输入错误密码，锁定账户。",
+      "D": "用户登录密码长期未更改，提示更改密码。"
+    },
+    "explanationZh": "基于风险的认证分析用户登录行为和环境，当检测到与平常不同的使用环境（IP地址、ISP、OS、浏览器等）时，在常规认证基础上追加其他认证。仅对非法登录风险高的访问追加认证，兼顾便利性和安全性。追加认证方式包括一次性密码、秘密问题、短信认证、生物认证等。因此「A」正确。\n- 正确。基于风险的认证。\n- 会话超时。\n- 账户锁定。\n- 密码策略/密码有效期。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q72",
+    "sourceFingerprint": "sha256:a0e8e9cb7ed03c485e7e227ef10c27f491b01469f00cdaa2b803397dc35095e4",
+    "questionZh": "关系数据库管理「账户」表、「客户」表和「交易明细」表。新客户开户同时存入1万日元时，向表中添加数据的正确顺序是哪个？下划线实线为主键，虚线为外键。",
+    "optionsZh": {
+      "A": "账户→客户→交易明细",
+      "B": "客户→账户→交易明细",
+      "C": "客户→交易明细→账户",
+      "D": "交易明细→账户→客户"
+    },
+    "explanationZh": "外键约束下，参照表中不能注册参照目标列中不存在的值。本题中「交易明细」参照「账户」，「账户」参照「客户」。不参照其他表的表优先注册：先「客户」→再「账户」→最后「交易明细」。因此「B」正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q73",
+    "sourceFingerprint": "sha256:d6ee61208edc327e95abf158cd4473fd12b0b07130ea3ed03b8805557a6ac4d0",
+    "questionZh": "关于OSS许可证中的著佐权，正确的描述是哪个？",
+    "optionsZh": {
+      "A": "OSS的作者放弃了软件著作权。",
+      "B": "OSS著作权人必须要求用户为使用软件支付金钱对价。",
+      "C": "用户修改后创建的派生软件可以不公开修改部分源代码进行分发。",
+      "D": "用户修改后创建的派生软件分发时，必须适用与原OSS相同的许可证。"
+    },
+    "explanationZh": "著佐权是在保持著作权的同时，保证使用、修改、再分发的自由，并强制派生作品也保持同样自由的许可证形态。目的是防止软件被独占性修改和销售，保护自由使用环境。代表例为GNU GPL。\n- 著作权未放弃。著佐权基于著作权对用户规定使用条件。\n- 著佐权软件可自由使用，收费无限制但不常见。\n- 著佐权强制派生作品也开源，不可非公开修改部分代码分发。\n- 正确。派生软件也须在相同许可证条件下允许自由利用、修改和再分发。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q74",
+    "sourceFingerprint": "sha256:4bde146002fb76c2b82a7152b5399150d8ca3bb41d00c3b32667d83f83f03faf",
+    "questionZh": "用电子表格求两个2位二进制数α、β的和。B3,C3为α的2位和1位，B4,C4为β的2位和1位。例α=10,β=11。结果按4位、2位、1位顺序显示在A5,B5,C5。B2存1位进位信息，公式为IF(C3+C4=2,1,0)。B5应输入的公式是哪个？",
+    "optionsZh": {
+      "A": "IF(SUM(B2:B4)<2,SUM(B2:B4),IF(SUM(B2:B4)=2,0,1))",
+      "B": "IF(SUM(B2:B4)<2,SUM(B2:B4),IF(SUM(B2:B4)=2,1,0))",
+      "C": "IF(SUM(B2:B4)>2,SUM(B2:B4),IF(SUM(B2:B4)=2,0,1))",
+      "D": "IF(SUM(B2:B4)>2,SUM(B2:B4),IF(SUM(B2:B4)=2,1,0))"
+    },
+    "explanationZh": "2位计算按B2~B4合计值分4种情况：0→0、1→1、2→0(进位)、3→1(进位)。合计<2时直接输出合计值(0或1)。合计≥2时，=2输出0，=3输出1。\n「A」：<2直接输出，=2输出0，否则(=3)输出1→正确。\n「B」：=2输出1→错误。\n「C」和「D」：>2条件不正确（应为<2）。因此「A」正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q75",
+    "sourceFingerprint": "sha256:2d2f12d56e13957f5942d790ec4d72857f2ea41e74fde51239a6f3dbe0b8e2cd",
+    "questionZh": "关于电子邮件收件人输入中Bcc栏的描述，正确的是哪个？",
+    "optionsZh": {
+      "A": "Bcc栏输入的地址不会收到To栏和Cc栏输入的地址通知。",
+      "B": "Bcc栏输入的地址会自动接收加密的邮件。",
+      "C": "Bcc栏输入的地址会收到附件被删除的邮件。",
+      "D": "To栏和Cc栏输入的地址不会收到Bcc栏输入的地址通知。"
+    },
+    "explanationZh": "To：主收件人；Cc(Carbon Copy)：抄送，所有收件人可互相看到地址；Bcc(Blind Carbon Copy)：密送，Bcc地址对其他收件人不可见。\n- Bcc收件人能看到To和Cc地址。\n- Bcc与加密无关。\n- Bcc收件人收到相同内容，附件不自动删除。\n- 正确。Bcc栏地址对To/Cc/其他Bcc收件人均不可见。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q76",
+    "sourceFingerprint": "sha256:cf840e06b4781403fb77732e9a40f6ac908ec82288e8f2ac731f66a9debdb938",
+    "questionZh": "关于IoT设备使用的LPWA，下列描述中a和b应填入的字句的正确组合是哪个？\n\nLPWA无线通信方式的特点是：通信范围比无线LAN a，功耗比4G b。",
+    "optionsZh": {
+      "A": "a：窄 b：多",
+      "B": "a：窄 b：少",
+      "C": "a：广 b：多",
+      "D": "a：广 b：少"
+    },
+    "explanationZh": "LPWA(Low Power Wide Area)即低功耗广域网，通信速度低于1kbps但可达数km至数十km。IoT中大量传感器交换少量数据，速度不重要但省电性被重视。\na：通信范围数km~数十km，远大于无线LAN的约100m→广。\nb：功耗远低于4G，纽扣电池可运行数年到数十年→少。因此「D」正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q77",
+    "sourceFingerprint": "sha256:8c651976168742a91f20cbf28e70f42a9c7623252df0060659ec2ca7c7d61163",
+    "questionZh": "某企业原用密码管理服务器机房出入，现追加虹膜认证装置更可靠防止未经许可者进入。这属于提升信息安全的哪个要素？",
+    "optionsZh": {
+      "A": "可用性",
+      "B": "完整性",
+      "C": "机密性",
+      "D": "不可否认性"
+    },
+    "explanationZh": "可用性：需要时可使用；完整性：信息完整未被篡改；机密性：仅授权用户可访问；不可否认性：操作和事件可证明不可否认。引入虹膜认证是防止无权限者进入服务器机房，防止对信息资产的非法访问，属于提升机密性。因此「C」正确。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q78",
+    "sourceFingerprint": "sha256:501624a423c33794732a09fbe575ac8a8570924a8173d61ccd789987167e5b5b",
+    "questionZh": "由IoT设备和IoT服务器构成、IoT设备测量室外温度发送给服务器、根据服务器指示开关窗的系统。IoT设备中负责将室外温度转换为电信号的是什么？",
+    "optionsZh": {
+      "A": "执行器",
+      "B": "边缘计算",
+      "C": "载波聚合",
+      "D": "传感器"
+    },
+    "explanationZh": "- 执行器根据控制器指示执行物理动作（伸缩、旋转等），如风扇、自动门、机器臂等。\n- 边缘计算是在靠近用户/终端的网络端点进行数据处理的系统形态。\n- 载波聚合是束合多载波实现高速通信的技术。\n- 正确。传感器是将温度、光、声音、位置、运动等物理信息转换为电信号或数字信息的部件，是IoT中把握设备状态的重要组成部分。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q79",
+    "sourceFingerprint": "sha256:24370233cca7a4e0dd673212633641143cb49b95a769b50443eb0ddc35a47bea",
+    "questionZh": "在企业风险管理的一环推进网络安全风险对策中，对经营者要求的角色最合适的是哪个？",
+    "optionsZh": {
+      "A": "将各部门的网络安全风险应对方针的制定和执行全部交给IT部门安全负责人。",
+      "B": "任命CISO作为实施安全对策的负责人，将执行和判断全部交给他。",
+      "C": "通过审议实施方针、分配预算和人才、确认实施状况及把握和应对问题，亲自发挥领导力。",
+      "D": "将本公司组织和业务的风险分析及对策推进的权限和责任委托给外部经营顾问。"
+    },
+    "explanationZh": "经营者应将网络安全风险视为自身应负责的经营风险，在自身领导下制定组织全体的应对方针。即使向负责人指示也应定期确认实施状况发挥领导力。经济产业省「网络安全经营指南」也指出「不允许将责任完全推给CISO等负责人」。「丸投げ」不可取。\n- 不应将策定和执行全部交给负责人。\n- CISO可获部分权限，但最终责任仍在经营者。\n- 正确。经营者应通过审议方针、分配预算人才、确认实施状况和应对问题发挥领导力。\n- 即使外部委托，风险管理和对策推进的组织判断仍应由经营者以自身权限和责任进行，不可委托外部。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q8",
+    "sourceFingerprint": "sha256:14c0a97ade587a56dcb3bdf247eb8587628718c5b42b5075c8fc4e24f0b78404",
+    "questionZh": "作为利用IoT系统的案例，最合适的是哪个？",
+    "optionsZh": {
+      "A": "在资金筹措中，通过互联网中介不特定多数的借款人和贷款人。",
+      "B": "从社交媒体帖子和客服中心通话内容中分析用户对商品和服务的情绪。",
+      "C": "将店铺和工厂等设备上安装的传感器信息通过互联网收集，员工用智能手机监控设备状况。",
+      "D": "将保存文件和图像等的互联网存储作为服务提供。"
+    },
+    "explanationZh": "IoT是将非信息终端的电子设备和机器接入互联网并搭载传感器，使设备间交换信息或收集处理信息以实现监控、控制、优化等新附加价值的机制。IoT的判断要点：非信息终端物品接入互联网、通过传感器获取物理信息并通过互联网收集利用数据。\n- 众筹的说明。\n- 情感分析的说明。\n- 正确。将建筑设备等非信息终端接入互联网，通过传感器获取信息实现远程监控→典型IoT案例。\n- 在线存储的说明。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "08_HARU_Q80",
+    "sourceFingerprint": "sha256:09f908a280d6cd59163c9530351de9452d6235040833074c5f7f50271266991d",
+    "questionZh": "关于生物特征认证，下列描述中a和b应填入的字句的正确组合是哪个？\n\n开始设计使用生物特征认证的系统时，需要明确系统目的和认证用途，制定认证精度设定方针。他人接受率设为a时是重视安全性的认证，本人拒绝率设为b时是重视本人便利性的认证。",
+    "optionsZh": {
+      "A": "a：高 b：高",
+      "B": "a：高 b：低",
+      "C": "a：低 b：高",
+      "D": "a：低 b：低"
+    },
+    "explanationZh": "生物认证通过计算机比对，产生他人接受率（误将他人认作本人）和本人拒绝率（误将本人认作他人），二者存在权衡关系：降低他人接受率→本人拒绝率上升；降低本人拒绝率→他人接受率上升。\na：他人接受率低→安全性高。b：本人拒绝率低→便利性高。因此a=低、b=低，即「D」。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_ONLY_VERIFIABLE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

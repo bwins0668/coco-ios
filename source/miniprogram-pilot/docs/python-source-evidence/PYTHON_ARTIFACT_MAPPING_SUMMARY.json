@@ -1,0 +1,68 @@
+{
+  "generatedBy": "map_python_artifacts_to_source.js (scratchpad, reproducible — see reproduction doc)",
+  "totalLessonRecords": 699,
+  "totalAssetSpecs": 391,
+  "assetSpecsLinkedToLesson": 391,
+  "mappingStatusDistribution": {
+    "FULLTEXT_LINKED": 674,
+    "AMBIGUOUS": 21,
+    "UNMAPPED": 4
+  },
+  "mappingConfidenceDistribution": {
+    "MEDIUM": 674,
+    "LOW": 21,
+    "NONE": 4
+  },
+  "releaseEligibilityDistribution": {
+    "ALREADY_RELEASED": 9,
+    "ELIGIBLE_FOR_NEXT_AUDIT_BATCH": 665,
+    "BLOCKED_BY_SOURCE_EVIDENCE": 25
+  },
+  "byBook": {
+    "book1-crash-course": {
+      "total": 20,
+      "fulltext": 20,
+      "ambiguous": 0,
+      "unmapped": 0
+    },
+    "book2-automate": {
+      "total": 446,
+      "fulltext": 425,
+      "ambiguous": 21,
+      "unmapped": 0
+    },
+    "UNMAPPED": {
+      "total": 4,
+      "fulltext": 0,
+      "ambiguous": 0,
+      "unmapped": 4
+    },
+    "book3-playground": {
+      "total": 229,
+      "fulltext": 229,
+      "ambiguous": 0,
+      "unmapped": 0
+    }
+  },
+  "publishedRuntimeCount": 9,
+  "writtenNotPublished": 690,
+  "unmappedLessonIds": [
+    {
+      "lessonId": "python-0281-5edbad32-第-步-获取命令行参数-并请求查找页面",
+      "sourceUnitId": "py-src-0281-5edbad32-第-步-获取命令行参数-并请求查找页面"
+    },
+    {
+      "lessonId": "python-0282-82fe0bb2-第-步-找到所有的结果",
+      "sourceUnitId": "py-src-0282-82fe0bb2-第-步-找到所有的结果"
+    },
+    {
+      "lessonId": "python-0409-81ac6d72-16-2-2-发送smtp的-hello-消息",
+      "sourceUnitId": "py-src-0409-81ac6d72-16-2-2-发送smtp的-hello-消息"
+    },
+    {
+      "lessonId": "python-0431-83cb7e87-16-7-项目-只给我发短信-模块",
+      "sourceUnitId": "py-src-0431-83cb7e87-16-7-项目-只给我发短信-模块"
+    }
+  ],
+  "ambiguousCount": 21
+}

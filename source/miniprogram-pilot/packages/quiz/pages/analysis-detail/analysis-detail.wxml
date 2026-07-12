@@ -1,0 +1,67 @@
+<!-- packages/quiz/pages/analysis-detail/analysis-detail.wxml -->
+<view class="analysis-page secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/quiz/pages/analysis-detail/analysis-detail">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <block wx:if="{{hasQuestion}}">
+    <view class="analysis-head">
+      <text class="analysis-kicker">ANALYSIS · 解析详情</text>
+      <text class="analysis-title">日文题干</text>
+      <text class="analysis-source">{{sourceLabel}}</text>
+    </view>
+
+    <view class="analysis-block analysis-block--primary">
+      <text class="block-label">日文题干</text>
+      <text class="question-ja" user-select="true">{{question.questionJa}}</text>
+      <text class="block-label block-label--spaced">中文辅助</text>
+      <text class="question-zh" user-select="true">{{question.questionZh}}</text>
+    </view>
+
+    <view class="analysis-block">
+      <view class="answer-row">
+        <text class="block-label">正确答案</text>
+        <status-badge tone="success" value="{{question.answer}}"></status-badge>
+      </view>
+      <view class="answer-row" wx:if="{{selectedAnswer}}">
+        <text class="block-label">你的答案</text>
+        <status-badge tone="{{isCorrect ? 'success' : 'danger'}}" value="{{selectedAnswer}}"></status-badge>
+      </view>
+    </view>
+
+    <view class="analysis-block">
+      <text class="block-label">逐项排错</text>
+      <view class="option-line" wx:for="{{question.options}}" wx:key="key">
+        <text class="option-key {{item.key === question.answer ? 'option-key--answer' : ''}}">{{item.key}}</text>
+        <view class="option-copy">
+          <text class="option-text" user-select="true">{{item.textJa}}</text>
+          <text class="option-text option-text--zh" user-select="true">{{item.textZh}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="analysis-block">
+      <text class="block-label">补足内容</text>
+      <text class="analysis-text" user-select="true">{{question.explanationZh}}</text>
+      <text class="analysis-text analysis-text--ja" wx:if="{{question.explanationJa}}" user-select="true">{{question.explanationJa}}</text>
+    </view>
+
+    <view class="tag-row">
+      <status-badge tone="neutral" label="知识点" value="{{question.category || '未分类'}}"></status-badge>
+      <status-badge tone="primary" label="来源" value="{{question.sourceType}}"></status-badge>
+    </view>
+
+    <view class="analysis-actions">
+      <ui-button variant="primary" text="返回复习" bind:qptap="goBackReview"></ui-button>
+      <ui-button variant="secondary" text="进入错题本" bind:qptap="goMistakes"></ui-button>
+    </view>
+  </block>
+
+  <view class="analysis-empty" wx:else>
+    <text class="analysis-title">暂无解析内容</text>
+    <text class="analysis-source">请从答题页或错题页进入完整解析。</text>
+    <ui-button variant="secondary" text="返回复习" bind:qptap="goBackReview"></ui-button>
+  </view>
+</view>

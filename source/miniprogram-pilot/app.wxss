@@ -1,0 +1,702 @@
+/* ============================================================
+   app.wxss — cold monochrome design system
+   Sections: tokens · reset · dark mode · layout · typography
+             · surfaces · buttons · tags · inputs · states
+             · quiz/glossary components · symbols · legacy bars
+             · preview marker
+   ============================================================ */
+
+/* ---- 1. Design tokens ---- */
+page {
+  /* Color tokens */
+  --bg-color: #F2EDE0;
+  --bg-surface: #F4F3EF;
+  --card-bg: #FFFDF5;
+  --card-bg-elevated: #FFFDF5;
+  --text-primary: #1A1410;
+  --text-secondary: #6F6B65;
+  --text-hint: #8A7060;
+  --text-inverse: #FFFDF5;
+  --border-color: rgba(33,31,28,.08);
+  --border-strong: rgba(33,31,28,.14);
+  --divider-color: rgba(33,31,28,.08);
+  --press-bg: #E8DFC8;
+  --active-bg: rgba(55,65,138,.05);
+  --disabled-bg: rgba(33,31,28,.10);
+  --disabled-text: #C9C4BD;
+
+  /* Accent tokens: cold, quiet, low saturation */
+  --primary-color: #37418A;
+  --primary-light: #ECEEF6;
+  --primary-dark: #2C3676;
+  --accent-ice: #ECEEF6;
+  --accent-ink: #1A1410;
+  --color-success: #4E8A5E;
+  --color-success-light: #EAF1EC;
+  --color-warning: #8A7060;
+  --color-warning-light: #FBF1E9;
+  --color-error: #BE5750;
+  --color-error-light: #F7ECEB;
+  --color-info: #37418A;
+  --color-info-light: #ECEEF6;
+
+  /* Legacy semantic hooks kept monochrome for existing pages */
+  --color-itpass: #516376;
+  --color-itpass-light: rgba(81, 99, 118, 0.08);
+  --color-sg: #5d6672;
+  --color-sg-light: rgba(93, 102, 114, 0.08);
+  --color-anki: #4a5563;
+  --color-anki-light: rgba(74, 85, 99, 0.08);
+  --color-glossary: #53616f;
+  --color-glossary-light: rgba(83, 97, 111, 0.08);
+  --color-mistakes: #6b5960;
+  --color-mistakes-light: rgba(107, 89, 96, 0.08);
+  --color-profile: #555d67;
+  --color-profile-light: rgba(85, 93, 103, 0.08);
+
+  /* Spacing */
+  --space-xs: 8rpx;
+  --space-sm: 16rpx;
+  --space-md: 24rpx;
+  --space-lg: 32rpx;
+  --space-xl: 48rpx;
+  --space-2xl: 64rpx;
+
+  /* Radius */
+  --radius-sm: 8rpx;
+  --radius-md: 14rpx;
+  --radius-lg: 18rpx;
+  --radius-xl: 24rpx;
+  --radius-full: 999rpx;
+
+  /* Elevation */
+  --shadow-sm: 0 1rpx 2rpx rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 12rpx 30rpx rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 22rpx 54rpx rgba(15, 23, 42, 0.09);
+  --shadow-inner: inset 0 1rpx 0 rgba(255, 255, 255, 0.7);
+
+  /* Type scale */
+  --font-xs: 20rpx;
+  --font-sm: 22rpx;
+  --font-base: 26rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-2xl: 42rpx;
+  --font-3xl: 52rpx;
+
+  /* Motion */
+  --transition-fast: 0.12s ease;
+  --transition-normal: 0.18s ease;
+  --transition-slow: 0.28s ease;
+
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* ---- 2. Element reset ---- */
+view,
+text,
+button,
+input,
+textarea,
+scroll-view {
+  box-sizing: border-box;
+}
+
+button::after {
+  border: none;
+}
+
+/* ---- 3. Dark mode tokens ---- */
+@media (prefers-color-scheme: dark) {
+  page {
+    --bg-color: #0d1117;
+    --bg-surface: #111820;
+    --card-bg: #141b24;
+    --card-bg-elevated: #17202b;
+    --text-primary: #edf1f6;
+    --text-secondary: #aab3bf;
+    --text-hint: #6f7a88;
+    --text-inverse: #0d1117;
+    --border-color: #27313d;
+    --border-strong: #3a4654;
+    --divider-color: #1e2732;
+    --press-bg: #1c2632;
+    --active-bg: #223040;
+    --disabled-bg: #18212b;
+    --disabled-text: #596575;
+    --primary-color: #93c5fd;
+    --primary-light: rgba(147, 197, 253, 0.12);
+    --primary-dark: #dbeafe;
+    --accent-ice: #9dbbe0;
+    --accent-ink: #f8fafc;
+    --color-success: #8ca99a;
+    --color-success-light: rgba(140, 169, 154, 0.12);
+    --color-warning: #b1a080;
+    --color-warning-light: rgba(177, 160, 128, 0.12);
+    --color-error: #b18a90;
+    --color-error-light: rgba(177, 138, 144, 0.12);
+    --color-info: #96a8bd;
+    --color-info-light: rgba(150, 168, 189, 0.12);
+    --shadow-sm: 0 1rpx 2rpx rgba(0, 0, 0, 0.22);
+    --shadow-md: 0 12rpx 32rpx rgba(0, 0, 0, 0.28);
+    --shadow-lg: 0 22rpx 54rpx rgba(0, 0, 0, 0.34);
+    --shadow-inner: inset 0 1rpx 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .ui-card-soft {
+    background: rgba(255, 255, 255, 0.035);
+  }
+}
+
+/* ---- 3b. JS-driven dark mode fallback ---- */
+.dark-theme {
+  --bg-color: #0d1117;
+  --bg-surface: #111820;
+  --card-bg: #141b24;
+  --card-bg-elevated: #17202b;
+  --text-primary: #edf1f6;
+  --text-secondary: #aab3bf;
+  --text-hint: #6f7a88;
+  --text-inverse: #0d1117;
+  --border-color: #27313d;
+  --border-strong: #3a4654;
+  --divider-color: #1e2732;
+  --press-bg: #1c2632;
+  --active-bg: #223040;
+  --disabled-bg: #18212b;
+  --disabled-text: #596575;
+  --primary-color: #93c5fd;
+  --primary-light: rgba(147, 197, 253, 0.12);
+  --primary-dark: #dbeafe;
+  --accent-ice: #9dbbe0;
+  --accent-ink: #f8fafc;
+  --color-success: #8ca99a;
+  --color-success-light: rgba(140, 169, 154, 0.12);
+  --color-warning: #b1a080;
+  --color-warning-light: rgba(177, 160, 128, 0.12);
+  --color-error: #b18a90;
+  --color-error-light: rgba(177, 138, 144, 0.12);
+  --color-info: #96a8bd;
+  --color-info-light: rgba(150, 168, 189, 0.12);
+  --shadow-sm: 0 1rpx 2rpx rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 12rpx 32rpx rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 22rpx 54rpx rgba(0, 0, 0, 0.34);
+  --shadow-inner: inset 0 1rpx 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .ui-card-soft {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* ---- 4. Page layout ---- */
+.container {
+  min-height: 100vh;
+  padding: 20rpx 0;
+  background: var(--bg-color);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.ui-page {
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.ui-section {
+  padding: 0 28rpx;
+  margin-top: 24rpx;
+}
+
+/* ---- 5. Typography ---- */
+.ui-title {
+  display: block;
+  font-size: var(--font-2xl);
+  font-weight: 760;
+  line-height: 1.18;
+  color: var(--text-primary);
+}
+
+.ui-subtitle {
+  display: block;
+  margin-top: 6rpx;
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.ui-caption,
+.ui-help {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--text-hint);
+  line-height: 1.55;
+}
+
+/* ---- 6. Surfaces / cards ---- */
+.card,
+.ui-card {
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.ui-card-elevated {
+  background: var(--card-bg-elevated);
+  border: 1rpx solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.ui-hairline {
+  border: 1rpx solid var(--border-color);
+}
+
+.ui-divider {
+  height: 1rpx;
+  background: var(--divider-color);
+}
+
+.ui-card-strong {
+  background: var(--card-bg-elevated);
+  border: 1rpx solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.ui-card-soft {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1rpx solid var(--divider-color);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+.ui-row {
+  display: flex;
+  align-items: center;
+}
+
+.ui-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ui-meta {
+  display: block;
+  font-size: var(--font-xs);
+  color: var(--text-hint);
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+/* ---- 7. Buttons ---- */
+.btn-primary,
+.ui-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  padding: 0 42rpx;
+  border-radius: var(--radius-full);
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border: 1rpx solid var(--text-primary);
+  box-shadow: 0 14rpx 32rpx rgba(17, 24, 39, 0.16);
+  transition: transform var(--transition-fast), opacity var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-secondary,
+.ui-btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  padding: 0 42rpx;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1rpx solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), opacity var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-danger,
+.ui-btn-danger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  padding: 0 42rpx;
+  border-radius: var(--radius-full);
+  background: var(--color-error-light);
+  color: var(--color-error);
+  border: 1rpx solid rgba(138, 95, 100, 0.32);
+  transition: transform var(--transition-fast), opacity var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.ui-btn-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76rpx;
+  padding: 0 30rpx;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1rpx solid var(--border-color);
+  transition: transform var(--transition-fast), opacity var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-danger:active,
+.ui-btn-primary:active,
+.ui-btn-secondary:active,
+.ui-btn-danger:active,
+.ui-btn-ghost:active,
+.ui-pressable:active {
+  transform: translateY(2rpx) scale(0.97);
+  opacity: 0.9;
+}
+
+.btn-primary-text,
+.btn-secondary-text,
+.btn-danger-text,
+.ui-btn-text {
+  font-size: var(--font-base);
+  font-weight: 680;
+}
+
+.btn-primary-text,
+.btn-danger-text {
+  color: var(--text-inverse);
+}
+
+.btn-secondary-text {
+  color: var(--text-primary);
+}
+
+/* ---- 8. Tags / pills ---- */
+.tag,
+.ui-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42rpx;
+  padding: 0 18rpx;
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 620;
+  color: var(--text-secondary);
+  background: rgba(81, 99, 118, 0.07);
+  border: 1rpx solid rgba(81, 99, 118, 0.12);
+}
+
+.tag-itpass,
+.tag-sg,
+.tag-anki,
+.tag-glossary,
+.tag-mistakes,
+.tag-profile {
+  color: var(--text-secondary);
+  background-color: rgba(81, 99, 118, 0.07);
+  border-color: rgba(81, 99, 118, 0.12);
+}
+
+.ui-pill-active,
+.is-active {
+  color: var(--text-primary);
+  background: var(--active-bg);
+  border-color: var(--border-strong);
+}
+
+/* ---- 9. Inputs / search ---- */
+.ui-input {
+  min-height: 84rpx;
+  padding: 0 28rpx;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  color: var(--text-primary);
+  font-size: var(--font-base);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ui-input-focus,
+.ui-input:focus {
+  border-color: var(--border-strong);
+  background: var(--card-bg-elevated);
+  box-shadow: 0 0 0 4rpx rgba(143, 183, 232, 0.12);
+}
+
+.ui-search {
+  display: flex;
+  align-items: center;
+  min-height: 88rpx;
+  padding: 0 24rpx;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.ui-search:active,
+.ui-search-focus {
+  border-color: var(--border-strong);
+  background: var(--card-bg-elevated);
+}
+
+/* ---- 10. States ---- */
+.is-disabled,
+.ui-disabled {
+  opacity: 0.52;
+  color: var(--disabled-text);
+  background: var(--disabled-bg);
+}
+
+.is-loading,
+.ui-loading {
+  opacity: 0.76;
+}
+
+.ui-empty,
+.ui-error,
+.ui-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48rpx 32rpx;
+  border-radius: var(--radius-xl);
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.ui-error {
+  background: var(--color-error-light);
+  color: var(--color-error);
+  border-color: rgba(138, 95, 100, 0.24);
+}
+
+.ui-success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+  border: 1rpx solid rgba(95, 127, 106, 0.24);
+}
+
+.ui-warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+  border: 1rpx solid rgba(139, 123, 93, 0.24);
+}
+
+.ui-progress {
+  height: 8rpx;
+  background: var(--divider-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.ui-progress-bar {
+  height: 100%;
+  min-width: 0;
+  border-radius: inherit;
+  background: var(--text-primary);
+  transition: width var(--transition-slow);
+}
+
+/* ---- 11. Quiz / glossary / review components ---- */
+.ui-question {
+  padding: 32rpx;
+  border-radius: var(--radius-xl);
+  background: var(--card-bg-elevated);
+  border: 1rpx solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.ui-option {
+  display: flex;
+  align-items: flex-start;
+  min-height: 96rpx;
+  padding: 24rpx;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.ui-option:active {
+  transform: translateY(2rpx) scale(0.985);
+  background: var(--press-bg);
+  border-color: var(--border-strong);
+}
+
+.ui-option-selected {
+  background: var(--active-bg);
+  border-color: var(--border-strong);
+}
+
+.ui-option-correct {
+  background: var(--color-success-light);
+  border-color: rgba(95, 127, 106, 0.32);
+}
+
+.ui-option-wrong {
+  background: var(--color-error-light);
+  border-color: rgba(138, 95, 100, 0.32);
+}
+
+.ui-explanation {
+  padding: 28rpx;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 1rpx solid var(--divider-color);
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.ui-term-card {
+  background: var(--card-bg);
+  border: 1rpx solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.ui-flashcard {
+  background: var(--card-bg-elevated);
+  border: 1rpx solid var(--border-color);
+  border-radius: 28rpx;
+  box-shadow: var(--shadow-md);
+}
+
+.ui-danger-zone {
+  background: var(--card-bg);
+  border: 1rpx solid rgba(138, 95, 100, 0.28);
+  border-radius: var(--radius-lg);
+}
+
+/* ---- 12. Geometric symbol system ---- */
+.ui-symbol {
+  position: relative;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 16rpx;
+  border: 2rpx solid currentColor;
+  color: var(--text-primary);
+  background: rgba(17, 24, 39, 0.02);
+  overflow: hidden;
+}
+
+.ui-symbol::before,
+.ui-symbol::after {
+  content: '';
+  position: absolute;
+  border-color: currentColor;
+}
+
+.ui-symbol-line::before {
+  left: 14rpx;
+  right: 14rpx;
+  top: 26rpx;
+  height: 2rpx;
+  background: currentColor;
+}
+
+.ui-symbol-dot::after {
+  width: 8rpx;
+  height: 8rpx;
+  right: 11rpx;
+  bottom: 11rpx;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ui-symbol-grid {
+  position: relative;
+}
+
+.ui-symbol-grid::before {
+  left: 13rpx;
+  top: 13rpx;
+  width: 10rpx;
+  height: 10rpx;
+  background: currentColor;
+  box-shadow: 20rpx 0 0 currentColor, 0 20rpx 0 currentColor, 20rpx 20rpx 0 currentColor;
+}
+
+.ui-symbol-ring::before {
+  left: 13rpx;
+  top: 13rpx;
+  width: 24rpx;
+  height: 24rpx;
+  border: 2rpx solid currentColor;
+  border-radius: 50%;
+}
+
+.ui-symbol-book::before {
+  left: 14rpx;
+  top: 12rpx;
+  width: 18rpx;
+  height: 30rpx;
+  border-left: 2rpx solid currentColor;
+  border-right: 2rpx solid currentColor;
+}
+
+/* ---- 13. Legacy color-bar hooks (kept subdued) ---- */
+.bar-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3rpx;
+  border-radius: inherit;
+  background: rgba(81, 99, 118, 0.24);
+}
+
+.bar-top-itpass::before,
+.bar-top-sg::before,
+.bar-top-anki::before,
+.bar-top-glossary::before,
+.bar-top-mistakes::before,
+.bar-top-profile::before {
+  background: rgba(81, 99, 118, 0.24);
+}
+
+.bar-left {
+  position: relative;
+  overflow: hidden;
+  border-left: 4rpx solid var(--border-strong);
+}
+
+.bar-left-success {
+  border-left-color: var(--color-success);
+}
+
+.bar-left-warning {
+  border-left-color: var(--color-warning);
+}
+
+.bar-left-error {
+  border-left-color: var(--color-error);
+}
+
+.bar-left-info {
+  border-left-color: var(--color-info);
+}

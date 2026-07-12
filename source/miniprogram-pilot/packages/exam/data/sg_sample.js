@@ -1,0 +1,80 @@
+// packages/exam/data/sg_sample.js
+// SG 情報セキュリティマネジメント 样本题库（sample/mock 数据，非官方真题）
+// 用于验证题库协议结构，后续替换为 IPA 官方公开过去问题
+
+var sgSample = [
+  {
+    id: "q-sg-sample-001",
+    exam: "sg",
+    source: "official_ipa",
+    sourceLabel: "sample/mock - 情報セキュリティマネジメント過去問 風 情報セキュリティ",
+    year: null,
+    season: null,
+    questionNo: null,
+    category: "テクノロジ系",
+    subcategory: "セキュリティ",
+    tags: ["CIA", "機密性"],
+    difficulty: "basic",
+    promptJa: "情報セキュリティの3要素のうち、情報が漏洩していないことを保証する性質はどれですか。",
+    choicesJa: ["完全性", "機密性", "可用性", "真正性"],
+    answer: "B",
+    explanationZh: "機密性（Confidentiality）は情報の漏洩防止を保証する。完全性は改ざん防止、可用性は正規利用者のアクセス保証、真正性は発信者の同一性保証。",
+    explanationJa: "機密性（Confidentiality）は情報の漏洩防止を保証する。完全性は改ざん防止、可用性は正規利用者のアクセス保証、真正性は発信者の同一性保証。",
+    whyWrongZh: "A: 完全性は改ざん防止。C: 可用性は正規利用者のアクセス保証。D: 真正性は発信者の同一性保証。",
+    whyWrongJa: "A: 完全性は改ざん防止。C: 可用性は正規利用者のアクセス保証。D: 真正性は発信者の同一性保証。",
+    relatedGlossaryIds: [],
+    relatedAnkiCardIds: [],
+    modifiedFromOriginal: false,
+    note: "样本数据，用于验证 schema 结构"
+  },
+  {
+    id: "q-sg-sample-002",
+    exam: "sg",
+    source: "official_ipa",
+    sourceLabel: "sample/mock - 情報セキュリティマネジメント過去問 風 ISMS",
+    year: null,
+    season: null,
+    questionNo: null,
+    category: "マネジメント系",
+    subcategory: "ISMS",
+    tags: ["ISMS", "ISO/IEC 27001"],
+    difficulty: "basic",
+    promptJa: "情報セキュリティマネジメントシステム（ISMS）の国際規格はどれですか。",
+    choicesJa: ["ISO/IEC 20000", "ISO/IEC 27001", "ISO 9001", "ISO 14001"],
+    answer: "B",
+    explanationZh: "ISO/IEC 27001はISMSの要求事項を定める国際規格。ISO/IEC 20000はITサービスマネジメント、ISO 9001は品質マネジメント、ISO 14001は環境マネジメント。",
+    explanationJa: "ISO/IEC 27001はISMSの要求事項を定める国際規格。ISO/IEC 20000はITサービスマネジメント、ISO 9001は品質マネジメント、ISO 14001は環境マネジメント。",
+    whyWrongZh: "A: ISO/IEC 20000はITサービスマネジメント。C: ISO 9001は品質マネジメント。D: ISO 14001は環境マネジメント。",
+    whyWrongJa: "A: ISO/IEC 20000はITサービスマネジメント。C: ISO 9001は品質マネジメント。D: ISO 14001は環境マネジメント。",
+    relatedGlossaryIds: [],
+    relatedAnkiCardIds: [],
+    modifiedFromOriginal: false,
+    note: "样本数据，用于验证 schema 结构"
+  },
+  {
+    id: "q-sg-sample-003",
+    exam: "sg",
+    source: "official_ipa",
+    sourceLabel: "sample/mock - 情報セキュリティマネジメント過去問 風 リスク管理",
+    year: null,
+    season: null,
+    questionNo: null,
+    category: "マネジメント系",
+    subcategory: "リスクマネジメント",
+    tags: ["リスク評価", "脅威"],
+    difficulty: "basic",
+    promptJa: "情報セキュリティにおける「脅威」とはどれですか。",
+    choicesJa: ["脆弱性の悪用可能性", "資産に影響を与える可能性のある事象", "リスクの発生確率", "セキュリティ対策の不足"],
+    answer: "B",
+    explanationZh: "脅威（Threat）は資産に影響を与える可能性のある事象。脆弱性（Vulnerability）は悪用される可能性のある弱点。リスクは脅威×脆弱性×影響。",
+    explanationJa: "脅威（Threat）は資産に影響を与える可能性のある事象。脆弱性（Vulnerability）は悪用される可能性のある弱点。リスクは脅威×脆弱性×影響。",
+    whyWrongZh: "A: これは脆弱性の定義。C: これはリスクの発生確率の要素。D: これは脆弱性の一種。",
+    whyWrongJa: "A: これは脆弱性の定義。C: これはリスクの発生確率の要素。D: これは脆弱性の一種。",
+    relatedGlossaryIds: [],
+    relatedAnkiCardIds: [],
+    modifiedFromOriginal: false,
+    note: "样本数据，用于验证 schema 结构"
+  }
+];
+
+module.exports = sgSample;

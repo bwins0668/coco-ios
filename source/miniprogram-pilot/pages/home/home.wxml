@@ -1,0 +1,124 @@
+<!--pages/home/home.wxml · R6.5 DC-authoritative course home (Frame 1 Continue) -->
+<view data-r6-active-tab="course" class="cc-home {{__themeDark ? 'dark-theme' : ''}}" style="padding-top: {{navSafeTop}}px;">
+  <!-- Masthead: JST era date + streak -->
+  <view class="cc-mast">
+    <view>
+      <text class="cc-mast__kicker">课程 · 学习</text>
+      <text class="cc-mast__title">课程</text>
+    </view>
+    <view class="cc-mast__right">
+      <text class="cc-mast__date" wx:if="{{jstDateStr}}">{{jstDateStr}}</text>
+      <text class="cc-mast__streak" wx:if="{{streakCount > 0}}">连续 <text class="cc-mast__streak__num cc-mast__meta__num">{{streakCount}}</text> 天</text>
+    </view>
+  </view>
+  <view class="cc-rule">
+    <view class="cc-rule__accent"></view>
+    <view class="cc-rule__line"></view>
+  </view>
+
+  <!-- Continue hero (shown when hasLastAttempt) -->
+  <view class="cc-hero" wx:if="{{hasLastAttempt}}">
+    <view class="cc-hero__top">
+      <text class="cc-hero__kicker">上次练习</text>
+      <text class="cc-hero__time" wx:if="{{lastMetaText}}">{{lastMetaText}}</text>
+    </view>
+    <text class="cc-hero__title">{{lastExamLabel}}</text>
+    <text class="cc-hero__sub" wx:if="{{lastSourceLabel}}">{{lastSourceLabel}} · ITパスポート試験</text>
+    <view class="cc-hero__actions">
+      <view class="cc-btn cc-btn--primary" bindtap="continueLearning">继续练习 <text class="cc-btn__arrow">→</text></view>
+      <view class="cc-btn cc-btn--outline" bindtap="goReview">今日复习</view>
+    </view>
+  </view>
+
+  <!-- Start state (no practice yet) — DC GROUP 4 Frame -->
+  <view class="cc-hero cc-hero--start" wx:else>
+    <text class="cc-hero__kicker">START · 开始学习</text>
+    <text class="cc-hero__title">选择考试，开始训练</text>
+    <text class="cc-hero__sub">请选择要备考的考试</text>
+    <view class="cc-hero__exam-pick">
+      <view class="cc-hero__exam-opt cc-hero__exam-opt--primary" bindtap="goItPassport">IT Passport</view>
+      <view class="cc-hero__exam-opt" bindtap="goSG">SG 信息安全</view>
+    </view>
+    <view class="cc-hero__actions">
+      <view class="cc-btn cc-btn--primary" bindtap="goPractice">开始第一组练习 <text class="cc-btn__arrow">→</text></view>
+    </view>
+  </view>
+
+  <!-- 01 资格考试 (primary path, per DC frame) -->
+  <view class="cc-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">01</text><text class="cc-section__title">资格考试</text><text class="r6-section-label__meta" wx:if="{{examCourses.length > 0}}">{{examCourses.length}} 考试</text></view>
+    <view class="cc-exam-list">
+      <block wx:for="{{examCourses}}" wx:key="id">
+        <view wx:if="{{item.availability === 'available'}}" class="cc-exam-row r6-exam-row {{index === 0 ? 'cc-exam-row--primary' : ''}}" bindtap="goToCourse" data-course-id="{{item.id}}" hover-class="cc-exam-row--pressed">
+          <view class="cc-exam-row__body">
+            <text class="cc-exam-row__name">{{item.displayName}}</text>
+            <text class="cc-exam-row__desc">{{item.description}}</text>
+          </view>
+          <view class="cc-exam-row__action" wx:if="{{index === 0}}" catchtap="goToPractice" data-course-id="{{item.id}}">→</view>
+          <view class="cc-exam-row__chev" wx:else>›</view>
+        </view>
+        <view wx:else class="cc-exam-row cc-exam-row--muted">
+          <view class="cc-exam-row__body">
+            <text class="cc-exam-row__name">{{item.displayName}}</text>
+            <text class="cc-exam-row__desc">{{item.description}}</text>
+          </view>
+          <text class="cc-exam-row__badge">准备中</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 02 课程学习 (即将开放, honest) -->
+  <view class="cc-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">02</text><text class="cc-section__title">课程学习</text><text class="r6-section-label__meta">Java / Python / SQL 已开放</text></view>
+    <view class="r6-course-strip">
+      <view class="r6-course-strip__item r7-java-course-entry"
+        bindtap="openJavaCourse"
+        hover-class="r6-course-strip__item--pressed">
+        <view class="r7-java-course-entry__top">
+          <text class="r6-course-strip__abbr">Ja</text>
+          <text class="r7-java-course-entry__pill">面向零基础</text>
+        </view>
+        <text class="r6-course-strip__name">Java</text>
+        <text class="r6-course-strip__desc">{{javaCourseSummary.titleJa}} / {{javaCourseSummary.titleZh}}</text>
+        <text class="r7-java-course-entry__meta">{{javaCourseSummary.chapterCount}} 章节 · {{javaCourseSummary.sectionCount}} 小节 · 双语讲解</text>
+      </view>
+      <view class="r6-course-strip__item r8-python-course-entry"
+        bindtap="goToCourse" data-course-id="python"
+        hover-class="r6-course-strip__item--pressed">
+        <view class="r8-python-course-entry__top">
+          <text class="r6-course-strip__abbr">Py</text>
+          <text class="r8-python-course-entry__pill">面向零基础</text>
+        </view>
+        <text class="r6-course-strip__name">Python</text>
+        <text class="r6-course-strip__desc">{{pythonCourseSummary.titleJa}} / {{pythonCourseSummary.titleZh}}</text>
+        <text class="r8-python-course-entry__meta">{{pythonCourseSummary.sectionCount}} 小节 · 双语讲解</text>
+      </view>
+      <view class="r6-course-strip__item r7-java-course-entry"
+        bindtap="openSqlCourse"
+        hover-class="r6-course-strip__item--pressed">
+        <view class="r7-java-course-entry__top">
+          <text class="r6-course-strip__abbr">SQL</text>
+          <text class="r7-java-course-entry__pill">实操判定</text>
+        </view>
+        <text class="r6-course-strip__name">SQL 数据库</text>
+        <text class="r6-course-strip__desc">{{sqlCourseSummary.titleJa}} / {{sqlCourseSummary.titleZh}}</text>
+        <text class="r7-java-course-entry__meta">{{sqlCourseSummary.totalChapters}} 章节 · 第 1 课已开放 · 双语讲解</text>
+      </view>
+      <block wx:for="{{languageCourses}}" wx:key="id">
+        <view class="r6-course-strip__item {{item.availability === 'planned' ? 'r6-course-strip__item--planned' : ''}}"
+          bindtap="goToCourse" data-course-id="{{item.id}}"
+          hover-class="r6-course-strip__item--pressed">
+          <text class="r6-course-strip__abbr">{{item.abbr || '--'}}</text>
+          <text class="r6-course-strip__name">{{item.displayName}}</text>
+        </view>
+      </block>
+      <view class="r6-course-strip__badge">算法基础准备中</view>
+    </view>
+  </view>
+
+  <!-- Back to top -->
+  <view class="cc-backtop" wx:if="{{showBackToTop}}" bindtap="scrollToTop">
+    <text class="cc-backtop__icon">↑</text>
+  </view>
+</view>

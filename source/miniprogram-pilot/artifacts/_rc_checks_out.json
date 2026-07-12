@@ -1,0 +1,283 @@
+{
+  "success": true,
+  "ok": true,
+  "totalChecks": 19,
+  "passedChecks": 19,
+  "failedChecks": 0,
+  "durationMs": 17073,
+  "environment": {
+    "node": "v24.16.0",
+    "cwd": "G:\\项目\\study-tools-miniprogram-quizzh-pilot"
+  },
+  "checks": [
+    {
+      "index": 1,
+      "name": "Subpackage registry",
+      "ok": true,
+      "durationMs": 46,
+      "command": "node tools/check_subpackage_registry.js"
+    },
+    {
+      "index": 2,
+      "name": "P0 release dependency closure",
+      "ok": true,
+      "durationMs": 51,
+      "command": "node tools/check_p0_release_dependency_closure.js"
+    },
+    {
+      "index": 3,
+      "name": "P0 content truthfulness",
+      "ok": true,
+      "durationMs": 38,
+      "command": "node tools/check_flashcard_p0_content_truthfulness.js"
+    },
+    {
+      "index": 4,
+      "name": "Content compliance",
+      "ok": true,
+      "durationMs": 270,
+      "command": "node tools/check_content_compliance.js"
+    },
+    {
+      "index": 5,
+      "name": "Quiz explanations",
+      "ok": true,
+      "durationMs": 118,
+      "command": "node tools/check_quiz_explanations.js"
+    },
+    {
+      "index": 6,
+      "name": "Package size audit",
+      "ok": true,
+      "durationMs": 74,
+      "command": "node tools/audit_miniprogram_package_size.js"
+    },
+    {
+      "index": 7,
+      "name": "Architecture boundaries",
+      "ok": true,
+      "durationMs": 39,
+      "command": "node tools/check_architecture_boundaries.js"
+    },
+    {
+      "index": 8,
+      "name": "Practice tab boundaries",
+      "ok": true,
+      "durationMs": 38,
+      "command": "node tools/check_practice_boundaries.js"
+    },
+    {
+      "index": 9,
+      "name": "Legacy nav contracts",
+      "ok": true,
+      "durationMs": 36,
+      "command": "node tools/check_legacy_navigation_contracts.js"
+    },
+    {
+      "index": 10,
+      "name": "Tab read models",
+      "ok": true,
+      "durationMs": 42,
+      "command": "node tools/check_tab_read_models.js"
+    },
+    {
+      "index": 11,
+      "name": "Flashcards boundaries",
+      "ok": true,
+      "durationMs": 40,
+      "command": "node tools/check_flashcards_boundaries.js"
+    },
+    {
+      "index": 12,
+      "name": "Profile commands",
+      "ok": true,
+      "durationMs": 35,
+      "command": "node tools/check_profile_command_boundaries.js"
+    },
+    {
+      "index": 13,
+      "name": "Home streak contract",
+      "ok": true,
+      "durationMs": 38,
+      "command": "node tools/check_home_streak_contract.js"
+    },
+    {
+      "index": 14,
+      "name": "Release packaging",
+      "ok": true,
+      "durationMs": 146,
+      "command": "node tools/check_release_packaging.js"
+    },
+    {
+      "index": 15,
+      "name": "Textbook course content",
+      "ok": true,
+      "durationMs": 154,
+      "command": "node tools/check_textbook_course_content.js"
+    },
+    {
+      "index": 16,
+      "name": "Textbook course fidelity",
+      "ok": true,
+      "durationMs": 95,
+      "command": "node tools/check_textbook_course_fidelity.js --all"
+    },
+    {
+      "index": 17,
+      "name": "SG course knowledge golden",
+      "ok": true,
+      "durationMs": 57,
+      "command": "node tools/check_sg_course_knowledge.js --all"
+    },
+    {
+      "index": 18,
+      "name": "Textbook productization",
+      "ok": true,
+      "durationMs": 232,
+      "command": "node tools/check_textbook_productization.js --all"
+    },
+    {
+      "index": 19,
+      "name": "JS syntax",
+      "ok": true,
+      "durationMs": 15523,
+      "command": "node --check (inline)"
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "name": "Subpackage registry",
+      "ok": true,
+      "durationMs": 46,
+      "command": "node tools/check_subpackage_registry.js"
+    },
+    {
+      "index": 2,
+      "name": "P0 release dependency closure",
+      "ok": true,
+      "durationMs": 51,
+      "command": "node tools/check_p0_release_dependency_closure.js"
+    },
+    {
+      "index": 3,
+      "name": "P0 content truthfulness",
+      "ok": true,
+      "durationMs": 38,
+      "command": "node tools/check_flashcard_p0_content_truthfulness.js"
+    },
+    {
+      "index": 4,
+      "name": "Content compliance",
+      "ok": true,
+      "durationMs": 270,
+      "command": "node tools/check_content_compliance.js"
+    },
+    {
+      "index": 5,
+      "name": "Quiz explanations",
+      "ok": true,
+      "durationMs": 118,
+      "command": "node tools/check_quiz_explanations.js"
+    },
+    {
+      "index": 6,
+      "name": "Package size audit",
+      "ok": true,
+      "durationMs": 74,
+      "command": "node tools/audit_miniprogram_package_size.js"
+    },
+    {
+      "index": 7,
+      "name": "Architecture boundaries",
+      "ok": true,
+      "durationMs": 39,
+      "command": "node tools/check_architecture_boundaries.js"
+    },
+    {
+      "index": 8,
+      "name": "Practice tab boundaries",
+      "ok": true,
+      "durationMs": 38,
+      "command": "node tools/check_practice_boundaries.js"
+    },
+    {
+      "index": 9,
+      "name": "Legacy nav contracts",
+      "ok": true,
+      "durationMs": 36,
+      "command": "node tools/check_legacy_navigation_contracts.js"
+    },
+    {
+      "index": 10,
+      "name": "Tab read models",
+      "ok": true,
+      "durationMs": 42,
+      "command": "node tools/check_tab_read_models.js"
+    },
+    {
+      "index": 11,
+      "name": "Flashcards boundaries",
+      "ok": true,
+      "durationMs": 40,
+      "command": "node tools/check_flashcards_boundaries.js"
+    },
+    {
+      "index": 12,
+      "name": "Profile commands",
+      "ok": true,
+      "durationMs": 35,
+      "command": "node tools/check_profile_command_boundaries.js"
+    },
+    {
+      "index": 13,
+      "name": "Home streak contract",
+      "ok": true,
+      "durationMs": 38,
+      "command": "node tools/check_home_streak_contract.js"
+    },
+    {
+      "index": 14,
+      "name": "Release packaging",
+      "ok": true,
+      "durationMs": 146,
+      "command": "node tools/check_release_packaging.js"
+    },
+    {
+      "index": 15,
+      "name": "Textbook course content",
+      "ok": true,
+      "durationMs": 154,
+      "command": "node tools/check_textbook_course_content.js"
+    },
+    {
+      "index": 16,
+      "name": "Textbook course fidelity",
+      "ok": true,
+      "durationMs": 95,
+      "command": "node tools/check_textbook_course_fidelity.js --all"
+    },
+    {
+      "index": 17,
+      "name": "SG course knowledge golden",
+      "ok": true,
+      "durationMs": 57,
+      "command": "node tools/check_sg_course_knowledge.js --all"
+    },
+    {
+      "index": 18,
+      "name": "Textbook productization",
+      "ok": true,
+      "durationMs": 232,
+      "command": "node tools/check_textbook_productization.js --all"
+    },
+    {
+      "index": 19,
+      "name": "JS syntax",
+      "ok": true,
+      "durationMs": 15523,
+      "command": "node --check (inline)"
+    }
+  ],
+  "failures": []
+}

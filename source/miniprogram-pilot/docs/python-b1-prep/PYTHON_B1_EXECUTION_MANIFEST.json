@@ -1,0 +1,359 @@
+{
+  "batch": "Book1 ch10-20",
+  "count": 11,
+  "note": "ALL 11 candidates have PLACEHOLDER content (contentReality=PLACEHOLDER_SCAFFOLD); next round is FULL AUTHORING from source, not draft audit.",
+  "records": [
+    {
+      "lessonId": "python-0016-3a01ec9d-第-10-章-文件和异常",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0016-python-0016-3a01ec9d-第-10-章-文件和异常.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0016-3a01ec9d-第-10-章-文件和异常",
+        "source: text00001.html#nav_point_216 (textHash bdd66f724514, 64 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "packages/python-course-foundations-b/data/chapters/<new-or-extended-chapter>.js (or a new foundations-c package)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<lesson body in a chapter data file>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "maybe (new package/subpackage if chapter split)",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-basics-runnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "STDIN_STDOUT_RUNNABLE_CANDIDATE"
+    },
+    {
+      "lessonId": "python-0017-fbf9e623-第-11-章-测试代码",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0017-python-0017-fbf9e623-第-11-章-测试代码.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0017-fbf9e623-第-11-章-测试代码",
+        "source: text00001.html#nav_point_244 (textHash 94d4f5edba9a, 20 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "packages/python-course-foundations-b/data/chapters/<new-or-extended-chapter>.js (or a new foundations-c package)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<lesson body in a chapter data file>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "maybe (new package/subpackage if chapter split)",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-basics-runnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "STDIN_STDOUT_RUNNABLE_CANDIDATE"
+    },
+    {
+      "lessonId": "python-0020-809422bc-第-12-章-武装飞船",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0020-python-0020-809422bc-第-12-章-武装飞船.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0020-809422bc-第-12-章-武装飞船",
+        "source: text00001.html#nav_point_259 (textHash c07599b93ffc, 33 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0021-659f0ecc-第-13-章-外星人来了",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0021-python-0021-659f0ecc-第-13-章-外星人来了.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0021-659f0ecc-第-13-章-外星人来了",
+        "source: text00001.html#nav_point_294 (textHash 055faa59c73a, 38 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0022-76eb0652-第-14-章-记分",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0022-python-0022-76eb0652-第-14-章-记分.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0022-76eb0652-第-14-章-记分",
+        "source: text00001.html#nav_point_322 (textHash 67f55d715393, 51 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0024-1d0bf0bb-第-15-章-生成数据",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0024-python-0024-1d0bf0bb-第-15-章-生成数据.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0024-1d0bf0bb-第-15-章-生成数据",
+        "source: text00001.html#nav_point_346 (textHash e14fa4367eef, 35 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0025-2a9640b1-第-16-章-下载数据",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0025-python-0025-2a9640b1-第-16-章-下载数据.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0025-2a9640b1-第-16-章-下载数据",
+        "source: text00001.html#nav_point_373 (textHash 13289bf5b826, 39 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0026-ce415e36-第-17-章-使用api",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0026-python-0026-ce415e36-第-17-章-使用api.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0026-ce415e36-第-17-章-使用api",
+        "source: text00001.html#nav_point_399 (textHash 0ea33e75633a, 23 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0028-0baea43b-第-18-章-从django入手",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0028-python-0028-0baea43b-第-18-章-从django入手.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0028-0baea43b-第-18-章-从django入手",
+        "source: text00001.html#nav_point_416 (textHash 4538df881212, 43 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0029-3b60fe5a-第-19-章-用户账户",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0029-python-0029-3b60fe5a-第-19-章-用户账户.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0029-3b60fe5a-第-19-章-用户账户",
+        "source: text00001.html#nav_point_442 (textHash d344783f2781, 38 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    },
+    {
+      "lessonId": "python-0030-8429462f-第-20-章-设置应用程序的样式并部署",
+      "artifactSourceFiles": [
+        "artifacts/python-course-authoring-corpus/lessons/0030-python-0030-8429462f-第-20-章-设置应用程序的样式并部署.json",
+        "docs/python-b1-prep/PYTHON_B1_SOURCE_EVIDENCE_PACK.json#python-0030-8429462f-第-20-章-设置应用程序的样式并部署",
+        "source: text00001.html#nav_point_462 (textHash fba8bac7c8e3, 40 code blocks)"
+      ],
+      "futureRuntimeTargetFiles": [
+        "UNDECIDED — project chapter is not stdin/stdout runnable; needs a non-executable \"walkthrough\" lesson type or deferral (architectural decision required before authoring)"
+      ],
+      "sharedFiles": [
+        "packages/python-course/data/python-source-manifest.js (releaseVisibility.visibleCourseLessonIds)",
+        "utils/python-public-course-summary.js (visibleLessonIds + pathLabel)",
+        "utils/course-registry.js (pythonVisibleLessonIds)",
+        "packages/<target-package>/data/<manifest>.js (course/chapter manifest)",
+        "app.json (仅当新增 subpackage 时)"
+      ],
+      "writeSet": [
+        "<blocked pending runtime-model decision>",
+        "+ SHARED (final integration only)"
+      ],
+      "conflictsWith": "all other B1 lessons on the SHARED files (serialize); independent on per-lesson chapter body",
+      "requiresRegistryUpdate": true,
+      "requiresReleaseVisibilityUpdate": true,
+      "requiresRuntimePackageUpdate": "yes-and-undecided",
+      "requiresMigration": false,
+      "progressCompatibilityRisk": "LOW for existing 9 (append-only visible set); new lessons add new sql/progress keys only",
+      "safeParallelGroup": "B1-project-nonrunnable",
+      "contentReality": "PLACEHOLDER_SCAFFOLD",
+      "verdict": "READY_FOR_CONTENT_AUDIT",
+      "runtimeFeasibility": "NOT_STDIN_STDOUT_RUNNABLE"
+    }
+  ]
+}

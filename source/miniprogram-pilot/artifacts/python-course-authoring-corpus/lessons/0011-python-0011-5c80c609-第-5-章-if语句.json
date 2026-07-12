@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "internal": {
+    "sourceUnitId": "py-src-0011-5c80c609-第-5-章-if语句",
+    "courseLessonId": "python-0011-5c80c609-第-5-章-if语句",
+    "sourceOrder": 11,
+    "type": "lesson_candidate"
+  },
+  "learner": {
+    "blocks": [
+      {
+        "ja": "program は毎回同じ道だけを進むとは限りません。点数が基準以上なら合格、足りなければ再挑戦というように、value の状態によって次の行を選びたい場面があります。",
+        "type": "why",
+        "zh": "program 不一定每次都走同一条路。比如分数达到标准就通过，不够就重试，这类情况需要根据 value 的状态选择下一步。"
+      },
+      {
+        "ja": "if は分かれ道の標識です。条件が True なら if の内側へ進み、False なら else の内側へ進みます。indent は「この道に属する行」を示します。",
+        "type": "mental-model",
+        "zh": "if 像岔路口的路标。条件为 True 时走 if 内部，为 False 时走 else 内部。缩进表示“这些行属于这条路径”。"
+      },
+      {
+        "ja": "score と target を作り、まず点数を出力します。比較が True なので pass 側の行だけが実行され、最後に確認行を出します。",
+        "type": "flow",
+        "zh": "先创建 score 和 target，并输出分数。比较结果为 True，所以只执行 pass 这条路径，最后输出确认行。"
+      }
+    ],
+    "codeExamples": [
+      {
+        "code": "score = 78\ntarget = 60\nprint(\"score:\", score)\nif score >= target:\n    print(\"result: pass\")\nelse:\n    print(\"result: retry\")\nprint(\"check complete\")",
+        "exampleId": "python-domain1a-if-statements",
+        "expectedOutput": "score: 78\nresult: pass\ncheck complete",
+        "lineNotes": [
+          {
+            "ja": "score は今回判断したい number の value です。",
+            "line": 1,
+            "zh": "score 是这次要判断的 number value。"
+          },
+          {
+            "ja": "target は合格に必要な基準として使います。",
+            "line": 2,
+            "zh": "target 用作通过所需的标准。"
+          },
+          {
+            "ja": "score >= target は True または False を作る comparison です。",
+            "line": 4,
+            "zh": "score >= target 是会生成 True 或 False 的 comparison。"
+          },
+          {
+            "ja": "条件が True なので、indent された pass 側の print だけが実行されます。",
+            "line": 5,
+            "zh": "因为条件为 True，所以只执行缩进在 pass 路径下的 print。"
+          },
+          {
+            "ja": "if / else の外に戻った行は、どちらの道を通っても最後に実行されます。",
+            "line": 8,
+            "zh": "回到 if / else 外面的行，不管走哪条路径，最后都会执行。"
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "ja": "if 行の末尾の colon を忘れると、Python は次の indented block が始まることを読めません。",
+        "zh": "忘记 if 行末尾的冒号时，Python 无法识别接下来要开始缩进代码块。"
+      },
+      {
+        "ja": "indent をそろえないと、どの行が if に属するかがずれてしまいます。",
+        "zh": "缩进不一致时，Python 会误解哪些行属于 if。"
+      },
+      {
+        "ja": "= と == や >= を混同すると、比較ではなく別の意味として読まれます。",
+        "zh": "混淆 =、== 或 >= 时，代码就不是你想表达的比较含义。"
+      }
+    ],
+    "handson": {
+      "action": {
+        "ja": "1 行目を score = 52 に変えて実行します。",
+        "zh": "把第 1 行改成 score = 52 后运行。"
+      },
+      "expectedObservation": {
+        "ja": "出力は result: retry になり、check complete は変わらず最後に表示されます。",
+        "zh": "输出会变成 result: retry，而 check complete 仍会在最后显示。"
+      }
+    },
+    "lessonId": "python-0011-5c80c609-第-5-章-if语句",
+    "nextLessonBridge": {
+      "ja": "ここまでで、複数の値を持つ list と、状態で道を選ぶ if をつなげました。次の小批次では、より多くの data を名前と構造で整理していきます。",
+      "zh": "到这里，我们把保存多个值的 list 和根据状态选择路径的 if 连起来了。下一小批次会继续用名字和结构整理更多 data。"
+    },
+    "objectives": [
+      {
+        "ja": "比較 expression が True / False を作り、if が実行する行を選ぶ流れを説明できる。",
+        "zh": "能说明比较 expression 生成 True / False，if 根据结果选择要执行的行。"
+      },
+      {
+        "ja": "else が条件に合わない場合の別ルートを表すことを読める。",
+        "zh": "能读懂 else 表示条件不成立时的另一条路径。"
+      }
+    ],
+    "order": 5,
+    "prerequisites": [
+      {
+        "ja": "number の value と variable を使い、print で途中の状態を確認できれば十分です。",
+        "zh": "只需要会使用 number value、variable，并用 print 确认中间状态。"
+      }
+    ],
+    "summary": {
+      "ja": "if 文は、value を比較して True / False を作り、その結果で実行する道を選びます。",
+      "zh": "if 语句会比较 value 得到 True / False，并根据结果选择执行路径。"
+    },
+    "terms": [
+      {
+        "en": "condition",
+        "ja": "条件",
+        "zh": "条件"
+      },
+      {
+        "en": "comparison",
+        "ja": "比較",
+        "zh": "比较"
+      },
+      {
+        "en": "indentation",
+        "ja": "インデント",
+        "zh": "缩进"
+      }
+    ],
+    "title": {
+      "ja": "if 文で条件に合う道を選ぶ",
+      "zh": "用 if 语句根据条件选择路径"
+    }
+  },
+  "delivery": {
+    "contentStatus": "written",
+    "releaseReadiness": "text_ready",
+    "assetSpecRef": null,
+    "runtimePublished": true
+  },
+  "integrity": {
+    "contentDigest": "131D2EED6CC14C0A8CCB4035DB1BCDE201D02622CEAE9F15F2E54790187B0127",
+    "generatedFrom": "canonical_runtime_snapshot"
+  }
+}

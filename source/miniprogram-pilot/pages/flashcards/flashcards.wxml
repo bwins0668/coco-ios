@@ -1,0 +1,116 @@
+<!--pages/flashcards/flashcards.wxml-->
+<view class="page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="pages/flashcards/flashcards">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="page-header">
+      <text class="page-title">闪卡中心</text>
+      <text class="page-subtitle">フラッシュカード</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title-row">
+        <text class="section-title">继续学习</text>
+      </view>
+      <view class="continue-card ui-pressable" wx:if="{{hasLastProgress}}" bindtap="continueLastProgress" hover-class="flashcard-card-pressed" hover-start-time="20" hover-stay-time="150">
+        <view class="continue-body">
+          <text class="continue-course">{{lastProgress.examTitle}}</text>
+          <text class="continue-sub">{{lastProgress.deckLabel}}</text>
+          <text class="continue-meta">第 {{lastProgress.currentIndex + 1}} / {{lastProgress.total}} 题</text>
+          <text class="continue-time">{{lastProgress.lastTimeText}}</text>
+        </view>
+        <view class="continue-btn ui-pressable" hover-class="flashcard-button-pressed" hover-start-time="20" hover-stay-time="150">继续复习</view>
+      </view>
+      <view class="continue-hint" wx:else>
+        <text class="continue-hint-text">先选择课程开始复习</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title-row">
+        <text class="section-title">课程入口</text>
+      </view>
+      <view class="course-grid">
+        <view class="course-card card ui-pressable {{navigatingCourse === item.exam ? 'course-card-navigating' : ''}}" wx:for="{{courses}}" wx:key="exam" bindtap="openCourse" data-exam="{{item.exam}}" hover-class="flashcard-card-pressed" hover-start-time="20" hover-stay-time="150">
+          <view class="course-header">
+            <view class="course-icon-wrap">
+              <view class="course-icon-glyph course-icon-glyph-{{item.iconKey}}">
+                <view class="course-icon-outline"></view>
+                <view class="course-icon-detail course-icon-detail-a"></view>
+                <view class="course-icon-detail course-icon-detail-b"></view>
+                <view class="course-icon-detail course-icon-detail-c"></view>
+              </view>
+            </view>
+            <view class="course-title-wrap">
+              <text class="course-title">{{item.title}}</text>
+              <text class="course-desc">{{item.desc}}</text>
+            </view>
+          </view>
+          <view class="course-stats">
+            <view class="course-stat">
+              <text class="course-stat-value">{{item.mockCount}}</text>
+              <text class="course-stat-label">可复习题数</text>
+            </view>
+            <view class="course-stat">
+              <text class="course-stat-value">{{item.mastered}}</text>
+              <text class="course-stat-label">已掌握</text>
+            </view>
+            <view class="course-stat">
+              <text class="course-stat-value">{{item.pending}}</text>
+              <text class="course-stat-label">待复习</text>
+            </view>
+          </view>
+          <view class="course-footer">
+            <view class="course-tags">
+              <text class="course-tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+            </view>
+            <view class="course-arrow">›</view>
+          </view>
+        </view>
+
+        <view class="course-card card ui-pressable {{navigatingCourse === 'anki' ? 'course-card-navigating' : ''}}" bindtap="openAnkiFromFlashcards" hover-class="flashcard-card-pressed" hover-start-time="20" hover-stay-time="150">
+          <view class="course-header">
+            <view class="course-icon-wrap">
+              <view class="course-icon-glyph course-icon-glyph-stack">
+                <view class="course-icon-outline"></view>
+                <view class="course-icon-detail course-icon-detail-a"></view>
+                <view class="course-icon-detail course-icon-detail-b"></view>
+                <view class="course-icon-detail course-icon-detail-c"></view>
+              </view>
+            </view>
+            <view class="course-title-wrap">
+              <text class="course-title">知识记忆卡</text>
+              <text class="course-desc">术语记忆 / 收藏复习</text>
+            </view>
+          </view>
+          <view class="course-stats">
+            <view class="course-stat">
+              <text class="course-stat-value">1500</text>
+              <text class="course-stat-label">术语库</text>
+            </view>
+            <view class="course-stat">
+              <text class="course-stat-value">{{ankiFavoriteCount || 0}}</text>
+              <text class="course-stat-label">已收藏</text>
+            </view>
+            <view class="course-stat">
+              <text class="course-stat-value">0</text>
+              <text class="course-stat-label">待复习</text>
+            </view>
+          </view>
+          <view class="course-footer">
+            <view class="course-tags">
+              <text class="course-tag">术语</text>
+              <text class="course-tag">日语</text>
+              <text class="course-tag">中文</text>
+            </view>
+            <view class="course-arrow">›</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

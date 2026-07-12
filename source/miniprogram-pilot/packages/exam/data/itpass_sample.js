@@ -1,0 +1,80 @@
+// packages/exam/data/itpass_sample.js
+// ITpass 样本题库（sample/mock 数据，非官方真题）
+// 用于验证题库协议结构，后续替换为 IPA 官方公开过去问题
+
+var itpassSample = [
+  {
+    id: "q-itpass-sample-001",
+    exam: "itpass",
+    source: "official_ipa",
+    sourceLabel: "sample/mock - ITパスポート過去問 風 データ構造",
+    year: null,
+    season: null,
+    questionNo: null,
+    category: "テクノロジ系",
+    subcategory: "データベース",
+    tags: ["データ構造", "階層型"],
+    difficulty: "basic",
+    promptJa: "データの要素を親子関係で表現するデータ構造はどれですか。",
+    choicesJa: ["表構造", "階層型", "ネットワーク型", "リスト構造"],
+    answer: "B",
+    explanationZh: "階層型は親子関係でデータを表現する。表構造はリレーショナル、ネットワーク型は多対多、リストは順序付き連結。",
+    explanationJa: "階層型は親子関係でデータを表現する。表構造はリレーショナル、ネットワーク型は多対多、リストは順序付き連結。",
+    whyWrongZh: "A: 表構造はリレーショナルDBの基本。C: ネットワーク型は多対多の関係を扱う。D: リストは順序付き連結構造。",
+    whyWrongJa: "A: 表構造はリレーショナルDBの基本。C: ネットワーク型は多対多の関係を扱う。D: リストは順序付き連結構造。",
+    relatedGlossaryIds: [],
+    relatedAnkiCardIds: [],
+    modifiedFromOriginal: false,
+    note: "样本数据，用于验证 schema 结构"
+  },
+  {
+    id: "q-itpass-sample-002",
+    exam: "itpass",
+    source: "official_ipa",
+    sourceLabel: "sample/mock - ITパスポート過去問 風 暗号化",
+    year: null,
+    season: null,
+    questionNo: null,
+    category: "テクノロジ系",
+    subcategory: "セキュリティ",
+    tags: ["暗号化", "共通鍵"],
+    difficulty: "basic",
+    promptJa: "送信者と受信者が同じ鍵を使って暗号化・復号化する方式はどれですか。",
+    choicesJa: ["公開鍵方式", "共通鍵方式", "デジタル署名", "電子証明書"],
+    answer: "B",
+    explanationZh: "共通鍵方式は送受信者が同じ鍵を共有する。公開鍵方式は鍵が一对。デジタル署名は改ざん検出用。電子証明書は公開鍵の信頼性保証用。",
+    explanationJa: "共通鍵方式は送受信者が同じ鍵を共有する。公開鍵方式は鍵が一对。デジタル署名は改ざん検出用。電子証明書は公開鍵の信頼性保証用。",
+    whyWrongZh: "A: 公開鍵方式は送信者が公開鍵で暗号化し、受信者が秘密鍵で復号化する。C: デジタル署名は改ざん検出用。D: 電子証明書は公開鍵の信頼性を保証する。",
+    whyWrongJa: "A: 公開鍵方式は送信者が公開鍵で暗号化し、受信者が秘密鍵で復号化する。C: デジタル署名は改ざん検出用。D: 電子証明書は公開鍵の信頼性を保証する。",
+    relatedGlossaryIds: [],
+    relatedAnkiCardIds: [],
+    modifiedFromOriginal: false,
+    note: "样本数据，用于验证 schema 结构"
+  },
+  {
+    id: "q-itpass-sample-003",
+    exam: "itpass",
+    source: "official_ipa",
+    sourceLabel: "sample/mock - ITパスポート過去問 風 プロジェクト管理",
+    year: null,
+    season: null,
+    questionNo: null,
+    category: "マネジメント系",
+    subcategory: "プロジェクトマネジメント",
+    tags: ["ガントチャート", "スケジュール"],
+    difficulty: "basic",
+    promptJa: "プロジェクトの作業計画を時間軸に沿って表す図はどれですか。",
+    choicesJa: ["アローダイアグラム", "ガントチャート", "パレート図", "ヒストグラム"],
+    answer: "B",
+    explanationZh: "ガントチャートは作業と時間を棒グラフで表す。アローダイアグラムは工程の順序関係を矢印で表す。パレート図は不優先度。ヒストグラムはデータの分布。",
+    explanationJa: "ガントチャートは作業と時間を棒グラフで表す。アローダイアグラムは工程の順序関係を矢印で表す。パレート図は不優先度。ヒストグラムはデータの分布。",
+    whyWrongZh: "A: アローダイアグラムは工程の順序関係を矢印で表す。C: パレート図は重要度順に並べる。D: ヒストグラムはデータの分布を表す。",
+    whyWrongJa: "A: アローダイアグラムは工程の順序関係を矢印で表す。C: パレート図は重要度順に並べる。D: ヒストグラムはデータの分布を表す。",
+    relatedGlossaryIds: [],
+    relatedAnkiCardIds: [],
+    modifiedFromOriginal: false,
+    note: "样本数据，用于验证 schema 结构"
+  }
+];
+
+module.exports = itpassSample;

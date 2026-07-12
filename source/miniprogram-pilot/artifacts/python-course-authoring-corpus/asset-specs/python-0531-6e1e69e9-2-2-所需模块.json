@@ -1,0 +1,16 @@
+{
+  "courseLessonId": "python-0531-6e1e69e9-2-2-所需模块",
+  "assetClass": "image_or_diagram",
+  "learningPurpose": {
+    "ja": " の学習補助",
+    "zh": " 的学习辅助"
+  },
+  "requiredVisualOrResource": "教材中の図表・スクリーンショット相当のビジュアル資産",
+  "interactionOrDisplayRequirement": "コースページ内に静的表示",
+  "accessibilityFallback": {
+    "ja": "代替テキストで内容を説明",
+    "zh": "用替代文本说明内容"
+  },
+  "implementationAcceptance": [],
+  "releaseBlockReason": "asset_pending: 視覚資産がまだ制作されていない"
+}

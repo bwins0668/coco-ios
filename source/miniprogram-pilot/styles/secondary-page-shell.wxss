@@ -1,0 +1,77 @@
+@import "./tokens.wxss";
+
+page {
+  background-color: var(--qp-color-canvas);
+}
+
+.secondary-shell.secondary-shell {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--qp-color-canvas);
+  color: var(--qp-color-ink);
+  padding-bottom: calc(var(--qp-space-8) + env(safe-area-inset-bottom));
+}
+
+.secondary-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88rpx;
+  margin-bottom: 8rpx;
+}
+
+.secondary-nav--back-only {
+  justify-content: flex-start;
+}
+
+.secondary-nav__back {
+  flex: none;
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-nav__back-icon {
+  font-size: 44rpx;
+  line-height: 1;
+  font-weight: 300;
+  color: var(--qp-color-text-secondary);
+}
+
+.secondary-nav__title {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: var(--qp-font-size-body);
+  font-weight: var(--qp-font-weight-semibold);
+  color: var(--qp-color-ink);
+}
+
+.secondary-nav__spacer {
+  flex: none;
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.secondary-bottom-safe {
+  height: env(safe-area-inset-bottom);
+  min-height: 1rpx;
+}
+
+.dark-theme.secondary-shell,
+.secondary-shell.dark-theme {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .secondary-nav__back-icon,
+.secondary-shell.dark-theme .secondary-nav__back-icon {
+  color: var(--text-secondary);
+}
+
+.dark-theme .secondary-nav__title,
+.secondary-shell.dark-theme .secondary-nav__title {
+  color: var(--text-primary);
+}

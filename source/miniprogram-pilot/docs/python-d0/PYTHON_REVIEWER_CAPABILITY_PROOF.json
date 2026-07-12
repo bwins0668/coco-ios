@@ -1,0 +1,30 @@
+{
+  "track": "D0-R reviewer capability preflight",
+  "result": "REVIEW_CAPABILITY_AVAILABLE",
+  "resolutionVsPriorRound": "Prior round reported REVIEW_CAPABILITY_BLOCKED. Root cause was NOT that spawning is impossible — it was that passing a model override (model: sonnet/haiku) OR using the code-reviewer subagent_type routed to an inaccessible 'deepseek-v4-pro' model. Spawning with the DEFAULT agent and NO model override works.",
+  "workingConfiguration": {
+    "sessionType": "default general-purpose subagent, NO model override, NO code-reviewer subagent_type",
+    "actualModelOrRoute": "claude-opus-4-8 (reported by the reviewer itself)",
+    "independentFromWriter": true,
+    "canReadDiff": true,
+    "canRunReadOnlyChecks": true
+  },
+  "syntheticFixture": {
+    "path": "scratchpad/review_fixture/projection_case.json (temp, not committed, no real course files)",
+    "defect": "registryProjection ['lesson-A','lesson-B'] omits 'lesson-C' present in releaseVisibility",
+    "normalControl": "normalField.pathLabel consistent-and-unchanged (must NOT be flagged)"
+  },
+  "reviewerFindings": {
+    "syntheticDefectDetected": true,
+    "detectedStatement": "registryProjection violates the contract; missing value ['lesson-C']; sets not equal",
+    "syntheticNormalCaseAccepted": true,
+    "normalNotMisreported": true,
+    "verdict": "REJECTED"
+  },
+  "failedConfigurationsToAvoid": [
+    "subagent_type: code-reviewer (bad model frontmatter -> deepseek-v4-pro)",
+    "model: sonnet (override ignored/routes to deepseek-v4-pro)",
+    "model: haiku (override ignored/routes to deepseek-v4-pro)"
+  ],
+  "implication": "The B1 fresh-review hard gate CAN now be satisfied (writer != reviewer, real ACCEPTED/REJECTED). B1 execution is unblocked at the reviewer-capability level; remaining B1 blocker is the release-surface (see PYTHON_B1_PUBLISH_BLOCKER.md), not the reviewer."
+}

@@ -1,0 +1,169 @@
+/* =============================================================
+   styles/tokens.wxss — Quiet Paper · UI Freeze v1.0 设计令牌（仅浅色）
+
+   权威取值由用户在 UI Freeze v1.0 中明确确认，非从 PDF 推测。
+   约束（P0）：
+     - 仅定义 --qp-* 命名空间令牌；
+     - 不覆盖 / 不重定义 app.wxss 中的旧令牌（如 --primary-color 等）；
+     - 夜间模式尚未冻结：本文件不含任何深色 / @media prefers-color-scheme 令牌；
+     - 不被任何既有页面引用（零页面引用、零行为变化）。
+
+   双上下文声明（微信自定义组件样式隔离的应对，见文件尾注 A）：
+     :host  → 供自定义组件 @import 后，在组件内部解析（组件默认 styleIsolation: isolated，
+              app.wxss / page 的令牌不保证进入组件，必须由组件本地引入并落在组件根节点）；
+     page   → 供后续页面级采纳（P1+，需在页面 / 应用样式中 @import；本轮无页面引用）。
+   两个代码块的令牌名与取值必须完全一致，由 tools/check_design_tokens.js 校验防漂移。
+   ============================================================= */
+
+/* ---- 组件上下文：令牌落在组件根节点，向组件内全部子节点继承 ---- */
+:host {
+  /* colors */
+  --qp-color-canvas: #F2EDE0;
+  --qp-color-surface: #FFFDF5;
+  --qp-color-surface-muted: #F4F3EF;
+  --qp-color-fill-warm: #E8DFC8;
+
+  --qp-color-ink: #1A1410;
+  --qp-color-text-secondary: #6F6B65;
+  --qp-color-text-tertiary: #8A7060;
+  --qp-color-text-quaternary: #8A8680;
+  --qp-color-text-ghost: #C9C4BD;
+  --qp-color-text-phantom: #D8CEB8;
+
+  --qp-color-line: rgba(33,31,28,.08);
+  --qp-color-line-strong: rgba(33,31,28,.14);
+
+  --qp-color-primary: #37418A;
+  --qp-color-primary-pressed: #2C3676;
+  --qp-color-primary-soft: #ECEEF6;
+  --qp-color-editorial: #C5123A;
+
+  --qp-color-success: #4E8A5E;
+  --qp-color-success-soft: #EAF1EC;
+
+  --qp-color-danger: #BE5750;
+  --qp-color-danger-soft: #F7ECEB;
+  --qp-color-warning-soft: #FBF1E9;
+
+  --qp-color-disabled-bg: rgba(33,31,28,.10);
+  --qp-color-disabled-text: #C9C4BD;
+
+  /* typography */
+  --qp-font-size-masthead: 68rpx;      /* 34px */
+  --qp-font-size-display: 80rpx;       /* 40px */
+  --qp-font-size-page-title: 56rpx;    /* 28px */
+  --qp-font-size-section-title: 34rpx; /* 17px */
+  --qp-font-size-body: 30rpx;          /* 15px */
+  --qp-font-size-caption: 26rpx;       /* 13px */
+  --qp-font-size-label: 22rpx;         /* 11px */
+
+  --qp-font-weight-regular: 400;
+  --qp-font-weight-semibold: 600;
+
+  --qp-line-height-tight: 1.25;
+  --qp-line-height-normal: 1.5;
+  --qp-line-height-relaxed: 1.7;
+
+  /* spacing: 8pt grid, with one micro spacing */
+  --qp-space-1: 8rpx;
+  --qp-space-2: 16rpx;
+  --qp-space-3: 24rpx;
+  --qp-space-4: 32rpx;
+  --qp-space-5: 40rpx;
+  --qp-space-6: 48rpx;
+  --qp-space-8: 64rpx;
+
+  /* shape and control */
+  --qp-radius-tag: 10rpx;
+  --qp-radius-sm: 20rpx;
+  --qp-radius-md: 24rpx;
+  --qp-radius-lg: 32rpx;
+  --qp-border-width: 2rpx;
+  --qp-control-height: 88rpx;
+
+  /* data */
+  --qp-font-family-data: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ---- 页面上下文：供 P1+ 页面级采纳；本轮无页面引用 ---- */
+page {
+  /* colors */
+  --qp-color-canvas: #F2EDE0;
+  --qp-color-surface: #FFFDF5;
+  --qp-color-surface-muted: #F4F3EF;
+  --qp-color-fill-warm: #E8DFC8;
+
+  --qp-color-ink: #1A1410;
+  --qp-color-text-secondary: #6F6B65;
+  --qp-color-text-tertiary: #8A7060;
+  --qp-color-text-quaternary: #8A8680;
+  --qp-color-text-ghost: #C9C4BD;
+  --qp-color-text-phantom: #D8CEB8;
+
+  --qp-color-line: rgba(33,31,28,.08);
+  --qp-color-line-strong: rgba(33,31,28,.14);
+
+  --qp-color-primary: #37418A;
+  --qp-color-primary-pressed: #2C3676;
+  --qp-color-primary-soft: #ECEEF6;
+  --qp-color-editorial: #C5123A;
+
+  --qp-color-success: #4E8A5E;
+  --qp-color-success-soft: #EAF1EC;
+
+  --qp-color-danger: #BE5750;
+  --qp-color-danger-soft: #F7ECEB;
+  --qp-color-warning-soft: #FBF1E9;
+
+  --qp-color-disabled-bg: rgba(33,31,28,.10);
+  --qp-color-disabled-text: #C9C4BD;
+
+  /* typography */
+  --qp-font-size-masthead: 68rpx;      /* 34px */
+  --qp-font-size-display: 80rpx;       /* 40px */
+  --qp-font-size-page-title: 56rpx;    /* 28px */
+  --qp-font-size-section-title: 34rpx; /* 17px */
+  --qp-font-size-body: 30rpx;          /* 15px */
+  --qp-font-size-caption: 26rpx;       /* 13px */
+  --qp-font-size-label: 22rpx;         /* 11px */
+
+  --qp-font-weight-regular: 400;
+  --qp-font-weight-semibold: 600;
+
+  --qp-line-height-tight: 1.25;
+  --qp-line-height-normal: 1.5;
+  --qp-line-height-relaxed: 1.7;
+
+  /* spacing: 8pt grid, with one micro spacing */
+  --qp-space-1: 8rpx;
+  --qp-space-2: 16rpx;
+  --qp-space-3: 24rpx;
+  --qp-space-4: 32rpx;
+  --qp-space-5: 40rpx;
+  --qp-space-6: 48rpx;
+  --qp-space-8: 64rpx;
+
+  /* shape and control */
+  --qp-radius-tag: 10rpx;
+  --qp-radius-sm: 20rpx;
+  --qp-radius-md: 24rpx;
+  --qp-radius-lg: 32rpx;
+  --qp-border-width: 2rpx;
+  --qp-control-height: 88rpx;
+
+  /* data */
+  --qp-font-family-data: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* -------------------------------------------------------------
+   尾注 A · 为什么需要"组件本地 import + :host 声明"
+
+   微信自定义组件默认 styleIsolation: isolated。该隔离作用于"选择器匹配"：
+   app.wxss / page{} 中以选择器声明的样式不会匹配组件内部节点，因此把令牌只写在
+   app.wxss 的 page{} 上，无法保证进入隔离组件。CSS 自定义属性虽是继承属性，但其值
+   依赖"声明所在选择器能否命中组件内的祖先节点"——在隔离边界处不可依赖。
+
+   稳妥且最小的做法：每个组件在自身 .wxss 顶部 @import 本文件，使 :host{} 规则命中
+   组件根节点，令牌即在组件内部按 CSS 继承向所有子节点解析。这一解析由组件作用域内的
+   标准 CSS 继承保证，不依赖任何跨隔离边界的假设。
+   ------------------------------------------------------------- */

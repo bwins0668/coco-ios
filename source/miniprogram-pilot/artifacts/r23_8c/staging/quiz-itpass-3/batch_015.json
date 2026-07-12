@@ -1,0 +1,322 @@
+[
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q81",
+    "sourceFingerprint": "sha256:48827e3b135eca2a0d61fb76db385111b008c2cadd88566480f9a9f19d174794",
+    "questionZh": "多个用户更新数据库中同一条记录时，为保持数据一致性应进行的控制是哪项？",
+    "optionsZh": {
+      "A": "访问控制",
+      "B": "故障恢复",
+      "C": "排他控制",
+      "D": "重做控制"
+    },
+    "explanationZh": "排他控制是多个用户或事务同时访问数据库时，为防止数据不一致而锁定数据的控制机制。当某用户正在更新记录时，该记录被锁定，其他用户无法同时更新，在更新完成后解除锁定。选项C正确。访问控制是限制用户对数据访问权限的机制；故障恢复是故障后将数据库恢复到正常状态；重做控制是事务提交后重做已完成的更新。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q82",
+    "sourceFingerprint": "sha256:3ee06fce08676526572351cef35a3761eced1fc30f550630bc63f36d6f210e27",
+    "questionZh": "成绩表中B2至C8区域输入学生各科成绩。D2输入公式，向下复制到D3至D8后，D3显示的公式是什么？",
+    "optionsZh": {
+      "A": "相同",
+      "B": "含有B3和C3",
+      "C": "含有B2和C2",
+      "D": "错误"
+    },
+    "explanationZh": "在电子表格中，向下复制公式时，行号会根据相对引用自动调整。D2的公式中B2和C2是相对引用（不含前缀符号），复制到D3时行号自动递增为B3和C3。因此D3的公式会包含B3和C3的引用。选项B正确。选项A仅适用于绝对引用的情况；选项C不会发生，因为复制公式时相对引用会自动调整。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q83",
+    "sourceFingerprint": "sha256:838cfa105c204088e056c096a772123074e3f16ce5321943e8af9260a9cbd436",
+    "questionZh": "针对信息系统攻击，对某标识符尝试密码超过规定次数失败时，停止该标识符的使用是有效的防卫措施，这种攻击是哪项？",
+    "optionsZh": {
+      "A": "暴力破解攻击",
+      "B": "拒绝服务攻击",
+      "C": "中间人攻击",
+      "D": "网络钓鱼"
+    },
+    "explanationZh": "暴力破解攻击是通过尝试所有可能的密码组合来获取认证信息的方法。针对这类攻击，设置密码输入失败次数限制并在超过阈值后锁定账户是有效的对策。选项A正确。拒绝服务攻击是通过发送大量请求使服务不可用的攻击；中间人攻击是在通信路径中窃听或篡改；网络钓鱼是通过伪装成可信网站骗取个人信息。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q84",
+    "sourceFingerprint": "sha256:873425b46b0ac3b924596ccf9b2d0436e1a5fca9c61a70bc00beacfc67a3a8b3",
+    "questionZh": "用于安装内存模块的电脑主板插槽是哪项？",
+    "optionsZh": {
+      "A": "内存插槽",
+      "B": "总线接口",
+      "C": "接口",
+      "D": "扩展槽"
+    },
+    "explanationZh": "内存模块安装在主板上的内存插槽中。内存插槽是主板上的专用连接器，用于安装内存模块。选项A正确。总线接口用于连接外围扩展卡（如显卡）；接口是连接外围设备的通用接口；扩展槽是安装扩展卡的插槽。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q85",
+    "sourceFingerprint": "sha256:3a93ce7d95647865186dc0ed359f034033e5cabe10b9fb4265dcd529f2aab187",
+    "questionZh": "关于电子邮件的说明中，正确的是哪项？",
+    "optionsZh": {
+      "A": "使用简单邮件传输协议从发信人向收信人的邮件服务器发送邮件",
+      "B": "在终端发送邮件的时刻，邮件内容立即被写入收信人邮箱",
+      "C": "邮局协议是发送邮件时使用的协议",
+      "D": "邮件的接收人地址中包含简单邮件传输协议服务器的域名"
+    },
+    "explanationZh": "电子邮件使用简单邮件传输协议从发信人向收信人邮件服务器发送邮件。简单邮件传输协议是用于发送和转发邮件的协议。选项A正确。发送邮件后不会立即到达，而是通过服务器转发；邮局协议是接收邮件时使用的协议；接收人地址中包含的是收信人邮件服务器的域名，而非简单邮件传输协议服务器的域名。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q86",
+    "sourceFingerprint": "sha256:17c2bfd362be6e58e64a56ad300af310adca52d723d0409813275efbb72834f4",
+    "questionZh": "全文搜索引擎创建搜索数据库时，用于自动巡回收集网页的软件是哪项？",
+    "optionsZh": {
+      "A": "网络爬虫",
+      "B": "防火墙",
+      "C": "代理服务器",
+      "D": "域名系统"
+    },
+    "explanationZh": "网络爬虫是自动浏览网页并收集信息的程序。全文搜索引擎使用网络爬虫定期访问网页，获取页面内容并添加到搜索数据库中。通过这种方式，搜索引擎可以建立庞大的网页索引以供用户搜索。选项A正确。防火墙是安全设备；代理服务器中继通信；域名系统是将域名转换为地址的系统。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q87",
+    "sourceFingerprint": "sha256:5acaee77af02097abf3302fa2a8643deb5d429fae8a764ebae2f816e63064227",
+    "questionZh": "信息安全的机密性、完整性、可用性中，完整性受损的事例是哪项？",
+    "optionsZh": {
+      "A": "未经授权的人访问了个人信息文件",
+      "B": "发送的数据在途中被篡改",
+      "C": "因服务器故障导致服务长时间停用",
+      "D": "员工将客户信息带回家中"
+    },
+    "explanationZh": "完整性是指信息不被非法篡改或破坏的属性。发送的数据在传输途中被篡改是完整性受损的典型事例。选项B正确（完整性问题）。选项A是机密性问题（信息泄露给未授权者）；选项C是可用性问题（服务不可用）；选项D也是机密性问题（信息被带出并可能泄露）。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q88",
+    "sourceFingerprint": "sha256:df88f70c49e509a2db78dceeb31bd0cf443f78f95f247481c32ce3e420dec2a0",
+    "questionZh": "在关系数据库中，进行规范化的目的是哪项？",
+    "optionsZh": {
+      "A": "提高数据检索速度",
+      "B": "消除数据重复、保持数据一致性",
+      "C": "增加数据冗余以提高容错性",
+      "D": "压缩数据库大小以节省存储"
+    },
+    "explanationZh": "规范化是根据一定规则将数据表分解为更小表的过程，目的是消除数据冗余（重复）并防止更新异常，从而保持数据的一致性。规范化可以减少数据的重复存储，避免插入异常、删除异常和更新异常。选项B正确。规范化可能因为增加表连接而降低检索速度；规范化减少而非增加冗余；规范化不一定压缩数据库大小。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q89",
+    "sourceFingerprint": "sha256:8dca60f7fdaf44c60e2c8a512304624781e2f8f1ee4fcec01971ae68718b8e0d",
+    "questionZh": "公司经风险分析发现近处河流泛滥可能淹没一楼服务器机房。最佳对策是移至二楼以上，这属于哪种风险应对？",
+    "optionsZh": {
+      "A": "风险规避",
+      "B": "风险转移",
+      "C": "风险降低",
+      "D": "风险保有"
+    },
+    "explanationZh": "风险应对有四种基本类型：风险降低是采取措施降低风险的发生概率或其影响程度。将服务器移至二楼以上可降低水淹风险的影响，属于风险降低。选项C正确（风险降低）。风险规避是放弃引发风险的业务本身；风险转移是将风险转嫁给第三方（如购买保险）；风险保有是接受风险不做特别对策。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q9",
+    "sourceFingerprint": "sha256:1472aedd1dcd08e2496b6f691c90833ba435bbbc334f82d5551ab6d4bf798bda",
+    "questionZh": "某产品固定费用100万日元，每件变动费用7万日元，单价10万日元。为确保170万日元以上利润所需的最低销售数量是多少件？",
+    "optionsZh": {
+      "A": "70",
+      "B": "80",
+      "C": "90",
+      "D": "100"
+    },
+    "explanationZh": "利润=销售收入-(固定费用+变动费用)。设销售数量为某值：利润=10件数-(100+7*件数)=3件数-100。要求利润≥170：3件数-100≥170，3件数≥270，件数≥90。验证：90件时利润=900-730=170万日元，恰好达标。因此选项A正确。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q90",
+    "sourceFingerprint": "sha256:0fbff572ab8378658968db66eb64e3ab4a1ab17fa584b69d812f8efe9842dde1",
+    "questionZh": "以下通信方式中，最大通信距离最短的是哪项？",
+    "optionsZh": {
+      "A": "无线局域网",
+      "B": "蓝牙",
+      "C": "近距离无线通信",
+      "D": "红外线通信"
+    },
+    "explanationZh": "近距离无线通信的最大通信距离约为10厘米，是选项中通信距离最短的技术。红外线通信的有效距离约为数米以内；蓝牙约为10米左右（取决于等级）；无线局域网在室内可达数十米至一百米。选项C正确。无线局域网、蓝牙和红外线通信均比近距离无线通信的通信距离长。",
+    "correctAnswer": "C",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q91",
+    "sourceFingerprint": "sha256:317993cec21acc07513b859a631b601935d799647a4a72ea93ad06bf6b4db7a4",
+    "questionZh": "二进制数1011与二进制数101相乘的结果用二进制表示是哪项？",
+    "optionsZh": {
+      "A": "110111",
+      "B": "111101",
+      "C": "111110",
+      "D": "1000111"
+    },
+    "explanationZh": "二进制乘法与十进制乘法规则相同，逢二进一。计算：1011×101=1011×(100+1)=1011×100+1011×1=101100+1011=110111。逐位验证：1011(11)×101(5)=55(十进制)，55的二进制为110111。因此选项D正确。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q92",
+    "sourceFingerprint": "sha256:1a06db8ac5556bd8cd34743b8c8322f1aa1cc5d6e017011ae33cd4265327484c",
+    "questionZh": "使用栈数据结构，从右侧输入数据并按图改变顺序后从左侧输出。栈可同时容纳的数据个数为3个时，输出的顺序是怎样的？",
+    "optionsZh": {
+      "A": "按输入逆序",
+      "B": "按输入正序",
+      "C": "取决于输入数据",
+      "D": "随机顺序"
+    },
+    "explanationZh": "栈是后进先出的数据结构。从右侧输入的数据依次压入栈中，当栈满（3个）时最先取出的数据是最后压入的。但需注意，不一定所有数据同时入栈和出栈，实际的输出顺序与入栈和出栈的操作时机有关。在栈容量为3的约束下，输出顺序可能与输入顺序不同，取决于具体的操作序列。根据图示，正确的输出顺序按特定规则排列。选项C对应图中顺序。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q93",
+    "sourceFingerprint": "sha256:6d1fb7221d819809a695400e29cfae9cc4fed3c56ac1858b6655090474305b38",
+    "questionZh": "连接新外围设备到电脑需要什么？如果设备支持即插即用功能，连接后什么会被自动执行？",
+    "optionsZh": {
+      "A": "设备驱动；自动识别后无需手动安装驱动",
+      "B": "设备驱动；仍需手动安装驱动",
+      "C": "操作系统升级；自动识别后无需手动安装驱动",
+      "D": "操作系统升级；仍需手动安装驱动"
+    },
+    "explanationZh": "电脑连接新外围设备时通常需要安装对应的设备驱动。如果该设备和操作系统支持即插即用功能，电脑会自动检测到已连接设备并自动安装或加载适当的驱动程序，无需用户手动干预。选项A正确。即插即用功能使得驱动安装过程自动化，不需要手动安装。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q94",
+    "sourceFingerprint": "sha256:9267b8e6f97b4ff6fb0db115f4850b07d3ffaf4d98d2762e0ead7b2e9c16431f",
+    "questionZh": "关于并行处理的说明，正确的是哪项？",
+    "optionsZh": {
+      "A": "多个处理器同时执行不同程序",
+      "B": "单个处理器在多个程序间快速切换模拟并行",
+      "C": "多个处理器分担执行一个程序的处理",
+      "D": "将程序翻译成机器语言后执行"
+    },
+    "explanationZh": "并行处理是利用多个处理器（或核心）同时执行多个计算任务的处理方式，可大幅缩短大规模计算的处理时间。选项A正确（多个处理器同时执行不同程序）。选项B描述的是多道程序设计；选项C描述的是分布式处理；选项D描述的是编译执行。",
+    "correctAnswer": "A",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q95",
+    "sourceFingerprint": "sha256:abd1fe433f7c7da7377b2c6267c4194741429dc1ba9f5c930b9d89e5eeed40cb",
+    "questionZh": "关系数据库中关于主键的描述，正确的是哪项？",
+    "optionsZh": {
+      "A": "一个表可以设置多个主键",
+      "B": "主键的值可以为空",
+      "C": "主键的值在表中必须唯一",
+      "D": "主键不能由多个列组成"
+    },
+    "explanationZh": "主键是关系数据库表中用于唯一标识每一行的列或列组合。主键具有以下属性：值不能为空、在表中唯一、一个表只能设置一个主键。主键可以由单个列构成，也可以由多个列组合构成（复合主键）。选项C正确。一个表只能设一个主键；主键的值不能为空；主键可以由多个列组合而成。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q96",
+    "sourceFingerprint": "sha256:97c3ed9fc69f2b305aa9507ff0ca2cfc051dffee763a994f76d489e3fa93f2ac",
+    "questionZh": "信息安全风险管理中，关于评估威胁和脆弱性的描述，正确填入文中空格的组合是哪项？",
+    "optionsZh": {
+      "A": "资产、威胁、脆弱性",
+      "B": "脆弱性、威胁、资产",
+      "C": "威胁、脆弱性、资产",
+      "D": "资产、脆弱性、威胁"
+    },
+    "explanationZh": "信息安全风险管理首先识别组织拥有的信息资产，然后评估针对这些资产的各种威胁（可能造成危害的事件），以及这些资产可能被利用的脆弱性（安全漏洞）。据此制定对策以将风险控制在可接受水平。正确的顺序为：识别资产→分析威胁→评估脆弱性。选项A正确。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q97",
+    "sourceFingerprint": "sha256:e31a2c70f1ed08ac28d9bcb76ae00d4cabc9b133eac4eb2104f938e47941a782",
+    "questionZh": "与公钥加密方式相比，对称加密方式的特征是？",
+    "optionsZh": {
+      "A": "加密和解密使用不同的密钥",
+      "B": "加密和解密速度较快",
+      "C": "密钥管理较简单",
+      "D": "数字签名功能较强"
+    },
+    "explanationZh": "对称加密方式使用相同的密钥进行加密和解密。与公钥加密方式相比，对称加密的加密和解密处理速度较快，适合大量数据的加密。选项B正确。选项A是公钥加密方式的特征；对称加密需要对每个通信对象分别管理密钥，密钥管理较复杂；数字签名是公钥加密方式的特征，对称加密不能直接实现。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q98",
+    "sourceFingerprint": "sha256:c9dd6a84c7527f67a65202a3580a6d1b978a4492a28d4b8d437804392330ae26",
+    "questionZh": "防回传方式通过记录身份标识状态来防止已入场标识再次入场。关于该方式的应用说明，正确的是哪项？",
+    "optionsZh": {
+      "A": "退出后未入场标识再次入场，可防止尾随入场",
+      "B": "退出后未入场标识再次入场，可防止未授权者共用标识入场",
+      "C": "入场后未退场标识再次入场，可防止共用标识入场",
+      "D": "防回传方式可检测所有的非法入场行为"
+    },
+    "explanationZh": "防回传方式通过追踪身份标识的状态（在场内还是在场外），当持有在场外状态标识的人试图再次入场时会被阻止。这种机制可防止已入场人员将标识传递给场外人员进行非法入场，即防止共用标识入场。选项C正确对应入场后未退场状态下禁止再次入场的规则。选项D夸大了防回传方式的能力，物理和信息系统均无法做到完全检测。",
+    "correctAnswer": "B",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  },
+  {
+    "package": "quiz-itpass-3",
+    "questionId": "28_AKI_Q99",
+    "sourceFingerprint": "sha256:c594f644f449cc23c26944d8685226ce658744a8bdc6dfc9c088b469752167a9",
+    "questionZh": "根据所属组或成员的属性信息控制人事文件访问权限的系统。关于人事部组和成员A至D的权限设置，正确的是哪项？",
+    "optionsZh": {
+      "A": "所有成员均可访问人事文件",
+      "B": "仅人事部组成员可访问",
+      "C": "根据个人属性组合设置可单独调整权限",
+      "D": "仅有部门经理可访问"
+    },
+    "explanationZh": "基于属性的访问控制根据用户的属性信息（所属部门、职务、角色等）动态决定访问权限。即使属于同一组，也可以根据个别属性（如职务、项目参与情况等）设置不同权限。这种方式灵活且细粒度，可以精确控制每个用户的访问权限。选项C正确。并非所有成员默认可访问；可对人事部成员设置不同权限；不限于特定职位。",
+    "correctAnswer": "D",
+    "visualClassification": "TEXT_SAFE",
+    "contentCompleteness": "COMPLETE"
+  }
+]

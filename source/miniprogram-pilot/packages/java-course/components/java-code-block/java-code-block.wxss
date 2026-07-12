@@ -1,0 +1,2 @@
+@import "../../../../styles/tokens.wxss";
+.jcode{max-width:100%;overflow-x:hidden}.jcode-scroll{max-width:100%;overflow-x:auto}

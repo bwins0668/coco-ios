@@ -1,0 +1,53 @@
+<!--pages/practice/practice.wxml · R6.5 DC-aligned (Frame 2) -->
+<view data-r6-active-tab="practice" class="r6-practice-page" style="padding-top: {{navSafeTop}}px;">
+  <!-- Masthead -->
+  <view class="r6-practice-mast">
+    <view>
+      <text class="r6-practice-mast__kicker">DRILL · 刷题</text>
+      <text class="r6-practice-mast__title">刷题</text>
+    </view>
+    <text class="r6-practice-mast__date" wx:if="{{jstDateStr}}">{{jstDateStr}}</text>
+  </view>
+  <view class="r6-practice-rule">
+    <view class="r6-practice-rule__accent"></view>
+    <view class="r6-practice-rule__line"></view>
+  </view>
+
+  <!-- Continue last session -->
+  <view class="r6-practice-continue" wx:if="{{hasLastAttempt}}">
+    <view class="r6-practice-card r6-practice-card--continue" bindtap="continueLast">
+      <view class="r6-practice-card__top">
+        <text class="r6-practice-card__kicker">CONTINUE · 继续上次</text>
+        <text class="r6-practice-card__meta" wx:if="{{lastMetaText}}">{{lastMetaText}}</text>
+      </view>
+      <text class="r6-practice-card__title">{{lastExamLabel}} <text class="r6-practice-card__title-sub">{{lastSourceLabel}}</text></text>
+      <view class="r6-practice-card__action">继续上次刷题 →</view>
+    </view>
+  </view>
+
+  <!-- 01 选择考试 -->
+  <view class="r6-practice-section">
+    <view class="r6-section-label"><text class="r6-section-label__num">01</text><text class="r6-section-label__title">选择考试</text></view>
+    <view class="r6-practice-card r6-practice-card--exam r6-practice-card--primary" bindtap="goITPassport">
+      <view class="r6-practice-card__body">
+        <text class="r6-practice-card__title">IT Passport</text>
+        <text class="r6-practice-card__sub">ITパスポート試験 · 按年度模拟</text>
+      </view>
+      <text class="r6-practice-card__chev">›</text>
+    </view>
+    <view class="r6-practice-card r6-practice-card--exam" bindtap="goSG">
+      <view class="r6-practice-card__body">
+        <text class="r6-practice-card__title">SG 信息安全</text>
+        <text class="r6-practice-card__sub">情報セキュリティ · 专项强化</text>
+      </view>
+      <text class="r6-practice-card__chev">›</text>
+    </view>
+    <view class="r6-practice-card r6-practice-card--exam r6-practice-card--muted">
+      <view class="r6-practice-card__body">
+        <text class="r6-practice-card__title">MOS 365</text>
+        <text class="r6-practice-card__sub">认证考试 — 准备中</text>
+      </view>
+      <text class="r6-practice-card__badge">准备中</text>
+    </view>
+  </view>
+</view>

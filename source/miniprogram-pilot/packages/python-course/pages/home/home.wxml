@@ -1,0 +1,43 @@
+<view class="pc-page {{__themeDark ? 'dark-theme' : ''}} secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/python-course/pages/home/home">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+  <block wx:if="{{loadError}}">
+    <view class="pc-empty">
+      <text class="pc-empty__title">Python 课程暂不可用</text>
+      <text class="pc-empty__sub">课程目录加载失败，请返回课程页后重试。</text>
+      <view class="pc-btn pc-btn--outline" bindtap="goBack">返回课程</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="pc-hero">
+      <text class="pc-kicker">Python Course</text>
+      <text class="pc-title">{{manifest.title.ja}}</text>
+      <text class="pc-sub">{{manifest.title.zh}} · {{manifest.subtitle.ja}}</text>
+      <view class="pc-stats">
+        <view class="pc-stat">
+          <text class="pc-stat__num">{{manifest.totalChapters}}</text>
+          <text class="pc-stat__label">章节</text>
+        </view>
+        <view class="pc-stat">
+          <text class="pc-stat__num">{{manifest.totalSections}}</text>
+          <text class="pc-stat__label">黄金样本</text>
+        </view>
+      </view>
+      <view class="pc-btn pc-btn--primary" bindtap="startFirstLesson">从第一节开始</view>
+    </view>
+    <view class="pc-section">
+      <text class="pc-section__title">可验收章节</text>
+      <view class="pc-chapter" wx:for="{{chapters}}" wx:key="chapterId" bindtap="openChapter" data-route="{{item.chapterRoute}}">
+        <view class="pc-chapter__body">
+          <text class="pc-chapter__ja">{{item.title.ja}}</text>
+          <text class="pc-chapter__zh">{{item.title.zh}}</text>
+          <text class="pc-chapter__meta">{{item.sections.length}} 小节 · Python 3.11</text>
+        </view>
+        <text class="pc-chapter__arrow">→</text>
+      </view>
+    </view>
+  </block>
+</view>

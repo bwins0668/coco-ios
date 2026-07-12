@@ -1,0 +1,1 @@
+<view class="jcode"><text>Java</text><text bindtap="copyCode">复制</text><scroll-view scroll-x="true" class="jcode-scroll"><text>{{code}}</text></scroll-view><text>{{expectedOutput}}</text></view>

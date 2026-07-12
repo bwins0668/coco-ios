@@ -1,0 +1,2 @@
+@import "../../../../styles/tokens.wxss";
+.jb-block{padding:20rpx;border-radius:8rpx;background:var(--qp-color-surface)}

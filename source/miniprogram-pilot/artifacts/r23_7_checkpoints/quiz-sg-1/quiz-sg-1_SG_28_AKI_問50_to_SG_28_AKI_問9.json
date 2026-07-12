@@ -1,0 +1,17 @@
+{
+  "package": "quiz-sg-1",
+  "batchId": "quiz-sg-1_SG_28_AKI_問50_to_SG_28_AKI_問9",
+  "questionIds": [
+    "SG_28_AKI_問50",
+    "SG_28_AKI_問6",
+    "SG_28_AKI_問7",
+    "SG_28_AKI_問8",
+    "SG_28_AKI_問9"
+  ],
+  "translatedCount": 5,
+  "semanticReviewPassed": true,
+  "styleLintPassed": true,
+  "fingerprintPassed": true,
+  "retryCount": 0,
+  "completedAt": "2026-07-06T10:30:41.090Z"
+}

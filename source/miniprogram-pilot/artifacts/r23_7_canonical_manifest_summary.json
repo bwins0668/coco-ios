@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "totalQuestions": 1945,
+  "expectedQuestions": 1945,
+  "totalMatchesExpected": true,
+  "uniqueQuestionIds": 1945,
+  "packageCounts": {
+    "quiz-itpass-1": 300,
+    "quiz-itpass-2": 300,
+    "quiz-itpass-3": 300,
+    "quiz-itpass-4": 300,
+    "quiz-itpass-5": 300,
+    "quiz-sg-1": 145,
+    "quiz-sg-2": 300
+  },
+  "errors": [],
+  "generatedAt": "2026-07-11T08:34:53.424Z",
+  "manifestPath": "artifacts/r23_7_canonical_manifest.jsonl"
+}

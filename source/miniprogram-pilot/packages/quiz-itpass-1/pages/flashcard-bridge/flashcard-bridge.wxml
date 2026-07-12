@@ -1,0 +1,7 @@
+<view class="secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/quiz-itpass-1/pages/flashcard-bridge/flashcard-bridge">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+</view>

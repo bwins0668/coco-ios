@@ -1,0 +1,476 @@
+{
+  "package": "quiz-itpass-5",
+  "batchId": "quiz-itpass-5_30_AKI_Q8_to_30_HARU_Q11",
+  "questionIds": [
+    "30_AKI_Q8",
+    "30_AKI_Q80",
+    "30_AKI_Q81",
+    "30_AKI_Q82",
+    "30_AKI_Q83",
+    "30_AKI_Q84",
+    "30_AKI_Q85",
+    "30_AKI_Q86",
+    "30_AKI_Q87",
+    "30_AKI_Q88",
+    "30_AKI_Q89",
+    "30_AKI_Q9",
+    "30_AKI_Q90",
+    "30_AKI_Q91",
+    "30_AKI_Q92",
+    "30_AKI_Q93",
+    "30_AKI_Q94",
+    "30_AKI_Q95",
+    "30_AKI_Q96",
+    "30_AKI_Q97",
+    "30_AKI_Q98",
+    "30_AKI_Q99",
+    "30_HARU_Q1",
+    "30_HARU_Q10",
+    "30_HARU_Q100",
+    "30_HARU_Q11"
+  ],
+  "translations": [
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q8",
+      "sourceFingerprint": "sha256:3e606b72a1af1dc543a86ea23b884bbeca20fbd2af42c93554776e625ad3449a",
+      "questionZh": "零售公司A在配送中心附近的小学开展了以简单易懂的方式讲解食品配送流程的活动。 A公司开展此项活动的初衷是什么？",
+      "optionsZh": {
+        "A": "企业社会责任",
+        "B": "联盟",
+        "C": "核心能力",
+        "D": "公司治理"
+      },
+      "explanationZh": "CSR（Corporate Social Responsibility）在日语中意为“企业社会责任”，是指企业不仅要追求利润，还要恰当回应环境、社会等利益相关者的诉求，以对社会负责的方式行事。企业社会责任的目的是为可持续发展做出贡献，企业也是社会的一员，与公民一样负有社会义务。\n\n基于企业社会责任的活动涉及广泛的领域，包括法律合规、环境活动、为当地社区做出贡献以及与利益相关者的沟通。问题中的例子是重视设施周围的当地社区、加深与社区的关系并尝试自行做出贡献的活动，这些活动属于企业社会责任活动。\n- 正确。这对应于基于企业社会责任的活动。\n- 联盟是指公司之间的合作。合作的优势和方式多种多样，如企业合并、资本联盟、销售联盟等。\n- 核心能力是指企业在多年的经营活动中积累的、能够区别于其他企业的独特知识和技术，或者是企业竞争力的核心。\n- 公司治理是通过确保管理纪律、重要事项的透明度以及保护利益相关者的角色和权利来维持公司活动健全性的框架。亦译“公司治理”。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:01.723Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q80",
+      "sourceFingerprint": "sha256:c8acd3fa75e3f168ccabd99cfb8e07928446efa27e3dcd76a28db12786b4b78c",
+      "questionZh": "使用单元格D2和E2中设置的两个税率计算产品A和产品B的含税价格。在单元格 D4 中输入的正确公式是 $B4*(1.0+D$2)，但您错误地输入了 $B4*(1.0+$D$2)。当单元格 D4 中输入的公式复制到单元格 D5、E4 和 E5 时，单元格 E5 中将显示哪个数字？",
+      "optionsZh": {
+        "A": "第525章",
+        "B": "550",
+        "C": "630",
+        "D": "660"
+      },
+      "explanationZh": "“$B4*(1.0+D$2)”和“$B4*(1.0+$D$2)”之间的区别在于引用 D 列的方式（是否存在 $）。在错误的计算公式中，D列是绝对引用。如果是绝对引用，即使复制计算公式，引用目的地也是固定的，因此复制计算公式的结果如下。复制后在单元格 E5 中输入的计算公式将为“B5*(1.0+D2)”。单元格 B5 中的值为 600，单元格 D2 中的值为 0.05，因此单元格 E5 中显示的数字为\n\n　600×(1.0＋0.05)\n=600×1.05\n=630\n\n因此，“C”是正确答案。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:05.294Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q81",
+      "sourceFingerprint": "sha256:aa8df05355ef42709db8067989124ad3efb0a520be716d65862fff3d03a64eca",
+      "questionZh": "在①至④软件中，哪项仅列出了智能手机、平板电脑等移动终端使用的OSS（开源软件）操作系统？\n- 安卓\n- iOS\n-雷鸟\n-Windows手机",
+      "optionsZh": {
+        "A": "①",
+        "B": "①、②、③",
+        "C": "②、④",
+        "D": "③、④"
+      },
+      "explanationZh": "- 正确。 Android 是一个基于 Linux 的开源操作系统。\n- 错误。 iOS 是一个用于移动设备的操作系统，但它不是开源的。\n- 错误。 Thunderbird 是开源的，但它不是操作系统，而是电子邮件软件。\n- 错误。 Windows Phone 是一个用于移动设备的操作系统，但它不是开源的。这四种中，只有①Android是OSS和OS。因此，“A”是正确答案。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:10.208Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q82",
+      "sourceFingerprint": "sha256:18a2066fd7d6cfe28b0bf8e5a36878405ccc84479ef922f3ac1cccf2cc1cc522",
+      "questionZh": "在信息安全的机密性、完整性和可用性中，以下哪项最适合作为专门旨在提高完整性的举措？",
+      "optionsZh": {
+        "A": "在双工系统中配置和操作服务器。",
+        "B": "考虑采取措施提高系统可用性。",
+        "C": "开始使用系统时需要用户身份验证。",
+        "D": "采取措施防止信息造假。"
+      },
+      "explanationZh": "机密性、完整性和可用性是信息安全管理中必须维护的三个要素。保密性：表明只有经过授权和授权的用户才能访问该信息的属性。完整性：显示信息完整（准确、一致、全面等）且未被篡改或破坏的属性。可用性：显示用户在需要时可以使用系统或服务的属性。考虑通过每项举措可以改进哪些要素。\n- 双工系统是由主系统和备用系统组成的两线处理系统配置。当主系统发生故障时，主系统正在执行的处理将移交给备用系统，即使发生故障，系统也能继续运行。因此，它是提高可用性的一项措施。\n- 正常运行时间是一个可用性指标。正常运行时间的增加也提高了可用性。\n- 身份验证和访问控制是提高保密性的措施。\n- 正确。这是一种提高完整性的措施，因为它可以防止篡改。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:17.635Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q83",
+      "sourceFingerprint": "sha256:12b819d8683dfdc80d20fdc689607fec44219b363a4058b9108969c0cd9fde6f",
+      "questionZh": "以下哪项是对 SIM 卡的正确解释？",
+      "optionsZh": {
+        "A": "一种卡式设备，可生成只能在必要时使用一次的密码，用于网上银行等安全目的。",
+        "B": "记录电话号码、用户ID等的IC卡，插入手机等使用。",
+        "C": "用于存储数字音乐播放器、数码相机等内容的大容量存储卡。",
+        "D": "数字广播接收器附带的卡，用于解扰数字广播"
+      },
+      "explanationZh": "SIM卡是记录有识别分配给设备的电话号码的ID号（IMSI）的IC卡，是移动电话和智能手机通信所必需的。通过更换SIM卡，您可以将电话号码转移到其他设备或使用其他运营商的服务。 SIM 代表用户身份模块。\n\n因此，“B”是正确答案。\n- 卡类型令牌的说明。\n- 正确。这是SIM卡的说明。\n- 这是对SD卡的解释。\n- 这是B-CAS卡的说明。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:25.918Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q84",
+      "sourceFingerprint": "sha256:e805834e52bb0b5ede3a821eaa51e918d278f78bc54d86a01a52cd4ec493a719",
+      "questionZh": "在公司 PC 上发现了恶意软件。以下哪种方法是调查其他 PC 上是否存在恶意软件的最合适方法？",
+      "optionsZh": {
+        "A": "查找与恶意软件具有相同权限的文件。",
+        "B": "查找与恶意软件具有相同扩展名的文件。",
+        "C": "查找与恶意软件具有相同所有者的文件。",
+        "D": "查找与恶意软件具有相同哈希值的文件。"
+      },
+      "explanationZh": "哈希函数是当输入任意长度的数据时返回固定长度的比特串（哈希值、消息摘要）的函数。它具有以下特点。确定性：如果输入数据相同，则总是会生成相同的哈希值。雪崩效应：如果输入数据稍有不同，生成的哈希值就会有很大差异。单向性（原始图像计算困难） 从哈希值确定原始输入数据在计算上是困难的。抗碰撞性：不同的输入数据产生相同的哈希值的可能性极小。根据这些特征，如果发现与已知恶意软件具有相同哈希值的文件，则可以确定该恶意软件存在于该 PC 上。这种使用哈希值的病毒检测方法称为比较方法，并包含在防病毒软件中。\n\n因此，“D”是正确答案。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:35.872Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q85",
+      "sourceFingerprint": "sha256:f7f153ca7fd702957eaf2db396c9df081826af92e33f06882c6d5c5e944df4aa",
+      "questionZh": "表A是将关系数据库中管理的“负责人”表、“地区”表、“客户”表组合起来得到的。哪个“客户”表用于连接？这里，下划线中，实线代表主键，虚线代表外键。",
+      "optionsZh": {
+        "A": "选项A（原题未提供文字选项）",
+        "B": "选项B（原题未提供文字选项）",
+        "C": "选项C（原题未提供文字选项）",
+        "D": "选项D（原题未提供文字选项）"
+      },
+      "explanationZh": "表A包含“雇员姓名”和“地区名称”，“雇员姓名”是“负责雇员”表的属性，“地区名称”是“地区”表的属性。由于选项的“客户”表不包含这些属性，因此在创建表A时，需要连接“客户”表、“员工”表和“地区”表。\n\n在关系数据库中，表通过主键和外键关联。执行连接操作时，将外键和独立表的主键指定为连接键，因此如果没有外键，将无法引用独立表。因此，为了执行联接操作并检索值，“客户”表中需要有两个外键：“员工代码”和“地区代码”。\n\n因此，用于连接的“Customer”表是“D”。\n\n具体地，将三表连接后，通过投影运算提取客户代码、客户姓名、员工姓名、地区名称和代表姓名四列，创建表A。\n\n边界说明：当前仓库没有可验证的图片或表格资源；中文说明只依据题干、选项中已有文字和日文解析，不补写不存在的图表内容。",
+      "correctAnswer": "D",
+      "visualClassification": "text_question_with_missing_option_text",
+      "optionTextStatus": "all_empty",
+      "generatedAt": "2026-07-11T05:40:39.143Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q86",
+      "sourceFingerprint": "sha256:88e4ed3edb157a258b7ff0131c5bf28b8dc4739c1444b7ef3b8a76f75818ddd2",
+      "questionZh": "哪种压缩静态图像文件格式用于插图等，并且最大显示颜色为 256 色？",
+      "optionsZh": {
+        "A": "动图",
+        "B": "JPEG",
+        "C": "MIDI",
+        "D": "MPEG"
+      },
+      "explanationZh": "- 正确。 GIF（图形交换格式）是一种可逆压缩图像文件格式，主要处理 256 色或更少的颜色数量相对较少的静止图像（插图等）。它与 JPEG 一样有着悠久的历史，并且作为标准受到所有 Web 浏览器的支持。具有透明背景、动画（GIF视频）、隔行扫描等高级功能。\n- 联合摄影专家组的缩写。这是一种常见的图像文件格式，用于压缩用数码相机拍摄的全彩静态图像。\n- 乐器数字接口的缩写，发音为“midi”。这是一个全球标准，用于在设备之间以数字方式传输来自电子乐器（例如合成器）的演奏数据和电子声源。\n- 运动图像专家组的缩写。一种视频压缩格式，包括 MPEG-1、MPEG-2、MPEG-4 和 MPEG-7 等标准。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:43.129Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q87",
+      "sourceFingerprint": "sha256:084530917460a492c395ef12f92f011a63835955b4f9743d43f74c87a7389f9d",
+      "questionZh": "我想使用无线局域网访问控制功能将可以连接到网络的设备限制为特定的PC、打印机、游戏机等。在这种情况下，以下哪项信息最适合用来识别终端？",
+      "optionsZh": {
+        "A": "ESSID",
+        "B": "IP地址和端口号",
+        "C": "MAC地址",
+        "D": "无线电频率"
+      },
+      "explanationZh": "MAC 地址是分配给每个设备的 6 字节（48 位）数字，用于在网络上唯一标识该设备，世界上只有一台设备具有相同的地址。\nMAC 地址在全球范围内是唯一的，非常适合识别设备。通过在无线 LAN 接入点中注册合法设备的 MAC 地址，您可以拒绝非法设备的访问。该功能称为MAC地址过滤。\n\n因此，“C”是正确答案。\n- ESSID 是一种控制无线 LAN 访问的机制，通过为每个接入点和终端设置相同的标识符，并确保只有具有匹配标识符的设备才能相互通信。它不能用于识别连接的设备。\n- 无线 LAN 接入点通常具有 DHCP 功能，可以自动为连接的设备分配 IP 地址。分配给该设备的 IP 地址会不时发生变化，因此不能用于限制访问。\n- 正确。\n- 无线 LAN 使用的频段为 2.4GHz 频段或 5GHz 频段。此信息并非每个设备所独有，并且不能用于限制访问。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:49.853Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q88",
+      "sourceFingerprint": "sha256:bc786bf78172e2fee16706e19532a897422bf85105a942ccb17208f5f694d6ec",
+      "questionZh": "使用哪种协议将计算机的内部时钟与通过网络提供参考时间信息的服务器同步？",
+      "optionsZh": {
+        "A": "文件传输协议",
+        "B": "NTP",
+        "C": "流行音乐",
+        "D": "邮件传输协议"
+      },
+      "explanationZh": "- 文件传输协议的缩写。用于通过网络传输文件的通信协议。\n- 正确。 NTP（网络时间协议）是一种用于将连接到网络的服务器和客户端的系统时钟同步到正确时间（协调世界时：UTC）的协议。将使用 UDP 端口 123 进行通信。\n- 邮局协议的缩写。这是电子邮件软件用来从电子邮件服务器检索自己的电子邮件的电子邮件接收协议。\n- 简单邮件传输协议的缩写。发送和转发电子邮件时使用的电子邮件发送协议。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:55.063Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q89",
+      "sourceFingerprint": "sha256:95e6ee4643a714b0c4ecda1e79640ee1a89374ce8fef8c88d05949354d64dad8",
+      "questionZh": "无线 LAN 使用以下哪种加密标准？",
+      "optionsZh": {
+        "A": "曲奇饼",
+        "B": "ESSID",
+        "C": "哑剧",
+        "D": "WPA2"
+      },
+      "explanationZh": "- Cookie 是一种根据网络服务器或网页的指令将用户信息存储在网络浏览器中的机制，以便识别哪台 PC 正在访问网络服务器。\n- 扩展服务集标识符的缩写。这是在接入点和终端上设置的标识符，以避免无线 LAN 中的干扰。执行访问控制，以便只有具有匹配 ESSID 的设备才能相互通信。\n- 多用途互联网邮件扩展的缩写。这是一种使用 SMTP 通过电子邮件发送 2 字节代码（例如日语）和图像/视频/音频数据的机制，只能使用 ASCII 字符。\n- 正确。 Wi-Fi Protected Access 2 的缩写。用于对无线 LAN 中的用户进行身份验证以及对设备和接入点之间的通信进行加密的标准。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:40:59.865Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q9",
+      "sourceFingerprint": "sha256:8e6738af9f60210c4978aaa189c50dfbbf387f6493c9faed6f4be1bb9a2bbd70",
+      "questionZh": "以下哪项是关于“云计算”的正确描述？",
+      "optionsZh": {
+        "A": "互联网通信协议",
+        "B": "提供计算机资源的服务模型",
+        "C": "可灵活应对规格变更的软件开发方法",
+        "D": "电子商务等中使用的电子数据交换标准"
+      },
+      "explanationZh": "云计算是一种计算机处理形式，它使用互联网上的计算机资源和服务，而不是使用自己公司的资源。与硬件、软件和数据在公司内部管理的传统系统相比，云计算将这些组件安装在服务提供商处，其优点是降低了系统采购和维护所需的成本。\n\n因此，“B”最恰当描述。\n- 云计算不是一种协议。 TCP/IP 是构成互联网技术基础的协议。\n- 正确。云计算的解释。\n- 敏捷开发的解释。\n- EDI（电子数据交换）的解释。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:09.634Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q90",
+      "sourceFingerprint": "sha256:acb5f7121c544e83bc04799043147c3acc73c550c0fe76a872b75fb8f6b74c01",
+      "questionZh": "以下哪项是生物特征认证的恰当示例？",
+      "optionsZh": {
+        "A": "使用 ATM 时，通过将手掌放在传感器上并将其与预先注册的静脉图案进行比较来执行身份验证。",
+        "B": "按照预先注册的顺序滑动智能手机屏幕即可解锁屏幕。",
+        "C": "通过让机器解决机器难以区分的任务，例如必须从多张照片中仅选择一张室外照片，就可以确认机器人是由人类操作的。",
+        "D": "通过让用户从多张照片中仅选择与该人（例如亲戚）相关的图像来执行身份验证。"
+      },
+      "explanationZh": "生物识别认证是一种利用个人特有的信息（例如身体特征和行为特征）对个人进行身份验证的方法。人的生物特征信息预先登记在认证系统中，通过比对认证时传感器读取的信息来验证人的身份。\n认证方式包括指纹认证、静脉纹认证、虹膜认证、声纹认证、人脸认证​​、视网膜认证等。\n\n- 正确。这是生物特征认证的示例，因为它使用静脉图案作为认证信息。\n- 模式认证的解释。\n- CAPTCHA 身份验证的说明。\n- 这是使用“秘密问题”进行身份验证的示例。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:19.360Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q91",
+      "sourceFingerprint": "sha256:01d69893dd4f1a4501823ec67e6eb13a1ee3a0702414cd43ea108d816f671969",
+      "questionZh": "以下哪项是对 WAN 的最佳解释？",
+      "optionsZh": {
+        "A": "使用互联网的虚拟专用网络",
+        "B": "一个连接国家的网络，而不是一个连接全国各地的网络。",
+        "C": "使用电信运营商的网络服务连接地理位置相距较远的地点（例如总部和分支机构）的网络。",
+        "D": "仅授予互操作性已被行业组织确认的设备的品牌名称，旨在普及与无线 LAN 中使用的 IEEE802.11 标准兼容的产品。"
+      },
+      "explanationZh": "WAN（Wide Area Network）是一种利用电话线和专线连接比 LAN 更广的区域（例如地理上分离的基地 A 和 B）以实现通信的网络。利用电信运营商提供的网络服务，将总公司和分公司之间等地理上分离的局域网连接起来。\n\n因此，“C”最恰当。\n- VPN（虚拟专用网络）的解释。\n——这是网上的解释。 WAN 是连接 LAN 的广域通信网络。\n- 正确。这是对WAN的解释。\n- 无线网络解释。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:27.596Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q92",
+      "sourceFingerprint": "sha256:b01c84e01c66011ba1ef4048bad97c124efc45c207776e807b61f14cc554cd6f",
+      "questionZh": "以下哪项用于描述 PC 等的规格，例如 SXGA 或 QVGA？",
+      "optionsZh": {
+        "A": "CPU时钟频率",
+        "B": "HDD盘片直径",
+        "C": "显示分辨率",
+        "D": "内存容量"
+      },
+      "explanationZh": "- 赫兹 (Hz) 用作 CPU 时钟频率的单位。\n- 英寸用作 HDD 磁盘的直径单位。\n- 正确。 SXGA 和 QVGA 是表示显示器的宽高比和分辨率的名称。\n- 字节（B）用作存储器容量的单位。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:36.422Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q93",
+      "sourceFingerprint": "sha256:6c2ef22c4375977a58c5fab1f2808ba12507abc5b6c2a2a44e54cca1adf0bbe4",
+      "questionZh": "以下哪项是使用公钥加密的进程和用于这些进程的公钥的所有合适组合 a 到 c 的列表？",
+      "optionsZh": {
+        "A": "a、b",
+        "B": "a、c",
+        "C": "b",
+        "D": "b、c"
+      },
+      "explanationZh": "使用公钥密码学的主要过程包括加密通信和数字签名。\n\n[加密通讯]\n使用接收者的密钥加密/解密。发送者使用接收者的公钥来加密数据，接收者使用他或她的私钥来解密数据。 [数字签名]\n- 发送者生成要发送的消息的哈希值（消息摘要），并使用发送者的私钥对其进行签名以创建签名数据。\n- 发送者将签名数据添加到消息中并发送。\n- 接收者收到带有签名数据的消息\n- 接收者使用接收到的消息的哈希值和发送者的公钥来验证签名数据\n- 仅当发送的消息和接收的消息相同并且密钥对正确时验证成功。这可以让您确认通信内容没有被篡改，并且发送者是合法的。加密通信使用公钥来加密传输的数据，而数字签名则使用公钥来验证签名。\n\n- 错误。数字签名是使用发送者的私钥生成的。在这种情况下，您将需要电子邮件创建者的私钥。\n- 正确。发送者的公钥用于验证数字签名。也就是说，它与电子邮件创建者的密钥匹配。\n- 正确。加密通信使用接收者的公钥来加密数据。在这种情况下，发送者是客户端（浏览器），接收者是 Web 服务器，因此 Web 服务器的公钥匹配。正确的组合是 'b, c'，因此 'd' 是正确答案。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:42.175Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q94",
+      "sourceFingerprint": "sha256:e4fbf5f3e2b04f4b28fb7f4348a60399a3f371bc71efd575090dcfce73270a02",
+      "questionZh": "以下哪项是对批处理的正确解释？",
+      "optionsZh": {
+        "A": "在一定时间内收集一定量的数据并一次性处理所有数据的方法。",
+        "B": "当有数据处理请求时立即执行处理并在时限内返回处理结果的方法。",
+        "C": "一种通过将处理分配给多台计算机或处理器来减少执行时间的方法",
+        "D": "一种处理方法，其中计算机响应于用户的处理请求而进行处理，就像进行对话一样。"
+      },
+      "explanationZh": "批处理是一次处理一定量的累积数据的形式，例如每日或每月处理。由于处理是批量完成的，因此它的优点是需要较少的计算机资源空闲时间。\n- 正确。这是批处理的解释。\n- 实时处理的解释。\n- 分布式处理的解释。\n- 交互处理的解释。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:50.769Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q95",
+      "sourceFingerprint": "sha256:68e8fffb7b1b408c4efebc997ce5b0fd7a4cb6ddb7bf39d308c5844a7b06888e",
+      "questionZh": "以下哪项描述了计算机处理性能改进技术，也称为睿频加速？",
+      "optionsZh": {
+        "A": "放置在CPU和主存之间，以补偿主存读写的缓慢。",
+        "B": "在CPU允许的发热量和功耗有空间的情况下，提高核心的工作频率。",
+        "C": "它的CPU内部有多个核心部分来执行计算，并同时执行多个进程。",
+        "D": "它共享多台计算机的CPU并以分布式方式执行大量处理。"
+      },
+      "explanationZh": "Turbo Boost是多核CPU中的一项技术，可以自动停止某些核心以减少热量产生和功耗，从而将正在使用的核心的时钟速度提高到指定值以上。它安装在Intel的Core i5、Core i7系列等中。\n\n并非多核 CPU 上的所有 CPU 始终都在运行，例如在多核 CPU 上运行单线程应用程序时。这些剩余功率被分配给活动核心，并且它们的时钟速度被提高以提高处理能力。\n- 高速缓冲存储器的解释。\n- 正确。这是涡轮增压的解释。\n- 多核处理器的解释。\n- 聚类的解释。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:41:59.785Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q96",
+      "sourceFingerprint": "sha256:0de433e358c805dea39f0bdaaf50ae836af6a1fae68df8427e6279c5b40bcc64",
+      "questionZh": "以下哪项是对无线 LAN 中使用的 2.4GHz 和 5GHz 频段的正确描述？",
+      "optionsZh": {
+        "A": "同一房间内不能同时使用2.4GHz和5GHz频段。",
+        "B": "与5GHz频段相比，2.4GHz频段更能抵抗障碍物，并且可以更轻松地接收无线电波。",
+        "C": "2.4GHz频段支持WPA2加密通信，5GHz频段则不支持。",
+        "D": "2.4GHz频段不受家用电器的无线电波干扰，但5GHz频段会受到无线电波干扰。"
+      },
+      "explanationZh": "无线 LAN（IEEE802.11 系列）根据标准使用 2.4GHz 频段或 5GHz 频段。\n- 可以在同一房间同时使用。\n- 正确。 2.4GHz频段可以抵抗墙壁和地板等障碍物，无线电波可以轻松到达长距离。\n- 两者都支持WPA2加密通信。\n- 2.4GHz频段无需无线许可证即可使用，因此可用于微波炉和无绳电话等许多设备。因此，与描述相反，2.4GHz频段会受到无线电波干扰，但5GHz频段不会受到家用电器的无线电波干扰。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:07.192Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q97",
+      "sourceFingerprint": "sha256:1392829ae2da8fefacce4db98a8b3c90aa7109bbf04477fc7ee73b0786fccee2",
+      "questionZh": "关于子网掩码的使用，以下哪项是正确的解释？",
+      "optionsZh": {
+        "A": "用于指示IP地址的网络地址部分和主机地址部分之间的边界。",
+        "B": "用于在 LAN 上使用的私有 IP 地址和 Internet 上使用的全局 IP 地址之间进行转换。",
+        "C": "用于从通信伙伴的IP地址获取以太网上的MAC地址。",
+        "D": "用于自动将网络信息（例如 IP 地址）分配给网络内的计算机。"
+      },
+      "explanationZh": "子网掩码是用于将 IP 地址分为网络地址和主机地址的一串位。 IP 地址通过在网络地址部分指定“1”和在主机地址部分指定“0”来区分。\n\n因此，恰当的解释是“A”。\n- 正确。这是子网掩码的解释。\n- NAT（网络地址转换）的解释。\n- ARP（地址解析协议）的解释。\n- DHCP（动态主机配置协议）的解释。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:14.889Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q98",
+      "sourceFingerprint": "sha256:b92af887033328f5e7203bc702e69a1f88a821876cac35775f57120b01d4fa15",
+      "questionZh": "旨在响应与计算机和网络相关的安全事件的组织叫什么？",
+      "optionsZh": {
+        "A": "计算机安全事件响应小组（CSIRT）",
+        "B": "信息管理系统",
+        "C": "互联网服务供应商",
+        "D": "虚拟网络运营商"
+      },
+      "explanationZh": "CSIRT（Computer Security Incident Response Team）是专门从事安全响应的组织，是专门处理一定范围内（例如公司内部）发生的安全事件的团队。\n《网络安全管理指南》（ver2.0）将其定义为“响应事件发生的系统”。\n\n因此，“A”是正确答案。\n- 正确。\n- 信息安全管理系统的缩写。信息安全管理体系。\n- 互联网服务提供商的缩写。将客户企业和家庭的计算机连接到互联网的互联网连接服务提供商。\n- Mobile Virtual Network Operator 的缩写，指虚拟移动通信运营商。不拥有自己的无线通信线路设备，而是向Docomo、au、Softbank等电信运营商租用线路来提供移动通信服务的公司。 UQ mobile、OCN Mobile、mineo 和 IIJmio 等运营商均属于 MVNO。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:21.498Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_AKI_Q99",
+      "sourceFingerprint": "sha256:583c4c404555261c01c2e8c70dcbf188c4c6f7a2107da00ebcfa44f249eb25ed",
+      "questionZh": "ISMS 中的信息安全风险评估涉及识别、分析和评估风险。以下哪项列出了风险评估中所做的所有事情？\n\n- 根据预定标准对分析的风险进行优先级排序。\n- 识别在处理应受保护的信息资产时存在的风险。\n- 建立确定风险出现时是否采取行动的标准。",
+      "optionsZh": {
+        "A": "a",
+        "B": "a、b",
+        "C": "b",
+        "D": "c"
+      },
+      "explanationZh": "根据 JIS Q 27001:2014，风险识别、风险分析和风险评估分别涉及以下任务： 风险识别发现和识别风险\n识别风险责任人 风险分析 了解风险特征并确定风险级别\n将风险评估风险分析的结果与既定的风险标准进行比较，计算风险实际发生时造成损害的程度和可能性。\n对分析的风险进行优先级排序以进行风险应对\n- 正确。这是通过风险评估来完成的。\n- 错误。这是通过风险识别来完成的。\n- 错误。这是通过风险分析完成的。 “A”是正确答案，因为“A”是风险评估中要执行的唯一任务。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:25.269Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_HARU_Q1",
+      "sourceFingerprint": "sha256:c8b908f9eb89e2d5180daa4cdb2671503cdd63152ae81f6fbb3999633e3389c3",
+      "questionZh": "当根据产品和市场是现有的还是新的将业务战略分为“市场渗透”、“新产品开发”、“市场开发”和“多元化”四类时，以下哪项是“市场渗透”的示例？",
+      "optionsZh": {
+        "A": "一家饮料制造商利用其专有技术开发了一种新型花。",
+        "B": "一家休闲服装制造商销售西装。",
+        "C": "一家食品制造商将其销售区域从本地扩大到全国。",
+        "D": "某日用品制造商通过增加店内销售人员的数量来增加其核心产品的销量。"
+      },
+      "explanationZh": "布道的分析框架称为安索夫增长矩阵。\n\n安索夫增长矩阵由商学院学者H.伊戈尔·安索夫提出，采用的矩阵将“市场”和“产品”设置在垂直和水平两个轴上，每个轴有两个类别：“现有”和“新”。它阐明了某个业务领域在矩阵上的位置，并显示了适合每个象限的四种管理策略（市场渗透、产品开发、市场开发和多元化）。它被称为适合考虑业务增长方向的框架。每个象限的管理策略如下。市场渗透（现有产品/现有市场）战略产品开发（新产品/现有市场）战略市场开发（现有产品）旨在通过向现有客户和市场提供新功能的产品或新开发的产品来实现增长。 （产品/新市场） 通过向与过去不同的客户和市场销售现有产品来实现增长的战略 多元化（新产品/新市场） 通过技术开发、业务联盟、并购等扩展到与当前业务无关的新领域来实现增长的战略。基于上述，可以将选项的四个示例分类如下。\n- 是“多元化”，因为它是新市场和新产品的结合。\n- 它是“新产品开发”，因为它是现有市场和新产品的结合。\n- 是“市场开发”，因为它是新市场和现有产品的结合。\n- 正确。它是“市场渗透”，因为它是现有市场和现有产品的结合。",
+      "correctAnswer": "D",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:35.250Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_HARU_Q10",
+      "sourceFingerprint": "sha256:c218b1d11c30ad9df3cd392576faa8d744c35220aeb3f95744a62abf269a08b5",
+      "questionZh": "以下哪些使用受版权保护的作品的例子可能会侵犯版权？",
+      "optionsZh": {
+        "A": "音乐节目在家中录制在 DVD 上，仅供录制视频的人和他或她的家人使用。",
+        "B": "我未经作者许可，翻译了别人在国外网站上发表的病历，并发表在自己的网站上。",
+        "C": "未经行政机关许可，引用行政机关编制并公布的地方政府人口报告，作为公立高中入学考试题目。",
+        "D": "我写了一篇论文，引用了一篇发表在专业期刊上的研究论文中的几行内容，并明确标明了引文和出处。"
+      },
+      "explanationZh": "- 您可以复制受版权保护的作品，供您自己或您的家人有限使用（版权法第 30 条，私人使用的复制）。该案件并不违法，因为该案件仅供本人及其家人使用，并且属于上述情况。\n但您必须注意，复制具有复制保护等技术保护措施的版权作品需要获得许可，即使复制是供个人使用。\n- 正确。版权所有者被授予对其自己作品的“翻译和改编权”。因此，未经作者许可，翻译、出版他人著作权作品的行为就构成侵犯著作权。\n- 国家或地方政府机关、独立行政机关或地方独立行政机关制作的公共关系材料、研究统计材料和报告中，如果符合以下条件，则可以复制：（1）目的是让公众了解；（2）没有表明禁止复制；（3）用作说明材料。\n- 引文必须满足三个主要条件才能被认为是恰当的。\n- 引用必须是必要的，并且必须在最小的必要范围内。\n- 正文和引用部分之间有明显区别。\n- 引用内容必须向浏览者明确标明出处。本例满足引用要求，不存在违法行为。",
+      "correctAnswer": "B",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:44.433Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_HARU_Q100",
+      "sourceFingerprint": "sha256:7cfad62eb557300b52f7ade408e8008b9d3bedc0da0192abf2f6f0ceaad6046e",
+      "questionZh": "具有两个虚拟 ESSID 的无线 LAN 接入点用于将 PC、平板电脑和游戏机等设备连接到 Internet。如果每个 ESSID 都按以下设置使用，那么当由于 WEP 加密方法的漏洞而从外部非法访问无线 LAN 时，可能会造成哪些损害？",
+      "optionsZh": {
+        "A": "ESSID1 的加密密钥集已泄露。",
+        "B": "从PC到互联网的通信内容被泄露。",
+        "C": "互联网连接线被滥用。",
+        "D": "未经授权访问平板电脑。"
+      },
+      "explanationZh": "WEP（有线等效保密）是早期无线网络中用于执行加密通信的算法。 WEP 存在严重漏洞，允许外部人员在短短几分钟内解密加密密钥，因此不应再使用它。\n由于 ESSID2 将 WEP 设置为加密方法，因此存在从外部未经授权访问 ESSID2 网络的风险。\n- 可以从管理屏幕获取有关每个加密密钥的信息，但 ESSID2 网络拒绝与管理屏幕通信，因此不存在 ESSID1 的加密密钥泄露的风险。\n- 由于PC使用ESSID1的网络，即使ESSID2的加密密钥泄露，通信的内容也不会被知晓。\n- 正确。您将通过 ESSID2 网络连接到互联网。\n- 与 LAN 内其他设备的通信被拒绝，因此您的平板电脑不存在被外部访问的风险。",
+      "correctAnswer": "C",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:53.630Z"
+    },
+    {
+      "package": "quiz-itpass-5",
+      "questionId": "30_HARU_Q11",
+      "sourceFingerprint": "sha256:706050dee301b09c6ebdf0deb0d5080e0d755f18be6361458ecfc147eec05a27",
+      "questionZh": "资产负债表中的权益比率是多少？",
+      "optionsZh": {
+        "A": "40",
+        "B": "80",
+        "C": "125",
+        "D": "150"
+      },
+      "explanationZh": "权益比率是表示权益与公司管理资金总额的比率的数值，作为管理健全性的指标。\n\n股权比例（%）=自有资本/资本总额×100\n\n权益资本是资产负债表净资产部分*的金额，总资本是债务部分（其他方资本）和净资产部分（自有资本）之和，所以问题中的权益资本和资产负债表总资本如下。\n\n股本=240（百万日元）\n总资本=160+200+240=600（百万日元）\n\n换句话说，股权比例为\n\n　240÷600×100＝40(%)\n\n因此，“A”是正确答案。 *严格来说，净资产金额和股东权益金额是不同的。在信息处理工程师考试中，这种差异在做题时并不是问题，所以为了方便起见，这样解释。",
+      "correctAnswer": "A",
+      "visualClassification": "",
+      "optionTextStatus": "complete",
+      "generatedAt": "2026-07-11T05:42:57.271Z"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+<!--pages/glossary/glossary.wxml-->
+<view class="container secondary-shell" style="padding-top: {{navSafeTop}}px;">
+  <view class="secondary-nav secondary-nav--back-only">
+    <view class="secondary-nav__back" bindtap="goBack" data-secondary-route="packages/glossary/pages/term-search/term-search">
+      <text class="secondary-nav__back-icon">‹</text>
+    </view>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <view class="search-symbol"></view>
+      <input
+        class="search-input"
+        placeholder="搜索术语（英文/中文/日文）"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+        confirm-type="search"
+      />
+      <text wx:if="{{keyword}}" class="search-clear" bindtap="clearSearch">✕</text>
+    </view>
+    <!-- R3.40 批量操作按钮 -->
+    <view class="batch-toggle" bindtap="toggleBatchMode">
+      <text>{{batchMode ? '取消' : '批量'}}</text>
+    </view>
+  </view>
+
+  <!-- R3.38 搜索历史 -->
+  <view class="history-bar" wx:if="{{searchHistory.length > 0 && !keyword}}">
+    <view class="history-header">
+      <text class="history-title">搜索历史</text>
+      <text class="history-clear" bindtap="clearHistory">清除</text>
+    </view>
+    <scroll-view class="history-scroll" scroll-x="true">
+      <view
+        class="history-tag"
+        wx:for="{{searchHistory}}"
+        wx:key="*this"
+        bindtap="onHistoryTap"
+        data-keyword="{{item}}"
+      >
+        <text>{{item}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- R3.37 分类标签 -->
+  <view class="category-bar" wx:if="{{categories.length > 0}}">
+    <scroll-view class="category-scroll" scroll-x="true">
+      <view
+        class="category-tag {{selectedCategory === item ? 'category-tag-active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="*this"
+        bindtap="onCategoryTap"
+        data-category="{{item}}"
+      >
+        <text>{{item}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 结果数量提示 -->
+  <view class="result-count">
+    <text>{{resultHint}}</text>
+  </view>
+
+  <!-- 术语列表 -->
+  <view class="glossary-list">
+    <view
+      class="glossary-card {{batchMode ? 'glossary-card-batch' : ''}}"
+      wx:for="{{filteredList}}"
+      wx:key="id"
+      bindtap="{{batchMode ? '' : 'goToDetail'}}"
+      data-id="{{item.id}}"
+    >
+      <!-- R3.40 批量选择复选框 -->
+      <view wx:if="{{batchMode}}" class="card-checkbox" bindtap="onTermCheckboxTap" data-id="{{item.id}}">
+        <view class="checkbox-icon {{selectedTerms[item.id] ? 'checkbox-checked' : ''}}">
+          <text wx:if="{{selectedTerms[item.id]}}">✓</text>
+        </view>
+      </view>
+      <view class="card-main">
+        <view class="card-left">
+          <view class="item-header">
+            <text class="item-term">{{item.term}}</text>
+            <view class="item-badges">
+              <text class="badge badge-category">{{item.category}}</text>
+              <text class="badge badge-level">{{item.level}}</text>
+              <text wx:if="{{item._isFavorite}}" class="badge badge-fav">已收藏</text>
+            </view>
+          </view>
+          <view class="item-translations">
+            <text class="item-zh">{{item.zh}}</text>
+            <text class="item-sep">/</text>
+            <text class="item-ja">{{item.ja}}</text>
+          </view>
+        </view>
+        <view class="card-detail-hint" wx:if="{{!batchMode}}">
+          <text class="detail-arrow">›</text>
+          <text class="detail-label">详情</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 搜索无结果 (Round 3.21 增强) -->
+    <view class="empty-state" wx:if="{{filteredList.length === 0 && keyword}}">
+      <view class="empty-symbol"></view>
+      <text class="empty-text">没有找到相关术语</text>
+      <view class="empty-suggestions">
+        <text class="empty-suggestion-title">建议尝试：</text>
+        <text class="empty-suggestion-item">· 更换关键词试试</text>
+        <text class="empty-suggestion-item">· 使用中文、日文或英文技术词</text>
+        <text class="empty-suggestion-item">· 尝试更短的关键词</text>
+      </view>
+    </view>
+
+    <!-- 默认展示提示 -->
+    <view class="list-hint" wx:if="{{!keyword && showCount < totalCount}}">
+      <text>仅显示前 {{showCount}} 条，请使用搜索查找更多</text>
+    </view>
+  </view>
+
+  <!-- R3.40 批量操作栏 -->
+  <view class="batch-bar" wx:if="{{batchMode}}">
+    <view class="batch-actions-left">
+      <text class="batch-select-all" bindtap="selectAll">全选</text>
+      <text class="batch-deselect" bindtap="deselectAll">取消</text>
+    </view>
+    <text class="batch-count">已选 {{selectedCount}} 项</text>
+    <view class="batch-action-btn" bindtap="batchAddToFavorites">
+      <text>批量收藏</text>
+    </view>
+  </view>
+</view>
