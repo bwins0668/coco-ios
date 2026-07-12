@@ -1,79 +1,27 @@
 import SwiftUI
 
-/// 首页：题库首页 / 课程中心
-/// 1:1 复刻小程序 pages/home/home.wxml (R6.5 DC-authoritative)
+/// 首页：题库首页 / 课程中心（接入 Storage 真实数据）
 struct HomeView: View {
+    @Environment(\.modelContext) private var ctx
     @State private var jstDate: String = DT.jstDateString()
-    @State private var streak: Int = 7
-    @State private var hasLastAttempt: Bool = true
-    @State private var lastExamLabel: String = "IT Passport"
-    @State private var lastSourceLabel: String = "真题练习"
-    @State private var lastMetaText: String = "真题练习 · 2 小时前"
+    @State private var lastExamLabel: String = ""
+    @State private var lastSourceLabel: String = ""
+    @State private var lastMetaText: String = ""
+    @State private var hasLastAttempt: Bool = false
+    @State private var streak: Int = 0
+    @State private var navigateCourseId: String? = nil
 
-    private var examCourses: [ExamCourse] {
-        [
-            ExamCourse(id: "itpass",
-                       name: "IT Passport",
-                       description: "IT Passport 真题练习与年度模拟",
-                       color: DT.itpassColor,
-                       available: true),
-            ExamCourse(id: "sg",
-                       name: "SG 信息安全",
-                       description: "情報セキュリティマネジメント专项强化",
-                       color: DT.sgColor,
-                       available: true),
-            ExamCourse(id: "mos",
-                       name: "MOS 365",
-                       description: "MOS 365 认证考试（入口待确认）",
-                       color: DT.textGhost,
-                       available: false)
-        ]
-    }
+    private let examCourses: [(id: String, name: String, color: Color, sub: String, available: Bool)] = [
+        ("itpass", "IT Passport", DT.itpassColor, "IT Passport 真题练习与年度模拟", true),
+        ("sg", "SG 信息安全", DT.sgColor, "情報セキュリティマネジメント专项强化", true),
+        ("mos", "MOS 365", DT.textGhost, "MOS 365 认证考试（入口待确认）", false)
+    ]
 
-    private var learningCourses: [LearningCourse] {
-        [
-            LearningCourse(abbr: "Ja", name: "Java",
-                           descJa: "Java入門 / Java実践",
-                           descZh: "Java 基础 / Java 实践",
-                           meta: "19 章节 · 336 小节 · 双语讲解",
-                           pill: "面向零基础", pillColor: DT.primarySoft,
-                           action: .java),
-            LearningCourse(abbr: "Py", name: "Python",
-                           descJa: "Python 入门 / Python 进阶",
-                           descZh: "从输出到函数与类",
-                           meta: "9 小节 · 双语讲解",
-                           pill: "面向零基础", pillColor: DT.successSoft,
-                           action: .python),
-            LearningCourse(abbr: "SQ", name: "SQL 数据库",
-                           descJa: "SQL データベース入門",
-                           descZh: "SQL 数据库核心",
-                           meta: "7 章节 · 第 1 课已开放 · 双语讲解",
-                           pill: "实操判定", pillColor: DT.warningSoft,
-                           action: .sql)
-        ]
-    }
-
-    enum CourseAction { case java, python, sql, language(String) }
-
-    struct ExamCourse: Identifiable {
-        let id: String
-        let name: String
-        let description: String
-        let color: Color
-        let available: Bool
-    }
-
-    struct LearningCourse: Identifiable {
-        var id: String { name }
-        let abbr: String
-        let name: String
-        let descJa: String
-        let descZh: String
-        let meta: String
-        let pill: String
-        let pillColor: Color
-        let action: CourseAction
-    }
+    private let learningCourses: [(id: String, name: String, sub: String, color: Color, pill: String)] = [
+        ("java", "Java", "Java入門 / Java 实践 · 19 章 / 336 小节", DT.primarySoft, "面向零基础"),
+        ("python", "Python", "Python 入门 / 进阶 · 9 小节", DT.successSoft, "面向零基础"),
+        ("sql", "SQL 数据库", "SQL 入門 · 7 章 · 第 1 课已开放", DT.warningSoft, "实操判定")
+    ]
 
     var body: some View {
         NavigationStack {
@@ -81,28 +29,44 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: DT.space3) {
                     masthead
                     QPRuleLine()
-
-                    if hasLastAttempt {
-                        heroCard
-                    } else {
-                        startCard
-                    }
-
+                    if hasLastAttempt { heroCard } else { startCard }
                     examSection
-
                     learningSection
-
-                    Spacer().frame(height: 60)
+                    Spacer().frame(height: 80)
                 }
                 .padding(.bottom, DT.space3)
             }
             .scrollContentBackground(.hidden)
             .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: Binding(
+                get: { navigateCourseId != nil },
+                set: { if !$0 { navigateCourseId = nil } }
+            )) {
+                if let id = navigateCourseId {
+                    CourseDetailView(
+                        courseId: id,
+                        courseName: examCourses.first(where: { $0.id == id })?.name ?? ""
+                    )
+                }
+            }
+            .onAppear(perform: load)
         }
     }
 
-    // MARK: - Masthead
+    private func load() {
+        AppContext.bootstrap(ctx)
+        if let last = Storage.shared.getLastAttempt() {
+            hasLastAttempt = true
+            lastExamLabel = last.examLabel
+            lastSourceLabel = last.sourceLabel
+            lastMetaText = last.metaText
+        } else {
+            hasLastAttempt = false
+        }
+        streak = Storage.shared.getStreakCount()
+    }
+
     private var masthead: some View {
         QPMasthead(
             kicker: "课程 · 学习",
@@ -112,7 +76,6 @@ struct HomeView: View {
         )
     }
 
-    // MARK: - Hero (Continue)
     private var heroCard: some View {
         QPCard {
             VStack(alignment: .leading, spacing: DT.space1) {
@@ -133,7 +96,6 @@ struct HomeView: View {
                 Text("\(lastSourceLabel) · ITパスポート試験")
                     .font(.system(size: DT.fontCaption))
                     .foregroundStyle(DT.textSecondary)
-
                 HStack(spacing: DT.space1) {
                     QPPrimaryButton("继续练习 →") {}
                     QPOutlineButton("今日复习") {}
@@ -144,7 +106,6 @@ struct HomeView: View {
         .padding(.horizontal, DT.space3)
     }
 
-    // MARK: - Start state (no practice)
     private var startCard: some View {
         QPCard {
             VStack(alignment: .leading, spacing: DT.space1) {
@@ -158,24 +119,19 @@ struct HomeView: View {
                 Text("请选择要备考的考试")
                     .font(.system(size: DT.fontCaption))
                     .foregroundStyle(DT.textSecondary)
-
                 HStack(spacing: DT.space1) {
                     Text("IT Passport")
                         .font(.system(size: DT.fontCaption, weight: .semibold))
-                        .padding(.horizontal, DT.space2)
-                        .padding(.vertical, 8)
-                        .background(DT.primary)
-                        .foregroundStyle(DT.surface)
+                        .padding(.horizontal, DT.space2).padding(.vertical, 8)
+                        .background(DT.primary).foregroundStyle(DT.surface)
                         .clipShape(Capsule())
                     Text("SG 信息安全")
                         .font(.system(size: DT.fontCaption, weight: .semibold))
-                        .padding(.horizontal, DT.space2)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal, DT.space2).padding(.vertical, 8)
                         .overlay(Capsule().stroke(DT.lineStrong, lineWidth: 0.5))
                         .foregroundStyle(DT.ink)
                 }
                 .padding(.top, DT.space1)
-
                 QPPrimaryButton("开始第一组练习 →") {}
                     .padding(.top, DT.space1)
             }
@@ -183,71 +139,52 @@ struct HomeView: View {
         .padding(.horizontal, DT.space3)
     }
 
-    // MARK: - 01 资格考试
     private var examSection: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
             QPSectionLabel("01", "资格考试", meta: "\(examCourses.count) 考试")
             VStack(spacing: DT.space1) {
-                ForEach(Array(examCourses.enumerated()), id: \.element.id) { idx, course in
-                    QPExamRowCard(
-                        title: course.name,
-                        description: course.description,
-                        isPrimary: idx == 0 && course.available,
-                        isMuted: !course.available,
-                        accentColor: course.color
-                    ) {}
-                    .overlay(alignment: .trailing) {
-                        if course.available {
-                            Text(idx == 0 ? "→" : "›")
-                                .font(.system(size: DT.fontPageTitle, weight: .light))
-                                .foregroundStyle(idx == 0 ? DT.primary : DT.textTertiary)
-                                .padding(.trailing, DT.space3)
-                        } else {
-                            QPPill("准备中")
-                                .padding(.trailing, DT.space3)
+                ForEach(examCourses, id: \.id) { exam in
+                    Button(action: { if exam.available { navigateCourseId = exam.id } }) {
+                        QPCard {
+                            HStack(alignment: .center, spacing: DT.space2) {
+                                Rectangle().fill(exam.available ? exam.color : DT.textGhost)
+                                    .frame(width: 3, height: 36)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(exam.name)
+                                        .font(.system(size: DT.fontBody, weight: .semibold))
+                                        .foregroundStyle(exam.available ? DT.ink : DT.textTertiary)
+                                    Text(exam.sub)
+                                        .font(.system(size: DT.fontCaption))
+                                        .foregroundStyle(DT.textSecondary)
+                                        .lineLimit(1)
+                                }
+                                Spacer(minLength: 0)
+                                if exam.available {
+                                    Text("›").font(.system(size: DT.fontPageTitle, weight: .light))
+                                        .foregroundStyle(DT.textTertiary)
+                                } else {
+                                    QPPill("准备中")
+                                }
+                            }
                         }
                     }
+                    .buttonStyle(.plain)
+                    .opacity(exam.available ? 1 : 0.6)
                 }
             }
             .padding(.horizontal, DT.space3)
         }
     }
 
-    // MARK: - 02 课程学习
     private var learningSection: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
             QPSectionLabel("02", "课程学习", meta: "Java / Python / SQL 已开放")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: DT.space1) {
-                    ForEach(learningCourses) { course in
+                    ForEach(learningCourses, id: \.id) { course in
                         learningCard(course: course)
                     }
-                    VStack(alignment: .leading, spacing: DT.space1) {
-                        Text("Alg")
-                            .font(.system(size: 11, weight: .semibold))
-                            .tracking(1.5)
-                            .foregroundStyle(DT.textGhost)
-                        Text("算法基础")
-                            .font(.system(size: DT.fontBody, weight: .semibold))
-                            .foregroundStyle(DT.textTertiary)
-                        Text("准备中")
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.textGhost)
-                    }
-                    .frame(width: 140, height: 140, alignment: .topLeading)
-                    .padding(DT.space2)
-                    .background(DT.surface.opacity(0.4))
-                    .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
-                            .stroke(DT.line, lineWidth: 0.5)
-                    )
-                    .overlay(alignment: .bottom) {
-                        Text("算法基础准备中")
-                            .font(.system(size: DT.fontLabel))
-                            .foregroundStyle(DT.textTertiary)
-                            .padding(.bottom, DT.space2)
-                    }
+                    plannedCard
                 }
                 .padding(.horizontal, DT.space3)
             }
@@ -255,30 +192,27 @@ struct HomeView: View {
     }
 
     @ViewBuilder
-    private func learningCard(course: LearningCourse) -> some View {
+    private func learningCard(course: (id: String, name: String, sub: String, color: Color, pill: String)) -> some View {
         Button(action: {}) {
             VStack(alignment: .leading, spacing: DT.space1) {
                 HStack {
-                    Text(course.abbr)
+                    Text(String(course.name.prefix(2)))
                         .font(.system(size: 11, weight: .semibold))
                         .tracking(1.5)
                         .foregroundStyle(DT.textTertiary)
                     Spacer()
-                    QPPill(course.pill, background: course.pillColor, foreground: DT.ink)
+                    QPPill(course.pill, background: course.color, foreground: DT.ink)
                 }
                 Text(course.name)
                     .font(.system(size: DT.fontBody, weight: .semibold))
                     .foregroundStyle(DT.ink)
-                Text("\(course.descJa) / \(course.descZh)")
+                Text(course.sub)
                     .font(.system(size: DT.fontCaption))
                     .foregroundStyle(DT.textSecondary)
                     .lineLimit(2)
                 Spacer(minLength: 0)
-                Text(course.meta)
-                    .font(.system(size: DT.fontLabel))
-                    .foregroundStyle(DT.textTertiary)
             }
-            .frame(width: 200, height: 140, alignment: .topLeading)
+            .frame(width: 200, height: 130, alignment: .topLeading)
             .padding(DT.space2)
             .background(DT.surface)
             .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
@@ -288,6 +222,33 @@ struct HomeView: View {
             )
         }
         .buttonStyle(.plain)
+    }
+
+    private var plannedCard: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            Text("Alg")
+                .font(.system(size: 11, weight: .semibold))
+                .tracking(1.5)
+                .foregroundStyle(DT.textGhost)
+            Text("算法基础")
+                .font(.system(size: DT.fontBody, weight: .semibold))
+                .foregroundStyle(DT.textTertiary)
+            Text("准备中")
+                .font(.system(size: DT.fontCaption))
+                .foregroundStyle(DT.textGhost)
+            Spacer(minLength: 0)
+            Text("算法基础准备中")
+                .font(.system(size: DT.fontLabel))
+                .foregroundStyle(DT.textTertiary)
+        }
+        .frame(width: 140, height: 130, alignment: .topLeading)
+        .padding(DT.space2)
+        .background(DT.surface.opacity(0.4))
+        .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
+                .stroke(DT.line, lineWidth: 0.5)
+        )
     }
 }
 

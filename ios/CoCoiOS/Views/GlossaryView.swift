@@ -1,8 +1,8 @@
 import SwiftUI
 
-/// 术语页：术语表学习中心
-/// 1:1 复刻小程序 pages/glossary/glossary.wxml
+/// 术语页：术语表学习中心（接入 Storage 真实收藏数）
 struct GlossaryView: View {
+    @Environment(\.modelContext) private var ctx
     @State private var favoriteCount: Int = 0
 
     private struct Entry: Identifiable {
@@ -15,10 +15,15 @@ struct GlossaryView: View {
 
     private var entries: [Entry] {
         [
-            Entry(id: "favorite", icon: "♥", title: "收藏复习", stat: favoriteCount > 0 ? "\(favoriteCount) 条" : "暂无", color: Color(hex: "C25A28")),
-            Entry(id: "anki", icon: "▦", title: "闪卡记忆", stat: "Anki", color: Color(hex: "5C4B8A")),
-            Entry(id: "random", icon: "⚂", title: "随机术语", stat: "探索", color: Color(hex: "3F8C82")),
-            Entry(id: "all", icon: "≡", title: "全部浏览", stat: "1500 条", color: Color(hex: "37418A"))
+            Entry(id: "favorite", icon: "♥", title: "收藏复习",
+                  stat: favoriteCount > 0 ? "\(favoriteCount) 条" : "暂无",
+                  color: Color(hex: "C25A28")),
+            Entry(id: "anki", icon: "▦", title: "闪卡记忆", stat: "Anki",
+                  color: Color(hex: "5C4B8A")),
+            Entry(id: "random", icon: "⚂", title: "随机术语", stat: "探索",
+                  color: Color(hex: "3F8C82")),
+            Entry(id: "all", icon: "≡", title: "全部浏览", stat: "1500 条",
+                  color: Color(hex: "37418A"))
         ]
     }
 
@@ -36,6 +41,10 @@ struct GlossaryView: View {
             .scrollContentBackground(.hidden)
             .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
+            .onAppear {
+                AppContext.bootstrap(ctx)
+                favoriteCount = Storage.shared.getFavoriteTermCount()
+            }
         }
     }
 
@@ -54,29 +63,21 @@ struct GlossaryView: View {
                 if favoriteCount > 0 {
                     Text("\(favoriteCount) 收藏")
                         .font(.system(size: DT.fontCaption, weight: .medium))
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 4)
-                        .background(DT.fillWarm)
-                        .foregroundStyle(DT.ink)
+                        .padding(.horizontal, 10).padding(.vertical, 4)
+                        .background(DT.fillWarm).foregroundStyle(DT.ink)
                         .clipShape(Capsule())
                 }
             }
 
             Button(action: {}) {
                 HStack(alignment: .center, spacing: DT.space2) {
-                    Text("⌕")
-                        .font(.system(size: DT.fontBody, weight: .medium))
-                        .foregroundStyle(DT.textTertiary)
+                    Text("⌕").font(.system(size: DT.fontBody, weight: .medium)).foregroundStyle(DT.textTertiary)
                     Text("搜索术语、关键词...")
-                        .font(.system(size: DT.fontCaption))
-                        .foregroundStyle(DT.textTertiary)
+                        .font(.system(size: DT.fontCaption)).foregroundStyle(DT.textTertiary)
                     Spacer()
-                    Text("›")
-                        .font(.system(size: DT.fontBody))
-                        .foregroundStyle(DT.textTertiary)
+                    Text("›").font(.system(size: DT.fontBody)).foregroundStyle(DT.textTertiary)
                 }
-                .padding(.horizontal, DT.space2)
-                .padding(.vertical, 10)
+                .padding(.horizontal, DT.space2).padding(.vertical, 10)
                 .background(DT.surfaceMuted)
                 .clipShape(RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous))
                 .overlay(
@@ -94,27 +95,14 @@ struct GlossaryView: View {
             ForEach(entries) { entry in
                 Button(action: {}) {
                     HStack(alignment: .center, spacing: DT.space2) {
-                        Circle()
-                            .fill(entry.color.opacity(0.15))
-                            .frame(width: 40, height: 40)
-                            .overlay(
-                                Text(entry.icon)
-                                    .font(.system(size: DT.fontBody, weight: .semibold))
-                                    .foregroundStyle(entry.color)
-                            )
-                        Text(entry.title)
-                            .font(.system(size: DT.fontBody, weight: .semibold))
-                            .foregroundStyle(DT.ink)
+                        Circle().fill(entry.color.opacity(0.15)).frame(width: 40, height: 40)
+                            .overlay(Text(entry.icon).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(entry.color))
+                        Text(entry.title).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(DT.ink)
                         Spacer()
-                        Text(entry.stat)
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.textTertiary)
-                        Text("›")
-                            .font(.system(size: DT.fontPageTitle, weight: .light))
-                            .foregroundStyle(DT.textTertiary)
+                        Text(entry.stat).font(.system(size: DT.fontCaption)).foregroundStyle(DT.textTertiary)
+                        Text("›").font(.system(size: DT.fontPageTitle, weight: .light)).foregroundStyle(DT.textTertiary)
                     }
-                    .padding(.horizontal, DT.space2)
-                    .padding(.vertical, DT.space2)
+                    .padding(.horizontal, DT.space2).padding(.vertical, DT.space2)
                     .background(DT.surface)
                     .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
                     .overlay(
