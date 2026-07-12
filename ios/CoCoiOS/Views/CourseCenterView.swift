@@ -7,29 +7,43 @@ struct CourseCenterView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                topSummary
-                Section("01 资格考试") {
-                    ForEach(examCourses) { course in
-                        courseRow(course: course)
+            ScrollView {
+                VStack(spacing: DesignTokens.space3) {
+                    topSummary
+                    section(title: "01 资格考试") {
+                        ForEach(examCourses) { course in
+                            courseRow(course: course)
+                        }
+                    }
+                    section(title: "02 课程学习") {
+                        ForEach(learningCourses) { course in
+                            courseRow(course: course)
+                        }
                     }
                 }
-                .headerProminence(.increased)
-
-                Section("02 课程学习") {
-                    ForEach(learningCourses) { course in
-                        courseRow(course: course)
-                    }
-                }
-                .headerProminence(.increased)
+                .padding(.horizontal, DesignTokens.space2)
+                .padding(.bottom, DesignTokens.space4)
             }
-            .listStyle(.insetGrouped)
-            .listRowSpacing(DesignTokens.space1)
             .scrollContentBackground(.hidden)
             .background(DesignTokens.canvas.ignoresSafeArea())
             .navigationTitle("课程")
             .navigationBarTitleDisplayMode(.large)
             .task { await load() }
+        }
+    }
+
+    @ViewBuilder
+    private func section<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
+        VStack(alignment: .leading, spacing: DesignTokens.space1) {
+            Text(title)
+                .font(.system(size: DesignTokens.fontLabel, weight: .semibold))
+                .tracking(2)
+                .foregroundStyle(DesignTokens.textTertiary)
+                .padding(.horizontal, DesignTokens.space1)
+                .padding(.top, DesignTokens.space1)
+            VStack(spacing: DesignTokens.space1) {
+                content()
+            }
         }
     }
 
@@ -46,61 +60,62 @@ struct CourseCenterView: View {
         NavigationLink {
             CourseDetailView(course: course)
         } label: {
-            HStack(alignment: .top, spacing: 12) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(course.title.zh)
-                        .font(.system(size: DesignTokens.fontBody, weight: .semibold))
-                        .foregroundStyle(DesignTokens.ink)
-                    Text(course.subtitle.zh)
-                        .font(.system(size: DesignTokens.fontCaption))
-                        .foregroundStyle(DesignTokens.textSecondary)
-                        .lineLimit(2)
-                    HStack(spacing: 6) {
-                        Text("\(course.chapterCount) 章节 · \(course.sectionCount) 小节")
-                        if course.courseId == "mos" || course.courseId == "algo" {
-                            QPPill("准备中")
+            QPCard(backgroundColor: DesignTokens.surface) {
+                HStack(alignment: .top, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(course.title.zh)
+                            .font(.system(size: DesignTokens.fontBody, weight: .semibold))
+                            .foregroundStyle(DesignTokens.ink)
+                        if !course.subtitle.zh.isEmpty {
+                            Text(course.subtitle.zh)
+                                .font(.system(size: DesignTokens.fontCaption))
+                                .foregroundStyle(DesignTokens.textSecondary)
+                                .lineLimit(2)
                         }
+                        HStack(spacing: 6) {
+                            Text("\(course.chapterCount) 章节 · \(course.sectionCount) 小节")
+                            if course.courseId == "mos" || course.courseId == "algo" {
+                                QPPill("准备中")
+                            }
+                        }
+                        .font(.system(size: DesignTokens.fontCaption))
+                        .foregroundStyle(DesignTokens.textTertiary)
                     }
-                    .font(.system(size: DesignTokens.fontCaption))
-                    .foregroundStyle(DesignTokens.textTertiary)
+                    Spacer(minLength: 0)
+                    Image(systemName: course.courseId == "itpass" ? "arrow.right.circle.fill" : "chevron.right")
+                        .foregroundStyle(course.courseId == "itpass" ? DesignTokens.primary : DesignTokens.textTertiary)
+                        .font(.system(size: DesignTokens.fontBody))
                 }
-                Spacer(minLength: 0)
-                Image(systemName: course.courseId == "itpass" ? "arrow.right.circle.fill" : "chevron.right")
-                    .foregroundStyle(course.courseId == "itpass" ? DesignTokens.primary : DesignTokens.textTertiary)
-                    .font(.system(size: DesignTokens.fontBody))
             }
-            .padding(.vertical, DesignTokens.space1)
         }
-        .listRowBackground(DesignTokens.surface)
+        .buttonStyle(.plain)
     }
 
     private var topSummary: some View {
-        Section("上次练习") {
-            QPCard(backgroundColor: DesignTokens.surface) {
-                VStack(alignment: .leading, spacing: DesignTokens.space1) {
-                    Text("IT Passport")
-                        .font(.system(size: DesignTokens.fontBody, weight: .semibold))
-                        .foregroundStyle(DesignTokens.ink)
-                    Text("继续练习 · 真题练习")
-                        .font(.system(size: DesignTokens.fontCaption))
-                        .foregroundStyle(DesignTokens.textSecondary)
-                    HStack(spacing: DesignTokens.space2) {
-                        Button("继续练习") {
-                            // 由系统 TabView 触发切换，无内部路由
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(DesignTokens.primary)
-                        .controlSize(.small)
-
-                        Button("今日复习") {
-                            // 由系统 TabView 触发切换，无内部路由
-                        }
-                        .buttonStyle(.bordered)
-                        .controlSize(.small)
+        QPCard(backgroundColor: DesignTokens.surface) {
+            VStack(alignment: .leading, spacing: DesignTokens.space1) {
+                Text("IT Passport")
+                    .font(.system(size: DesignTokens.fontBody, weight: .semibold))
+                    .foregroundStyle(DesignTokens.ink)
+                Text("继续练习 · 真题练习")
+                    .font(.system(size: DesignTokens.fontCaption))
+                    .foregroundStyle(DesignTokens.textSecondary)
+                HStack(spacing: DesignTokens.space2) {
+                    Button("继续练习") {
+                        // 由系统 TabView 触发切换，无内部路由
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(DesignTokens.primary)
+                    .controlSize(.small)
+
+                    Button("今日复习") {
+                        // 由系统 TabView 触发切换，无内部路由
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
                 }
             }
-            .listRowBackground(DesignTokens.surface)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 

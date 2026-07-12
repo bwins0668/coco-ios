@@ -30,6 +30,8 @@ struct RootSwitchView: View {
                 }
         }
         .tint(DesignTokens.primary)
+        .toolbarBackground(DesignTokens.surface, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
         .background(DesignTokens.canvas.ignoresSafeArea())
     }
 }
