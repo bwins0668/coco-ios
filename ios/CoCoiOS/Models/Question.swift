@@ -49,6 +49,7 @@ struct QuizManifest: Codable {
 }
 
 /// 题库加载器：从 App Bundle 读取 QuizData 目录下的 JSON
+@MainActor
 final class QuizStore {
     static let shared = QuizStore()
 
