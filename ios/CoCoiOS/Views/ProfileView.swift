@@ -118,7 +118,7 @@ struct ProfileView: View {
     @ViewBuilder
     private var sectionStatus: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("学习状态")
+            QPSectionLabel("", "学习状态")
             QPCard {
                 Text(learningStatus)
                     .font(.system(size: DT.fontCaption))

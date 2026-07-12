@@ -187,7 +187,7 @@ struct MistakesView: View {
 
     private var recentList: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("最近答错", meta: "按时间倒序")
+            QPSectionLabel("", "最近答错", meta: "按时间倒序")
             VStack(spacing: 0) {
                 ForEach(Array(wrongRecords.prefix(10).enumerated()), id: \.offset) { idx, m in
                     if idx > 0 { Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2) }
