@@ -1,9 +1,13 @@
 import SwiftUI
 
-/// 术语页：术语表学习中心（接入 Storage 真实收藏数）
+/// 术语页：术语表学习中心（接入 Storage 真实收藏数 + 路由 4 个入口）
 struct GlossaryView: View {
     @Environment(\.modelContext) private var ctx
     @State private var favoriteCount: Int = 0
+    @State private var navigateFavorite: Bool = false
+    @State private var navigateAnki: Bool = false
+    @State private var navigateRandom: Bool = false
+    @State private var navigateAll: Bool = false
 
     private struct Entry: Identifiable {
         let id: String
@@ -41,6 +45,10 @@ struct GlossaryView: View {
             .scrollContentBackground(.hidden)
             .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: $navigateFavorite) { FavoriteReviewView() }
+            .navigationDestination(isPresented: $navigateAnki) { AnkiReviewView() }
+            .navigationDestination(isPresented: $navigateRandom) { TermSearchView() }
+            .navigationDestination(isPresented: $navigateAll) { TermSearchView() }
             .onAppear {
                 AppContext.bootstrap(ctx)
                 favoriteCount = Storage.shared.getFavoriteTermCount()
@@ -93,7 +101,15 @@ struct GlossaryView: View {
     private var entriesList: some View {
         VStack(spacing: DT.space1) {
             ForEach(entries) { entry in
-                Button(action: {}) {
+                Button(action: {
+                    switch entry.id {
+                    case "favorite": navigateFavorite = true
+                    case "anki": navigateAnki = true
+                    case "random": navigateRandom = true
+                    case "all": navigateAll = true
+                    default: break
+                    }
+                }) {
                     HStack(alignment: .center, spacing: DT.space2) {
                         Circle().fill(entry.color.opacity(0.15)).frame(width: 40, height: 40)
                             .overlay(Text(entry.icon).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(entry.color))
