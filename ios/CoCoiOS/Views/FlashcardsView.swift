@@ -66,28 +66,35 @@ struct FlashcardsView: View {
             if let p = lastProgress {
                 Button(action: { navigatePlayer = true }) {
                     QPCard {
-                        HStack(alignment: .center, spacing: DT.space2) {
-                            VStack(alignment: .leading, spacing: 4) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            HStack {
+                                QPPill(p.course == "itpass" ? "IT Passport" : "SG", background: DT.primarySoft, foreground: DT.primary)
                                 Text(p.examTitle)
                                     .font(.system(size: DT.fontBody, weight: .semibold))
                                     .foregroundStyle(DT.ink)
-                                Text(p.deckLabel)
-                                    .font(.system(size: DT.fontCaption))
-                                    .foregroundStyle(DT.textSecondary)
+                            }
+                            Text(p.deckLabel)
+                                .font(.system(size: DT.fontCaption))
+                                .foregroundStyle(DT.textSecondary)
+                            HStack(spacing: 4) {
                                 Text("第 \(p.currentIndex + 1) / \(p.total) 题")
                                     .font(.system(size: DT.fontCaption))
                                     .foregroundStyle(DT.textTertiary)
+                                Spacer()
                                 Text(Storage.relativeTime(p.updatedAt))
                                     .font(.system(size: DT.fontLabel))
                                     .foregroundStyle(DT.textGhost)
                             }
-                            Spacer()
-                            Text("继续复习")
-                                .font(.system(size: DT.fontBody, weight: .semibold))
-                                .foregroundStyle(DT.surface)
-                                .padding(.horizontal, DT.space2).padding(.vertical, 10)
-                                .background(DT.ink)
-                                .clipShape(Capsule())
+                            HStack {
+                                Spacer()
+                                Text("继续复习")
+                                    .font(.system(size: DT.fontBody, weight: .semibold))
+                                    .foregroundStyle(DT.surface)
+                                    .padding(.horizontal, DT.space2)
+                                    .padding(.vertical, 8)
+                                    .background(DT.ink)
+                                    .clipShape(Capsule())
+                            }
                         }
                     }
                 }
