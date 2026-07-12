@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftData
 
 struct LessonPlaceholderView: View {
     let course: CourseInfo
