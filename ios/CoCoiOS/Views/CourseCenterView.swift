@@ -4,7 +4,7 @@ import SwiftData
 struct CourseCenterView: View {
     @Environment(\.modelContext) private var ctx
     @State private var courses: [CourseInfo] = []
-    @State private var lastPackage: String? = nil
+    @State private var navigateTo: String? = nil
 
     var body: some View {
         NavigationStack {
@@ -23,6 +23,13 @@ struct CourseCenterView: View {
             }
             .navigationTitle("课程")
             .task { await load() }
+            .background(
+                NavigationLink(
+                    destination: PracticeListView(),
+                    tag: "practice",
+                    selection: $navigateTo
+                )
+            )
         }
     }
 
@@ -75,20 +82,18 @@ struct CourseCenterView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("IT Passport")
                         .font(.headline)
-                    Text(lastPackage.map { "真题练习 · \($0)" } ?? "真题练习")
+                    Text("继续练习 · 真题练习")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
                 Button("继续练习") {
-                    if let pkg = lastPackage {
-                        navigateToQuiz(pkg)
-                    }
+                    navigateTo = "practice"
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.small)
                 Button("今日复习") {
-                    navigateToReview()
+                    navigateTo = "review"
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.small)
@@ -97,24 +102,8 @@ struct CourseCenterView: View {
         }
     }
 
-    @ViewBuilder
-    private func navigateToQuiz(_ pkg: String) -> some View {
-        Text("")
-    }
-
-    @ViewBuilder
-    private func navigateToReview() -> some View {
-        Text("")
-    }
-
-    @ViewBuilder
     private func load() async {
         courses = CourseStore.shared.manifest.courses
-        let key = StudyStat.todayKey()
-        let req = FetchDescriptor<StudyStat>(predicate: #Predicate { $0.date == key })
-        if let s = try? ctx.fetch(req).first, let pkg = s.date {
-            lastPackage = "quiz-itpass-1"
-        }
     }
 }
 
