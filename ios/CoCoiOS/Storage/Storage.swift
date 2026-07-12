@@ -175,8 +175,8 @@ final class Storage {
         let mistakes: Int
     }
 
-    // MARK: - 时间辅助
-    static func relativeTime(_ date: Date) -> String {
+    // MARK: - 时间辅助（非隔离）
+    nonisolated static func relativeTime(_ date: Date) -> String {
         let now = Date()
         let diff = now.timeIntervalSince(date)
         let m = Int(diff / 60)
@@ -191,7 +191,7 @@ final class Storage {
         return f.string(from: date)
     }
 
-    static func timelineTime(_ date: Date) -> String {
+    nonisolated static func timelineTime(_ date: Date) -> String {
         let cal = Calendar.current
         let now = Date()
         if cal.isDateInToday(date) {
