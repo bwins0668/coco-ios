@@ -73,20 +73,31 @@ extension Color {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
         Scanner(string: hex).scanHexInt64(&int)
-        let a, r, g, b: UInt64
+        var a: UInt64 = 0
+        var r: UInt64 = 0
+        var g: UInt64 = 0
+        var b: UInt64 = 0
         switch hex.count {
         case 3:
-            (a, r, g, b) = (255, (int >> 16) & 0xF, (int >> 8) & 0xF, int & 0xF)
-            a = a * 17
-            r = r * 17
-            g = g * 17
-            b = b * 17
+            a = 255
+            r = (int >> 16) & 0xF * 17
+            g = (int >> 8) & 0xF * 17
+            b = int & 0xF * 17
         case 6:
-            (a, r, g, b) = (255, int >> 16, (int >> 8) & 0xFF, int & 0xFF)
+            a = 255
+            r = int >> 16
+            g = (int >> 8) & 0xFF
+            b = int & 0xFF
         case 8:
-            (a, r, g, b) = (int >> 24, int >> 16, (int >> 8) & 0xFF, int & 0xFF)
+            a = int >> 24
+            r = int >> 16 & 0xFF
+            g = int >> 8 & 0xFF
+            b = int & 0xFF
         default:
-            (a, r, g, b) = (1, 1, 1, 0)
+            a = 255
+            r = 1
+            g = 1
+            b = 0
         }
         self.init(
             .displayP3,

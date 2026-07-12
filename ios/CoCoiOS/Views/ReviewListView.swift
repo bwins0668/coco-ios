@@ -60,8 +60,10 @@ struct ReviewListView: View {
     }
 
     private func load() async {
-        stats = (try? ctx.fetch(FetchDescriptor<StudyStat>(predicate: #Predicate { true }))) ?? []
-        mistakes = (try? ctx.fetch(FetchDescriptor<MistakeRecord>(predicate: #Predicate { true }))) ?? []
+        let statsDescriptor = FetchDescriptor<StudyStat>()
+        stats = (try? ctx.fetch(statsDescriptor)) ?? []
+        let mistakesDescriptor = FetchDescriptor<MistakeRecord>()
+        mistakes = (try? ctx.fetch(mistakesDescriptor)) ?? []
     }
 }
 
