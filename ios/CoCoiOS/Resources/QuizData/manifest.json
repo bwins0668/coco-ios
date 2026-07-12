@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-07-12T07:12:41.629Z",
+  "packages": [
+    {
+      "package": "quiz",
+      "count": 129,
+      "withAnswer": 129,
+      "withZh": 129,
+      "withExplanationZh": 129
+    },
+    {
+      "package": "quiz-itpass-1",
+      "count": 300,
+      "withAnswer": 300,
+      "withZh": 300,
+      "withExplanationZh": 300
+    },
+    {
+      "package": "quiz-itpass-2",
+      "count": 300,
+      "withAnswer": 300,
+      "withZh": 300,
+      "withExplanationZh": 300
+    },
+    {
+      "package": "quiz-itpass-3",
+      "count": 300,
+      "withAnswer": 300,
+      "withZh": 300,
+      "withExplanationZh": 300
+    },
+    {
+      "package": "quiz-itpass-4",
+      "count": 300,
+      "withAnswer": 300,
+      "withZh": 300,
+      "withExplanationZh": 300
+    },
+    {
+      "package": "quiz-itpass-5",
+      "count": 300,
+      "withAnswer": 300,
+      "withZh": 300,
+      "withExplanationZh": 300
+    },
+    {
+      "package": "quiz-sg-1",
+      "count": 145,
+      "withAnswer": 145,
+      "withZh": 145,
+      "withExplanationZh": 145
+    },
+    {
+      "package": "quiz-sg-2",
+      "count": 300,
+      "withAnswer": 300,
+      "withZh": 300,
+      "withExplanationZh": 300
+    }
+  ],
+  "total": 2074
+}

@@ -1,0 +1,63 @@
+name: iOS Build (Device, unsigned)
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build unsigned device IPA
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Regenerate quiz JSON from miniprogram source
+        run: |
+          cd ios
+          node tools/build-quiz-json.js
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode Project
+        run: |
+          cd ios
+          xcodegen generate
+
+      - name: Build for Device (unsigned)
+        run: |
+          cd ios
+          xcodebuild \
+            -project CoCoiOS.xcodeproj \
+            -scheme CoCoiOS \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -configuration Debug \
+            SYMROOT=$PWD/build \
+            build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package as unsigned IPA
+        run: |
+          cd ios
+          APP_PATH=$(find "$PWD/build" -name "CoCoiOS.app" -type d | head -1)
+          echo "✅ 找到: $APP_PATH"
+          mkdir Payload
+          cp -R "$APP_PATH" Payload/
+          cd Payload && zip -r ../CoCoiOS-unsigned.ipa * && cd ..
+          ls -lh CoCoiOS-unsigned.ipa
+          rm -rf Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoCoiOS-unsigned.ipa
+          path: ios/CoCoiOS-unsigned.ipa
+          retention-days: 30
