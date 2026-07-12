@@ -1,4 +1,5 @@
 import Foundation
+import SwiftData
 
 /// 本地备份导出 / 恢复
 struct LocalBackup: Codable {
