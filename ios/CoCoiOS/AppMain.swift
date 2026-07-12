@@ -15,7 +15,7 @@ struct CoCoiOSApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            TabRootView()
         }
         .modelContainer(container)
     }

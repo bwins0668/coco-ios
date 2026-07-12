@@ -20,6 +20,10 @@ jobs:
         run: |
           node ios/tools/build-quiz-json.js
 
+      - name: Regenerate course JSON from miniprogram source
+        run: |
+          node ios/tools/build-course-json.js
+
       - name: Install XcodeGen
         run: brew install xcodegen
 
