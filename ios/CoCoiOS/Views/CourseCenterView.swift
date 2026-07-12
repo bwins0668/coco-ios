@@ -5,7 +5,6 @@ struct CourseCenterView: View {
     @Environment(\.modelContext) private var ctx
     @State private var courses: [CourseInfo] = []
     @State private var lastPackage: String? = nil
-    @State private var streak: Int = 0
 
     var body: some View {
         NavigationStack {
@@ -80,7 +79,7 @@ struct CourseCenterView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
-                Spacer(minLength: 0)
+                Spacer()
                 Button("继续练习") {
                     if let pkg = lastPackage {
                         navigateToQuiz(pkg)
@@ -98,16 +97,24 @@ struct CourseCenterView: View {
         }
     }
 
-    private func navigateToQuiz(_ pkg: String) {
-        // TODO: route to QuizView with package
+    @ViewBuilder
+    private func navigateToQuiz(_ pkg: String) -> some View {
+        Text("")
     }
 
-    private func navigateToReview() {
-        // TODO: route to review
+    @ViewBuilder
+    private func navigateToReview() -> some View {
+        Text("")
     }
 
+    @ViewBuilder
     private func load() async {
-        // TODO: hydrate from StudyStat / last session
+        courses = CourseStore.shared.manifest.courses
+        let key = StudyStat.todayKey()
+        let req = FetchDescriptor<StudyStat>(predicate: #Predicate { $0.date == key })
+        if let s = try? ctx.fetch(req).first, let pkg = s.date {
+            lastPackage = "quiz-itpass-1"
+        }
     }
 }
 

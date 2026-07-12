@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct TabRootView: View {
     @State private var selectedTab: String = "course"
@@ -17,19 +18,19 @@ struct TabRootView: View {
                     Label("刷题", systemImage: "doc.text")
                 }
 
-            Text("复习页占位")
+            ReviewListView()
                 .tag("review")
                 .tabItem {
                     Label("复习", systemImage: "clock")
                 }
 
-            Text("术语页占位")
+            GlossaryPlaceholderView()
                 .tag("terms")
                 .tabItem {
                     Label("术语", systemImage: "book")
                 }
 
-            Text("我的页占位")
+            ProfilePlaceholderView()
                 .tag("profile")
                 .tabItem {
                     Label("我的", systemImage: "person")
