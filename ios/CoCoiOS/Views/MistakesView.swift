@@ -87,12 +87,22 @@ struct MistakesView: View {
             if totalCount > 0 {
                 HStack(spacing: DT.space1) {
                     ForEach(groups, id: \.course) { g in
-                        Text("\(g.label) \(g.count)")
-                            .font(.system(size: DT.fontCaption, weight: .medium))
-                            .padding(.horizontal, 10).padding(.vertical, 4)
-                            .background(g.color.opacity(0.15))
-                            .foregroundStyle(g.color)
-                            .clipShape(Capsule())
+                        Button(action: {
+                            if let first = g.records.first {
+                                let pkg = first.package
+                                let exam = pkg.contains("sg") ? "sg" : "itpass"
+                                let quiz = QuizStore.shared.manifest.packages.first { $0.package == pkg }?.package ?? "quiz-itpass-1"
+                                _ = quiz  // currently shows detail; navigation handled separately
+                            }
+                        }) {
+                            Text("\(g.label) \(g.count)")
+                                .font(.system(size: DT.fontCaption, weight: .medium))
+                                .padding(.horizontal, 10).padding(.vertical, 4)
+                                .background(g.color.opacity(0.15))
+                                .foregroundStyle(g.color)
+                                .clipShape(Capsule())
+                        }
+                        .buttonStyle(.plain)
                     }
                     Spacer()
                     Text(lastWrongTime)
