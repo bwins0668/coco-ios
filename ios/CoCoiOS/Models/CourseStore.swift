@@ -2,17 +2,35 @@ import Foundation
 
 @MainActor
 final class CourseStore {
-    static let shared = CourseStore()
+    static let shared: CourseStore = {
+        do {
+            return try CourseStore()
+        } catch {
+            print("[CourseStore] init failed: \(error). Falling back to empty manifest.")
+            return CourseStore.empty
+        }
+    }()
 
     let manifest: CourseManifest
 
-    private init() {
-        guard let url = Bundle.main.url(forResource: "course-manifest", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let m = try? JSONDecoder().decode(CourseManifest.self, from: data) else {
-            fatalError("无法加载 CourseData/course-manifest.json")
+    private static let empty: CourseStore = {
+        let data = "{\"generatedAt\":\"\",\"courses\":[]}".data(using: .utf8)!
+        // swiftlint:disable:next force_try
+        let m = try! JSONDecoder().decode(CourseManifest.self, from: data)
+        return CourseStore(preloaded: m)
+    }()
+
+    private init(preloaded manifest: CourseManifest) {
+        self.manifest = manifest
+    }
+
+    private init() throws {
+        guard let url = Bundle.main.url(forResource: "course-manifest", withExtension: "json") else {
+            throw NSError(domain: "CourseStore", code: 1, userInfo: [NSLocalizedDescriptionKey: "course-manifest.json not in bundle"])
         }
-        manifest = m
+        let data = try Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        self.manifest = try decoder.decode(CourseManifest.self, from: data)
     }
 
     func course(id: String) -> CourseInfo? {
