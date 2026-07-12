@@ -41,27 +41,67 @@ struct TermSearchView: View {
     }
 
     private var searchBar: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "magnifyingglass").foregroundStyle(DT.textTertiary)
-            TextField("搜索术语、关键词...", text: $query)
-                .font(.system(size: DT.fontBody))
-                .textFieldStyle(.plain)
-                .autocorrectionDisabled()
-            if !query.isEmpty {
-                Button(action: { query = "" }) {
-                    Image(systemName: "xmark.circle.fill").foregroundStyle(DT.textTertiary)
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 6) {
+                Image(systemName: "magnifyingglass").foregroundStyle(DT.textTertiary)
+                TextField("搜索术语、关键词...", text: $query)
+                    .font(.system(size: DT.fontBody))
+                    .textFieldStyle(.plain)
+                    .autocorrectionDisabled()
+                if !query.isEmpty {
+                    Button(action: { query = "" }) {
+                        Image(systemName: "xmark.circle.fill").foregroundStyle(DT.textTertiary)
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
+            }
+            .padding(.horizontal, DT.space2).padding(.vertical, 10)
+            .background(DT.surface)
+            .clipShape(RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous)
+                    .stroke(DT.line, lineWidth: 0.5)
+            )
+
+            if query.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        categoryPill("全部", color: DT.ink)
+                        ForEach(GlossaryStore.shared.data.categories, id: \.self) { cat in
+                            categoryPill(cat.capitalized, color: categoryColor(cat))
+                        }
+                    }
+                }
             }
         }
-        .padding(.horizontal, DT.space2).padding(.vertical, 10)
-        .background(DT.surface)
-        .clipShape(RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous)
-                .stroke(DT.line, lineWidth: 0.5)
-        )
         .padding(.horizontal, DT.space3)
+    }
+
+    private var categoryFilter: String? = nil
+
+    private func categoryPill(_ name: String, color: Color) -> some View {
+        Button(action: {
+            // placeholder for filter
+        }) {
+            Text(name)
+                .font(.system(size: DT.fontCaption, weight: .medium))
+                .padding(.horizontal, 10).padding(.vertical, 4)
+                .background(color.opacity(0.15))
+                .foregroundStyle(color)
+                .clipShape(Capsule())
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func categoryColor(_ cat: String) -> Color {
+        switch cat {
+        case "database": return Color(hex: "37418A")
+        case "security": return Color(hex: "BE5750")
+        case "network": return Color(hex: "516376")
+        case "programming": return Color(hex: "3776AB")
+        case "system": return Color(hex: "5d6672")
+        default: return DT.primary
+        }
     }
 
     private var list: some View {
