@@ -57,35 +57,6 @@ struct UnitDetailView: View {
     }
 }
 
-struct LessonPlaceholderView: View {
-    let course: CourseInfo
-    let chapter: CourseChapter
-    let section: CourseSection
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
-                Text(section.title.zh)
-                    .font(.title3.bold())
-                Text("\(course.title.zh) / \(chapter.title.zh)")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                Text("小节内容将在后续回合接上；当前只做阅读占位。")
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-                Text("lessonId: \(section.lessonId)")
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-                Spacer(minLength: 0)
-            }
-            .padding()
-        }
-        .navigationTitle(section.title.zh)
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: MistakeRecord.self, StudyStat.self, configurations: config)
