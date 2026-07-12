@@ -210,16 +210,4 @@ final class Storage {
     }
 }
 
-/// 单例 ModelContext 注入，由 AppMain 在 init 时填充。
-enum AppContext {
-    @MainActor static var modelContext: ModelContext = {
-        // 回退：内存容器，避免编译错误；真实容器由 AppMain 注入。
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try! ModelContainer(
-            for: QuizAttempt.self, MistakeRecord.self, StudyStat.self,
-            FavoriteTerm.self, FlashcardProgress.self,
-            configurations: config
-        )
-        return container.mainContext
-    }()
-}
+/// 单例 ModelContext 注入由 AppMain.swift 提供
