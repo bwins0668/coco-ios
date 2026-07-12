@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// 术语详情页：双语 + 收藏 + Anki 复习入口
 struct TermDetailView: View {

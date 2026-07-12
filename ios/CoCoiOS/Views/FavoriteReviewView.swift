@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// 收藏复习页：列出所有 FavoriteTerm 进入 Anki 流程
 struct FavoriteReviewView: View {

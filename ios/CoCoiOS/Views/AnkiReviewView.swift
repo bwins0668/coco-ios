@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// Anki 闪卡复习页：术语卡片翻面 + 已掌握 / 未掌握
 struct AnkiReviewView: View {

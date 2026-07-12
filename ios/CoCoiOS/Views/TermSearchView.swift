@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// 术语搜索页：搜索 + 列表
 struct TermSearchView: View {
