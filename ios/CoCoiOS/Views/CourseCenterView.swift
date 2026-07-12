@@ -36,21 +36,28 @@ struct CourseCenterView: View {
             }
             .ignoresSafeArea(edges: .bottom)
         )
-        .onChange(of: selectedTab) { _, _ in
-            switch selectedTab {
-            case "practice": navigateTo = "practice"
-            case "review": navigateTo = "review"
-            default: break
+        .onChange(of: selectedTab) { _, newValue in
+            switch newValue {
+            case "practice":
+                navigateTo = "practice"
+            case "review":
+                navigateTo = "review"
+            default:
+                break
             }
         }
-        .background(
-            NavigationLink(
-                destination: PracticeListView(),
-                tag: "practice",
-                selection: $navigateTo
-            )
-        )
+        .sheet(item: $navigateTarget) { target in
+            if target == "practice" {
+                PracticeListView()
+            } else if target == "review" {
+                ReviewListView()
+            } else {
+                Text("")
+            }
+        }
     }
+
+    @State private var navigateTarget: String? = nil
 
     private var examCourses: [CourseInfo] {
         courses.filter { ["itpass", "sg", "mos"].contains($0.courseId) }
@@ -115,14 +122,14 @@ struct CourseCenterView: View {
                         .foregroundStyle(DesignTokens.textSecondary)
                     HStack(spacing: DesignTokens.space2) {
                         Button("继续练习") {
-                            navigateTo = "practice"
+                            navigateTarget = "practice"
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(DesignTokens.primary)
                         .controlSize(.small)
 
                         Button("今日复习") {
-                            navigateTo = "review"
+                            navigateTarget = "review"
                         }
                         .buttonStyle(.bordered)
                         .controlSize(.small)
@@ -131,8 +138,6 @@ struct CourseCenterView: View {
             }
         }
     }
-
-    @State private var navigateTo: String? = nil
 
     private func load() async {
         courses = CourseStore.shared.manifest.courses
