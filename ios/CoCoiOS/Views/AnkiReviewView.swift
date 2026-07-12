@@ -1,23 +1,19 @@
 import SwiftUI
 import SwiftData
 
-/// Anki 闪卡复习页：术语卡片翻面 + 已掌握 / 未掌握
+/// Anki 闪卡复习页：从收藏的 FavoriteTerm + GlossaryStore 取真实术语
 struct AnkiReviewView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var ctx
-    @State private var terms: [TermItem] = TermItem.demo
+    @State private var terms: [GlossaryTerm] = []
     @State private var index: Int = 0
     @State private var showingAnswer: Bool = false
     @State private var remembered: Int = 0
     @State private var forgotten: Int = 0
 
-    var current: TermItem? {
+    var current: GlossaryTerm? {
         guard index < terms.count else { return nil }
         return terms[index]
-    }
-
-    var progress: Double {
-        terms.isEmpty ? 0 : Double(index) / Double(terms.count)
     }
 
     var body: some View {
@@ -35,7 +31,23 @@ struct AnkiReviewView: View {
         .scrollContentBackground(.hidden)
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
-        .onAppear { AppContext.bootstrap(ctx) }
+        .onAppear { reload() }
+    }
+
+    private func reload() {
+        AppContext.bootstrap(ctx)
+        let favoriteIds = (try? ctx.fetch(FetchDescriptor<FavoriteTerm>())) ?? []
+        let terms = favoriteIds.compactMap { GlossaryStore.shared.term(id: $0.termId) }
+        if !terms.isEmpty {
+            self.terms = terms
+        } else {
+            // 回退：演示用前 10 词
+            self.terms = Array(GlossaryStore.shared.search("").prefix(10))
+        }
+        self.index = 0
+        self.remembered = 0
+        self.forgotten = 0
+        self.showingAnswer = false
     }
 
     private var backButton: some View {
@@ -70,12 +82,8 @@ struct AnkiReviewView: View {
 
     private func pillStat(value: Int, color: Color, label: String) -> some View {
         VStack(alignment: .trailing, spacing: 2) {
-            Text("\(value)")
-                .font(.system(size: DT.fontSectionTitle, weight: .semibold))
-                .foregroundStyle(color)
-            Text(label)
-                .font(.system(size: DT.fontLabel))
-                .foregroundStyle(DT.textTertiary)
+            Text("\(value)").font(.system(size: DT.fontSectionTitle, weight: .semibold)).foregroundStyle(color)
+            Text(label).font(.system(size: DT.fontLabel)).foregroundStyle(DT.textTertiary)
         }
     }
 
@@ -86,33 +94,23 @@ struct AnkiReviewView: View {
                 QPCard {
                     VStack(alignment: .leading, spacing: DT.space2) {
                         Text("中文").font(.system(size: DT.fontLabel)).tracking(2).foregroundStyle(DT.textTertiary)
-                        Text(t.zh)
-                            .font(.system(size: DT.fontDisplay, weight: .semibold))
-                            .foregroundStyle(DT.ink)
+                        Text(t.zh).font(.system(size: DT.fontDisplay, weight: .semibold)).foregroundStyle(DT.ink)
                         if showingAnswer {
-                            Text("日本語").font(.system(size: DT.fontLabel)).tracking(2).foregroundStyle(DT.textTertiary)
-                                .padding(.top, 4)
-                            Text(t.ja)
-                                .font(.system(size: DT.fontSectionTitle, weight: .semibold))
-                                .foregroundStyle(DT.ink)
-                            Text("English")
-                                .font(.system(size: DT.fontLabel)).tracking(2)
-                                .foregroundStyle(DT.textTertiary)
-                                .padding(.top, 4)
-                            Text(t.en)
-                                .font(.system(size: DT.fontBody))
-                                .foregroundStyle(DT.textSecondary)
-                            Text(t.desc)
-                                .font(.system(size: DT.fontCaption))
-                                .foregroundStyle(DT.textTertiary)
-                                .padding(.top, 4)
+                            Text("日本語").font(.system(size: DT.fontLabel)).tracking(2).foregroundStyle(DT.textTertiary).padding(.top, 4)
+                            Text(t.ja).font(.system(size: DT.fontSectionTitle, weight: .semibold)).foregroundStyle(DT.ink)
+                            Text("English").font(.system(size: DT.fontLabel)).tracking(2).foregroundStyle(DT.textTertiary).padding(.top, 4)
+                            Text(t.term).font(.system(size: DT.fontBody)).foregroundStyle(DT.textSecondary)
+                            if !t.explanationZh.isEmpty {
+                                Text(t.explanationZh)
+                                    .font(.system(size: DT.fontCaption))
+                                    .foregroundStyle(DT.textTertiary)
+                                    .padding(.top, 4)
+                            }
                         } else {
                             Button(action: { showingAnswer = true }) {
-                                Text("显示答案")
-                                    .font(.system(size: DT.fontBody, weight: .semibold))
+                                Text("显示答案").font(.system(size: DT.fontBody, weight: .semibold))
                                     .foregroundStyle(DT.primary)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, DT.space1)
+                                    .frame(maxWidth: .infinity).padding(.vertical, DT.space1)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous)
                                             .stroke(DT.primary, lineWidth: 1)
@@ -125,20 +123,15 @@ struct AnkiReviewView: View {
             }
             .padding(.horizontal, DT.space3)
         } else {
-            finishedCard
-                .padding(.horizontal, DT.space3)
+            finishedCard.padding(.horizontal, DT.space3)
         }
     }
 
     private var finishedCard: some View {
         QPCard {
             VStack(alignment: .leading, spacing: DT.space1) {
-                Text("本次复习完成")
-                    .font(.system(size: DT.fontBody, weight: .semibold))
-                    .foregroundStyle(DT.ink)
-                Text("已掌握 \(remembered) / 未记住 \(forgotten)")
-                    .font(.system(size: DT.fontCaption))
-                    .foregroundStyle(DT.textSecondary)
+                Text("本次复习完成").font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(DT.ink)
+                Text("已掌握 \(remembered) / 未记住 \(forgotten)").font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
                 QPPrimaryButton("再来一组") { index = 0; remembered = 0; forgotten = 0; showingAnswer = false }
                     .padding(.top, DT.space1)
             }
@@ -150,12 +143,10 @@ struct AnkiReviewView: View {
             if current != nil && showingAnswer {
                 HStack(spacing: DT.space2) {
                     actionButton(icon: "×", title: "未记住", color: DT.danger, bg: DT.dangerSoft) {
-                        forgotten += 1
-                        next()
+                        forgotten += 1; next()
                     }
                     actionButton(icon: "✓", title: "已掌握", color: DT.success, bg: DT.successSoft) {
-                        remembered += 1
-                        next()
+                        remembered += 1; next()
                     }
                 }
                 .padding(.horizontal, DT.space3)
@@ -170,8 +161,7 @@ struct AnkiReviewView: View {
                 Text(title).font(.system(size: DT.fontBody, weight: .semibold))
             }
             .foregroundStyle(color)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, DT.space2)
+            .frame(maxWidth: .infinity).padding(.vertical, DT.space2)
             .background(bg)
             .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
         }
@@ -180,9 +170,7 @@ struct AnkiReviewView: View {
 
     private func next() {
         showingAnswer = false
-        if index + 1 <= terms.count {
-            index += 1
-        }
+        if index + 1 <= terms.count { index += 1 }
     }
 }
 
