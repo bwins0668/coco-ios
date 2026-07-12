@@ -15,21 +15,29 @@ struct PracticeListView: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(pkg.package)
-                                    .font(.headline)
+                                    .font(.system(size: DesignTokens.fontBody, weight: .semibold))
+                                    .foregroundStyle(DesignTokens.ink)
                                 Text("\(pkg.count) 题 · 中文 \(pkg.withZh)")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                    .font(.system(size: DesignTokens.fontCaption))
+                                    .foregroundStyle(DesignTokens.textSecondary)
                             }
                             Spacer()
                             Image(systemName: "chevron.right")
-                                .foregroundStyle(.tertiary)
+                                .foregroundStyle(DesignTokens.textTertiary)
+                                .font(.system(size: DesignTokens.fontBody))
                         }
-                        .padding(.vertical, 6)
+                        .padding(.vertical, DesignTokens.space1)
+                        .listRowBackground(DesignTokens.surface)
                     }
                 }
             }
         }
+        .listStyle(.insetGrouped)
+        .listRowSpacing(DesignTokens.space1)
+        .scrollContentBackground(.hidden)
+        .background(DesignTokens.canvas.ignoresSafeArea())
         .navigationTitle("刷题")
+        .navigationBarTitleDisplayMode(.large)
         .task { await load() }
     }
 

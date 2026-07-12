@@ -15,13 +15,17 @@ struct CourseCenterView: View {
                         courseRow(course: course)
                     }
                 }
+                .headerProminence(.increased)
+
                 Section("02 课程学习") {
                     ForEach(learningCourses) { course in
                         courseRow(course: course)
                     }
                 }
+                .headerProminence(.increased)
             }
             .navigationTitle("课程")
+            .navigationBarTitleDisplayMode(.large)
             .task { await load() }
             .background(
                 NavigationLink(
@@ -49,48 +53,53 @@ struct CourseCenterView: View {
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(course.title.zh)
-                        .font(.headline)
+                        .font(.system(size: DesignTokens.fontBody, weight: .semibold))
+                        .foregroundStyle(DesignTokens.ink)
                     Text(course.subtitle.zh)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.system(size: DesignTokens.fontCaption))
+                        .foregroundStyle(DesignTokens.textSecondary)
                         .lineLimit(2)
                     HStack(spacing: 6) {
                         Text("\(course.chapterCount) 章节 · \(course.sectionCount) 小节")
                         if course.courseId == "mos" || course.courseId == "algo" {
                             Text("准备中")
-                                .font(.caption2)
-                                .padding(.horizontal, 8)
+                                .font(.system(size: DesignTokens.fontLabel))
+                                .padding(.horizontal, DesignTokens.space2)
                                 .padding(.vertical, 2)
-                                .background(Color(.secondarySystemBackground))
+                                .background(DesignTokens.fillWarm)
+                                .foregroundStyle(DesignTokens.textTertiary)
                                 .clipShape(Capsule())
                         }
                     }
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
+                    .font(.system(size: DesignTokens.fontCaption))
+                    .foregroundStyle(DesignTokens.textTertiary)
                 }
                 Spacer(minLength: 0)
                 Image(systemName: course.courseId == "itpass" ? "arrow.right.circle.fill" : "chevron.right")
-                    .foregroundStyle(course.courseId == "itpass" ? Color(course.color) : .tertiary)
+                    .foregroundStyle(course.courseId == "itpass" ? DesignTokens.primary : DesignTokens.textTertiary)
+                    .font(.system(size: DesignTokens.fontBody))
             }
-            .padding(.vertical, 6)
+            .padding(.vertical, DesignTokens.space1)
         }
     }
 
     private var topSummary: some View {
         Section("上次练习") {
-            HStack(spacing: 12) {
+            HStack(spacing: DesignTokens.space3) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("IT Passport")
-                        .font(.headline)
+                        .font(.system(size: DesignTokens.fontBody, weight: .semibold))
+                        .foregroundStyle(DesignTokens.ink)
                     Text("继续练习 · 真题练习")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.system(size: DesignTokens.fontCaption))
+                        .foregroundStyle(DesignTokens.textSecondary)
                 }
                 Spacer()
                 Button("继续练习") {
                     navigateTo = "practice"
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(DesignTokens.primary)
                 .controlSize(.small)
                 Button("今日复习") {
                     navigateTo = "review"
@@ -98,7 +107,7 @@ struct CourseCenterView: View {
                 .buttonStyle(.bordered)
                 .controlSize(.small)
             }
-            .padding(.vertical, 4)
+            .padding(.vertical, DesignTokens.space1)
         }
     }
 
