@@ -142,6 +142,7 @@ struct QPCard<Content: View>: View {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(borderColor, lineWidth: borderWidth)
             )
+            .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
     }
 }
 
@@ -298,6 +299,7 @@ struct QPRedHeaderCard<Content: View>: View {
             RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
                 .stroke(DT.line, lineWidth: 0.5)
         )
+        .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 3)
     }
 }
 

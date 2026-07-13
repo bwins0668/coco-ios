@@ -49,7 +49,7 @@ struct RootSwitchView: View {
                 }
         }
         .tint(DT.primary)
-        .toolbarBackground(DT.surface, for: .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
         .background(DT.canvas.ignoresSafeArea())
     }
