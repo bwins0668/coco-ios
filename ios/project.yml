@@ -29,9 +29,7 @@ targets:
         MARKETING_VERSION: "0.1"
         CURRENT_PROJECT_VERSION: "1"
     entitlements:
-      - path: CoCoiOS/CoCoiOS.entitlements
-    info:
-      path: CoCoiOS/Info.plist
+      CoCoiOS/CoCoiOS.entitlements: {}
 
   CoCoiOSWidget:
     type: app-extension
@@ -45,8 +43,6 @@ targets:
         MARKETING_VERSION: "0.1"
         CURRENT_PROJECT_VERSION: "1"
     entitlements:
-      - path: Widget/Widget.entitlements
-    info:
-      path: Widget/Info.plist
+      Widget/Widget.entitlements: {}
     dependencies:
       - target: CoCoiOS
