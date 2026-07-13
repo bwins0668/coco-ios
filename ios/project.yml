@@ -20,6 +20,8 @@ targets:
             buildPhase: resources
           - path: Resources/CourseData
             buildPhase: resources
+          - path: Resources/GlossaryData
+            buildPhase: resources
     settings:
       base:
         INFOPLIST_FILE: CoCoiOS/Info.plist
