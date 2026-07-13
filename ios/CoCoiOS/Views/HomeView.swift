@@ -12,6 +12,15 @@ struct HomeView: View {
     @State private var totalAccuracy: Int = 0
     @State private var favoriteCount: Int = 0
     @State private var selectedExam: String = "itpass"
+    @State private var activeNavId: String = ""
+
+    private let defaultCards: [(id: String, title: String, route: String)] = [
+        ("home", "课程", "home"),
+        ("practice", "刷题", "practice"),
+        ("review", "复习", "review"),
+        ("flashcards", "术语", "flashcards"),
+        ("profile", "我的", "profile")
+    ]
 
     private let examCourses: [(id: String, name: String, color: Color, primary: Bool, sub: String, available: Bool)] = [
         ("itpass", "IT Passport", DT.primary, true, "IT パスポート試験対策 · 按年度模擬練習", true),
