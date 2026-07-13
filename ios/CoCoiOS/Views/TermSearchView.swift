@@ -36,6 +36,7 @@ struct TermSearchView: View {
         )) {
             if let t = navigateDetail { TermDetailView(term: t) }
         }
+        .navigationTransition(.slide)
     }
 
     // MARK: - Header

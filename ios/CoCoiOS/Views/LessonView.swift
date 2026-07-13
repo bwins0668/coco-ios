@@ -57,9 +57,8 @@ struct LessonView: View {
             LessonPracticeSheet(course: course, chapter: chapter, section: section)
                 .presentationDetents([.medium, .large])
         }
+        .navigationTransition(.slide)
     }
-
-    private var backButton: some View {
         HStack {
             Button(action: { dismiss() }) {
                 Text("‹").font(.system(size: 28, weight: .light))

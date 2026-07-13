@@ -40,6 +40,7 @@ struct MistakesView: View {
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
         .onAppear { reload() }
+        .navigationTransition(.slide)
     }
 
     // MARK: - Header

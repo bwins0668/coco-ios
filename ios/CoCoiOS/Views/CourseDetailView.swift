@@ -76,6 +76,12 @@ struct CourseDetailView: View {
             }
             .onAppear { reload() }
         }
+        .navigationTransition(.slide)
+    }
+
+    private func reload() {
+        AppContext.bootstrap(ctx)
+        course = empty
     }
 
     private var empty: CourseInfo {

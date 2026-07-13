@@ -32,6 +32,7 @@ struct AnkiReviewView: View {
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
         .onAppear { reload() }
+        .navigationTransition(.slide)
     }
 
     private func reload() {

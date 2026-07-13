@@ -30,8 +30,8 @@ struct FlashcardsView: View {
                 FlashcardPlayerView(package: deck.package, startIndex: 0)
             }
         }
-        .navigationDestination(isPresented: $navigateAnki) { GlossaryView() }
-        .onAppear { reload() }
+        .onAppear(perform: reload)
+        .navigationTransition(.slide)
     }
 
     private func reload() {

@@ -312,6 +312,7 @@ struct QuizQuestionView: View {
         }
         .buttonStyle(.plain)
         .disabled(session.showResult)
+        .simultaneousGesture(TapGesture().onEnded { UIImpactFeedbackGenerator(style: .light).impactOccurred() })
     }
 
     @ViewBuilder
