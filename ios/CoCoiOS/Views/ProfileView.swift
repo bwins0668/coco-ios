@@ -48,6 +48,20 @@ struct ProfileView: View {
         itpassAccuracy = stats.byExam["itpass"]?.accuracy ?? 0
         sgAccuracy = stats.byExam["sg"]?.accuracy ?? 0
         learningStatus = Self.computeStatus(accuracy: stats.accuracy, total: stats.total)
+        syncWidgetSnapshot(from: stats)
+    }
+
+    private func syncWidgetSnapshot(from stats: QuizStats) {
+        let last = Storage.shared.getLastAttempt()
+        let snap = WidgetDataBridge.Snapshot(
+            streak: Storage.shared.getStreakCount(),
+            todayTotal: stats.todayTotal,
+            accuracy: stats.accuracy,
+            favoriteCount: favoriteCount,
+            lastExamLabel: last?.examLabel ?? "",
+            lastMetaText: last?.metaText ?? ""
+        )
+        WidgetDataBridge.write(snap)
     }
 
     private static func computeStatus(accuracy: Int, total: Int) -> String {
