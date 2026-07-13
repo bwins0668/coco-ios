@@ -51,7 +51,7 @@ struct ProfileView: View {
         syncWidgetSnapshot(from: stats)
     }
 
-    private func syncWidgetSnapshot(from stats: QuizStats) {
+    private func syncWidgetSnapshot(from stats: Storage.QuizStats) {
         let last = Storage.shared.getLastAttempt()
         let snap = WidgetDataBridge.Snapshot(
             streak: Storage.shared.getStreakCount(),
