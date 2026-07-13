@@ -11,16 +11,21 @@ struct QuizView: View {
     @Environment(\.modelContext) private var ctx
     @State private var session: QuizSession?
     @State private var loaded: Bool = false
+    @State private var elapsedSec: Int = 0
+    @State private var timer: Timer? = nil
 
     var body: some View {
         ZStack {
             DT.canvas.ignoresSafeArea()
             Group {
                 if let session {
-                    QuizSessionView(session: session, package: package, exam: exam, sourceType: sourceType, onFinish: {
-                        saveAttempt(session)
-                        dismiss()
-                    })
+                    QuizSessionView(session: session, package: package, exam: exam,
+                                    sourceType: sourceType, elapsed: elapsedSec,
+                                    onFinish: {
+                                        stopTimer()
+                                        saveAttempt(session)
+                                        dismiss()
+                                    })
                 } else {
                     ProgressView("加载题目…")
                         .tint(DT.ink)
@@ -33,7 +38,21 @@ struct QuizView: View {
             loaded = true
             let qs = QuizStore.shared.loadQuestions(package: package)
             session = QuizSession(package: package, questions: qs)
+            startTimer()
         }
+        .onDisappear { stopTimer() }
+    }
+
+    private func startTimer() {
+        elapsedSec = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            elapsedSec += 1
+        }
+    }
+
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 
     private func saveAttempt(_ session: QuizSession) {
@@ -49,8 +68,6 @@ struct QuizView: View {
             ctx.insert(StudyStat(date: dayKey, answered: session.answered, correct: session.correctCount))
         }
 
-        // 给每道已答题写入 QuizAttempt，isCorrect 取自 session.history[i]（真值），
-        // 而不是用 lastWrongId 单点推断（之前的版本会因 lastWrongId 多题共用导致全部 isCorrect=true）
         for i in 0..<min(session.answered, session.questions.count) {
             let q = session.questions[i]
             let isCorrect = i < session.history.count ? session.history[i] : false
@@ -63,7 +80,6 @@ struct QuizView: View {
                 isCorrect: isCorrect
             )
             ctx.insert(attempt)
-            // 错题入库
             if !isCorrect {
                 let existingWrong = (try? ctx.fetch(FetchDescriptor<MistakeRecord>(
                     predicate: #Predicate { $0.questionId == q.id }
@@ -76,7 +92,6 @@ struct QuizView: View {
                 }
             }
         }
-
         try? ctx.save()
     }
 }
@@ -86,13 +101,16 @@ struct QuizSessionView: View {
     let package: String
     let exam: String
     let sourceType: String
+    let elapsed: Int
     let onFinish: () -> Void
 
     var body: some View {
         if session.finished {
             QuizResultView(session: session, onFinish: onFinish)
         } else if let q = session.current {
-            QuizQuestionView(session: session, question: q, package: package)
+            QuizQuestionView(session: session, question: q,
+                             package: package, exam: exam, sourceType: sourceType,
+                             elapsed: elapsed)
         }
     }
 }
@@ -101,88 +119,115 @@ struct QuizQuestionView: View {
     @Bindable var session: QuizSession
     let question: Question
     let package: String
+    let exam: String
+    let sourceType: String
+    let elapsed: Int
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            navBar
-            progressBlock
-            ScrollView {
-                VStack(alignment: .leading, spacing: DT.space2) {
-                    questionCard
-                    optionsCard
-                    if session.showResult {
-                        explanationCard
-                    }
-                    actionRow
-                    Spacer().frame(height: 60)
+        ScrollView {
+            VStack(alignment: .leading, spacing: DT.space2) {
+                navBar
+                questionCard
+                optionsCard
+                if session.showResult {
+                    feedbackBanner
+                    explanationCard
                 }
-                .padding(.horizontal, DT.space3)
-                .padding(.top, DT.space1)
+                actionRow
+                Spacer().frame(height: 60)
             }
+            .padding(.horizontal, DT.space3)
+            .padding(.top, DT.space1)
         }
     }
 
     private var navBar: some View {
         HStack {
-            Text("\(session.answered + 1) / \(session.questions.count)")
-                .font(.system(size: DT.fontCaption, weight: .semibold))
-                .foregroundStyle(DT.textSecondary)
-            Spacer()
+            Circle()
+                .fill(DT.primary)
+                .frame(width: 28, height: 28)
+                .overlay(
+                    Text(package.contains("sg") ? "SG" : "IT")
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(DT.surface)
+                )
             Text(packageLabel)
-                .font(.system(size: DT.fontLabel)).tracking(2)
-                .foregroundStyle(DT.textTertiary)
+                .font(.system(size: DT.fontCaption, weight: .semibold))
+                .foregroundStyle(DT.ink)
+                .lineLimit(1)
+                .truncationMode(.tail)
+            Spacer(minLength: DT.space1)
+            HStack(spacing: 4) {
+                Image(systemName: "clock")
+                    .font(.system(size: 10, weight: .medium))
+                    .foregroundStyle(DT.textTertiary)
+                Text(timeString)
+                    .font(.system(size: DT.fontCaption, weight: .semibold))
+                    .foregroundStyle(DT.ink)
+                    .monospacedDigit()
+            }
+            .padding(.horizontal, 8).padding(.vertical, 4)
+            .background(DT.surface)
+            .clipShape(Capsule())
+            .overlay(Capsule().stroke(DT.line, lineWidth: 0.5))
         }
-        .padding(.horizontal, DT.space3).padding(.top, DT.space2)
+        .padding(.top, DT.space2)
+    }
+
+    private var timeString: String {
+        let m = max(0, elapsed / 60)
+        let s = max(0, elapsed % 60)
+        return String(format: "%02d:%02d", m, s)
     }
 
     private var packageLabel: String {
         let map: [String: String] = [
-            "quiz-itpass-1": "IT Passport · 年度 1",
-            "quiz-itpass-2": "IT Passport · 年度 2",
-            "quiz-itpass-3": "IT Passport · 年度 3",
-            "quiz-itpass-4": "IT Passport · 年度 4",
-            "quiz-itpass-5": "IT Passport · 年度 5",
-            "quiz-sg-1": "SG 信息安全 · 年度 1",
-            "quiz-sg-2": "SG 信息安全 · 年度 2"
+            "quiz-itpass-1": "IT Passport - 日文题练习 (01...)",
+            "quiz-itpass-2": "IT Passport - 日文题练习 (02...)",
+            "quiz-itpass-3": "IT Passport - 日文题练习 (03...)",
+            "quiz-itpass-4": "IT Passport - 日文题练习 (04...)",
+            "quiz-itpass-5": "IT Passport - 日文题练习 (05...)",
+            "quiz-sg-1": "SG 信息安全 - 日文题练习 (01...)",
+            "quiz-sg-2": "SG 信息安全 - 日文题练习 (02...)"
         ]
         return map[package] ?? package
     }
 
-    private var progressBlock: some View {
-        GeometryReader { geo in
-            ZStack(alignment: .leading) {
-                Rectangle().fill(DT.line).frame(height: 2)
-                Rectangle().fill(DT.editorial)
-                    .frame(width: max(2, geo.size.width * session.progress), height: 2)
-            }
-        }
-        .frame(height: 2)
-        .padding(.horizontal, DT.space3)
-    }
-
     private var questionCard: some View {
-        QPCard {
+        QPRedHeaderCard {
             VStack(alignment: .leading, spacing: DT.space1) {
-                HStack(spacing: 6) {
-                    if !question.category.isEmpty {
-                        QPPill(question.category)
-                    }
-                    if !question.subcategory.isEmpty {
-                        Text(question.subcategory)
-                            .font(.system(size: DT.fontLabel))
-                            .foregroundStyle(DT.textTertiary)
-                    }
-                }
                 Text(question.questionZh.isEmpty ? question.questionJa : question.questionZh)
                     .font(.system(size: DT.fontBody, weight: .medium))
                     .foregroundStyle(DT.ink)
+                    .lineSpacing(2)
                 if !question.questionJa.isEmpty && !question.questionZh.isEmpty {
                     Text(question.questionJa)
                         .font(.system(size: DT.fontCaption))
                         .foregroundStyle(DT.textSecondary)
+                        .lineSpacing(2)
+                        .padding(.top, 2)
+                }
+                Rectangle().fill(DT.line).frame(height: 0.5).padding(.vertical, 4)
+                HStack(spacing: 6) {
+                    Text("第 \(session.index + 1) / \(session.questions.count) 题")
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(DT.textTertiary)
+                }
+                HStack(spacing: 6) {
+                    QPPill("日文题练习")
+                    Text(questionMeta)
+                        .font(.system(size: DT.fontLabel))
+                        .foregroundStyle(DT.textTertiary)
                 }
             }
         }
+    }
+
+    private var questionMeta: String {
+        var parts: [String] = []
+        if !question.year.isEmpty { parts.append(question.year) }
+        parts.append("第\(question.number)题")
+        return parts.joined(separator: " ")
     }
 
     private var optionsCard: some View {
@@ -196,8 +241,33 @@ struct QuizQuestionView: View {
     @ViewBuilder
     private func optionRow(_ opt: QuizOption) -> some View {
         let isSelected = session.selected == opt.key
-        let isCorrect = session.showResult && question.answer == opt.key
-        let isWrong = session.showResult && isSelected && question.answer != opt.key
+        let hasResult = session.showResult
+        let isCorrectAnswer = hasResult && question.answer == opt.key
+        let isWrongPick = hasResult && isSelected && question.answer != opt.key
+
+        let background: Color = {
+            if isCorrectAnswer { return DT.successSoft }
+            if isWrongPick { return DT.dangerSoft }
+            if isSelected && !hasResult { return DT.primarySoft }
+            return DT.surface
+        }()
+        let border: Color = {
+            if isCorrectAnswer { return DT.success }
+            if isWrongPick { return DT.danger }
+            if isSelected && !hasResult { return DT.primary }
+            return DT.line
+        }()
+        let circleText: Color = {
+            if isCorrectAnswer || isWrongPick { return DT.surface }
+            if isSelected && !hasResult { return DT.surface }
+            return DT.ink
+        }()
+        let circleBg: Color = {
+            if isCorrectAnswer { return DT.success }
+            if isWrongPick { return DT.danger }
+            if isSelected && !hasResult { return DT.primary }
+            return DT.fillWarm
+        }()
 
         Button(action: {
             guard !session.showResult else { return }
@@ -206,91 +276,136 @@ struct QuizQuestionView: View {
             HStack(alignment: .center, spacing: DT.space2) {
                 Text(opt.key)
                     .font(.system(size: DT.fontBody, weight: .semibold))
-                    .foregroundStyle(isSelected ? DT.surface : DT.ink)
+                    .foregroundStyle(circleText)
                     .frame(width: 28, height: 28)
-                    .background(isSelected ? DT.ink : DT.fillWarm)
+                    .background(circleBg)
                     .clipShape(Circle())
-                Text(opt.textZh.isEmpty ? opt.textJa : opt.textZh)
-                    .font(.system(size: DT.fontBody))
-                    .foregroundStyle(DT.ink)
-                    .multilineTextAlignment(.leading)
-                Spacer()
-                if isCorrect {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(opt.textZh.isEmpty ? opt.textJa : opt.textZh)
+                        .font(.system(size: DT.fontBody))
+                        .foregroundStyle(DT.ink)
+                        .multilineTextAlignment(.leading)
+                    if !opt.textJa.isEmpty && !opt.textZh.isEmpty {
+                        Text(opt.textJa)
+                            .font(.system(size: DT.fontCaption))
+                            .foregroundStyle(DT.textSecondary)
+                    }
+                }
+                Spacer(minLength: 0)
+                if isCorrectAnswer {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(DT.success)
-                } else if isWrong {
+                } else if isWrongPick {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(DT.danger)
                 }
             }
             .padding(.horizontal, DT.space2).padding(.vertical, DT.space2)
-            .background(isSelected && !session.showResult ? DT.primarySoft : DT.surface)
+            .background(background)
             .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
-                    .stroke(isWrong ? DT.danger : (isCorrect ? DT.success : DT.line), lineWidth: isCorrect || isWrong ? 1.5 : 0.5)
+                    .stroke(border, lineWidth: (isCorrectAnswer || isWrongPick || (isSelected && !hasResult)) ? 1.5 : 0.5)
             )
         }
         .buttonStyle(.plain)
         .disabled(session.showResult)
     }
 
+    @ViewBuilder
+    private var feedbackBanner: some View {
+        if !isUserPickCorrect() {
+            QPAnswerFeedbackBanner(
+                isCorrect: false,
+                primaryText: "回答错误，正确答案是 \(question.answer)",
+                secondaryText: "正确答案是 \(question.answer)，建议结合解析理解知识点"
+            )
+        }
+    }
+
+    private func isUserPickCorrect() -> Bool {
+        guard session.showResult, let sel = session.selected else { return false }
+        return sel == question.answer
+    }
+
+    @ViewBuilder
     private var explanationCard: some View {
-        QPCard(backgroundColor: DT.warningSoft, borderColor: DT.editorial.opacity(0.3), borderWidth: 1) {
-            VStack(alignment: .leading, spacing: DT.space1) {
-                Text("解析 / 解説")
-                    .font(.system(size: DT.fontLabel)).tracking(2)
-                    .foregroundStyle(DT.textTertiary)
-                Text(question.explanationZh.isEmpty ? question.explanationJa : question.explanationZh)
-                    .font(.system(size: DT.fontCaption))
-                    .foregroundStyle(DT.ink)
+        VStack(alignment: .leading, spacing: DT.space2) {
+            if !isUserPickCorrect() {
+                explanationBlock(title: "简要解析", body: question.explanationZh.isEmpty ? question.explanationJa : question.explanationZh)
                 if !question.explanationJa.isEmpty && !question.explanationZh.isEmpty {
-                    Text(question.explanationJa)
-                        .font(.system(size: DT.fontCaption))
-                        .foregroundStyle(DT.textSecondary)
+                    explanationBlock(title: "日文原文", body: question.explanationJa)
                 }
+                Button(action: {}) {
+                    HStack(spacing: 4) {
+                        Text("查看完整解析").font(.system(size: DT.fontBody, weight: .semibold))
+                        Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold))
+                    }
+                    .foregroundStyle(DT.primary)
+                    .padding(.vertical, 8)
+                }
+                .buttonStyle(.plain)
+            } else {
+                explanationBlock(title: "解析 / 解説", body: question.explanationZh.isEmpty ? question.explanationJa : question.explanationZh)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func explanationBlock(title: String, body: String) -> some View {
+        QPCard {
+            VStack(alignment: .leading, spacing: DT.space1) {
+                Text(title)
+                    .font(.system(size: DT.fontBody, weight: .semibold))
+                    .foregroundStyle(DT.ink)
+                Text(body)
+                    .font(.system(size: DT.fontCaption))
+                    .foregroundStyle(DT.textSecondary)
+                    .lineSpacing(3)
             }
         }
     }
 
     private var actionRow: some View {
-        Group {
+        VStack(spacing: DT.space1) {
             if session.showResult {
-                HStack(spacing: DT.space2) {
-                    if let wrong = session.lastWrongId, wrong == question.id {
-                        Button(action: {}) {
-                            HStack(spacing: 6) {
-                                Text("☆").font(.system(size: DT.fontBody, weight: .semibold))
-                                Text("收藏").font(.system(size: DT.fontBody, weight: .semibold))
-                            }
-                            .foregroundStyle(DT.ink)
-                            .frame(maxWidth: .infinity).padding(.vertical, DT.space2)
-                            .background(DT.fillWarm)
-                            .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
-                        }
-                        .buttonStyle(.plain)
-                    }
-                    Button(action: { session.next() }) {
-                        Text(session.isLast ? "查看结果" : "下一题 →")
-                            .font(.system(size: DT.fontBody, weight: .semibold))
-                            .foregroundStyle(DT.surface)
-                            .frame(maxWidth: .infinity).padding(.vertical, DT.space2)
-                            .background(DT.ink)
-                            .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
-                    }
-                    .buttonStyle(.plain)
-                }
-            } else {
-                Button(action: { _ = session.submit() }) {
-                    Text(session.selected == nil ? "请选择答案" : "提交答案")
+                let userCorrect = isUserPickCorrect()
+                Button(action: { session.next() }) {
+                    Text(session.isLast ? "查看结果" : "下一题 →")
                         .font(.system(size: DT.fontBody, weight: .semibold))
-                        .foregroundStyle(session.selected == nil ? DT.textGhost : DT.surface)
-                        .frame(maxWidth: .infinity).padding(.vertical, DT.space2)
-                        .background(session.selected == nil ? DT.disabledBg : DT.ink)
-                        .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+                        .foregroundStyle(DT.surface)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 52)
+                        .background(userCorrect ? DT.success : DT.primary)
+                        .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)
-                .disabled(session.selected == nil)
+            } else if session.selected != nil {
+                Button(action: { _ = session.submit() }) {
+                    Text("确认作答")
+                        .font(.system(size: DT.fontBody, weight: .semibold))
+                        .foregroundStyle(DT.surface)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 52)
+                        .background(DT.primary)
+                        .clipShape(Capsule())
+                }
+                .buttonStyle(.plain)
+                Text("确认前可以重新选择选项")
+                    .font(.system(size: DT.fontLabel))
+                    .foregroundStyle(DT.textTertiary)
+            } else {
+                Button(action: {}) {
+                    Text("请选择答案")
+                        .font(.system(size: DT.fontBody, weight: .semibold))
+                        .foregroundStyle(DT.textGhost)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 52)
+                        .background(DT.disabledBg)
+                        .clipShape(Capsule())
+                }
+                .buttonStyle(.plain)
+                .disabled(true)
             }
         }
     }
