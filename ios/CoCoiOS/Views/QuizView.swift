@@ -44,11 +44,13 @@ struct QuizView: View {
     }
 
     private func startTimer() {
-        elapsedSec = 0
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            elapsedSec += 1
+            elapsedSec = 0
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                Task { @MainActor in
+                    elapsedSec += 1
+                }
+            }
         }
-    }
 
     private func stopTimer() {
         timer?.invalidate()
