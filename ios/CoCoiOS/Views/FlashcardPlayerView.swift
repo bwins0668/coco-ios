@@ -9,6 +9,10 @@ struct FlashcardPlayerView: View {
     @State private var total: Int = 1502
     @State private var mastered: Int = 7
     @State private var showingAnswer: Bool = false
+    @State private var dragOffset: CGFloat = 0
+    @State private var dragRotation: CGFloat = 0
+
+    private let swipeThreshold: CGFloat = 80
 
     private let categoryTag: String = "数据库"
     private let terms: [String] = ["Index", "Transaction", "Normalisation", "Isolation", "Constraint"]
@@ -166,10 +170,40 @@ struct FlashcardPlayerView: View {
                 .stroke(DT.line, lineWidth: 0.5)
         )
         .padding(.horizontal, DT.space3)
+        .offset(x: dragOffset)
+        .rotationEffect(.degrees(dragRotation))
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    dragOffset = value.translation.width
+                    dragRotation = Double(value.translation.width / 24)
+                }
+                .onEnded { value in
+                    let translation = value.translation.width
+                    if abs(translation) > swipeThreshold {
+                        let mastered = translation < 0 ? false : true
+                        withAnimation(.spring(response: 0.25, dampingFraction: 0.7)) {
+                            dragOffset = translation > 0 ? 500 : -500
+                            dragRotation = translation > 0 ? 15 : -15
+                        }
+                        nextCard(mastered: mastered)
+                        resetDrag()
+                    } else {
+                        withAnimation(.spring(response: 0.25, dampingFraction: 0.7)) {
+                            resetDrag()
+                        }
+                    }
+                }
+        )
         .frame(maxHeight: .infinity)
         .onTapGesture {
             withAnimation { showingAnswer.toggle() }
         }
+    }
+
+    private func resetDrag() {
+        dragOffset = 0
+        dragRotation = 0
     }
 
     private var meaningCN: String {
