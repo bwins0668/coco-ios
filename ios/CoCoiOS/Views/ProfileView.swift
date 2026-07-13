@@ -123,7 +123,7 @@ struct ProfileView: View {
     @ViewBuilder
     private var sectionStatus: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("", "学习状态")
+            QPSectionLabel("02", "学习状态")
             QPCard {
                 Text(learningStatus)
                     .font(.system(size: DT.fontCaption))
@@ -154,7 +154,7 @@ struct ProfileView: View {
 
     private var section02: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("02", "分类正确率")
+            QPSectionLabel("03", "分类正确率")
             VStack(spacing: 0) {
                 accuracyRow(label: "IT Passport", value: itpassAccuracy, color: DT.success)
                 Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
@@ -172,7 +172,7 @@ struct ProfileView: View {
 
     private var sectionTimeline: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("03", "最近练习")
+            QPSectionLabel("04", "最近练习")
             RecentTimeline()
         }
     }
@@ -182,7 +182,7 @@ struct ProfileView: View {
 
     private var sectionSettings: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("04", "数据与设置")
+            QPSectionLabel("05", "数据与设置")
             VStack(spacing: 0) {
                 settingRow(title: "复制备份数据", note: "本地", icon: "⎘", color: DT.primary) {
                     let json = BackupService.shared.exportBackupString()
@@ -226,7 +226,7 @@ struct ProfileView: View {
 
     private var sectionDanger: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("", "危险操作")
+            QPSectionLabel("06", "危险操作")
             Button(action: {
                 BackupService.shared.clearAllData()
                 backupMessage = "已清空本地学习记录（收藏和错题保留）"

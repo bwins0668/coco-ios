@@ -8,6 +8,7 @@ struct CourseDetailView: View {
     let courseName: String
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var ctx
     @State private var course: CourseInfo? = nil
     @State private var lastMetaText: String = ""
     @State private var selectedChapter: CourseChapter? = nil
@@ -283,7 +284,7 @@ struct CourseDetailView: View {
     }
 
     private func reload() {
-        AppContext.bootstrap(AppContext.modelContext)
+        AppContext.bootstrap(ctx)
         course = CourseStore.shared.course(id: courseId)
         packages = QuizStore.shared.manifest.packages
         if let last = Storage.shared.getLastAttempt(), last.exam == courseId {

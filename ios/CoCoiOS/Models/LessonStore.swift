@@ -101,7 +101,7 @@ final class LessonStore {
             for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
             combined["java"] = bucket
         }
-        // 加载 python（如果以后 build 出非空 JSON，会自动注入）
+        // 加载 python（如果 build-python-lesson-json 跑出非空 JSON，会自动注入）
         if let url = Bundle.main.url(forResource: "python-lesson-detail", withExtension: "json"),
            let data = try? Data(contentsOf: url),
            let model = try? JSONDecoder().decode(LessonData.self, from: data),
@@ -110,6 +110,8 @@ final class LessonStore {
             for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
             combined["python"] = bucket
         }
+        // mos / algo 暂无源数据，stub JSON 已落 Bundle 但 detail 为空，跳过注入
+        // 如未来 build-mos-lesson-json / build-algo-lesson-json 跑通，会自动加进 combined。
         self.init(inMemoryIndex: combined)
     }
 

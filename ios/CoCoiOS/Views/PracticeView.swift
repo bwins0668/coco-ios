@@ -144,7 +144,7 @@ struct PracticeView: View {
 
     private var chooseExamSection: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
-            QPSectionLabel("01", "选择考试")
+            QPSectionLabel("01", "选择考试", meta: "\(exams.count) 考试")
             VStack(spacing: DT.space1) {
                 ForEach(exams) { exam in
                     examRow(exam: exam)

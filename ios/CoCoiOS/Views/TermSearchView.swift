@@ -1,21 +1,31 @@
 import SwiftUI
 import SwiftData
 
-/// 术语搜索页：搜索 + 列表（接入 GlossaryStore 真实 1500 词条）
+/// 术语搜索页：返回 + 搜索框 + 类别 chips + 结果 list
+/// 数据：GlossaryStore.search(query)
 struct TermSearchView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var ctx
     @State private var query: String = ""
+    @State private var selectedCategory: String = "全部"
     @State private var navigateDetail: GlossaryTerm? = nil
 
+    private var categories: [String] {
+        ["全部"] + GlossaryStore.shared.data.categories
+    }
+
     private var filtered: [GlossaryTerm] {
-        GlossaryStore.shared.search(query)
+        let base = GlossaryStore.shared.search(query)
+        guard selectedCategory != "全部" else { return base }
+        return base.filter { $0.category == selectedCategory }
     }
 
     var body: some View {
         VStack(spacing: 0) {
             backButton
+            masthead
             searchBar
+            categoryChips
             list
         }
         .background(DT.canvas.ignoresSafeArea())
@@ -28,6 +38,7 @@ struct TermSearchView: View {
         }
     }
 
+    // MARK: - Header
     private var backButton: some View {
         HStack {
             Button(action: { dismiss() }) {
@@ -40,138 +51,85 @@ struct TermSearchView: View {
         .padding(.horizontal, DT.space2)
     }
 
+    private var masthead: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("全部浏览").font(.system(size: DT.fontLabel)).tracking(2).foregroundStyle(DT.textTertiary)
+            Text("术语搜索").font(.system(size: DT.fontMasthead, weight: .semibold)).foregroundStyle(DT.ink)
+            Text("\(GlossaryStore.shared.data.total) 条术语 · \(categories.count - 1) 个分类")
+                .font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, DT.space3)
+    }
+
     private var searchBar: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        QPSearchField(text: $query, placeholder: "搜索术语、关键词...")
+            .padding(.horizontal, DT.space3)
+            .padding(.top, DT.space1)
+    }
+
+    private var categoryChips: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
-                Image(systemName: "magnifyingglass").foregroundStyle(DT.textTertiary)
-                TextField("搜索术语、关键词...", text: $query)
-                    .font(.system(size: DT.fontBody))
-                    .textFieldStyle(.plain)
-                    .autocorrectionDisabled()
-                if !query.isEmpty {
-                    Button(action: { query = "" }) {
-                        Image(systemName: "xmark.circle.fill").foregroundStyle(DT.textTertiary)
+                ForEach(categories, id: \.self) { cat in
+                    Button(action: { selectedCategory = cat }) {
+                        Text(cat)
+                            .font(.system(size: DT.fontCaption, weight: cat == selectedCategory ? .semibold : .medium))
+                            .padding(.horizontal, DT.space2).padding(.vertical, 6)
+                            .background(cat == selectedCategory ? DT.primary : DT.surface)
+                            .foregroundStyle(cat == selectedCategory ? DT.surface : DT.ink)
+                            .clipShape(Capsule())
+                            .overlay(Capsule().stroke(cat == selectedCategory ? DT.primary : DT.line, lineWidth: 0.5))
                     }
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal, DT.space2).padding(.vertical, 10)
-            .background(DT.surface)
-            .clipShape(RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: DT.radiusMd, style: .continuous)
-                    .stroke(DT.line, lineWidth: 0.5)
-            )
-
-            if query.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 6) {
-                        categoryPill("全部", color: DT.ink)
-                        ForEach(GlossaryStore.shared.data.categories, id: \.self) { cat in
-                            categoryPill(cat.capitalized, color: categoryColor(cat))
-                        }
-                    }
-                }
-            }
+            .padding(.horizontal, DT.space3)
         }
-        .padding(.horizontal, DT.space3)
+        .padding(.vertical, DT.space2)
     }
 
-    private var categoryFilter: String? = nil
-
-    private func categoryPill(_ name: String, color: Color) -> some View {
-        Button(action: {
-            // placeholder for filter
-        }) {
-            Text(name)
-                .font(.system(size: DT.fontCaption, weight: .medium))
-                .padding(.horizontal, 10).padding(.vertical, 4)
-                .background(color.opacity(0.15))
-                .foregroundStyle(color)
-                .clipShape(Capsule())
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func categoryColor(_ cat: String) -> Color {
-        switch cat {
-        case "database": return Color(hex: "37418A")
-        case "security": return Color(hex: "BE5750")
-        case "network": return Color(hex: "516376")
-        case "programming": return Color(hex: "3776AB")
-        case "system": return Color(hex: "5d6672")
-        default: return DT.primary
-        }
-    }
-
+    @ViewBuilder
     private var list: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                HStack {
-                    Text("共 \(filtered.count) 条 · 总计 \(GlossaryStore.shared.data.total) 条")
-                        .font(.system(size: DT.fontCaption))
-                        .foregroundStyle(DT.textTertiary)
-                    Spacer()
-                }
-                .padding(.horizontal, DT.space3).padding(.top, DT.space1)
-                if filtered.isEmpty {
-                    emptyState
-                } else {
-                    ForEach(Array(filtered.prefix(200).enumerated()), id: \.element.id) { idx, term in
-                        if idx > 0 {
-                            Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space3)
-                        }
+        if filtered.isEmpty {
+            VStack {
+                Spacer().frame(height: 40)
+                Text("没有匹配的术语")
+                    .font(.system(size: DT.fontCaption))
+                    .foregroundStyle(DT.textTertiary)
+            }
+            .frame(maxWidth: .infinity)
+        } else {
+            ScrollView {
+                VStack(spacing: 0) {
+                    ForEach(filtered) { term in
                         Button(action: { navigateDetail = term }) {
-                            termRow(term: term)
+                            QPCard {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    HStack {
+                                        Text(term.term)
+                                            .font(.system(size: DT.fontBody, weight: .semibold))
+                                            .foregroundStyle(DT.ink)
+                                        Spacer()
+                                        QPPill(term.category)
+                                    }
+                                    Text(term.zh)
+                                        .font(.system(size: DT.fontCaption))
+                                        .foregroundStyle(DT.textSecondary)
+                                        .lineLimit(2)
+                                }
+                            }
+                            .padding(.horizontal, DT.space3)
+                            .padding(.bottom, DT.space1)
                         }
                         .buttonStyle(.plain)
                     }
-                    if filtered.count > 200 {
-                        Text("更多结果请缩小搜索范围")
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.textTertiary)
-                            .padding(.vertical, DT.space2)
-                    }
+                    Spacer().frame(height: 80)
                 }
-                Spacer().frame(height: 80)
+                .padding(.top, 4)
             }
         }
-    }
-
-    private var emptyState: some View {
-        QPCard {
-            VStack(alignment: .leading, spacing: DT.space1) {
-                Text("没有匹配的术语")
-                    .font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(DT.ink)
-                Text("试试搜索「数据库」「暗号化」「変数」等关键词。")
-                    .font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
-            }
-        }
-        .padding(.horizontal, DT.space3)
-    }
-
-    private func termRow(term: GlossaryTerm) -> some View {
-        HStack(alignment: .center, spacing: DT.space2) {
-            VStack(alignment: .leading, spacing: 2) {
-                HStack(spacing: 6) {
-                    Text(term.zh).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(DT.ink)
-                    Text(term.ja).font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary)
-                }
-                Text(term.term).font(.system(size: DT.fontLabel)).foregroundStyle(DT.textTertiary)
-                if !term.explanationZh.isEmpty {
-                    Text(term.explanationZh)
-                        .font(.system(size: DT.fontCaption)).foregroundStyle(DT.textSecondary).lineLimit(2)
-                }
-            }
-            Spacer()
-            if !term.category.isEmpty {
-                QPPill(term.category, background: DT.fillWarm, foreground: DT.textTertiary)
-            }
-        }
-        .padding(.horizontal, DT.space3).padding(.vertical, DT.space2)
     }
 }
 
-#Preview {
-    TermSearchView()
-}
+#Preview { TermSearchView() }
