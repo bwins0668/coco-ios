@@ -1,43 +1,30 @@
 import SwiftUI
 
-/// 自定义底部 Tab 图标：选中态外圈浅色圆 + SF Symbol 填充；fallback 在 symbol 不存在时给个几何占位
-/// 注：避免使用 SF Symbols 5+ 才有的 variant（如 book.fill/doc.text.fill 等在某些 iOS build
-/// 上静默回退为空白）。CourseTabIcon 改用 house.fill（iOS 13 起永存），PracticeTabIcon 用 list.bullet.rectangle。
+/// 自定义底部 Tab 图标：纯 SF Symbol（iOS 13+ baseline）。
+/// 注意：早期版本用 ZStack + 外部 Circle 装饰，在 tabBar layout 中被判定为 layout
+/// view 而遮住内部 Icon。改为纯 Image + 用 foregroundStyle 由 TabView tint 统一着色。
 struct TabIcon: View {
     let system: String
-    let fallback: AnyView
     let active: Bool
     let color: Color
     let size: CGFloat
 
-    init(_ system: String, fallback: AnyView = AnyView(EmptyView()),
-         active: Bool = false, color: Color = DT.primary, size: CGFloat = 22) {
+    init(_ system: String, active: Bool = false, color: Color = DT.primary, size: CGFloat = 22) {
         self.system = system
-        self.fallback = fallback
         self.active = active
         self.color = color
         self.size = size
     }
 
     var body: some View {
-        ZStack {
-            if active {
-                Circle()
-                    .fill(color.opacity(0.15))
-                    .frame(width: size + 14, height: size + 14)
-            }
-            // primary symbol
-            Image(systemName: active ? system + ".fill" : system)
-                .font(.system(size: size, weight: active ? .semibold : .regular))
-                .foregroundStyle(active ? color : DT.textTertiary)
-                .symbolRenderingMode(.hierarchical)
-            // fallback 永远叠在最上层（iOS 16+ 无重叠；旧版会双显示但比空白强）
-            fallback
-        }
+        Image(systemName: system)
+            .font(.system(size: size, weight: active ? .semibold : .regular))
+            .foregroundStyle(active ? color : DT.textTertiary)
+            .symbolRenderingMode(.hierarchical)
     }
 }
 
-/// 各 Tab 图标（永远存在的 SF Symbol，避免任何 fill-only 静默回退）
+/// 各 Tab 图标（iOS 13/14 baseline SF Symbols）
 struct CourseTabIcon: View {
     let active: Bool
     var body: some View {

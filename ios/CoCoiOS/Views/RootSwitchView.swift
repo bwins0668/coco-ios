@@ -21,51 +21,31 @@ struct RootSwitchView: View {
             HomeView()
                 .tag(0)
                 .tabItem {
-                    Label {
-                        Text("课程")
-                    } icon: {
-                        CourseTabIcon(active: selectedTab == 0)
-                    }
+                    Label("课程", systemImage: selectedTab == 0 ? "house.fill" : "house")
                 }
 
             PracticeView()
                 .tag(1)
                 .tabItem {
-                    Label {
-                        Text("刷题")
-                    } icon: {
-                        PracticeTabIcon(active: selectedTab == 1)
-                    }
+                    Label("刷题", systemImage: selectedTab == 1 ? "square.grid.3x3.fill" : "square.grid.3x3")
                 }
 
             ReviewView()
                 .tag(2)
                 .tabItem {
-                    Label {
-                        Text("复习")
-                    } icon: {
-                        ReviewTabIcon(active: selectedTab == 2)
-                    }
+                    Label("复习", systemImage: selectedTab == 2 ? "clock.fill" : "clock")
                 }
 
             GlossaryView()
                 .tag(3)
                 .tabItem {
-                    Label {
-                        Text("术语")
-                    } icon: {
-                        GlossaryTabIcon(active: selectedTab == 3)
-                    }
+                    Label("术语", systemImage: selectedTab == 3 ? "character.book.closed.fill" : "character.book.closed")
                 }
 
             ProfileView()
                 .tag(4)
                 .tabItem {
-                    Label {
-                        Text("我的")
-                    } icon: {
-                        ProfileTabIcon(active: selectedTab == 4)
-                    }
+                    Label("我的", systemImage: selectedTab == 4 ? "person.fill" : "person")
                 }
         }
         .tint(DT.primary)
