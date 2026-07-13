@@ -25,7 +25,11 @@ struct FlashcardsView: View {
         .scrollContentBackground(.hidden)
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
-        .navigationDestination(isPresented: $navigatePlayer) { FlashcardPlayerView() }
+        .navigationDestination(isPresented: $navigatePlayer) {
+            if let deck = decks.first {
+                FlashcardPlayerView(package: deck.package, startIndex: 0)
+            }
+        }
         .navigationDestination(isPresented: $navigateAnki) { GlossaryView() }
         .onAppear { reload() }
     }

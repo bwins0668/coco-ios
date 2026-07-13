@@ -1,25 +1,40 @@
 import SwiftUI
 
-/// 闪卡学习页 (B-12/B-13 1:1)：顶部 back + 进度 + 已掌握 + 三横线 menu
-/// + 红顶 2px 闪卡（数据库/分类 tag + 10/1502 右上 + 中央大字 Index/Transaction
-/// + タップして裏面を見る pill + 双底部 outline 按钮 (未记住红 / 已记住绿)
+/// 闪卡学习页：顶部 back + 进度 + 已掌握 + menu
+/// + 红顶 2px 闪卡（tag + 进度 meta + 中央大字术语 + タップして裏面を見る pill）
+/// + 左滑未 remember/右滑已记住，保留底部双按钮
 struct FlashcardPlayerView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var progress: Int = 10
-    @State private var total: Int = 1502
-    @State private var mastered: Int = 7
+    @Environment(\.modelContext) private var ctx
     @State private var showingAnswer: Bool = false
     @State private var dragOffset: CGFloat = 0
     @State private var dragRotation: CGFloat = 0
+    @State private var impact = UIImpactFeedbackGenerator(style: .medium)
+    @State private var currentIndex: Int = 0
+    @State private var terms: [(term: String, meaning: String)] = []
+    @State private var masteredCount: Int = 0
+    @State private var categoryTag: String = ""
+    @State private var deckTitle: String = ""
 
     private let swipeThreshold: CGFloat = 80
 
-    private let categoryTag: String = "数据库"
-    private let terms: [String] = ["Index", "Transaction", "Normalisation", "Isolation", "Constraint"]
+    let package: String
+    let startIndex: Int
 
+    private var total: Int { terms.count }
+    private var progress: Int { currentIndex + 1 }
     private var currentTerm: String {
-        let i = max(0, min(progress - 1, terms.count - 1))
-        return terms[i]
+        guard currentIndex < terms.count else { return "" }
+        return terms[currentIndex].term
+    }
+    private var meaningCN: String {
+        guard currentIndex < terms.count else { return "" }
+        return terms[currentIndex].meaning
+    }
+
+    init(package: String, startIndex: Int = 0) {
+        self.package = package
+        self.startIndex = startIndex
     }
 
     var body: some View {
@@ -34,6 +49,24 @@ struct FlashcardPlayerView: View {
         .padding(.bottom, DT.space3)
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
+        .task { await load() }
+    }
+
+    private func load() async {
+        AppContext.bootstrap(ctx)
+        let qs = QuizStore.shared.loadQuestions(package: package)
+        let tag = package.contains("sg") ? "SG" : "IT Passport"
+        categoryTag = "\(tag) · 真题闪卡"
+        deckTitle = package
+        var arr: [(String, String)] = []
+        for q in qs {
+            let term = q.questionZh.isEmpty ? q.questionJa : q.questionZh
+            let meaning = q.options.map { $0.textZh.isEmpty ? $0.textJa : $0.textZh }.filter { !$0.isEmpty }.joined(separator: "\n")
+            arr.append((term, meaning))
+        }
+        terms = arr
+        currentIndex = max(0, min(startIndex, terms.count - 1))
+        masteredCount = 0
     }
 
     // MARK: - navBar
@@ -62,8 +95,8 @@ struct FlashcardPlayerView: View {
                             .font(.system(size: DT.fontMasthead, weight: .semibold))
                             .foregroundStyle(DT.ink)
                             .monospacedDigit()
-                        Text("\(total)")
-                            .font(.system(size: 32, weight: .semibold))
+                        Text("/ \(total)")
+                            .font(.system(size: DT.fontBody, weight: .medium))
                             .foregroundStyle(DT.textSecondary)
                             .monospacedDigit()
                     }
@@ -73,31 +106,21 @@ struct FlashcardPlayerView: View {
                     Text("已掌握")
                         .font(.system(size: DT.fontLabel)).tracking(2)
                         .foregroundStyle(DT.textTertiary)
-                    Text("\(mastered)")
+                    Text("\(masteredCount)")
                         .font(.system(size: DT.fontMasthead, weight: .semibold))
                         .foregroundStyle(DT.primary)
                         .monospacedDigit()
                 }
                 .padding(.trailing, DT.space1)
-                Button(action: {}) {
-                    Image(systemName: "line.3.horizontal")
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundStyle(DT.textSecondary)
-                        .frame(width: 32, height: 32)
-                        .background(DT.surface)
-                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                }
-                .buttonStyle(.plain)
             }
             .padding(.horizontal, DT.space3)
 
-            // 极细蓝进度条 (1px 高)
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Rectangle().fill(DT.line).frame(height: 2)
                     Rectangle()
                         .fill(DT.primary)
-                        .frame(width: max(2, geo.size.width * CGFloat(progress) / CGFloat(total)), height: 2)
+                        .frame(width: max(2, geo.size.width * CGFloat(progress) / CGFloat(total > 0 ? total : 1)), height: 2)
                 }
             }
             .frame(height: 2)
@@ -106,7 +129,7 @@ struct FlashcardPlayerView: View {
         }
     }
 
-    // MARK: - 闪卡 (B-12 红顶 + 数据库/分类 tag + 10/1502 meta + 中央大字 Index/Transaction + タップして裏面を見る pill)
+    // MARK: - 闪卡
     private var flashCard: some View {
         VStack(spacing: 0) {
             Rectangle().fill(DT.editorial).frame(height: 2)
@@ -143,14 +166,14 @@ struct FlashcardPlayerView: View {
 
                 Spacer().frame(height: DT.space4)
 
-                if showingAnswer {
+                if showingAnswer && !meaningCN.isEmpty {
                     Text(meaningCN)
                         .font(.system(size: DT.fontBody, weight: .medium))
                         .foregroundStyle(DT.textSecondary)
                         .multilineTextAlignment(.center)
                         .lineSpacing(3)
                         .padding(.horizontal, DT.space3)
-                } else {
+                } else if !meaningCN.isEmpty {
                     Text("タップして裏面を見る")
                         .font(.system(size: DT.fontCaption))
                         .foregroundStyle(DT.textTertiary)
@@ -169,6 +192,7 @@ struct FlashcardPlayerView: View {
             RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
                 .stroke(DT.line, lineWidth: 0.5)
         )
+        .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 3)
         .padding(.horizontal, DT.space3)
         .offset(x: dragOffset)
         .rotationEffect(.degrees(dragRotation))
@@ -181,7 +205,7 @@ struct FlashcardPlayerView: View {
                 .onEnded { value in
                     let translation = value.translation.width
                     if abs(translation) > swipeThreshold {
-                        let mastered = translation < 0 ? false : true
+                        let mastered = translation > 0
                         withAnimation(.spring(response: 0.25, dampingFraction: 0.7)) {
                             dragOffset = translation > 0 ? 500 : -500
                             dragRotation = translation > 0 ? 15 : -15
@@ -204,21 +228,6 @@ struct FlashcardPlayerView: View {
     private func resetDrag() {
         dragOffset = 0
         dragRotation = 0
-    }
-
-    private var meaningCN: String {
-        switch currentTerm {
-        case "Index":
-            return "索引 — 数据库中对数据建立快速查找的数据结构，类似书的目录，能显著加速 WHERE 查询，但会增加写入开销。"
-        case "Transaction":
-            return "事务 — 数据库执行的逻辑工作单元，要么全部成功（COMMIT）要么全部失败回滚（ROLLBACK），遵循 ACID 特性。"
-        case "Normalisation":
-            return "规范化 — 通过函数依赖分析把表拆分以减少冗余、避免更新异常，常见范式：1NF/2NF/3NF/BCNF。"
-        case "Isolation":
-            return "隔离性 — 事务并发执行时彼此不互相干扰的强度等级；SQL 标准定义 READ UNCOMMITTED / COMMITTED / REPEATABLE READ / SERIALIZABLE 四级。"
-        default:
-            return "数据库术语释义。"
-        }
     }
 
     // MARK: - 双底部 outline 按钮
@@ -261,14 +270,24 @@ struct FlashcardPlayerView: View {
     }
 
     private func nextCard(mastered: Bool) {
+        let hapticStyle: UIImpactFeedbackGenerator.FeedbackStyle = mastered ? .light : .medium
+        let generator = UIImpactFeedbackGenerator(style: hapticStyle)
+        generator.impactOccurred()
+
         withAnimation {
-            progress += 1
-            if mastered { self.mastered += 1 }
+            if mastered { masteredCount += 1 }
             showingAnswer = false
+            if currentIndex < total - 1 {
+                currentIndex += 1
+            } else {
+                currentIndex = 0
+            }
         }
     }
 }
 
 #Preview {
-    FlashcardPlayerView()
+    NavigationStack {
+        FlashcardPlayerView(package: "quiz-itpass-1", startIndex: 0)
+    }
 }
