@@ -22,6 +22,7 @@ targets:
             buildPhase: resources
           - path: Resources/GlossaryData
             buildPhase: resources
+      - path: Widget/DataBridge.swift
     settings:
       base:
         INFOPLIST_FILE: CoCoiOS/Info.plist
