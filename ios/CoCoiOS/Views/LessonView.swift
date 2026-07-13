@@ -14,7 +14,7 @@ struct LessonView: View {
                 backButton
                 titleCard
 
-                let detail = SGLessonStore.shared.unit(chapterId: chapter.chapterId, unitId: section.sectionId)
+                let detail = LessonStore.shared.unit(courseId: course.courseId, chapterId: chapter.chapterId, unitId: section.sectionId)
 
                 if let d = detail, !d.overviewZh.isEmpty {
                     overviewCard(overviewZh: d.overviewZh, learningGoalZh: d.learningGoalZh)
@@ -101,7 +101,7 @@ struct LessonView: View {
         }
     }
 
-    private func sectionCard(_ s: SGLessonUnit.Section) -> some View {
+    private func sectionCard(_ s: LessonUnit.Section) -> some View {
         VStack(alignment: .leading, spacing: DT.space1) {
             sectionLabel(s.headingZh.isEmpty ? "详解" : s.headingZh)
             QPCard {
@@ -130,7 +130,7 @@ struct LessonView: View {
         }
     }
 
-    private func keyTermsCard(_ terms: [SGLessonUnit.KeyTerm]) -> some View {
+    private func keyTermsCard(_ terms: [LessonUnit.KeyTerm]) -> some View {
         VStack(alignment: .leading, spacing: DT.space1) {
             sectionLabel("关键术语 / 重要語彙")
             VStack(spacing: DT.space1) {
@@ -142,7 +142,7 @@ struct LessonView: View {
         }
     }
 
-    private func termRow(_ t: SGLessonUnit.KeyTerm) -> some View {
+    private func termRow(_ t: LessonUnit.KeyTerm) -> some View {
         QPCard {
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 6) {
@@ -181,7 +181,7 @@ struct LessonView: View {
         }
     }
 
-    private func caseBreakdownCard(_ parts: [SGLessonUnit.CasePart]) -> some View {
+    private func caseBreakdownCard(_ parts: [LessonUnit.CasePart]) -> some View {
         VStack(alignment: .leading, spacing: DT.space1) {
             sectionLabel("案例拆解 / ケース分析")
             VStack(spacing: 0) {

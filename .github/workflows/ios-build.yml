@@ -24,6 +24,14 @@ jobs:
         run: |
           node ios/tools/build-course-json.js
 
+      - name: Regenerate SG lesson detail JSON
+        run: |
+          node ios/tools/build-sg-lesson-json.js
+
+      - name: Regenerate IT Passport lesson detail JSON
+        run: |
+          node ios/tools/build-itpass-lesson-json.js
+
       - name: Install XcodeGen
         run: brew install xcodegen
 
