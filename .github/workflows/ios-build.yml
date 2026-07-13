@@ -32,6 +32,14 @@ jobs:
         run: |
           node ios/tools/build-itpass-lesson-json.js
 
+      - name: Regenerate Java lesson detail JSON
+        run: |
+          node ios/tools/build-java-lesson-json.js
+
+      - name: Regenerate Python lesson detail JSON
+        run: |
+          node ios/tools/build-python-lesson-json.js
+
       - name: Install XcodeGen
         run: brew install xcodegen
 

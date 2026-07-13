@@ -49,10 +49,11 @@ struct QuizView: View {
             ctx.insert(StudyStat(date: dayKey, answered: session.answered, correct: session.correctCount))
         }
 
-        // 给每道题写入 QuizAttempt（演示：如果 lastWrongId 非空则追加错题记录）
+        // 给每道已答题写入 QuizAttempt，isCorrect 取自 session.history[i]（真值），
+        // 而不是用 lastWrongId 单点推断（之前的版本会因 lastWrongId 多题共用导致全部 isCorrect=true）
         for i in 0..<min(session.answered, session.questions.count) {
             let q = session.questions[i]
-            let isCorrect = q.id != session.lastWrongId || session.correctCount > i
+            let isCorrect = i < session.history.count ? session.history[i] : false
             let attempt = QuizAttempt(
                 questionId: q.id,
                 package: package,
@@ -62,13 +63,20 @@ struct QuizView: View {
                 isCorrect: isCorrect
             )
             ctx.insert(attempt)
+            // 错题入库
+            if !isCorrect {
+                let existingWrong = (try? ctx.fetch(FetchDescriptor<MistakeRecord>(
+                    predicate: #Predicate { $0.questionId == q.id }
+                )))?.first
+                if let m = existingWrong {
+                    m.wrongCount += 1
+                    m.lastWrong = Date()
+                } else {
+                    ctx.insert(MistakeRecord(questionId: q.id, package: package, wrongCount: 1, lastWrong: Date()))
+                }
+            }
         }
 
-        if let wid = session.lastWrongId,
-           let wrongQ = session.questions.first(where: { $0.id == wid }) {
-            ctx.insert(MistakeRecord(questionId: wid, package: package, wrongCount: 1, lastWrong: Date()))
-            _ = wrongQ
-        }
         try? ctx.save()
     }
 }

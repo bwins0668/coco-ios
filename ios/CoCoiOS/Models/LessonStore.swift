@@ -82,9 +82,7 @@ final class LessonStore {
            let data = try? Data(contentsOf: url),
            let model = try? JSONDecoder().decode(LessonData.self, from: data) {
             var bucket: [String: [String: LessonUnit]] = [:]
-            for (_, ch) in model.detail {
-                bucket[ch.chapterId] = ch.units
-            }
+            for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
             combined["sg"] = bucket
         }
         // 加载 itpass
@@ -92,10 +90,25 @@ final class LessonStore {
            let data = try? Data(contentsOf: url),
            let model = try? JSONDecoder().decode(LessonData.self, from: data) {
             var bucket: [String: [String: LessonUnit]] = [:]
-            for (_, ch) in model.detail {
-                bucket[ch.chapterId] = ch.units
-            }
+            for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
             combined["itpass"] = bucket
+        }
+        // 加载 java（合 a/b/c 三套到同一 courseId bucket）
+        if let url = Bundle.main.url(forResource: "java-lesson-detail", withExtension: "json"),
+           let data = try? Data(contentsOf: url),
+           let model = try? JSONDecoder().decode(LessonData.self, from: data) {
+            var bucket: [String: [String: LessonUnit]] = [:]
+            for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
+            combined["java"] = bucket
+        }
+        // 加载 python（如果以后 build 出非空 JSON，会自动注入）
+        if let url = Bundle.main.url(forResource: "python-lesson-detail", withExtension: "json"),
+           let data = try? Data(contentsOf: url),
+           let model = try? JSONDecoder().decode(LessonData.self, from: data),
+           !model.detail.isEmpty {
+            var bucket: [String: [String: LessonUnit]] = [:]
+            for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
+            combined["python"] = bucket
         }
         self.init(inMemoryIndex: combined)
     }

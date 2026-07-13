@@ -7,6 +7,7 @@ struct LessonView: View {
     let section: CourseSection
 
     @Environment(\.dismiss) private var dismiss
+    @State private var showPracticeSheet: Bool = false
 
     var body: some View {
         ScrollView {
@@ -43,6 +44,10 @@ struct LessonView: View {
         .scrollContentBackground(.hidden)
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
+        .sheet(isPresented: $showPracticeSheet) {
+            LessonPracticeSheet(course: course, chapter: chapter, section: section)
+                .presentationDetents([.medium, .large])
+        }
     }
 
     private var backButton: some View {
@@ -213,7 +218,8 @@ struct LessonView: View {
 
     private var actions: some View {
         VStack(spacing: DT.space1) {
-            QPPrimaryButton("做本章小测") {}
+            QPPrimaryButton("做本章小测") { showPracticeSheet = true }
+            QPOutlineButton("返回章节") { dismiss() }
         }
         .padding(.horizontal, DT.space3)
     }
@@ -222,6 +228,131 @@ struct LessonView: View {
         Text(text).font(.system(size: DT.fontCaption, weight: .semibold)).tracking(2)
             .foregroundStyle(DT.textTertiary)
             .padding(.horizontal, DT.space3)
+    }
+}
+
+/// LessonView 弹出的小测入口：根据课程 courseId 列出该考试下的所有 package，
+/// 点击 → 直接打开 QuizView 答题，按 courseMap.courseId 默认判 sourceType。
+struct LessonPracticeSheet: View {
+    let course: CourseInfo
+    let chapter: CourseChapter
+    let section: CourseSection
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var pickedPackage: QuizPick? = nil
+
+    struct QuizPick: Identifiable, Hashable {
+        let id: String           // == package name
+        let package: String
+        let exam: String
+        let sourceType: String
+        let title: String
+        let subtitle: String
+        let count: Int
+        let color: Color
+    }
+
+    private var picks: [QuizPick] {
+        let manifest = QuizStore.shared.manifest
+        let prefix = course.courseId == "itpass" ? "quiz-itpass"
+                   : course.courseId == "sg"    ? "quiz-sg"
+                   : nil
+        guard let pfx = prefix else { return [] }
+        return manifest.packages
+            .filter { $0.package.hasPrefix(pfx) }
+            .map { pkg in
+                let cleaned = pkg.package.replacingOccurrences(of: pfx + "-", with: "")
+                let examLabel = course.courseId == "sg" ? "SG" : "IT Passport"
+                let kind = pfx == "quiz-sg" ? "SG 信息安全" : "IT Passport"
+                return QuizPick(
+                    id: pkg.package,
+                    package: pkg.package,
+                    exam: course.courseId,
+                    sourceType: "past_exam_japanese",
+                    title: "\(examLabel) · 年度 \(cleaned)",
+                    subtitle: "\(kind) · 章节 \(chapter.title.zh) · 小节 \(section.title.zh)",
+                    count: pkg.count,
+                    color: course.courseId == "sg" ? DT.sgColor : DT.itpassColor
+                )
+            }
+    }
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: DT.space3) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("做本章小测 · \(chapter.title.zh) / \(section.title.zh)")
+                            .font(.system(size: DT.fontCaption)).tracking(2)
+                            .foregroundStyle(DT.textTertiary)
+                        Text("选择年度真题包，将立即开始答题")
+                            .font(.system(size: DT.fontSectionTitle, weight: .semibold))
+                            .foregroundStyle(DT.ink)
+                    }
+                    .padding(.top, DT.space2)
+
+                    if picks.isEmpty {
+                        QPCard {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text("该课程暂无题库")
+                                    .font(.system(size: DT.fontBody, weight: .semibold))
+                                    .foregroundStyle(DT.ink)
+                                Text("目前仅 IT Passport 与 SG 提供真题练习，\(course.title.zh) 题库整理中。")
+                                    .font(.system(size: DT.fontCaption))
+                                    .foregroundStyle(DT.textSecondary)
+                            }
+                        }
+                        .padding(.horizontal, DT.space3)
+                    } else {
+                        VStack(spacing: DT.space1) {
+                            ForEach(picks) { p in
+                                pickRow(p)
+                            }
+                        }
+                        .padding(.horizontal, DT.space3)
+                    }
+
+                    Spacer().frame(height: 60)
+                }
+                .padding(.bottom, DT.space3)
+            }
+            .scrollContentBackground(.hidden)
+            .background(DT.canvas.ignoresSafeArea())
+            .navigationBarHidden(true)
+            .fullScreenCover(item: $pickedPackage) { p in
+                NavigationStack {
+                    QuizView(package: p.package, exam: p.exam, sourceType: p.sourceType)
+                        .navigationBarHidden(true)
+                        .background(DT.canvas.ignoresSafeArea())
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func pickRow(_ p: QuizPick) -> some View {
+        Button(action: { pickedPackage = p }) {
+            QPCard {
+                HStack(alignment: .center, spacing: DT.space2) {
+                    Rectangle().fill(p.color).frame(width: 3, height: 36)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(p.title)
+                            .font(.system(size: DT.fontBody, weight: .semibold))
+                            .foregroundStyle(DT.ink)
+                        Text(p.subtitle)
+                            .font(.system(size: DT.fontCaption))
+                            .foregroundStyle(DT.textSecondary)
+                            .lineLimit(2)
+                        Text("\(p.count) 题")
+                            .font(.system(size: DT.fontLabel))
+                            .foregroundStyle(DT.textTertiary)
+                    }
+                    Spacer(minLength: 0)
+                    Text("→").font(.system(size: DT.fontBody)).foregroundStyle(DT.textTertiary)
+                }
+            }
+        }
+        .buttonStyle(.plain)
     }
 }
 

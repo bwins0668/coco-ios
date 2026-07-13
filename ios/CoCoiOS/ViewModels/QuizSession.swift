@@ -12,10 +12,14 @@ final class QuizSession {
     private(set) var answered: Int = 0
     private(set) var showResult: Bool = false
     private(set) var lastWrongId: String?
+    /// 每题的真实判分记录（按 questions 顺序）。第一题对应 history[0]，
+    /// 写入 SwiftData QuizAttempt 时直接读这个，避免 lastWrongId 单点推断导致全部 isCorrect=true 的 bug。
+    private(set) var history: [Bool] = []
 
     init(package: String, questions: [Question], shuffle: Bool = true) {
         self.package = package
         self.questions = shuffle ? questions.shuffled() : questions
+        self.history = Array(repeating: false, count: self.questions.count)
     }
 
     var current: Question? {
@@ -40,6 +44,9 @@ final class QuizSession {
         answered += 1
         let correct = sel == q.answer
         if correct { correctCount += 1 } else { lastWrongId = q.id }
+        // 记录在历史数组（按 questions 原始索引，而不是 shuffled view）
+        // 注意：index 在 next() 时才递增，所以 submitted 时 index 仍指向当前题。
+        if index < history.count { history[index] = correct }
         showResult = true
         return correct
     }
