@@ -26,6 +26,8 @@ from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, jsonify
 
+from hermes_cron_push import add_subscriber, load_subscribers
+
 # ---- env -------------------------------------------------------------------
 
 APP_ID = os.environ.get("LARK_APP_ID", "").strip()
@@ -188,10 +190,16 @@ def handle(event):
 
     log("recv from %s: %s", open_id[:10], text[:50])
 
-    # 首次接入欢迎
+    # 首次接入欢迎 + 自动订阅
     if open_id and open_id not in _welcomed:
         send_card(open_id, WELCOME)
         _welcomed[open_id] = True
+        # 注册订阅
+        try:
+            add_subscriber(open_id, name=event.get("sender", {}).get("name", "coco"))
+            log("subscribed %s", open_id[:10])
+        except Exception as e:
+            log("subscribe err: %s", e)
 
     t = text.lower()
     if "统计" in text or "今日" in text or "进度" in text or "進度" in text:
