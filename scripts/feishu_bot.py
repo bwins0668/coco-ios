@@ -23,9 +23,12 @@ def main():
         print("ERROR: set LARK_APP_ID (or LARK_BOT_ID) first.")
         sys.exit(1)
 
-    # 自建应用机器人"扫码加机器人"URL（已发布机器人可走这个）
-    # 文档：https://open.feishu.cn/document/server-docs/im-v1/bot-group/search-bot
-    url = f"https://open.feishu.cn/page/contact-group-v2?bot_id={bot_id}"
+    # 真正的扫码加机器人 deep link（HTTP 200 verified）；当后台未发布时,
+    # 飞书手机端会显示"申请添加 Hermes"
+    url = (
+        f"https://applink.feishu.cn/client/bot/open"
+        f"?appId={app_id}"
+    )
     print(f"[feishu] encoding URL: {url}")
 
     try:
@@ -44,7 +47,7 @@ def main():
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    img.save(OUT, format="PNG")
+    img.save(str(OUT))
     print(f"[feishu] wrote {OUT} ({OUT.stat().st_size} bytes)")
     print(f"[feishu] scan QR with Feishu mobile → opens bot page → 添加机器人 to your group/DM")
 
