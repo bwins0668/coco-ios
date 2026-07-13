@@ -21,30 +21,34 @@ struct CourseDetailView: View {
                 VStack(alignment: .leading, spacing: DT.space3) {
                     navBar
                     masthead
-                    if !lastMetaText.isEmpty {
-                        QPCard {
-                            HStack {
-                                Text("上次练习")
-                                    .font(.system(size: DT.fontLabel)).tracking(2)
-                                    .foregroundStyle(DT.textTertiary)
-                                Spacer()
-                                Text(lastMetaText)
-                                    .font(.system(size: DT.fontCaption))
-                                    .foregroundStyle(DT.textTertiary)
+                    if isCertification {
+                        if !lastMetaText.isEmpty {
+                            QPCard {
+                                HStack {
+                                    Text("上次练习")
+                                        .font(.system(size: DT.fontLabel)).tracking(2)
+                                        .foregroundStyle(DT.textTertiary)
+                                    Spacer()
+                                    Text(lastMetaText)
+                                        .font(.system(size: DT.fontCaption))
+                                        .foregroundStyle(DT.textTertiary)
+                                }
+                            }
+                            .padding(.horizontal, DT.space3)
+                        }
+                        structureSection
+                        QPPrimaryButton("开始刷题") {
+                            if let pkg = packages.first?.package, pkg.hasPrefix("quiz-\(courseId)") {
+                                navigatePackage = pkg
                             }
                         }
                         .padding(.horizontal, DT.space3)
+                        practiceSection
+                        QPRuleLine()
+                        auxiliarySection
+                    } else {
+                        learningContent
                     }
-                    structureSection
-                    QPPrimaryButton("开始刷题") {
-                        if let pkg = packages.first?.package, pkg.hasPrefix("quiz-\(courseId)") {
-                            navigatePackage = pkg
-                        }
-                    }
-                    .padding(.horizontal, DT.space3)
-                    practiceSection
-                    QPRuleLine()
-                    auxiliarySection
                     Spacer().frame(height: 100)
                 }
                 .padding(.top, DT.space2)
@@ -82,6 +86,10 @@ struct CourseDetailView: View {
                    chapterCount: 0, sectionCount: 0, chapters: [])
     }
 
+    private var isCertification: Bool {
+        courseId == "itpass" || courseId == "sg"
+    }
+
     private var navBar: some View {
         HStack {
             Button(action: { dismiss() }) {
@@ -102,10 +110,10 @@ struct CourseDetailView: View {
     private var masthead: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 6) {
-                Text("試験")
+                Text(isCertification ? "試験" : "COURSE")
                     .font(.system(size: DT.fontLabel, weight: .medium)).tracking(2)
                 Text("·").foregroundStyle(DT.textTertiary)
-                Text("EXAM")
+                Text(isCertification ? "EXAM" : "学习")
                     .font(.system(size: DT.fontLabel, weight: .semibold)).tracking(2)
             }
             .foregroundStyle(DT.editorial)
@@ -169,6 +177,66 @@ struct CourseDetailView: View {
             .background(DT.surface)
             .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous).stroke(DT.line, lineWidth: 0.5))
+            .padding(.horizontal, DT.space3)
+        }
+    }
+
+    private var learningContent: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            QPSectionLabel("01", "课程目录", meta: "\(course?.chapterCount ?? 0) 章节 · \(course?.sectionCount ?? 0) 小节")
+            if let course, course.chapters.isEmpty {
+                QPCard {
+                    Text("该课程的目录已登记，但可学习内容仍在整理中。")
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(DT.textSecondary)
+                }
+                .padding(.horizontal, DT.space3)
+            } else {
+                VStack(spacing: 0) {
+                    ForEach(course?.chapters ?? []) { chapter in
+                        Button(action: { selectedChapter = chapter }) {
+                            HStack(alignment: .center, spacing: DT.space2) {
+                                Text(String(format: "%02d", chapter.chapterOrder))
+                                    .font(.system(size: DT.fontCaption, weight: .semibold))
+                                    .foregroundStyle(DT.primary)
+                                    .frame(width: 32)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(chapter.title.zh)
+                                        .font(.system(size: DT.fontBody, weight: .semibold))
+                                        .foregroundStyle(DT.ink)
+                                    Text(chapter.title.ja)
+                                        .font(.system(size: DT.fontCaption))
+                                        .foregroundStyle(DT.textSecondary)
+                                        .lineLimit(1)
+                                }
+                                Spacer(minLength: 0)
+                                Text("\(chapter.sections.count) 小节")
+                                    .font(.system(size: DT.fontLabel))
+                                    .foregroundStyle(DT.textTertiary)
+                                Text("›").font(.system(size: DT.fontPageTitle, weight: .light))
+                                    .foregroundStyle(DT.textTertiary)
+                            }
+                            .padding(.horizontal, DT.space2).padding(.vertical, DT.space2)
+                        }
+                        .buttonStyle(.plain)
+                        if chapter.id != (course?.chapters.last?.id ?? "") {
+                            Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
+                        }
+                    }
+                }
+                .background(DT.surface)
+                .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous).stroke(DT.line, lineWidth: 0.5))
+                .padding(.horizontal, DT.space3)
+            }
+            QPRuleLine()
+            QPSectionLabel("02", "学习说明")
+            QPCard {
+                Text("内容来自小程序当前课程包；可用小节会显示双语讲解、关键术语与章节小测入口。")
+                    .font(.system(size: DT.fontCaption))
+                    .foregroundStyle(DT.textSecondary)
+                    .lineSpacing(3)
+            }
             .padding(.horizontal, DT.space3)
         }
     }

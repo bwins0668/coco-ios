@@ -67,7 +67,7 @@ struct HomeView: View {
                 if let id = navigateCourseId {
                     CourseDetailView(
                         courseId: id,
-                        courseName: examCourses.first(where: { $0.id == id })?.name ?? ""
+                        courseName: courseName(for: id)
                     )
                 }
             }
@@ -223,7 +223,10 @@ struct HomeView: View {
 
     @ViewBuilder
     private func courseCard(_ c: LearningCourse) -> some View {
-        Button(action: {}) {
+        Button(action: {
+            guard !c.muted else { return }
+            navigateCourseId = c.id
+        }) {
             HStack(alignment: .top, spacing: 0) {
                 Rectangle()
                     .fill(c.muted ? Color.clear : c.accent)
@@ -258,6 +261,13 @@ struct HomeView: View {
         }
         .buttonStyle(.plain)
         .opacity(c.muted ? 0.7 : 1.0)
+    }
+
+    private func courseName(for id: String) -> String {
+        if let exam = examCourses.first(where: { $0.id == id }) {
+            return exam.name
+        }
+        return learningCourses.first(where: { $0.id == id })?.title ?? ""
     }
 }
 
