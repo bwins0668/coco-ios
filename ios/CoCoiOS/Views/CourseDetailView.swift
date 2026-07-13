@@ -79,19 +79,6 @@ struct CourseDetailView: View {
         .navigationTransition(.slide)
     }
 
-    private func reload() {
-        AppContext.bootstrap(ctx)
-        course = empty
-    }
-
-    private var empty: CourseInfo {
-        CourseInfo(courseId: courseId,
-                   title: CourseTitle(zh: courseName, ja: courseName),
-                   subtitle: CourseTitle(zh: "", ja: ""),
-                   color: "#1E2980",
-                   chapterCount: 0, sectionCount: 0, chapters: [])
-    }
-
     private var isCertification: Bool {
         courseId == "itpass" || courseId == "sg"
     }
