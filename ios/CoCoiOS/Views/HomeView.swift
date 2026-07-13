@@ -86,6 +86,7 @@ struct HomeView: View {
             }
             .onAppear(perform: load)
         }
+        .navigationTransition(.slide)
     }
 
     private func load() {

@@ -52,7 +52,6 @@ struct PracticeView: View {
                     QPRuleLine()
                     if hasLastAttempt { continueCard }
                     chooseExamSection
-                    if navigateLast, let pkg = lastPackage { hiddenLink(pkg: pkg) }
                     Spacer().frame(height: 80)
                 }
                 .padding(.bottom, DT.space3)
@@ -76,6 +75,7 @@ struct PracticeView: View {
             }
             .onAppear { reload() }
         }
+        .navigationTransition(.slide)
     }
 
     @ViewBuilder
