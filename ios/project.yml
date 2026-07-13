@@ -28,8 +28,10 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.CLaov.M3EM
         MARKETING_VERSION: "0.1"
         CURRENT_PROJECT_VERSION: "1"
+    info:
+      path: CoCoiOS/Info.plist
     entitlements:
-      CoCoiOS/CoCoiOS.entitlements: {}
+      path: CoCoiOS/CoCoiOS.entitlements
 
   CoCoiOSWidget:
     type: app-extension
@@ -42,7 +44,9 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.CLaov.M3EM.widget
         MARKETING_VERSION: "0.1"
         CURRENT_PROJECT_VERSION: "1"
+    info:
+      path: Widget/Info.plist
     entitlements:
-      Widget/Widget.entitlements: {}
+      path: Widget/Widget.entitlements
     dependencies:
       - target: CoCoiOS
