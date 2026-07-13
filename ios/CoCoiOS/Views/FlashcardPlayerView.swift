@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// 闪卡学习页：顶部 back + 进度 + 已掌握 + menu
 /// + 红顶 2px 闪卡（tag + 进度 meta + 中央大字术语 + タップして裏面を見る pill）

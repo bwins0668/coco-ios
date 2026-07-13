@@ -62,7 +62,7 @@ struct CourseDetailView: View {
                 set: { if !$0 { selectedChapter = nil } }
             )) {
                 if let ch = selectedChapter {
-                    ChapterView(course: course ?? empty,
+                    ChapterView(course: course ?? CourseStore.shared.course(id: courseId) ?? CourseInfo(courseId: courseId, title: CourseTitle(zh: courseName, ja: courseName), subtitle: CourseTitle(zh: "", ja: ""), color: "#1E2980", chapterCount: 0, sectionCount: 0, chapters: []),
                                 chapter: ch)
                 }
             }
