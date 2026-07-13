@@ -69,21 +69,15 @@ struct ReviewView: View {
 
             VStack(spacing: DT.space1) {
                 reviewCard(title: "闪卡复习",
-                           sub: "IT Passport / SG 年度模拟闪卡 · \(flashcardsCount) 题",
-                           color: DT.primary,
-                           icon: "▦",
+                           sub: "IT Passport / SG 年度模拟闪卡",
                            badge: nil,
                            action: { navigateFlashcards = true })
                 reviewCard(title: "错题复习",
-                           sub: wrongCount > 0 ? "已答错 \(wrongCount) 道 · 建议优先复盘" : "回顾错题，巩固薄弱知识点",
-                           color: DT.danger,
-                           icon: "✕",
+                           sub: "回顾错题，巩固薄弱知识点",
                            badge: wrongCount > 0 ? "\(wrongCount)" : nil,
                            action: { navigateMistakes = true })
                 reviewCard(title: "术语复习",
-                           sub: favoriteCount > 0 ? "已收藏 \(favoriteCount) 条术语，可随时复习" : "复习收藏的术语与概念",
-                           color: DT.success,
-                           icon: "♥",
+                           sub: "复习收藏的术语与概念",
                            badge: favoriteCount > 0 ? "\(favoriteCount)" : nil,
                            action: { navigateTermReview = true })
             }
@@ -92,33 +86,22 @@ struct ReviewView: View {
     }
 
     @ViewBuilder
-    private func reviewCard(title: String, sub: String, color: Color, icon: String, badge: String?, action: @escaping () -> Void) -> some View {
+    private func reviewCard(title: String, sub: String, badge: String?, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             QPCard {
                 HStack(alignment: .center, spacing: DT.space2) {
-                    ZStack {
-                        Circle().fill(color.opacity(0.15)).frame(width: 44, height: 44)
-                        Text(icon).font(.system(size: DT.fontBody, weight: .semibold)).foregroundStyle(color)
-                    }
                     VStack(alignment: .leading, spacing: 4) {
-                        HStack(spacing: 6) {
-                            Text(title)
-                                .font(.system(size: DT.fontBody, weight: .semibold))
-                                .foregroundStyle(DT.ink)
-                            if let b = badge {
-                                Text(b)
-                                    .font(.system(size: DT.fontCaption, weight: .semibold))
-                                    .padding(.horizontal, 6).padding(.vertical, 1)
-                                    .background(color)
-                                    .foregroundStyle(DT.surface)
-                                    .clipShape(Capsule())
-                            }
-                        }
+                        Text(title)
+                            .font(.system(size: DT.fontBody, weight: .semibold))
+                            .foregroundStyle(DT.ink)
                         Text(sub)
                             .font(.system(size: DT.fontCaption))
                             .foregroundStyle(DT.textSecondary)
                     }
                     Spacer(minLength: 0)
+                    if let b = badge {
+                        QPPill(b, background: DT.primarySoft, foreground: DT.primary)
+                    }
                     Text("›").font(.system(size: DT.fontPageTitle, weight: .light))
                         .foregroundStyle(DT.textTertiary)
                 }

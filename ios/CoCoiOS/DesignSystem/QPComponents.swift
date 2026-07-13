@@ -274,3 +274,221 @@ struct QPExamRowCard: View {
         .buttonStyle(.plain)
     }
 }
+
+// MARK: - R8 1:1 复刻 新组件
+
+/// 卡片顶端 2 px 暗红细线 + 白底大圆角页头卡（START / 错题本 / Quiz 题卡 / 闪卡复习 等）
+/// 用法：QPRedHeaderCard { VStack { Text("start") } }
+struct QPRedHeaderCard<Content: View>: View {
+    let content: Content
+    init(@ViewBuilder content: () -> Content) { self.content = content() }
+    var body: some View {
+        VStack(spacing: 0) {
+            // 顶端 2px 红线
+            Rectangle()
+                .fill(DT.editorial)
+                .frame(height: 2)
+            content
+                .padding(DT.space3)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(DT.surface)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
+                .stroke(DT.line, lineWidth: 0.5)
+        )
+    }
+}
+
+/// 答题反馈条：答错淡红 + ⊗ + 提示 / 答对淡绿 + ✓ + 提示
+struct QPAnswerFeedbackBanner: View {
+    let isCorrect: Bool
+    let primaryText: String
+    let secondaryText: String?
+    var body: some View {
+        HStack(alignment: .top, spacing: DT.space2) {
+            ZStack {
+                Circle()
+                    .fill(isCorrect ? DT.success : DT.danger)
+                    .frame(width: 22, height: 22)
+                Image(systemName: isCorrect ? "checkmark" : "xmark")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(DT.surface)
+            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text(primaryText)
+                    .font(.system(size: DT.fontBody, weight: .semibold))
+                    .foregroundStyle(isCorrect ? DT.success : DT.danger)
+                if let s = secondaryText {
+                    Text(s)
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(DT.textSecondary)
+                }
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(DT.space2)
+        .background(isCorrect ? DT.successSoft : DT.dangerSoft)
+        .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
+                .stroke((isCorrect ? DT.success : DT.danger).opacity(0.2), lineWidth: 0.5)
+        )
+    }
+}
+
+/// 3 段数字 row（如错题本页 1/全部错题 1/待复习 0/已掌握）
+struct QPNumericRow: View {
+    struct Cell { let value: Int; let label: String }
+    let cells: [Cell]
+    init(_ cells: [Cell]) { self.cells = cells }
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(Array(cells.enumerated()), id: \.offset) { idx, cell in
+                if idx > 0 {
+                    Rectangle().fill(DT.line).frame(width: 0.5)
+                }
+                VStack(spacing: 4) {
+                    Text("\(cell.value)")
+                        .font(.system(size: DT.fontMasthead, weight: .semibold))
+                        .tracking(-1)
+                        .foregroundStyle(DT.ink)
+                    Text(cell.label)
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(DT.textTertiary)
+                }
+                .frame(maxWidth: .infinity)
+            }
+        }
+        .padding(.vertical, DT.space2)
+        .background(DT.surface)
+        .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
+                .stroke(DT.line, lineWidth: 0.5)
+        )
+    }
+}
+
+/// 搜索框（白底大圆角 + 浅灰左侧放大镜 + 占位提示）
+struct QPSearchField: View {
+    @Binding var text: String
+    let placeholder: String
+    init(text: Binding<String>, placeholder: String = "搜索") {
+        self._text = text
+        self.placeholder = placeholder
+    }
+    var body: some View {
+        HStack(spacing: DT.space1) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(DT.textTertiary)
+                .font(.system(size: DT.fontCaption))
+            TextField("", text: $text, prompt: Text(placeholder).foregroundStyle(DT.textTertiary))
+                .font(.system(size: DT.fontCaption))
+                .foregroundStyle(DT.ink)
+        }
+        .padding(.horizontal, DT.space2)
+        .padding(.vertical, 10)
+        .background(DT.surface)
+        .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
+                .stroke(DT.line, lineWidth: 0.5)
+        )
+    }
+}
+
+/// Chip (圆点小标签)：● + 课程名 + 数字
+struct QPDotChip: View {
+    let label: String
+    let count: Int?
+    var body: some View {
+        HStack(spacing: 6) {
+            Circle()
+                .fill(DT.textTertiary)
+                .frame(width: 6, height: 6)
+            Text(label)
+                .font(.system(size: DT.fontCaption))
+                .foregroundStyle(DT.ink)
+            if let c = count {
+                Text("\(c)")
+                    .font(.system(size: DT.fontCaption, weight: .semibold))
+                    .foregroundStyle(DT.textTertiary)
+            }
+        }
+    }
+}
+
+/// 课程学习卡（按设计图 B-2：左竖条 + 彩色背景 + Ja/Py/SQL/Alg 色标 + 标题 + 多语言副 + 三件 meta）
+struct QPLanguageCourseCard<Accessory: View>: View {
+    let tag: String
+    let title: String
+    let subtitle: String
+    let meta: String
+    let accentColor: Color
+    let backgroundColor: Color
+    let isMuted: Bool
+    let accessory: Accessory
+    let action: () -> Void
+
+    init(tag: String, title: String, subtitle: String, meta: String,
+         accentColor: Color, backgroundColor: Color,
+         isMuted: Bool = false,
+         accessory: Accessory = EmptyView(),
+         action: @escaping () -> Void = {}) {
+        self.tag = tag; self.title = title; self.subtitle = subtitle; self.meta = meta
+        self.accentColor = accentColor; self.backgroundColor = backgroundColor
+        self.isMuted = isMuted; self.accessory = accessory; self.action = action
+    }
+    var body: some View {
+        Button(action: action) {
+            HStack(alignment: .top, spacing: 0) {
+                // 左竖条：彩色（disabled 时透明）
+                Rectangle()
+                    .fill(isMuted ? Color.clear : accentColor)
+                    .frame(width: 3)
+                    .padding(.vertical, DT.space2)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(tag)
+                        .font(.system(size: DT.fontLabel, weight: .semibold))
+                        .tracking(1.5)
+                        .foregroundStyle(isMuted ? DT.textGhost : accentColor)
+                    Text(title)
+                        .font(.system(size: DT.fontBody, weight: .semibold))
+                        .foregroundStyle(isMuted ? DT.textTertiary : DT.ink)
+                    Text(subtitle)
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(isMuted ? DT.textGhost : DT.textSecondary)
+                        .lineLimit(2)
+                    if !meta.isEmpty && !isMuted {
+                        Text(meta)
+                            .font(.system(size: DT.fontLabel))
+                            .tracking(0.5)
+                            .foregroundStyle(DT.textTertiary)
+                            .padding(.top, 2)
+                    }
+                    if isMuted {
+                        Spacer().frame(height: 4)
+                        Text(meta.isEmpty ? "准备中" : meta)
+                            .font(.system(size: DT.fontLabel))
+                            .foregroundStyle(DT.textTertiary)
+                    }
+                    Spacer(minLength: 0)
+                }
+                .padding(.horizontal, DT.space2)
+                .padding(.vertical, DT.space2)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(isMuted ? DT.surface.opacity(0.4) : backgroundColor)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
+                    .stroke(DT.line, lineWidth: 0.5)
+            )
+            .padding(.horizontal, DT.space3)
+        }
+        .buttonStyle(.plain)
+        .opacity(isMuted ? 0.7 : 1.0)
+    }
+}

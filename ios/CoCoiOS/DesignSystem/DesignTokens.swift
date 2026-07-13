@@ -5,43 +5,52 @@ import Foundation
 /// 暗色模式：跟随系统自动切换色板
 enum DT {
     // MARK: - Colors (Light + Dark variants)
-    static let canvas = Color(light: hex("F2EDE0"), dark: hex("1A1814"))
+    static let canvas = Color(light: hex("F2EEE3"), dark: hex("1A1814"))
     static let surface = Color(light: hex("FFFDF5"), dark: hex("23211D"))
     static let surfaceMuted = Color(light: hex("F4F3EF"), dark: hex("2A2823"))
-    static let fillWarm = Color(light: hex("E8DFC8"), dark: hex("3D3528"))
+    static let fillWarm = Color(light: hex("EBE5D2"), dark: hex("3D3528"))
 
-    static let ink = Color(light: hex("1A1410"), dark: hex("EDE6DA"))
-    static let textSecondary = Color(light: hex("6F6B65"), dark: hex("C9C4BD"))
-    static let textTertiary = Color(light: hex("8A7060"), dark: hex("9F958A"))
-    static let textGhost = Color(light: hex("C9C4BD"), dark: hex("6F6A60"))
+    static let ink = Color(light: hex("1F1E1B"), dark: hex("EDE6DA"))
+    static let textSecondary = Color(light: hex("5A564E"), dark: hex("C9C4BD"))
+    static let textTertiary = Color(light: hex("9C978B"), dark: hex("9F958A"))
+    static let textGhost = Color(light: hex("C8C4B7"), dark: hex("6F6A60"))
     static let textPhantom = Color(light: hex("D8CEB8"), dark: hex("5A554D"))
 
-    static let line = Color(light: hexAny("332F28", 0.08), dark: hexAny("EDE6DA", 0.12))
-    static let lineStrong = Color(light: hexAny("332F28", 0.14), dark: hexAny("EDE6DA", 0.20))
+    static let line = Color(light: hexAny("332F28", 0.10), dark: hexAny("EDE6DA", 0.12))
+    static let lineStrong = Color(light: hexAny("332F28", 0.18), dark: hexAny("EDE6DA", 0.20))
 
-    static let primary = Color(light: hex("37418A"), dark: hex("9FA7E5"))
-    static let primaryPressed = Color(light: hex("2C3676"), dark: hex("B6BCEA"))
-    static let primarySoft = Color(light: hex("ECEEF6"), dark: hex("2A2D44"))
-    static let editorial = Color(light: hex("C5123A"), dark: hex("FF7A92"))
+    // R8: 加深主蓝以对齐设计图 (#1E2980)
+    static let primary = Color(light: hex("1E2980"), dark: hex("9FA7E5"))
+    static let primaryPressed = Color(light: hex("161E66"), dark: hex("B6BCEA"))
+    static let primarySoft = Color(light: hex("E4E9F5"), dark: hex("2A2D44"))
+    static let editorial = Color(light: hex("BC2D2D"), dark: hex("FF7A92"))
 
-    static let success = Color(light: hex("4E8A5E"), dark: hex("7DBB8B"))
-    static let successSoft = Color(light: hex("EAF1EC"), dark: hex("1F2A24"))
-    static let danger = Color(light: hex("BE5750"), dark: hex("E58681"))
-    static let dangerSoft = Color(light: hex("F7ECEB"), dark: hex("2D1F1E"))
+    static let success = Color(light: hex("2F7D52"), dark: hex("7DBB8B"))
+    static let successSoft = Color(light: hex("DDEAE1"), dark: hex("1F2A24"))
+    static let danger = Color(light: hex("D34743"), dark: hex("E58681"))
+    static let dangerSoft = Color(light: hex("FBE6E5"), dark: hex("2D1F1E"))
     static let warningSoft = Color(light: hex("FBF1E9"), dark: hex("2D2418"))
 
-    static let disabledBg = Color(light: hexAny("332F28", 0.10), dark: hexAny("EDE6DA", 0.10))
-    static let disabledText = Color(light: hex("C9C4BD"), dark: hex("5A554D"))
+    // R8: 课程专属色标 (设计图 Java/Python/SQL/Alg)
+    static let javaAccent = Color(light: hex("2D64B3"), dark: hex("6F95D6"))
+    static let javaBg = Color(light: hex("E4ECF8"), dark: hex("1F2A3D"))
+    static let pythonAccent = Color(light: hex("A3743B"), dark: hex("C49463"))
+    static let pythonBg = Color(light: hex("F6EFE1"), dark: hex("2D2418"))
+    static let sqlAccent = Color(light: hex("2D64B3"), dark: hex("6F95D6"))
+    static let sqlBg = Color(light: hex("E4ECF8"), dark: hex("1F2A3D"))
 
-    // MARK: - Course colors
-    static let itpassColor = Color(light: hex("516376"), dark: hex("7891AB"))
-    static let sgColor = Color(light: hex("5d6672"), dark: hex("8E97A3"))
-    static let javaColor = Color(light: hex("516376"), dark: hex("7891AB"))
-    static let pythonColor = Color(light: hex("5d6672"), dark: hex("8E97A3"))
-    static let sqlColor = Color(light: hex("5d6672"), dark: hex("8E97A3"))
-    static let mistakeColor = Color(light: hex("6b5960"), dark: hex("A08891"))
-    static let ankiColor = Color(light: hex("4a5563"), dark: hex("8694A8"))
-    static let profileColor = Color(light: hex("555d67"), dark: hex("8C97A6"))
+    static let disabledBg = Color(light: hexAny("332F28", 0.06), dark: hexAny("EDE6DA", 0.10))
+    static let disabledText = Color(light: hex("C8C4B7"), dark: hex("6F6A60"))
+
+    // Course aliases（保留兼容 + 改深主蓝 / 改 Java/Python 调色）
+    static let itpassColor = primary
+    static let sgColor = Color(light: hex("4A7C59"), dark: hex("7DBB8B"))
+    static let javaColor = javaAccent
+    static let pythonColor = pythonAccent
+    static let sqlColor = sqlAccent
+    static let mistakeColor = danger
+    static let ankiColor = success
+    static let profileColor = textSecondary
 
     // MARK: - Theme aliases
     static let card = surface
