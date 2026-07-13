@@ -8,6 +8,11 @@ struct LessonView: View {
 
     @Environment(\.dismiss) private var dismiss
     @State private var showPracticeSheet: Bool = false
+    @State private var sqlInput: String = ""
+    @State private var sqlStatus: String = "idle"
+    @State private var showSqlAnswer: Bool = false
+    @State private var quizPicked: Int = -1
+    @State private var quizStatus: String = "idle"
 
     var body: some View {
         ScrollView {
@@ -33,6 +38,10 @@ struct LessonView: View {
 
                 if let d = detail, !d.caseBreakdown.isEmpty {
                     caseBreakdownCard(d.caseBreakdown)
+                }
+
+                if let d = detail, !d.learningGoalZh.isEmpty {
+                    sqlPlaygroundCard(detail: d)
                 }
 
                 actions
@@ -214,6 +223,79 @@ struct LessonView: View {
             )
             .padding(.horizontal, DT.space3)
         }
+    }
+
+    @ViewBuilder
+    private func sqlPlaygroundCard(detail: LessonUnit) -> some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            sectionLabel("PRACTICE · 动手练习")
+            QPCard {
+                VStack(alignment: .leading, spacing: DT.space1) {
+                    Text(detail.learningGoalZh)
+                        .font(.system(size: DT.fontCaption))
+                        .foregroundStyle(DT.ink)
+                    if !detail.learningGoalJa.isEmpty {
+                        Text(detail.learningGoalJa)
+                            .font(.system(size: DT.fontLabel))
+                            .foregroundStyle(DT.textTertiary)
+                    }
+                    TextField("在此输入 SQL 语句…", text: $sqlInput, axis: .vertical)
+                        .font(.system(.body, design: .monospaced))
+                        .textFieldStyle(.plain)
+                        .padding(DT.space1)
+                        .background(DT.fillWarm)
+                        .clipShape(RoundedRectangle(cornerRadius: DT.radiusSm, style: .continuous))
+                        .overlay(RoundedRectangle(cornerRadius: DT.radiusSm, style: .continuous).stroke(DT.line, lineWidth: 0.5))
+                    HStack(spacing: DT.space1) {
+                        Button(action: { judgeSql(detail: detail) }) {
+                            Text("判定")
+                                .font(.system(size: DT.fontBody, weight: .semibold))
+                                .foregroundStyle(DT.surface)
+                                .padding(.horizontal, DT.space2).padding(.vertical, 8)
+                                .background(DT.primary)
+                                .clipShape(RoundedRectangle(cornerRadius: DT.radiusSm))
+                        }
+                        Button(action: { showSqlAnswer.toggle() }) {
+                            Text(showSqlAnswer ? "隐藏答案" : "看答案")
+                                .font(.system(size: DT.fontBody))
+                                .foregroundStyle(DT.ink)
+                                .padding(.horizontal, DT.space2).padding(.vertical, 8)
+                                .overlay(RoundedRectangle(cornerRadius: DT.radiusSm).stroke(DT.line, lineWidth: 0.5))
+                        }
+                    }
+                    if sqlStatus == "correct" {
+                        Text("✓ 正确！查询符合要求。")
+                            .font(.system(size: DT.fontCaption))
+                            .foregroundStyle(DT.success)
+                    }
+                    if sqlStatus == "wrong" {
+                        Text("✗ 还不对。请检查语句后重试。")
+                            .font(.system(size: DT.fontCaption))
+                            .foregroundStyle(DT.danger)
+                    }
+                    if showSqlAnswer, let firstSection = detail.sections.first {
+                        Text("参考答案")
+                            .font(.system(size: DT.fontLabel)).tracking(2)
+                            .foregroundStyle(DT.textTertiary)
+                        Text(firstSection.explanationZh.isEmpty ? "SELECT * FROM students_mst;" : firstSection.explanationZh)
+                            .font(.system(.body, design: .monospaced))
+                            .foregroundStyle(DT.ink)
+                            .padding(DT.space1)
+                            .background(DT.fillWarm)
+                            .clipShape(RoundedRectangle(cornerRadius: DT.radiusSm))
+                    }
+                }
+            }
+            .padding(.horizontal, DT.space3)
+        }
+    }
+
+    private func judgeSql(detail: LessonUnit) {
+        let input = sqlInput.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !input.isEmpty else { return }
+        let upper = input.uppercased()
+        let ok = upper.contains("SELECT") && upper.contains("FROM")
+        sqlStatus = ok ? "correct" : "wrong"
     }
 
     private var actions: some View {

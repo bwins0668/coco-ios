@@ -8,6 +8,10 @@ struct HomeView: View {
     @State private var streak: Int = 0
     @State private var navigateCourseId: String? = nil
     @State private var navigateQuizPackage: String? = nil
+    @State private var todayTotal: Int = 0
+    @State private var totalAccuracy: Int = 0
+    @State private var favoriteCount: Int = 0
+    @State private var selectedExam: String = "itpass"
 
     private let examCourses: [(id: String, name: String, color: Color, primary: Bool, sub: String, available: Bool)] = [
         ("itpass", "IT Passport", DT.primary, true, "IT パスポート試験対策 · 按年度模擬練習", true),
@@ -50,6 +54,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: DT.space3) {
                     masthead
                     QPRuleLine()
+                    metricsBar
                     startCard
                     examSection
                     learningSection
@@ -76,7 +81,7 @@ struct HomeView: View {
                 set: { if !$0 { navigateQuizPackage = nil } }
             )) {
                 if let pkg = navigateQuizPackage {
-                    QuizView(package: pkg, exam: "itpass", sourceType: "past_exam_japanese")
+                    QuizView(package: pkg, exam: selectedExam, sourceType: "past_exam_japanese")
                 }
             }
             .onAppear(perform: load)
@@ -86,6 +91,10 @@ struct HomeView: View {
     private func load() {
         AppContext.bootstrap(ctx)
         streak = Storage.shared.getStreakCount()
+        let stats = Storage.shared.getQuizStats()
+        todayTotal = stats.todayTotal
+        totalAccuracy = stats.accuracy
+        favoriteCount = Storage.shared.getFavoriteTermCount()
     }
 
     private var masthead: some View {
@@ -119,6 +128,41 @@ struct HomeView: View {
         .padding(.top, DT.space3)
     }
 
+    private var metricsBar: some View {
+        HStack(spacing: 0) {
+            if todayTotal > 0 {
+                metricBox(value: "\(todayTotal)", label: "今日答题")
+                spacer
+            }
+            if totalAccuracy > 0 || todayTotal > 0 {
+                metricBox(value: "\(totalAccuracy)%", label: "正确率")
+                spacer
+            }
+            if favoriteCount > 0 {
+                metricBox(value: "\(favoriteCount)", label: "已收藏")
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, DT.space3)
+        .opacity(todayTotal > 0 || favoriteCount > 0 ? 1 : 0)
+        .frame(height: todayTotal > 0 || favoriteCount > 0 ? nil : 0)
+    }
+
+    private var spacer: some View {
+        Rectangle().fill(DT.line).frame(width: 0.5, height: 28).padding(.horizontal, DT.space2)
+    }
+
+    private func metricBox(value: String, label: String) -> some View {
+        VStack(spacing: 2) {
+            Text(value)
+                .font(.system(size: DT.fontSectionTitle, weight: .semibold))
+                .foregroundStyle(DT.ink)
+            Text(label)
+                .font(.system(size: DT.fontLabel))
+                .foregroundStyle(DT.textTertiary)
+        }
+    }
+
     private var startCard: some View {
         QPRedHeaderCard {
             VStack(alignment: .leading, spacing: DT.space1) {
@@ -133,13 +177,20 @@ struct HomeView: View {
                     .foregroundStyle(DT.textSecondary)
 
                 HStack(spacing: DT.space1) {
-                    PillToggle(text: "IT Passport", selected: true, action: {})
-                    PillToggle(text: "SG 信息安全", selected: false, action: {})
+                    PillToggle(text: "IT Passport", selected: selectedExam == "itpass") {
+                        selectedExam = "itpass"
+                    }
+                    PillToggle(text: "SG 信息安全", selected: selectedExam == "sg") {
+                        selectedExam = "sg"
+                    }
                 }
                 .padding(.top, DT.space1)
 
                 Button(action: {
-                    navigateQuizPackage = "quiz-itpass-1"
+                    let prefix = selectedExam == "sg" ? "quiz-sg" : "quiz-itpass"
+                    if let pkg = QuizStore.shared.manifest.packages.first(where: { $0.package.hasPrefix(prefix) })?.package {
+                        navigateQuizPackage = pkg
+                    }
                 }) {
                     HStack(spacing: 4) {
                         Text("开始第一组练习")
