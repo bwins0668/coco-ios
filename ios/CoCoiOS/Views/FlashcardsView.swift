@@ -31,7 +31,6 @@ struct FlashcardsView: View {
             }
         }
         .onAppear(perform: reload)
-        .navigationTransition(.slide)
     }
 
     private func reload() {

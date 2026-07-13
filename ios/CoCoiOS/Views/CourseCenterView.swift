@@ -47,7 +47,6 @@ struct CourseCenterView: View {
             }
             .onAppear { reload() }
         }
-        .navigationTransition(.slide)
     }
 
     private func reload() {

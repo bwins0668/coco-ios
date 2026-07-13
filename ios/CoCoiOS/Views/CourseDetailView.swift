@@ -76,7 +76,6 @@ struct CourseDetailView: View {
             }
             .onAppear { reload() }
         }
-        .navigationTransition(.slide)
     }
 
     private var isCertification: Bool {

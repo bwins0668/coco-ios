@@ -29,7 +29,6 @@ struct ReviewView: View {
             .navigationDestination(isPresented: $navigateTermReview) { GlossaryView() }
             .onAppear { reload() }
         }
-        .navigationTransition(.slide)
     }
 
     private func reload() {

@@ -75,7 +75,6 @@ struct PracticeView: View {
             }
             .onAppear { reload() }
         }
-        .navigationTransition(.slide)
     }
 
     @ViewBuilder

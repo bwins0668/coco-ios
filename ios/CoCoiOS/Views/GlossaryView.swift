@@ -54,7 +54,6 @@ struct GlossaryView: View {
             .navigationDestination(isPresented: $navigateAll) { TermSearchView() }
             .onAppear(perform: reload)
         }
-        .navigationTransition(.slide)
     }
 
     private func reload() {

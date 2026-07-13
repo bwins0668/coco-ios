@@ -57,7 +57,6 @@ struct LessonView: View {
             LessonPracticeSheet(course: course, chapter: chapter, section: section)
                 .presentationDetents([.medium, .large])
         }
-        .navigationTransition(.slide)
     }
 
     private var backButton: some View {

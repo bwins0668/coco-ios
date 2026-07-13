@@ -31,7 +31,6 @@ struct ChapterView: View {
                 LessonView(course: course, chapter: chapter, section: s)
             }
         }
-        .navigationTransition(.slide)
     }
 
     private var backButton: some View {
