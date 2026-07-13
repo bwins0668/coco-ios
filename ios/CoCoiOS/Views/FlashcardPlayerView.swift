@@ -282,7 +282,35 @@ struct FlashcardPlayerView: View {
             } else {
                 currentIndex = 0
             }
+            persistProgress()
         }
+    }
+
+    private func persistProgress() {
+        guard !terms.isEmpty else { return }
+        let tag = package.contains("sg") ? "SG" : "IT Passport"
+        let examTitle = tag
+        let deckLabel = package
+        let existing = (try? ctx.fetch(FetchDescriptor<FlashcardProgress>(
+            predicate: #Predicate { $0.course == package },
+            sortBy: [SortDescriptor(\.updatedAt, order: .reverse)]
+        )))?.first
+
+        if let p = existing {
+            p.currentIndex = currentIndex
+            p.total = terms.count
+            p.updatedAt = Date()
+        } else {
+            ctx.insert(FlashcardProgress(
+                course: package,
+                examTitle: examTitle,
+                deckLabel: deckLabel,
+                currentIndex: currentIndex,
+                total: terms.count,
+                updatedAt: Date()
+            ))
+        }
+        try? ctx.save()
     }
 }
 

@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// 页面顶部 Masthead：kicker + title + 日期/连胜
+// MARK: - 页面顶部组件
+
 struct QPMasthead: View {
     let kicker: String
     let title: String
@@ -53,7 +54,6 @@ struct QPMasthead: View {
     }
 }
 
-/// 页面顶部分隔线：左侧 4pt 暖色块 + 右侧细线
 struct QPRuleLine: View {
     var body: some View {
         HStack(spacing: 0) {
@@ -68,7 +68,6 @@ struct QPRuleLine: View {
     }
 }
 
-/// 区块小标题：01 / 02 编号 + 标题 + 右侧 meta
 struct QPSectionLabel: View {
     let number: String
     let title: String
@@ -108,7 +107,8 @@ struct QPSectionLabel: View {
     }
 }
 
-/// 通用卡片容器
+// MARK: - 卡片容器
+
 struct QPCard<Content: View>: View {
     let content: Content
     let backgroundColor: Color
@@ -142,11 +142,10 @@ struct QPCard<Content: View>: View {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(borderColor, lineWidth: borderWidth)
             )
-            .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
+            .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
     }
 }
 
-/// 小程序风格的胶囊标签
 struct QPPill: View {
     let text: String
     let background: Color
@@ -169,7 +168,6 @@ struct QPPill: View {
     }
 }
 
-/// 主按钮（小程序 cc-btn--primary）
 struct QPPrimaryButton: View {
     let title: String
     let action: () -> Void
@@ -193,7 +191,6 @@ struct QPPrimaryButton: View {
     }
 }
 
-/// 次按钮（小程序 cc-btn--outline）
 struct QPOutlineButton: View {
     let title: String
     let action: () -> Void
@@ -217,7 +214,6 @@ struct QPOutlineButton: View {
     }
 }
 
-/// 左侧色条卡片（home cc-exam-row）
 struct QPExamRowCard: View {
     let title: String
     let description: String
@@ -270,6 +266,7 @@ struct QPExamRowCard: View {
                 RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
                     .stroke(DT.line, lineWidth: 0.5)
             )
+            .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
             .opacity(isMuted ? 0.6 : 1.0)
         }
         .buttonStyle(.plain)
@@ -278,14 +275,11 @@ struct QPExamRowCard: View {
 
 // MARK: - R8 1:1 复刻 新组件
 
-/// 卡片顶端 2 px 暗红细线 + 白底大圆角页头卡（START / 错题本 / Quiz 题卡 / 闪卡复习 等）
-/// 用法：QPRedHeaderCard { VStack { Text("start") } }
 struct QPRedHeaderCard<Content: View>: View {
     let content: Content
     init(@ViewBuilder content: () -> Content) { self.content = content() }
     var body: some View {
         VStack(spacing: 0) {
-            // 顶端 2px 红线
             Rectangle()
                 .fill(DT.editorial)
                 .frame(height: 2)
@@ -303,7 +297,6 @@ struct QPRedHeaderCard<Content: View>: View {
     }
 }
 
-/// 答题反馈条：答错淡红 + ⊗ + 提示 / 答对淡绿 + ✓ + 提示
 struct QPAnswerFeedbackBanner: View {
     let isCorrect: Bool
     let primaryText: String
@@ -331,16 +324,16 @@ struct QPAnswerFeedbackBanner: View {
             Spacer(minLength: 0)
         }
         .padding(DT.space2)
-        .background(isCorrect ? DT.successSoft : DT.dangerSoft)
+        .background(DT.surface)
         .clipShape(RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
                 .stroke((isCorrect ? DT.success : DT.danger).opacity(0.2), lineWidth: 0.5)
         )
+        .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
     }
 }
 
-/// 3 段数字 row（如错题本页 1/全部错题 1/待复习 0/已掌握）
 struct QPNumericRow: View {
     struct Cell { let value: Int; let label: String }
     let cells: [Cell]
@@ -370,10 +363,10 @@ struct QPNumericRow: View {
             RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
                 .stroke(DT.line, lineWidth: 0.5)
         )
+        .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
     }
 }
 
-/// 搜索框（白底大圆角 + 浅灰左侧放大镜 + 占位提示）
 struct QPSearchField: View {
     @Binding var text: String
     let placeholder: String
@@ -401,7 +394,6 @@ struct QPSearchField: View {
     }
 }
 
-/// Chip (圆点小标签)：● + 课程名 + 数字
 struct QPDotChip: View {
     let label: String
     let count: Int?
@@ -422,7 +414,6 @@ struct QPDotChip: View {
     }
 }
 
-/// 课程学习卡（按设计图 B-2：左竖条 + 彩色背景 + Ja/Py/SQL/Alg 色标 + 标题 + 多语言副 + 三件 meta）
 struct QPLanguageCourseCard<Accessory: View>: View {
     let tag: String
     let title: String
@@ -446,7 +437,6 @@ struct QPLanguageCourseCard<Accessory: View>: View {
     var body: some View {
         Button(action: action) {
             HStack(alignment: .top, spacing: 0) {
-                // 左竖条：彩色（disabled 时透明）
                 Rectangle()
                     .fill(isMuted ? Color.clear : accentColor)
                     .frame(width: 3)
@@ -488,9 +478,30 @@ struct QPLanguageCourseCard<Accessory: View>: View {
                 RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
                     .stroke(DT.line, lineWidth: 0.5)
             )
+            .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
             .padding(.horizontal, DT.space3)
         }
         .buttonStyle(.plain)
         .opacity(isMuted ? 0.7 : 1.0)
+    }
+}
+
+// MARK: - Misc
+
+struct QPEmptyState: View {
+    let title: String
+    let subtitle: String
+    var body: some View {
+        VStack(spacing: 12) {
+            Text(title)
+                .font(.system(size: DT.fontCaption, weight: .semibold))
+                .foregroundStyle(DT.ink)
+            Text(subtitle)
+                .font(.system(size: DT.fontLabel))
+                .foregroundStyle(DT.textSecondary)
+                .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 40)
     }
 }
