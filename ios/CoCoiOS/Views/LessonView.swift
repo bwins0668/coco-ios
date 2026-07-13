@@ -59,6 +59,8 @@ struct LessonView: View {
         }
         .navigationTransition(.slide)
     }
+
+    private var backButton: some View {
         HStack {
             Button(action: { dismiss() }) {
                 Text("‹").font(.system(size: 28, weight: .light))
