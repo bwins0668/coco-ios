@@ -110,6 +110,15 @@ final class LessonStore {
             for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
             combined["python"] = bucket
         }
+        // 加载 sql
+        if let url = Bundle.main.url(forResource: "sql-lesson-detail", withExtension: "json"),
+           let data = try? Data(contentsOf: url),
+           let model = try? JSONDecoder().decode(LessonData.self, from: data),
+           !model.detail.isEmpty {
+            var bucket: [String: [String: LessonUnit]] = [:]
+            for (_, ch) in model.detail { bucket[ch.chapterId] = ch.units }
+            combined["sql"] = bucket
+        }
         // mos / algo 暂无源数据，stub JSON 已落 Bundle 但 detail 为空，跳过注入
         // 如未来 build-mos-lesson-json / build-algo-lesson-json 跑通，会自动加进 combined。
         self.init(inMemoryIndex: combined)

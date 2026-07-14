@@ -12,7 +12,8 @@ struct CoCoiOSApp: App {
                 MistakeRecord.self,
                 StudyStat.self,
                 FavoriteTerm.self,
-                FlashcardProgress.self
+                FlashcardProgress.self,
+                FavoriteQuestion.self
             ])
             let config = ModelConfiguration(schema: schema)
             container = try ModelContainer(for: schema, configurations: config)
@@ -120,7 +121,7 @@ enum AppContext {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try! ModelContainer(
             for: QuizAttempt.self, MistakeRecord.self, StudyStat.self,
-            FavoriteTerm.self, FlashcardProgress.self,
+            FavoriteTerm.self, FlashcardProgress.self, FavoriteQuestion.self,
             configurations: config
         )
         let c = container.mainContext

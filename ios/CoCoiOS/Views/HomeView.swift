@@ -59,18 +59,42 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: DT.space3) {
-                    masthead
-                    QPRuleLine()
-                    metricsBar
-                    startCard
-                    examSection
-                    learningSection
+            ScrollViewReader { proxy in
+                ZStack(alignment: .bottomTrailing) {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: DT.space3) {
+                            Color.clear.frame(height: 1).id("top")
+                            masthead
+                            QPRuleLine()
+                            metricsBar
+                            startCard
+                            examSection
+                            learningSection
+                        }
+                        .padding(.bottom, DT.space4)
+                    }
+                    .refreshable { load() }
+                    .scrollContentBackground(.hidden)
+                    
+                    // Floating back to top button
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            proxy.scrollTo("top", anchor: .top)
+                        }
+                    }) {
+                        Image(systemName: "arrow.up")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundStyle(DT.surface)
+                            .frame(width: 44, height: 44)
+                            .background(DT.ink.opacity(0.85))
+                            .clipShape(Circle())
+                            .shadow(color: Color.black.opacity(0.12), radius: 4, x: 0, y: 2)
+                    }
+                    .padding(.trailing, DT.space3)
+                    .padding(.bottom, DT.space3)
+                    .buttonStyle(.plain)
                 }
-                .padding(.bottom, DT.space4)
             }
-            .scrollContentBackground(.hidden)
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
             .navigationBarHidden(true)
             .navigationDestination(isPresented: Binding(

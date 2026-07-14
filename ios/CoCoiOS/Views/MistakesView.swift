@@ -14,6 +14,8 @@ struct MistakesView: View {
     @State private var searchText: String = ""
     @State private var selectedFilter: String = "全部"  // 全部 / IT Passport / SG / 日文题
     @State private var mode: String = "列表模式"      // 列表模式 / 复习模式
+    @State private var selectedQuestion: Question? = nil
+    @State private var navigatePracticeWrong = false
 
     private let filters = ["全部", "IT Passport", "SG", "日文题"]
     private let modes = ["列表模式", "复习模式"]
@@ -40,6 +42,12 @@ struct MistakesView: View {
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
         .onAppear { reload() }
+        .sheet(item: $selectedQuestion) { q in
+            AnalysisDetailView(question: q, selectedAnswer: nil)
+        }
+        .navigationDestination(isPresented: $navigatePracticeWrong) {
+            QuizView(package: "quiz", exam: "wrong_only", sourceType: "wrong_only")
+        }
     }
 
     // MARK: - Header
@@ -157,15 +165,20 @@ struct MistakesView: View {
             Spacer()
 
             // 重新练习错题
-            Button(action: {}) {
+            Button(action: {
+                if !allRecords.isEmpty {
+                    navigatePracticeWrong = true
+                }
+            }) {
                 Text("重新练习错题")
                     .font(.system(size: DT.fontBody, weight: .semibold))
                     .foregroundStyle(DT.surface)
                     .padding(.horizontal, DT.space2).padding(.vertical, 12)
-                    .background(DT.primary)
+                    .background(allRecords.isEmpty ? DT.disabledBg : DT.primary)
                     .clipShape(Capsule())
             }
             .buttonStyle(.plain)
+            .disabled(allRecords.isEmpty)
         }
         .padding(.horizontal, DT.space3)
     }
@@ -209,21 +222,38 @@ struct MistakesView: View {
 
     @ViewBuilder
     private func mistakeRow(_ r: MistakeRecord) -> some View {
-        QPCard {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack(spacing: 6) {
-                        QPPill(packageLabel(r.package))
-                        Text(questionSnippet(questionId: r.questionId))
-                            .font(.system(size: DT.fontCaption, weight: .semibold))
-                            .foregroundStyle(DT.ink)
-                            .lineLimit(2)
+        Button(action: { selectRecord(r) }) {
+            QPCard {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 6) {
+                            QPPill(packageLabel(r.package))
+                            Text(questionSnippet(questionId: r.questionId))
+                                .font(.system(size: DT.fontCaption, weight: .semibold))
+                                .foregroundStyle(DT.ink)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                        }
                     }
+                    Spacer(minLength: 0)
+                    Text(relativeTime(r.lastWrong))
+                        .font(.system(size: DT.fontLabel))
+                        .foregroundStyle(DT.textTertiary)
                 }
-                Spacer(minLength: 0)
-                Text(relativeTime(r.lastWrong))
-                    .font(.system(size: DT.fontLabel))
-                    .foregroundStyle(DT.textTertiary)
+            }
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func selectRecord(_ r: MistakeRecord) {
+        for pkg in QuizStore.shared.manifest.packages {
+            if let url = Bundle.main.url(forResource: pkg.package, withExtension: "json"),
+               let data = try? Data(contentsOf: url),
+               let arr = try? JSONDecoder().decode([Question].self, from: data) {
+                if let q = arr.first(where: { $0.id == r.questionId }) {
+                    selectedQuestion = q
+                    return
+                }
             }
         }
     }

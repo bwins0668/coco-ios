@@ -45,6 +45,7 @@ struct GlossaryView: View {
                 }
                 .padding(.bottom, DT.space4)
             }
+            .refreshable { reload() }
             .scrollContentBackground(.hidden)
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
             .navigationBarHidden(true)

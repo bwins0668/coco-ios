@@ -6,6 +6,7 @@ struct QuizView: View {
     let package: String
     let exam: String
     let sourceType: String
+    var topicId: String? = nil
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var ctx
@@ -36,8 +37,40 @@ struct QuizView: View {
         .task {
             guard !loaded else { return }
             loaded = true
-            let qs = QuizStore.shared.loadQuestions(package: package)
-            session = QuizSession(package: package, questions: qs)
+            let allQs = QuizStore.shared.loadQuestions(package: package)
+            let filteredQs: [Question] = {
+                if sourceType == "wrong_only" {
+                    // Load all wrong question IDs from SwiftData MistakeRecord
+                    let descriptor = FetchDescriptor<MistakeRecord>()
+                    let mistakes = (try? ctx.fetch(descriptor)) ?? []
+                    let wrongIds = Set(mistakes.map { $0.questionId })
+                    
+                    var wrongQuestions: [Question] = []
+                    for pkg in QuizStore.shared.manifest.packages {
+                        let qs = QuizStore.shared.loadQuestions(package: pkg.package)
+                        for q in qs {
+                            if wrongIds.contains(q.id) {
+                                wrongQuestions.append(q)
+                            }
+                        }
+                    }
+                    return wrongQuestions
+                }
+                
+                var qs = allQs
+                if let tId = topicId {
+                    let categoryMap: [String: String] = [
+                        "technology": "テクノロジ系",
+                        "management": "マネジメント系",
+                        "strategy": "ストラテジ系"
+                    ]
+                    if let categoryName = categoryMap[tId] {
+                        qs = qs.filter { $0.category == categoryName }
+                    }
+                }
+                return qs
+            }()
+            session = QuizSession(package: package, questions: filteredQs)
             startTimer()
         }
         .onDisappear { stopTimer() }
@@ -125,6 +158,26 @@ struct QuizQuestionView: View {
     let sourceType: String
     let elapsed: Int
 
+    @Environment(\.modelContext) private var ctx
+    @State private var showAnalysis = false
+
+    private var isFavorite: Bool {
+        let qId = question.id
+        let descriptor = FetchDescriptor<FavoriteQuestion>(predicate: #Predicate { $0.questionId == qId })
+        return (try? ctx.fetch(descriptor))?.isEmpty == false
+    }
+
+    private func toggleFavorite() {
+        let qId = question.id
+        let descriptor = FetchDescriptor<FavoriteQuestion>(predicate: #Predicate { $0.questionId == qId })
+        if let existing = (try? ctx.fetch(descriptor))?.first {
+            ctx.delete(existing)
+        } else {
+            ctx.insert(FavoriteQuestion(questionId: qId))
+        }
+        try? ctx.save()
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: DT.space2) {
@@ -140,6 +193,9 @@ struct QuizQuestionView: View {
             }
             .padding(.horizontal, DT.space3)
             .padding(.top, DT.space1)
+        }
+        .sheet(isPresented: $showAnalysis) {
+            AnalysisDetailView(question: question, selectedAnswer: session.selected)
         }
     }
 
@@ -159,6 +215,18 @@ struct QuizQuestionView: View {
                 .lineLimit(1)
                 .truncationMode(.tail)
             Spacer(minLength: DT.space1)
+            
+            Button(action: toggleFavorite) {
+                Image(systemName: isFavorite ? "star.fill" : "star")
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundStyle(isFavorite ? .yellow : DT.textSecondary)
+                    .frame(width: 32, height: 32)
+                    .background(DT.surface)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(DT.line, lineWidth: 0.5))
+            }
+            .buttonStyle(.plain)
+            
             HStack(spacing: 4) {
                 Image(systemName: "clock")
                     .font(.system(size: 10, weight: .medium))
@@ -339,7 +407,7 @@ struct QuizQuestionView: View {
                 if !question.explanationJa.isEmpty && !question.explanationZh.isEmpty {
                     explanationBlock(title: "日文原文", body: question.explanationJa)
                 }
-                Button(action: {}) {
+                Button(action: { showAnalysis = true }) {
                     HStack(spacing: 4) {
                         Text("查看完整解析").font(.system(size: DT.fontBody, weight: .semibold))
                         Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold))

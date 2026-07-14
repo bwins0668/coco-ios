@@ -14,6 +14,7 @@ struct CourseDetailView: View {
     @State private var selectedChapter: CourseChapter? = nil
     @State private var packages: [QuizPackageInfo] = []
     @State private var navigatePackage: String? = nil
+    @State private var navigateTopicId: String? = nil
 
     var body: some View {
         NavigationStack {
@@ -72,6 +73,14 @@ struct CourseDetailView: View {
             )) {
                 if let pkg = navigatePackage {
                     QuizView(package: pkg, exam: courseId, sourceType: "past_exam_japanese")
+                }
+            }
+            .navigationDestination(isPresented: Binding(
+                get: { navigateTopicId != nil },
+                set: { if !$0 { navigateTopicId = nil } }
+            )) {
+                if let tId = navigateTopicId {
+                    QuizView(package: "quiz", exam: courseId, sourceType: "lesson_quiz", topicId: tId)
                 }
             }
             .onAppear { reload() }
@@ -139,13 +148,10 @@ struct CourseDetailView: View {
                 ForEach(Array(domains.enumerated()), id: \.offset) { idx, d in
                     if idx > 0 { Rectangle().fill(DT.line).frame(height: 0.5) }
                     Button(action: {
-                        let target: CourseChapter?
-                        if chapters.count > idx {
-                            target = chapters[idx]
-                        } else if let first = chapters.first {
-                            target = first
-                        } else { target = nil }
-                        if let t = target { selectedChapter = t }
+                        let topicIds = ["technology", "management", "strategy"]
+                        if idx < topicIds.count {
+                            navigateTopicId = topicIds[idx]
+                        }
                     }) {
                         HStack {
                             ZStack {

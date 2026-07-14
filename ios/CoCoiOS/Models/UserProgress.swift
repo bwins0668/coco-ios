@@ -89,3 +89,15 @@ final class FlashcardProgress {
         self.updatedAt = updatedAt
     }
 }
+
+/// 收藏题目记录（SwiftData 持久化）
+@Model
+final class FavoriteQuestion {
+    @Attribute(.unique) var questionId: String
+    var createdAt: Date
+
+    init(questionId: String, createdAt: Date = .now) {
+        self.questionId = questionId
+        self.createdAt = createdAt
+    }
+}
