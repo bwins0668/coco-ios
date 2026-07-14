@@ -31,6 +31,16 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
     info:
       path: CoCoiOS/Info.plist
+      properties:
+        CFBundleDevelopmentRegion: zh-Hans
+        CFBundleDisplayName: CoCo 学習
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities:
+          - arm64
+        UIUserInterfaceStyle: Light
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
     entitlements:
       path: CoCoiOS/CoCoiOS.entitlements
 
