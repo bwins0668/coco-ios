@@ -6,6 +6,7 @@ struct AnalysisDetailView: View {
     let selectedAnswer: String?
     
     @Environment(\.dismiss) private var dismiss
+    @State private var selectedTerm: GlossaryTerm? = nil
     
     private var isCorrect: Bool {
         guard let sel = selectedAnswer else { return false }
@@ -43,6 +44,11 @@ struct AnalysisDetailView: View {
                 // 详细解析区
                 explanationCard
                 
+                // 自动匹配专业术语区
+                if !matchingTerms.isEmpty {
+                    relatedTermsSection
+                }
+                
                 // 标签区
                 tagsSection
                 
@@ -56,6 +62,9 @@ struct AnalysisDetailView: View {
         .scrollContentBackground(.hidden)
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
+        .sheet(item: $selectedTerm) { term in
+            TermDetailView(term: term)
+        }
     }
     
     private var backButton: some View {
@@ -234,5 +243,51 @@ struct AnalysisDetailView: View {
             }
         }
         .padding(.horizontal, DT.space3)
+    }
+
+    private var matchingTerms: [GlossaryTerm] {
+        let text = (question.explanationZh + " " + question.explanationJa + " " + question.questionZh + " " + question.questionJa).lowercased()
+        return GlossaryStore.shared.data.terms.filter { term in
+            let keyword = term.term.lowercased()
+            guard keyword.count >= 2 else { return false }
+            return text.contains(keyword) || (!term.zh.isEmpty && text.contains(term.zh.lowercased()))
+        }
+    }
+
+    private var relatedTermsSection: some View {
+        VStack(alignment: .leading, spacing: DT.space1) {
+            Text("相关专业术语释义")
+                .font(.system(size: DT.fontCaption, weight: .semibold))
+                .foregroundStyle(DT.textTertiary)
+                .tracking(1.5)
+                .padding(.horizontal, DT.space3)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(matchingTerms) { term in
+                        Button(action: { selectedTerm = term }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "book.pages.fill")
+                                    .font(.system(size: 10))
+                                Text(term.term)
+                                    .font(.system(size: DT.fontCaption, weight: .semibold))
+                                if !term.zh.isEmpty {
+                                    Text("(\(term.zh))")
+                                        .font(.system(size: DT.fontLabel))
+                                        .foregroundStyle(DT.textSecondary)
+                                }
+                            }
+                            .padding(.horizontal, 10).padding(.vertical, 6)
+                            .background(DT.primarySoft)
+                            .foregroundStyle(DT.primary)
+                            .clipShape(Capsule())
+                            .overlay(Capsule().stroke(DT.primary.opacity(0.2), lineWidth: 0.5))
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.horizontal, DT.space3)
+            }
+        }
     }
 }

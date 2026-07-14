@@ -15,6 +15,9 @@ struct LessonView: View {
     @State private var showSqlAnswer: Bool = false
     @State private var quizPicked: Int = -1
     @State private var quizStatus: String = "idle"
+    @State private var queryResult: (headers: [String], rows: [[String]])? = nil
+    @State private var sqlErrorMessage: String? = nil
+    private let sqlHelper = SQLiteHelper()
 
     private var isCompleted: Bool {
         let lId = section.sectionId
@@ -284,15 +287,56 @@ struct LessonView: View {
                                 .overlay(RoundedRectangle(cornerRadius: DT.radiusSm).stroke(DT.line, lineWidth: 0.5))
                         }
                     }
-                    if sqlStatus == "correct" {
-                        Text("✓ 正确！查询符合要求。")
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.success)
+                    if sqlStatus == "correct", let res = queryResult {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("查询结果:").font(.system(size: DT.fontLabel)).foregroundStyle(DT.textSecondary)
+                            ScrollView(.horizontal, showsIndicators: true) {
+                                VStack(alignment: .leading, spacing: 0) {
+                                    // Headers
+                                    HStack(spacing: 0) {
+                                        ForEach(res.headers, id: \.self) { h in
+                                            Text(h)
+                                                .font(.system(size: 11, weight: .bold, design: .monospaced))
+                                                .foregroundStyle(DT.ink)
+                                                .frame(width: 80, alignment: .leading)
+                                                .padding(6)
+                                                .background(DT.fillWarm)
+                                                .border(DT.line, width: 0.5)
+                                        }
+                                    }
+                                    // Rows
+                                    ForEach(0..<res.rows.count, id: \.self) { rIdx in
+                                        let row = res.rows[rIdx]
+                                        HStack(spacing: 0) {
+                                            ForEach(0..<row.count, id: \.self) { cIdx in
+                                                Text(row[cIdx])
+                                                    .font(.system(size: 11, design: .monospaced))
+                                                    .foregroundStyle(DT.textSecondary)
+                                                    .frame(width: 80, alignment: .leading)
+                                                    .padding(6)
+                                                    .border(DT.line, width: 0.5)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .background(DT.surface)
+                            .clipShape(RoundedRectangle(cornerRadius: DT.radiusSm))
+                            .overlay(RoundedRectangle(cornerRadius: DT.radiusSm).stroke(DT.line, lineWidth: 0.5))
+                        }
+                        .padding(.top, 8)
                     }
+                    
                     if sqlStatus == "wrong" {
-                        Text("✗ 还不对。请检查语句后重试。")
-                            .font(.system(size: DT.fontCaption))
-                            .foregroundStyle(DT.danger)
+                        if let errMsg = sqlErrorMessage {
+                            Text("✗ 运行错误: \(errMsg)")
+                                .font(.system(size: DT.fontCaption, design: .monospaced))
+                                .foregroundStyle(DT.danger)
+                        } else {
+                            Text("✗ 还不对。请检查语句后重试。")
+                                .font(.system(size: DT.fontCaption))
+                                .foregroundStyle(DT.danger)
+                        }
                     }
                     if showSqlAnswer, let firstSection = detail.sections.first {
                         Text("参考答案")
@@ -312,11 +356,18 @@ struct LessonView: View {
     }
 
     private func judgeSql(detail: LessonUnit) {
+        sqlErrorMessage = nil
+        queryResult = nil
         let input = sqlInput.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !input.isEmpty else { return }
-        let upper = input.uppercased()
-        let ok = upper.contains("SELECT") && upper.contains("FROM")
-        sqlStatus = ok ? "correct" : "wrong"
+        
+        if let res = sqlHelper.query(input) {
+            queryResult = res
+            sqlStatus = "correct"
+        } else {
+            sqlStatus = "wrong"
+            sqlErrorMessage = sqlHelper.lastError()
+        }
     }
 
     private var actions: some View {

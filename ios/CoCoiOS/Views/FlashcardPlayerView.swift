@@ -168,6 +168,28 @@ struct FlashcardPlayerView: View {
         }
         .padding(.horizontal, DT.space3)
         .onTapGesture { withAnimation { showingAnswer.toggle() } }
+        .offset(x: dragOffset, y: 0)
+        .rotationEffect(.degrees(Double(dragRotation)))
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    dragOffset = value.translation.width
+                    dragRotation = value.translation.width / 12.0
+                }
+                .onEnded { value in
+                    let swipeLimit: CGFloat = swipeThreshold
+                    if value.translation.width < -swipeLimit {
+                        swipeCard(mastered: false)
+                    } else if value.translation.width > swipeLimit {
+                        swipeCard(mastered: true)
+                    } else {
+                        withAnimation(.spring()) {
+                            dragOffset = 0
+                            dragRotation = 0
+                        }
+                    }
+                }
+        )
     }
 
     // MARK: - actionRow
@@ -223,6 +245,19 @@ struct FlashcardPlayerView: View {
                 currentIndex = 0
             }
             persistProgress()
+        }
+    }
+
+    private func swipeCard(mastered: Bool) {
+        let direction: CGFloat = mastered ? 1 : -1
+        withAnimation(.easeOut(duration: 0.2)) {
+            dragOffset = direction * 500
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            nextCard(mastered: mastered)
+            dragOffset = 0
+            dragRotation = 0
         }
     }
 
