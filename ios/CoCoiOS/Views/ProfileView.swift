@@ -17,27 +17,30 @@ struct ProfileView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: DT.space3) {
-                    masthead
-                    QPRuleLine()
-                    section01
-                    sectionStatus
-                    section02
-                    sectionTimeline
-                    sectionSettings
-                    sectionDanger
-                    Spacer().frame(height: 80)
+            ZStack {
+                DT.canvas.ignoresSafeArea()
+                
+                ScrollView {
+                    VStack(alignment: .leading, spacing: DT.space3) {
+                        masthead
+                        QPRuleLine()
+                        section01
+                        sectionStatus
+                        section02
+                        sectionTimeline
+                        sectionSettings
+                        sectionDanger
+                        Spacer().frame(height: 80)
+                    }
+                    .padding(.bottom, DT.space4)
                 }
-                .padding(.bottom, DT.space4)
+                .refreshable { reload() }
+                .scrollContentBackground(.hidden)
+                .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
+                .navigationBarHidden(true)
             }
-            .refreshable { reload() }
-            .scrollContentBackground(.hidden)
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
-            .navigationBarHidden(true)
             .onAppear { reload() }
         }
-        .background(DT.canvas.ignoresSafeArea())
     }
 
     private func reload() {

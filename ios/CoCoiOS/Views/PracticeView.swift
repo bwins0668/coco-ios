@@ -48,6 +48,8 @@ struct PracticeView: View {
         NavigationStack {
             ScrollViewReader { proxy in
                 ZStack(alignment: .bottomTrailing) {
+                    DT.canvas.ignoresSafeArea()
+                    
                     ScrollView {
                         VStack(alignment: .leading, spacing: DT.space3) {
                             Color.clear.frame(height: 1).id("top")
