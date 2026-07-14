@@ -6,23 +6,29 @@ struct CoCoiOSApp: App {
     let container: ModelContainer
 
     init() {
+        let schema = Schema([
+            QuizAttempt.self,
+            MistakeRecord.self,
+            StudyStat.self,
+            FavoriteTerm.self,
+            FlashcardProgress.self,
+            FavoriteQuestion.self,
+            LessonProgress.self
+        ])
+        // Stage G1 修复 + 防御兜底：先尝试持久化 store（SwiftData 轻量迁移），
+        // 若失败（例如未来字段默认值缺失导致迁移失败）则 fallback 到 in-memory，
+        // 确保 app 至少能启动。in-memory 模式下用户数据丢失，但 seed 演示数据会重建。
         do {
-            let schema = Schema([
-                QuizAttempt.self,
-                MistakeRecord.self,
-                StudyStat.self,
-                FavoriteTerm.self,
-                FlashcardProgress.self,
-                FavoriteQuestion.self,
-                LessonProgress.self
-            ])
             let config = ModelConfiguration(schema: schema)
             container = try ModelContainer(for: schema, configurations: config)
-            AppContext.bootstrap(container.mainContext)
-            Self.seedIfNeeded(container.mainContext)
         } catch {
-            fatalError("SwiftData 初始化失败: \(error)")
+            print("⚠️ SwiftData 持久化 store 加载失败: \(error)")
+            print("   启用 in-memory fallback（用户数据将重置为 seed 演示数据）")
+            let memConfig = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+            container = try! ModelContainer(for: schema, configurations: memConfig)
         }
+        AppContext.bootstrap(container.mainContext)
+        Self.seedIfNeeded(container.mainContext)
     }
 
     var body: some Scene {

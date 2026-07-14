@@ -59,6 +59,12 @@ final class StudyStat {
 }
 
 /// 收藏术语记录（Stage G1：扩展 SM-2 字段，SwiftData 轻量迁移自动接管旧数据）
+///
+/// 重要：SwiftData 轻量迁移只读**字段声明处**的默认值来填充旧行，
+/// init 参数的默认值不会被调用。所以 4 个新字段必须在声明处赋值。
+/// - interval / easeFactor / repetitions：字面量，安全
+/// - dueDate：用 Date.distantPast 作为迁移 sentinel，
+///   init 用 .now 覆盖 → 新收藏到期为今天，旧收藏迁移后立刻出现在复习列表
 @Model
 final class FavoriteTerm {
     var termId: String
@@ -66,13 +72,15 @@ final class FavoriteTerm {
 
     // SM-2 间隔复习算法字段（Stage G1 新增）
     /// 复习间隔天数；首次学习后为 1，通过后逐步递增
-    var interval: Int
+    var interval: Int = 1
     /// 易读因子 EF；标准 SM-2 默认 2.5，clamp >= 1.3
-    var easeFactor: Double
+    var easeFactor: Double = 2.5
     /// 连续记住次数；失败时归零
-    var repetitions: Int
-    /// 下次到期时间；筛选 dueDate <= Date() 作为复习列表
-    var dueDate: Date
+    var repetitions: Int = 0
+    /// 下次到期时间；筛选 dueDate <= Date() 作为复习列表。
+    /// 字段默认值用 Date.distantPast 保证 SwiftData 轻量迁移安全；
+    /// init 中默认参数为 .now，新收藏自然今天到期。
+    var dueDate: Date = Date.distantPast
 
     init(termId: String,
          createdAt: Date = .now,
