@@ -101,3 +101,19 @@ final class FavoriteQuestion {
         self.createdAt = createdAt
     }
 }
+
+/// 课节学习进度记录（SwiftData 持久化）
+@Model
+final class LessonProgress {
+    @Attribute(.unique) var lessonId: String
+    var courseId: String
+    var isCompleted: Bool
+    var updatedAt: Date
+
+    init(lessonId: String, courseId: String, isCompleted: Bool = false, updatedAt: Date = .now) {
+        self.lessonId = lessonId
+        self.courseId = courseId
+        self.isCompleted = isCompleted
+        self.updatedAt = updatedAt
+    }
+}

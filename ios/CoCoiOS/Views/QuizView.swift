@@ -25,6 +25,7 @@ struct QuizView: View {
                                     onFinish: {
                                         stopTimer()
                                         saveAttempt(session)
+                                        Storage.shared.updateWidgetSnapshot()
                                         dismiss()
                                     })
                 } else {
@@ -176,6 +177,7 @@ struct QuizQuestionView: View {
             ctx.insert(FavoriteQuestion(questionId: qId))
         }
         try? ctx.save()
+        Storage.shared.updateWidgetSnapshot()
     }
 
     var body: some View {

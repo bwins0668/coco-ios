@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+import WidgetKit
 
 /// 数据桥接层（对应小程序 utils/storage.js 的聚合接口）
 /// 提供首页 / 复习 / 错题 / 个人中心所需的所有汇总数据。
@@ -207,6 +208,25 @@ final class Storage {
         let f = DateFormatter()
         f.dateFormat = "yyyy/MM/dd HH:mm"
         return f.string(from: now) == "now" ? "时间未记录" : f.string(from: date)
+    }
+
+    // MARK: - Widget Integration
+    func updateWidgetSnapshot() {
+        let stats = getQuizStats()
+        let streak = getStreakCount()
+        let favoriteCount = getFavoriteTermCount() + ((try? ctx.fetchCount(FetchDescriptor<FavoriteQuestion>())) ?? 0)
+        let last = getLastAttempt()
+        
+        let snap = WidgetDataBridge.Snapshot(
+            streak: streak,
+            todayTotal: stats.todayTotal,
+            accuracy: stats.accuracy,
+            favoriteCount: favoriteCount,
+            lastExamLabel: last?.examLabel ?? "",
+            lastMetaText: last?.metaText ?? ""
+        )
+        WidgetDataBridge.write(snap)
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 

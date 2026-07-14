@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import UIKit
+import UniformTypeIdentifiers
 
 /// 我的页：学习数据 + 分类正确率（接入 Storage 真实数据）
 struct ProfileView: View {
@@ -198,6 +199,9 @@ struct ProfileView: View {
 
     @State private var showingBackup: Bool = false
     @State private var backupMessage: String = ""
+    @State private var showingExport: Bool = false
+    @State private var showingImport: Bool = false
+    @State private var exportDoc: BackupDocument? = nil
 
     private var sectionSettings: some View {
         VStack(alignment: .leading, spacing: DT.space1) {
@@ -214,6 +218,8 @@ struct ProfileView: View {
                     if let clip = UIPasteboard.general.string {
                         if BackupService.shared.importBackup(from: clip) {
                             backupMessage = "从剪贴板恢复成功"
+                            reload()
+                            Storage.shared.updateWidgetSnapshot()
                         } else {
                             backupMessage = "剪贴板内容不是有效备份"
                         }
@@ -221,6 +227,16 @@ struct ProfileView: View {
                         backupMessage = "剪贴板为空"
                     }
                     showingBackup = true
+                }
+                Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
+                settingRow(title: "导出备份文件 (iCloud/Files)", note: "备份", icon: "⏍", color: DT.primary) {
+                    let json = BackupService.shared.exportBackupString()
+                    exportDoc = BackupDocument(json: json)
+                    showingExport = true
+                }
+                Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
+                settingRow(title: "导入备份文件 (iCloud/Files)", note: "恢复", icon: "⏏", color: DT.success) {
+                    showingImport = true
                 }
                 Rectangle().fill(DT.line).frame(height: 0.5).padding(.horizontal, DT.space2)
                 settingRow(title: "使用帮助", note: "", icon: "?", color: DT.textTertiary) {
@@ -248,7 +264,9 @@ struct ProfileView: View {
             QPSectionLabel("06", "危险操作")
             Button(action: {
                 BackupService.shared.clearAllData()
-                backupMessage = "已清空本地学习记录（收藏和错题保留）"
+                backupMessage = "已清空本地学习记录"
+                reload()
+                Storage.shared.updateWidgetSnapshot()
                 showingBackup = true
             }) {
                 HStack {
@@ -269,6 +287,36 @@ struct ProfileView: View {
             Button("好") { }
         } message: {
             Text(backupMessage)
+        }
+        .fileExporter(isPresented: $showingExport, document: exportDoc, contentType: .json, defaultFilename: "CoCoBackup") { result in
+            switch result {
+            case .success(let url):
+                backupMessage = "备份已保存至: \(url.lastPathComponent)"
+            case .failure(let error):
+                backupMessage = "备份保存失败: \(error.localizedDescription)"
+            }
+            showingBackup = true
+        }
+        .fileImporter(isPresented: $showingImport, allowedContentTypes: [.json]) { result in
+            switch result {
+            case .success(let url):
+                guard url.startAccessingSecurityScopedResource() else { return }
+                defer { url.stopAccessingSecurityScopedResource() }
+                if let content = try? String(contentsOf: url) {
+                    if BackupService.shared.importBackup(from: content) {
+                        backupMessage = "备份文件导入成功！"
+                        reload()
+                        Storage.shared.updateWidgetSnapshot()
+                    } else {
+                        backupMessage = "导入失败：文件非有效备份包"
+                    }
+                } else {
+                    backupMessage = "读取文件失败"
+                }
+            case .failure(let error):
+                backupMessage = "导入失败: \(error.localizedDescription)"
+            }
+            showingBackup = true
         }
     }
 
@@ -296,3 +344,26 @@ struct ProfileView: View {
 #Preview {
     ProfileView()
 }
+
+struct BackupDocument: FileDocument {
+    static var readableContentTypes: [UTType] { [.json] }
+    var json: String
+
+    init(json: String) {
+        self.json = json
+    }
+
+    init(configuration: ReadConfiguration) throws {
+        if let data = configuration.file.regularFileContents,
+           let string = String(data: data, encoding: .utf8) {
+            self.json = string
+        } else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+    }
+
+    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+        let data = json.data(using: .utf8) ?? Data()
+        return FileWrapper(regularFileWithContents: data)
+    }
+}

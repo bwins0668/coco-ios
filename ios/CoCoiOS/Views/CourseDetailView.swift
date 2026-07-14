@@ -129,10 +129,41 @@ struct CourseDetailView: View {
                     .font(.system(size: DT.fontCaption))
                     .foregroundStyle(DT.textSecondary)
                     .lineLimit(2)
+                
+                let total = c.sectionCount
+                let completed = progressCount
+                let pct = total > 0 ? Int(round(Double(completed) / Double(total) * 100)) : 0
+                
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack {
+                        Text("当前进度")
+                            .font(.system(size: DT.fontLabel, weight: .medium))
+                            .foregroundStyle(DT.textSecondary)
+                        Spacer()
+                        Text("\(completed) / \(total) 小节 (\(pct)%)")
+                            .font(.system(size: DT.fontLabel, weight: .semibold))
+                            .foregroundStyle(DT.primary)
+                    }
+                    GeometryReader { geo in
+                        ZStack(alignment: .leading) {
+                            Rectangle().fill(DT.fillWarm).frame(height: 6)
+                            Rectangle().fill(DT.primary).frame(width: max(0, geo.size.width * CGFloat(pct) / 100), height: 6)
+                        }
+                    }
+                    .frame(height: 6)
+                    .clipShape(Capsule())
+                }
+                .padding(.top, 8)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, DT.space3)
+    }
+
+    private var progressCount: Int {
+        let cId = courseId
+        let descriptor = FetchDescriptor<LessonProgress>(predicate: #Predicate { $0.courseId == cId && $0.isCompleted })
+        return (try? ctx.fetchCount(descriptor)) ?? 0
     }
 
     private var structureSection: some View {

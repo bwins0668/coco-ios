@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// 小节学习页：双语标题 + 概要 + 学习目标 + 关键术语 + 案例拆解
 struct LessonView: View {
@@ -7,12 +8,32 @@ struct LessonView: View {
     let section: CourseSection
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var ctx
     @State private var showPracticeSheet: Bool = false
     @State private var sqlInput: String = ""
     @State private var sqlStatus: String = "idle"
     @State private var showSqlAnswer: Bool = false
     @State private var quizPicked: Int = -1
     @State private var quizStatus: String = "idle"
+
+    private var isCompleted: Bool {
+        let lId = section.sectionId
+        let descriptor = FetchDescriptor<LessonProgress>(predicate: #Predicate { $0.lessonId == lId })
+        return (try? ctx.fetch(descriptor))?.first?.isCompleted == true
+    }
+
+    private func toggleCompleted() {
+        let lId = section.sectionId
+        let descriptor = FetchDescriptor<LessonProgress>(predicate: #Predicate { $0.lessonId == lId })
+        if let existing = (try? ctx.fetch(descriptor))?.first {
+            existing.isCompleted.toggle()
+            existing.updatedAt = Date()
+        } else {
+            ctx.insert(LessonProgress(lessonId: lId, courseId: course.courseId, isCompleted: true))
+        }
+        try? ctx.save()
+        Storage.shared.updateWidgetSnapshot()
+    }
 
     var body: some View {
         ScrollView {
@@ -300,6 +321,24 @@ struct LessonView: View {
 
     private var actions: some View {
         VStack(spacing: DT.space1) {
+            Button(action: toggleCompleted) {
+                HStack(spacing: 8) {
+                    Image(systemName: isCompleted ? "checkmark.circle.fill" : "circle")
+                        .foregroundStyle(isCompleted ? DT.success : DT.textSecondary)
+                        .font(.system(size: 18, weight: .semibold))
+                    Text(isCompleted ? "已完成该节学习" : "标记为已完成")
+                        .font(.system(size: DT.fontBody, weight: .semibold))
+                        .foregroundStyle(isCompleted ? DT.success : DT.ink)
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 48)
+                .background(isCompleted ? DT.successSoft : DT.surface)
+                .clipShape(Capsule())
+                .overlay(Capsule().stroke(isCompleted ? DT.success : DT.line, lineWidth: 0.5))
+            }
+            .buttonStyle(.plain)
+            .padding(.bottom, 6)
+
             QPPrimaryButton("做本章小测") { showPracticeSheet = true }
             QPOutlineButton("返回章节") { dismiss() }
         }
