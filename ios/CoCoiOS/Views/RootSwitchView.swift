@@ -53,8 +53,8 @@ struct RootSwitchView: View {
                     }
             }
             .tint(DT.primary)
-            // Tab bar 用不透明 canvas 色，避免内容文字透出
-            .toolbarBackground(DT.canvas, for: .tabBar)
+            // Tab bar 用 ultraThinMaterial 液态玻璃；5 个主 view 已在 ScrollView 末端留 80pt spacer + safeAreaInset，避免文字透出
+            .toolbarBackground(.ultraThinMaterial, for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
         }
     }
