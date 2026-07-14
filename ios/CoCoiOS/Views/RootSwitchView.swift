@@ -17,41 +17,46 @@ struct RootSwitchView: View {
     enum ProfileRoute: Hashable { case backup, help, feedback }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HomeView()
-                .tag(0)
-                .tabItem {
-                    Label("课程", systemImage: selectedTab == 0 ? "house.fill" : "house")
-                }
+        ZStack {
+            // 全屏 canvas 背景，覆盖状态栏和 home indicator 区域
+            DT.canvas.ignoresSafeArea()
 
-            PracticeView()
-                .tag(1)
-                .tabItem {
-                    Label("刷题", systemImage: selectedTab == 1 ? "square.grid.3x3.fill" : "square.grid.3x3")
-                }
+            TabView(selection: $selectedTab) {
+                HomeView()
+                    .tag(0)
+                    .tabItem {
+                        Label("课程", systemImage: selectedTab == 0 ? "house.fill" : "house")
+                    }
 
-            ReviewView()
-                .tag(2)
-                .tabItem {
-                    Label("复习", systemImage: selectedTab == 2 ? "clock.fill" : "clock")
-                }
+                PracticeView()
+                    .tag(1)
+                    .tabItem {
+                        Label("刷题", systemImage: selectedTab == 1 ? "square.grid.3x3.fill" : "square.grid.3x3")
+                    }
 
-            GlossaryView()
-                .tag(3)
-                .tabItem {
-                    Label("术语", systemImage: selectedTab == 3 ? "character.book.closed.fill" : "character.book.closed")
-                }
+                ReviewView()
+                    .tag(2)
+                    .tabItem {
+                        Label("复习", systemImage: selectedTab == 2 ? "clock.fill" : "clock")
+                    }
 
-            ProfileView()
-                .tag(4)
-                .tabItem {
-                    Label("我的", systemImage: selectedTab == 4 ? "person.fill" : "person")
-                }
+                GlossaryView()
+                    .tag(3)
+                    .tabItem {
+                        Label("术语", systemImage: selectedTab == 3 ? "character.book.closed.fill" : "character.book.closed")
+                    }
+
+                ProfileView()
+                    .tag(4)
+                    .tabItem {
+                        Label("我的", systemImage: selectedTab == 4 ? "person.fill" : "person")
+                    }
+            }
+            .tint(DT.primary)
+            // Tab bar 用不透明 canvas 色，避免内容文字透出
+            .toolbarBackground(DT.canvas, for: .tabBar)
+            .toolbarBackground(.visible, for: .tabBar)
         }
-        .tint(DT.primary)
-        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
-        .toolbarBackground(.visible, for: .tabBar)
-        .background(DT.canvas.ignoresSafeArea())
     }
 }
 

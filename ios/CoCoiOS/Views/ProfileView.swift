@@ -29,9 +29,10 @@ struct ProfileView: View {
                     sectionDanger
                     Spacer().frame(height: 80)
                 }
-                .padding(.bottom, DT.space3)
+                .padding(.bottom, DT.space4)
             }
             .scrollContentBackground(.hidden)
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
             .navigationBarHidden(true)
             .onAppear { reload() }
         }

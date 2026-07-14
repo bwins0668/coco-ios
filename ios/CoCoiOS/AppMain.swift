@@ -27,8 +27,6 @@ struct CoCoiOSApp: App {
         WindowGroup {
             RootSwitchView()
                 .preferredColorScheme(.light)
-                .ignoresSafeArea()
-                .background(DT.canvas.ignoresSafeArea())
         }
         .modelContainer(container)
     }
