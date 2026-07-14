@@ -31,28 +31,32 @@ function normalizeLesson(raw) {
         id: raw.id || raw.lessonId || '',
         titleZh: raw.title?.zh || raw.titleZh || '',
         titleJa: raw.title?.ja || raw.titleJa || '',
-        overviewZh: raw.overview?.zh || raw.overviewZh || '',
-        overviewJa: raw.overview?.ja || raw.overviewJa || '',
-        learningGoalZh: raw.learningGoal?.zh || raw.learningGoalZh || '',
-        learningGoalJa: raw.learningGoal?.ja || raw.learningGoalJa || '',
-        sections: (raw.sections || []).map(s => ({
-            headingZh: s.heading?.zh || s.headingZh || '',
-            headingJa: s.heading?.ja || s.headingJa || '',
-            explanationZh: s.explanation?.zh || s.explanationZh || '',
-            explanationJa: s.explanation?.ja || s.explanationJa || ''
+        overviewZh: raw.overview?.zh || raw.overviewZh || raw.objectives?.[0]?.zh || '',
+        overviewJa: raw.overview?.ja || raw.overviewJa || raw.objectives?.[0]?.ja || '',
+        learningGoalZh: raw.learningGoal?.zh || raw.learningGoalZh || raw.handson?.zh || '',
+        learningGoalJa: raw.learningGoal?.ja || raw.learningGoalJa || raw.handson?.ja || '',
+        sections: (raw.blocks || raw.sections || []).map(s => ({
+            headingZh: s.title?.zh || s.heading?.zh || s.headingZh || '',
+            headingJa: s.title?.ja || s.heading?.ja || s.headingJa || '',
+            explanationZh: s.zh || s.explanation?.zh || s.explanationZh || '',
+            explanationJa: s.ja || s.explanation?.ja || s.explanationJa || ''
         })),
-        keyTerms: (raw.keyTerms || []).map(t => ({
+        keyTerms: (raw.terms || raw.keyTerms || []).map(t => ({
             termJa: t.ja || t.termJa || t.term || '',
             termZh: t.zh || t.termZh || '',
-            english: t.english || '',
-            definitionZh: t.definition?.zh || t.definitionZh || '',
-            definitionJa: t.definition?.ja || t.definitionJa || '',
+            english: t.en || t.english || '',
+            definitionZh: t.explanationZh || t.definition?.zh || t.definitionZh || '',
+            definitionJa: t.explanationJa || t.definition?.ja || t.definitionJa || '',
             examCueZh: t.examCue?.zh || t.examCueZh || ''
         })),
-        caseBreakdown: (raw.caseBreakdown || raw.learningExperience?.caseBreakdown || []).map(c => ({
-            labelZh: c.label?.zh || c.labelZh || '',
-            bodyZh: c.body?.zh || c.bodyZh || ''
-        }))
+        caseBreakdown: [
+            ...(raw.analogy?.zh ? [{ labelZh: '生活化类比', bodyZh: raw.analogy.zh }] : []),
+            ...(raw.summary?.zh ? [{ labelZh: '本节小结', bodyZh: raw.summary.zh }] : []),
+            ...((raw.caseBreakdown || raw.learningExperience?.caseBreakdown || []).map(c => ({
+                labelZh: c.label?.zh || c.labelZh || '',
+                bodyZh: c.body?.zh || c.bodyZh || ''
+            })))
+        ]
     };
 }
 
