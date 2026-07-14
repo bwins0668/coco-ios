@@ -2,11 +2,13 @@ import SwiftUI
 import SwiftData
 
 /// 收藏复习页 (B-11 1:1)：大圆角空态卡 + 「去术语表」 黑色全宽主按钮 + 占位 outline 按钮
+/// Stage G1：wire 「开始 Anki 复习」 → AnkiReviewView（Stage G1 SM-2 调度）
 struct FavoriteReviewView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var ctx
     @State private var favoriteCount: Int = 0
     @State private var navigateGlossary: Bool = false
+    @State private var navigateAnki: Bool = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -20,6 +22,7 @@ struct FavoriteReviewView: View {
         .background(DT.canvas.ignoresSafeArea())
         .navigationBarHidden(true)
         .navigationDestination(isPresented: $navigateGlossary) { GlossaryView() }
+        .navigationDestination(isPresented: $navigateAnki) { AnkiReviewView() }
         .onAppear {
             AppContext.bootstrap(ctx)
             favoriteCount = Storage.shared.getFavoriteTermCount()
@@ -29,7 +32,7 @@ struct FavoriteReviewView: View {
     private var backButton: some View {
         HStack {
             Button(action: { dismiss() }) {
-                Text("‹").font(.system(size: 28, weight: .light))
+                Text("\u{2039}").font(.system(size: 28, weight: .light))
                     .foregroundStyle(DT.textSecondary)
                     .frame(width: 44, height: 44)
             }
@@ -124,10 +127,10 @@ struct FavoriteReviewView: View {
                 Text("已收藏 \(favoriteCount) 条术语")
                     .font(.system(size: DT.fontBody, weight: .semibold))
                     .foregroundStyle(DT.ink)
-                Text("通过 Anki 算法巩固记忆。")
+                Text("通过 SM-2 算法（Anki 间隔重复）巩固记忆。")
                     .font(.system(size: DT.fontCaption))
                     .foregroundStyle(DT.textSecondary)
-                QPPrimaryButton("开始 Anki 复习") {}
+                QPPrimaryButton("开始 Anki 复习") { navigateAnki = true }
                     .padding(.top, DT.space1)
             }
         }
