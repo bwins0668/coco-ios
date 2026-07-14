@@ -22,33 +22,32 @@ struct CourseCenterView: View {
     ]
 
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: DT.space3) {
-                    masthead
-                    QPRuleLine()
-                    if hasLastAttempt { heroCard }
-                    examSection
-                    learningSection
-                    Spacer().frame(height: 80)
+            NavigationStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: DT.space3) {
+                        masthead
+                        QPRuleLine()
+                        if hasLastAttempt { heroCard }
+                        examSection
+                        learningSection
+                        Spacer().frame(height: 80)
+                    }
+                    .padding(.bottom, DT.space3)
                 }
-                .padding(.bottom, DT.space3)
+                .scrollContentBackground(.hidden)
+                .navigationBarHidden(true)
+                .navigationDestination(isPresented: Binding(
+                    get: { selectedExam != nil },
+                    set: { if !$0 { selectedExam = nil } }
+                )) {
+                    if let id = selectedExam {
+                        CourseDetailView(courseId: id, courseName: examCourses.first(where: { $0.id == id })?.name ?? "")
+                    }
+                }
+                .onAppear { reload() }
             }
-            .scrollContentBackground(.hidden)
             .background(DT.canvas.ignoresSafeArea())
-            .navigationBarHidden(true)
-            .navigationDestination(isPresented: Binding(
-                get: { selectedExam != nil },
-                set: { if !$0 { selectedExam = nil } }
-            )) {
-                if let id = selectedExam {
-                    CourseDetailView(courseId: id, courseName: examCourses.first(where: { $0.id == id })?.name ?? "")
-                }
-            }
-            .onAppear { reload() }
         }
-    }
-
     private func reload() {
         AppContext.bootstrap(ctx)
         if let last = Storage.shared.getLastAttempt() {

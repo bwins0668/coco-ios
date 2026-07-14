@@ -39,18 +39,20 @@ struct FlashcardPlayerView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            navBar
-            progressSection
-            Spacer().frame(height: DT.space3)
-            flashCard
-            Spacer()
-            actionRow
+        NavigationStack {
+            VStack(spacing: 0) {
+                navBar
+                progressSection
+                Spacer().frame(height: DT.space3)
+                flashCard
+                Spacer()
+                actionRow
+            }
+            .padding(.bottom, DT.space3)
+            .navigationBarHidden(true)
+            .task { await load() }
         }
-        .padding(.bottom, DT.space3)
         .background(DT.canvas.ignoresSafeArea())
-        .navigationBarHidden(true)
-        .task { await load() }
     }
 
     private func load() async {
@@ -79,161 +81,98 @@ struct FlashcardPlayerView: View {
                     .frame(width: 44, height: 44)
             }
             Spacer()
+            Text(categoryTag)
+                .font(.system(size: DT.fontLabel, weight: .medium))
+                .tracking(1.5)
+                .foregroundStyle(DT.textSecondary)
+            Spacer()
+            Menu {
+                Button("重置进度", role: .destructive) { currentIndex = 0; masteredCount = 0 }
+            } label: {
+                Image(systemName: "ellipsis")
+                    .font(.system(size: DT.fontBody, weight: .medium))
+                    .foregroundStyle(DT.textSecondary)
+                    .frame(width: 44, height: 44)
+            }
         }
         .padding(.horizontal, DT.space2)
+        .padding(.top, DT.space2)
     }
 
-    // MARK: - 进度区
+    // MARK: - progressSection
     private var progressSection: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("进度")
-                        .font(.system(size: DT.fontLabel)).tracking(2)
-                        .foregroundStyle(DT.textTertiary)
-                    HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("\(progress)")
-                            .font(.system(size: DT.fontMasthead, weight: .semibold))
-                            .foregroundStyle(DT.ink)
-                            .monospacedDigit()
-                        Text("/ \(total)")
-                            .font(.system(size: DT.fontBody, weight: .medium))
-                            .foregroundStyle(DT.textSecondary)
-                            .monospacedDigit()
-                    }
-                }
+        VStack(spacing: DT.space1) {
+            HStack {
+                Text("进度 \(progress) / \(total)")
+                    .font(.system(size: DT.fontCaption, weight: .medium))
+                    .foregroundStyle(DT.textSecondary)
                 Spacer()
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text("已掌握")
-                        .font(.system(size: DT.fontLabel)).tracking(2)
-                        .foregroundStyle(DT.textTertiary)
-                    Text("\(masteredCount)")
-                        .font(.system(size: DT.fontMasthead, weight: .semibold))
-                        .foregroundStyle(DT.primary)
-                        .monospacedDigit()
-                }
-                .padding(.trailing, DT.space1)
+                Text("已掌握 \(masteredCount)")
+                    .font(.system(size: DT.fontCaption, weight: .medium))
+                    .foregroundStyle(DT.success)
             }
-            .padding(.horizontal, DT.space3)
-
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
-                    Rectangle().fill(DT.line).frame(height: 2)
-                    Rectangle()
-                        .fill(DT.primary)
-                        .frame(width: max(2, geo.size.width * CGFloat(progress) / CGFloat(total > 0 ? total : 1)), height: 2)
+                    Rectangle().fill(DT.fillWarm).frame(height: 4)
+                    Rectangle().fill(DT.primary)
+                        .frame(width: max(2, geo.size.width * CGFloat(progress) / CGFloat(total > 0 ? total : 1)), height: 4)
                 }
             }
-            .frame(height: 2)
-            .padding(.horizontal, DT.space3)
-            .padding(.top, 4)
+            .frame(height: 4)
         }
+        .padding(.horizontal, DT.space3)
+        .padding(.top, DT.space2)
     }
 
-    // MARK: - 闪卡
+    // MARK: - flashCard
     private var flashCard: some View {
-        VStack(spacing: 0) {
-            Rectangle().fill(DT.editorial).frame(height: 2)
-            VStack(spacing: DT.space3) {
-                HStack(alignment: .top) {
-                    Text(categoryTag)
-                        .font(.system(size: DT.fontCaption, weight: .semibold))
-                        .padding(.horizontal, 10).padding(.vertical, 4)
-                        .background(DT.surfaceMuted)
-                        .clipShape(RoundedRectangle(cornerRadius: DT.radiusSm, style: .continuous))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: DT.radiusSm, style: .continuous)
-                                .stroke(DT.line, lineWidth: 0.5)
-                        )
+        ZStack {
+            RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
+                .fill(DT.surface)
+                .overlay(
+                    RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
+                        .stroke(DT.line, lineWidth: 0.5)
+                )
+                .overlay(
+                    Rectangle().fill(DT.editorial).frame(height: 2),
+                    alignment: .top
+                )
+            VStack(spacing: DT.space2) {
+                HStack {
+                    QPPill(categoryTag, background: DT.primarySoft, foreground: DT.primary)
                     Spacer()
-                    Text("\(progress)/\(total)")
+                    Text("\(progress) / \(total)")
                         .font(.system(size: DT.fontCaption, weight: .medium))
                         .foregroundStyle(DT.textTertiary)
-                        .padding(.horizontal, 10).padding(.vertical, 4)
-                        .background(DT.surfaceMuted)
-                        .clipShape(RoundedRectangle(cornerRadius: DT.radiusSm, style: .continuous))
                 }
-                .padding(.top, DT.space3)
-                .padding(.horizontal, DT.space3)
-
-                Spacer().frame(height: DT.space3)
-
-                Text(currentTerm)
-                    .font(.system(size: 48, weight: .bold))
-                    .tracking(-0.5)
-                    .foregroundStyle(DT.ink)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-
-                Spacer().frame(height: DT.space4)
-
-                if showingAnswer && !meaningCN.isEmpty {
+                if showingAnswer {
                     Text(meaningCN)
-                        .font(.system(size: DT.fontBody, weight: .medium))
+                        .font(.system(size: DT.fontBody))
                         .foregroundStyle(DT.textSecondary)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                } else {
+                    Text(currentTerm)
+                        .font(.system(size: DT.fontPageTitle, weight: .semibold))
+                        .foregroundStyle(DT.ink)
                         .multilineTextAlignment(.center)
-                        .lineSpacing(3)
-                        .padding(.horizontal, DT.space3)
-                } else if !meaningCN.isEmpty {
-                    Text("タップして裏面を見る")
-                        .font(.system(size: DT.fontCaption))
-                        .foregroundStyle(DT.textTertiary)
-                        .padding(.horizontal, 12).padding(.vertical, 6)
-                        .background(DT.surfaceMuted)
-                        .clipShape(Capsule())
                 }
-
-                Spacer().frame(height: DT.space3)
+                Text(showingAnswer ? "已显示答案" : "点击卡片查看含义")
+                    .font(.system(size: DT.fontLabel))
+                    .foregroundStyle(DT.textGhost)
+                    .padding(.horizontal, DT.space2).padding(.vertical, 6)
+                    .background(DT.fillWarm)
+                    .clipShape(Capsule())
             }
-            .frame(maxWidth: .infinity)
-            .background(DT.surface)
+            .padding(DT.space3)
         }
-        .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous)
-                .stroke(DT.line, lineWidth: 0.5)
-        )
-        .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 3)
         .padding(.horizontal, DT.space3)
-        .offset(x: dragOffset)
-        .rotationEffect(.degrees(dragRotation))
-        .gesture(
-            DragGesture()
-                .onChanged { value in
-                    dragOffset = value.translation.width
-                    dragRotation = Double(value.translation.width / 24)
-                }
-                .onEnded { value in
-                    let translation = value.translation.width
-                    if abs(translation) > swipeThreshold {
-                        let mastered = translation > 0
-                        withAnimation(.spring(response: 0.25, dampingFraction: 0.7)) {
-                            dragOffset = translation > 0 ? 500 : -500
-                            dragRotation = translation > 0 ? 15 : -15
-                        }
-                        nextCard(mastered: mastered)
-                        resetDrag()
-                    } else {
-                        withAnimation(.spring(response: 0.25, dampingFraction: 0.7)) {
-                            resetDrag()
-                        }
-                    }
-                }
-        )
-        .frame(maxHeight: .infinity)
-        .onTapGesture {
-            withAnimation { showingAnswer.toggle() }
-        }
+        .onTapGesture { withAnimation { showingAnswer.toggle() } }
     }
 
-    private func resetDrag() {
-        dragOffset = 0
-        dragRotation = 0
-    }
-
-    // MARK: - 双底部 outline 按钮
+    // MARK: - actionRow
     private var actionRow: some View {
-        HStack(spacing: DT.space2) {
+        HStack(spacing: DT.space1) {
             Button(action: { nextCard(mastered: false) }) {
                 HStack(spacing: 6) {
                     Image(systemName: "xmark")

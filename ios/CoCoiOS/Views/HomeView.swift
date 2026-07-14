@@ -72,7 +72,6 @@ struct HomeView: View {
                 .padding(.bottom, DT.space3)
             }
             .scrollContentBackground(.hidden)
-            .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
             .navigationDestination(isPresented: Binding(
                 get: { navigateCourseId != nil },
@@ -95,6 +94,7 @@ struct HomeView: View {
             }
             .onAppear(perform: load)
         }
+        .background(DT.canvas.ignoresSafeArea())
     }
 
     private func load() {

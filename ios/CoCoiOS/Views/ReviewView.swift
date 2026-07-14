@@ -22,13 +22,13 @@ struct ReviewView: View {
                 .padding(.bottom, DT.space3)
             }
             .scrollContentBackground(.hidden)
-            .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $navigateFlashcards) { FlashcardsView() }
             .navigationDestination(isPresented: $navigateMistakes) { MistakesView() }
             .navigationDestination(isPresented: $navigateTermReview) { GlossaryView() }
             .onAppear { reload() }
         }
+        .background(DT.canvas.ignoresSafeArea())
     }
 
     private func reload() {
@@ -98,19 +98,21 @@ struct ReviewView: View {
                             .font(.system(size: DT.fontCaption))
                             .foregroundStyle(DT.textSecondary)
                     }
-                    Spacer(minLength: 0)
-                    if let b = badge {
-                        QPPill(b, background: DT.primarySoft, foreground: DT.primary)
+                    Spacer()
+                    if let badge {
+                        Text(badge)
+                            .font(.system(size: DT.fontCaption, weight: .semibold))
+                            .foregroundStyle(DT.primary)
+                            .padding(.horizontal, 8).padding(.vertical, 4)
+                            .background(DT.primarySoft)
+                            .clipShape(Capsule())
                     }
-                    Text("›").font(.system(size: DT.fontPageTitle, weight: .light))
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: DT.fontBody, weight: .semibold))
                         .foregroundStyle(DT.textTertiary)
                 }
             }
         }
         .buttonStyle(.plain)
     }
-}
-
-#Preview {
-    ReviewView()
 }

@@ -32,10 +32,10 @@ struct ProfileView: View {
                 .padding(.bottom, DT.space3)
             }
             .scrollContentBackground(.hidden)
-            .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
             .onAppear { reload() }
         }
+        .background(DT.canvas.ignoresSafeArea())
     }
 
     private func reload() {

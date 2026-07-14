@@ -11,26 +11,28 @@ struct FlashcardsView: View {
     @State private var decks: [Storage.DeckInfo] = []
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: DT.space2) {
-                backButton
-                header
-                continueSection
-                coursesSection
-                Spacer().frame(height: 80)
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: DT.space2) {
+                    backButton
+                    header
+                    continueSection
+                    coursesSection
+                    Spacer().frame(height: 80)
+                }
+                .padding(.top, DT.space3)
+                .padding(.bottom, DT.space3)
             }
-            .padding(.top, DT.space3)
-            .padding(.bottom, DT.space3)
+            .scrollContentBackground(.hidden)
+            .navigationBarHidden(true)
+            .navigationDestination(isPresented: $navigatePlayer) {
+                if let deck = decks.first {
+                    FlashcardPlayerView(package: deck.package, startIndex: 0)
+                }
+            }
+            .onAppear(perform: reload)
         }
-        .scrollContentBackground(.hidden)
         .background(DT.canvas.ignoresSafeArea())
-        .navigationBarHidden(true)
-        .navigationDestination(isPresented: $navigatePlayer) {
-            if let deck = decks.first {
-                FlashcardPlayerView(package: deck.package, startIndex: 0)
-            }
-        }
-        .onAppear(perform: reload)
     }
 
     private func reload() {

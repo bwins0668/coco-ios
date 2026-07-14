@@ -46,7 +46,6 @@ struct GlossaryView: View {
                 .padding(.bottom, DT.space3)
             }
             .scrollContentBackground(.hidden)
-            .background(DT.canvas.ignoresSafeArea())
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $navigateFavorite) { FavoriteReviewView() }
             .navigationDestination(isPresented: $navigateAnki) { AnkiReviewView() }
@@ -54,6 +53,7 @@ struct GlossaryView: View {
             .navigationDestination(isPresented: $navigateAll) { TermSearchView() }
             .onAppear(perform: reload)
         }
+        .background(DT.canvas.ignoresSafeArea())
     }
 
     private func reload() {
@@ -62,11 +62,7 @@ struct GlossaryView: View {
     }
 
     private var masthead: some View {
-        QPMasthead(
-            kicker: "GLOSSARY · 术语",
-            title: "术语",
-            rightText: DT.jstDateString()
-        )
+        QPMasthead(kicker: "GLOSSARY · 术语", title: "术语", rightText: DT.jstDateString())
     }
 
     private var sectionEntries: some View {
@@ -102,9 +98,9 @@ struct GlossaryView: View {
                             .font(.system(size: DT.fontCaption))
                             .foregroundStyle(DT.textSecondary)
                     }
-                    Spacer(minLength: 0)
-                    Text("›")
-                        .font(.system(size: DT.fontPageTitle, weight: .light))
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: DT.fontBody, weight: .semibold))
                         .foregroundStyle(DT.textTertiary)
                 }
             }
@@ -112,27 +108,23 @@ struct GlossaryView: View {
         .buttonStyle(.plain)
     }
 
-    private func iconSystemName(_ s: String) -> String {
-        switch s {
-        case "♥": return "heart.fill"
-        case "▦": return "square.grid.3x3.fill"
-        case "⚂": return "die.face.5.fill"
-        case "≡": return "list.bullet"
-        default: return "circle.fill"
-        }
-    }
-
     private func navigate(to id: String) {
         switch id {
         case "favorite": navigateFavorite = true
-        case "anki":     navigateAnki = true
-        case "random":   navigateRandom = true
-        case "all":      navigateAll = true
+        case "anki": navigateAnki = true
+        case "random": navigateRandom = true
+        case "all": navigateAll = true
         default: break
         }
     }
-}
 
-#Preview {
-    GlossaryView()
+    private func iconSystemName(_ icon: String) -> String {
+        switch icon {
+        case "♥": return "heart.fill"
+        case "▦": return "square.grid.2x2.fill"
+        case "⚂": return "dice.fill"
+        case "≡": return "list.bullet"
+        default: return "circle"
+        }
+    }
 }
