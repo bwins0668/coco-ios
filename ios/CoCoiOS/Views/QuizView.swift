@@ -161,6 +161,8 @@ struct QuizQuestionView: View {
 
     @Environment(\.modelContext) private var ctx
     @State private var showAnalysis = false
+    @State private var shakeTrigger: Bool = false
+    @State private var lastWasCorrect: Bool? = nil
 
     private var isFavorite: Bool {
         let qId = question.id
@@ -188,14 +190,23 @@ struct QuizQuestionView: View {
                 optionsCard
                 if session.showResult {
                     feedbackBanner
+                        .transition(.asymmetric(
+                            insertion: .scale.combined(with: .opacity),
+                            removal: .opacity
+                        ))
                     explanationCard
+                        .transition(.opacity.combined(with: .move(edge: .bottom)))
                 }
                 actionRow
                 Spacer().frame(height: 60)
             }
             .padding(.horizontal, DT.space3)
-            .padding(.top, DT.space1)
+            .padding(.top, DT.space3)
         }
+        .scrollContentBackground(.hidden)
+        .background(DT.canvas.ignoresSafeArea())
+        .navigationBarHidden(true)
+        .animation(Motion.settleSpring, value: session.showResult)
         .sheet(isPresented: $showAnalysis) {
             AnalysisDetailView(question: question, selectedAnswer: session.selected)
         }
@@ -453,8 +464,17 @@ struct QuizQuestionView: View {
                         .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)
+                .pressableCard(scale: 0.97)
+                .transition(.scale.combined(with: .opacity))
+                .animation(Motion.settleSpring, value: session.showResult)
             } else if session.selected != nil {
-                Button(action: { _ = session.submit() }) {
+                Button(action: {
+                    let correct = session.submit()
+                    lastWasCorrect = correct
+                    if !correct {
+                        shakeTrigger.toggle()
+                    }
+                }) {
                     Text("确认作答")
                         .font(.system(size: DT.fontBody, weight: .semibold))
                         .foregroundStyle(DT.surface)
@@ -464,6 +484,7 @@ struct QuizQuestionView: View {
                         .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)
+                .pressableCard(scale: 0.97)
                 Text("确认前可以重新选择选项")
                     .font(.system(size: DT.fontLabel))
                     .foregroundStyle(DT.textTertiary)

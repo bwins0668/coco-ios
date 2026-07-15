@@ -62,25 +62,31 @@ struct HomeView: View {
             ScrollViewReader { proxy in
                 ZStack(alignment: .bottomTrailing) {
                     DT.canvas.ignoresSafeArea()
-                    
+
                     ScrollView {
                         VStack(alignment: .leading, spacing: DT.space3) {
                             Color.clear.frame(height: 1).id("top")
                             masthead
+                                .appearDelay(0.0)
                             QPRuleLine()
+                                .appearDelay(0.04)
                             metricsBar
+                                .appearDelay(0.08)
                             startCard
+                                .appearDelay(0.12)
                             examSection
+                                .appearDelay(0.18)
                             learningSection
+                                .appearDelay(0.26)
                         }
                         .padding(.bottom, DT.space4)
                     }
                     .refreshable { load() }
                     .scrollContentBackground(.hidden)
-                    
-                    // Floating back to top button
+
+                    // Floating back-to-top button
                     Button(action: {
-                        withAnimation(.spring()) {
+                        withAnimation(Motion.settleSpring) {
                             proxy.scrollTo("top", anchor: .top)
                         }
                     }) {
@@ -95,6 +101,7 @@ struct HomeView: View {
                     .padding(.trailing, DT.space3)
                     .padding(.bottom, DT.space3)
                     .buttonStyle(.plain)
+                    .pressableCard(scale: 0.92)
                 }
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
@@ -166,15 +173,15 @@ struct HomeView: View {
     private var metricsBar: some View {
         HStack(spacing: 0) {
             if todayTotal > 0 {
-                metricBox(value: "\(todayTotal)", label: "今日答题")
+                metricBox(value: todayTotal, label: "今日答题", isPercent: false)
                 spacer
             }
             if totalAccuracy > 0 || todayTotal > 0 {
-                metricBox(value: "\(totalAccuracy)%", label: "正确率")
+                metricBox(value: totalAccuracy, label: "正确率", isPercent: true)
                 spacer
             }
             if favoriteCount > 0 {
-                metricBox(value: "\(favoriteCount)", label: "已收藏")
+                metricBox(value: favoriteCount, label: "已收藏", isPercent: false)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -187,11 +194,17 @@ struct HomeView: View {
         Rectangle().fill(DT.line).frame(width: 0.5, height: 28).padding(.horizontal, DT.space2)
     }
 
-    private func metricBox(value: String, label: String) -> some View {
+    @ViewBuilder
+    private func metricBox(value: Int, label: String, isPercent: Bool) -> some View {
         VStack(spacing: 2) {
-            Text(value)
-                .font(.system(size: DT.fontSectionTitle, weight: .semibold))
-                .foregroundStyle(DT.ink)
+            HStack(spacing: 0) {
+                NumericRollText(value: value, font: .system(size: DT.fontSectionTitle, weight: .semibold), color: DT.ink)
+                if isPercent {
+                    Text("%")
+                        .font(.system(size: DT.fontSectionTitle, weight: .semibold))
+                        .foregroundStyle(DT.ink)
+                }
+            }
             Text(label)
                 .font(.system(size: DT.fontLabel))
                 .foregroundStyle(DT.textTertiary)
@@ -240,9 +253,11 @@ struct HomeView: View {
                     .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)
+                .pressableCard(scale: 0.96)
                 .padding(.top, DT.space1)
             }
         }
+        .pressableCard(scale: 0.985)
         .padding(.horizontal, DT.space3)
     }
 
@@ -259,6 +274,7 @@ struct HomeView: View {
             .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous).stroke(DT.line, lineWidth: 0.5))
             .padding(.horizontal, DT.space3)
+            .pressableCard(scale: 0.99)
         }
     }
 
@@ -344,6 +360,7 @@ struct HomeView: View {
             .clipShape(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: DT.radiusXl, style: .continuous).stroke(DT.line, lineWidth: 0.5))
             .padding(.horizontal, DT.space3)
+            .pressableCard(scale: 0.98)
         }
         .buttonStyle(.plain)
         .opacity(c.muted ? 0.7 : 1.0)
@@ -372,5 +389,6 @@ private struct PillToggle: View {
                 .overlay(Capsule().stroke(selected ? DT.primary : DT.lineStrong, lineWidth: 0.5))
         }
         .buttonStyle(.plain)
+        .pressableCard(scale: 0.95)
     }
 }

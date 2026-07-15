@@ -69,18 +69,22 @@ struct PracticeView: View {
                             // ===== Masthead =====
                             QPMasthead(kicker: "DRILL · 刷题", title: "刷题", rightText: jstDate)
                                 .padding(.top, DT.space3)
+                                .appearDelay(0.0)
 
                             // ===== Rule line =====
                             QPRuleLine()
                                 .padding(.bottom, 4)
+                                .appearDelay(0.05)
 
                             // ===== Continue last session =====
                             if hasLastAttempt {
                                 continueCard
+                                    .appearDelay(0.1)
                             }
 
                             // ===== Section: 选择考试 =====
                             chooseExamSection
+                                .appearDelay(0.18)
                         }
                         .padding(.bottom, DT.space4)
                     }
@@ -89,7 +93,7 @@ struct PracticeView: View {
 
                     // Floating back to top button
                     Button(action: {
-                        withAnimation(.spring()) {
+                        withAnimation(Motion.settleSpring) {
                             proxy.scrollTo("top", anchor: .top)
                         }
                     }) {
@@ -104,6 +108,7 @@ struct PracticeView: View {
                     .padding(.trailing, DT.space3)
                     .padding(.bottom, DT.space3)
                     .buttonStyle(.plain)
+                    .pressableCard(scale: 0.92)
                 }
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
@@ -193,6 +198,7 @@ struct PracticeView: View {
             .padding(.horizontal, DT.space3)
         }
         .buttonStyle(.plain)
+        .pressableCard(scale: 0.985)
         .disabled(lastPackage == nil)
     }
 

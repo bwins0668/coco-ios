@@ -91,11 +91,11 @@ struct ProfileView: View {
 
     private var statStrip: some View {
         HStack(alignment: .center, spacing: 0) {
-            statBox(value: "\(totalAttempts)", label: "总答题", color: DT.ink)
+            statBox(value: totalAttempts, label: "总答题", color: DT.ink, isPercent: false)
             divider
-            statBox(value: "\(accuracy)%", label: "正确率", color: DT.success)
+            statBox(value: accuracy, label: "正确率", color: DT.success, isPercent: true)
             divider
-            statBox(value: "\(wrongQuestionCount)", label: "错题", color: DT.danger)
+            statBox(value: wrongQuestionCount, label: "错题", color: DT.danger, isPercent: false)
         }
         .padding(.vertical, DT.space2)
         .background(DT.surface)
@@ -104,15 +104,21 @@ struct ProfileView: View {
             RoundedRectangle(cornerRadius: DT.radiusLg, style: .continuous)
                 .stroke(DT.line, lineWidth: 0.5)
         )
+        .pressableCard()
         .padding(.horizontal, DT.space3)
     }
 
     @ViewBuilder
-    private func statBox(value: String, label: String, color: Color) -> some View {
+    private func statBox(value: Int, label: String, color: Color, isPercent: Bool) -> some View {
         VStack(spacing: 2) {
-            Text(value)
-                .font(.system(size: DT.fontPageTitle, weight: .semibold))
-                .foregroundStyle(color)
+            HStack(spacing: 0) {
+                NumericRollText(value: value, font: .system(size: DT.fontPageTitle, weight: .semibold), color: color)
+                if isPercent {
+                    Text("%")
+                        .font(.system(size: DT.fontPageTitle, weight: .semibold))
+                        .foregroundStyle(color)
+                }
+            }
             Text(label)
                 .font(.system(size: DT.fontCaption))
                 .foregroundStyle(DT.textTertiary)
@@ -366,4 +372,4 @@ struct BackupDocument: FileDocument {
         let data = json.data(using: .utf8) ?? Data()
         return FileWrapper(regularFileWithContents: data)
     }
-}
+}
